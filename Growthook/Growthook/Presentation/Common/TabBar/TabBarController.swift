@@ -25,8 +25,13 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         setTabBarItems()
         setTabBarUI()
-        setTabBarHeight()
+        self.tabBar.frame.size.height = self.tabBarHeight + getSafeAreaBottomHeight()
     }
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        tabBar.frame.size.height = self.tabBarHeight + getSafeAreaBottomHeight()
+//    }
 }
 
 private extension TabBarController {
@@ -34,7 +39,9 @@ private extension TabBarController {
     func setTabBarItems() {
         
         tabs = [
-            ViewController()
+            HomeViewController(),
+            ActionListViewController(),
+            MypageViewController()
         ]
         
         TabBarItemType.allCases.forEach {
@@ -44,6 +51,7 @@ private extension TabBarController {
         }
         
         setViewControllers(tabs, animated: false)
+
     }
     
     func setTabBarUI() {
@@ -60,12 +68,12 @@ private extension TabBarController {
 //        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
     
-    func setTabBarHeight() {
-        if let tabBar = self.tabBarController?.tabBar {
-            let safeAreaBottomInset = self.view.safeAreaInsets.bottom
-            let tabBarHeight = tabBar.bounds.height
-            let newTabBarFrame = CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y - safeAreaBottomInset, width: tabBar.frame.width, height: tabBarHeight + safeAreaBottomInset)
-            tabBar.frame = newTabBarFrame
+    func getSafeAreaBottomHeight() -> CGFloat {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            let safeAreaInsets = windowScene.windows.first?.safeAreaInsets
+            let bottomSafeAreaHeight = safeAreaInsets?.bottom ?? 0
+            return bottomSafeAreaHeight
         }
+        return 0
     }
 }
