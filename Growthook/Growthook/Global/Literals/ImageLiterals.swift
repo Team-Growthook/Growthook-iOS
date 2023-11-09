@@ -10,18 +10,18 @@ import UIKit
 enum ImageLiterals {
     
     enum NavigationBar {
-        static var back: UIImage { .load(name: "back_btn") }
-        static var close: UIImage { .load(name: "close_btn") }
-        static var menu: UIImage { .load(name: "menu_btn") }
+        static var back: UIImage { .load(name: "navi_back_btn") }
+        static var close: UIImage { .load(name: "navi_close_btn") }
+        static var menu: UIImage { .load(name: "navi_menu_btn") }
     }
     
     enum TabBar {
-        static var icn_home: UIImage { .load(name: "home") }
-        static var icn_selected_home: UIImage { .load(name: "selectedHome") }
-        static var icn_writing: UIImage { .load(name: "writing") }
-        static var icn_selected_writing: UIImage { .load(name: "selectedWriting") }
-        static var icn_mypage: UIImage { .load(name: "myProfile") }
-        static var icn_selected_mypage: UIImage { .load(name: "selectedMyProfile") }
+        static var home: UIImage { .load(name: "home_default").withRenderingMode(.alwaysOriginal) }
+        static var selected_home: UIImage { .load(name: "home_active").withRenderingMode(.alwaysOriginal) }
+        static var actionList: UIImage { .load(name: "actionList_default").withRenderingMode(.alwaysOriginal) }
+        static var selected_actionList: UIImage { .load(name: "actionList_active").withRenderingMode(.alwaysOriginal) }
+        static var mypage: UIImage { .load(name: "mypage_default").withRenderingMode(.alwaysOriginal) }
+        static var selected_mypage: UIImage { .load(name: "mypage_active").withRenderingMode(.alwaysOriginal) }
     }
     
     enum Component {

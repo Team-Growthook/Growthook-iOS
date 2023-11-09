@@ -11,7 +11,7 @@ final class TabBarController: UITabBarController {
     
     // MARK: - Properties
     
-    private let tabBarHeight: CGFloat = 74
+    private let tabBarHeight: CGFloat = SizeLiterals.Screen.screenHeight * 74 / 812
     private var tabs: [UIViewController] = []
     
     // MARK: - View Life Cycle
@@ -25,7 +25,7 @@ final class TabBarController: UITabBarController {
         super.viewDidLoad()
         setTabBarItems()
         setTabBarUI()
-        self.tabBar.frame.size.height = self.tabBarHeight + getSafeAreaBottomHeight()
+        setTabBarHeight()
     }
     
 //    override func viewDidLayoutSubviews() {
@@ -56,16 +56,13 @@ private extension TabBarController {
     
     func setTabBarUI() {
         UITabBar.clearShadow()
-        tabBar.tintColor = .green
+        tabBar.backgroundColor = .gray700
+        tabBar.tintColor = .green400
         tabBar.layer.masksToBounds = false
-        tabBar.layer.shadowColor = CGColor(gray: 1, alpha: 1)
+        tabBar.layer.shadowColor = UIColor.gray400.cgColor
         tabBar.layer.shadowOpacity = 1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowRadius = 1
-//        let fontAttributes = [
-//            NSAttributedString.Key.font: .systemFont(ofSize: <#T##CGFloat#>, weight: <#T##UIFont.Weight#>)
-//        ]
-//        UITabBarItem.appearance().setTitleTextAttributes(fontAttributes, for: .normal)
     }
     
     func getSafeAreaBottomHeight() -> CGFloat {
@@ -75,5 +72,14 @@ private extension TabBarController {
             return bottomSafeAreaHeight
         }
         return 0
+    }
+    
+    func setTabBarHeight() {
+        if let tabBar = self.tabBarController?.tabBar {
+            let safeAreaBottomInset = self.view.safeAreaInsets.bottom
+            let tabBarHeight = tabBar.bounds.height
+            let newTabBarFrame = CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y, width: tabBar.frame.width, height: tabBarHeight + safeAreaBottomInset)
+            tabBar.frame = newTabBarFrame
+        }
     }
 }

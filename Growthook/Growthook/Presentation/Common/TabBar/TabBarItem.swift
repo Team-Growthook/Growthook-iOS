@@ -15,40 +15,29 @@ enum TabBarItemType: Int, CaseIterable {
 
 extension TabBarItemType {
     
-    var title: String {
-        switch self {
-        case .home:
-            return "홈"
-        case .actionList:
-            return "액션리스트"
-        case .myPage:
-            return "마이페이지"
-        }
-    }
-    
     var unSelectedIcon: UIImage {
         switch self {
         case .home:
-            return ImageLiterals.TabBar.icn_home
+            return ImageLiterals.TabBar.home
         case .actionList:
-            return ImageLiterals.TabBar.icn_writing
+            return ImageLiterals.TabBar.actionList
         case .myPage:
-            return ImageLiterals.TabBar.icn_mypage
+            return ImageLiterals.TabBar.mypage
         }
     }
     
     var selectedIcon: UIImage {
         switch self {
         case .home:
-            return ImageLiterals.TabBar.icn_selected_home
+            return ImageLiterals.TabBar.selected_home
         case .actionList:
-            return ImageLiterals.TabBar.icn_selected_writing
+            return ImageLiterals.TabBar.selected_actionList
         case .myPage:
-            return ImageLiterals.TabBar.icn_selected_mypage
+            return ImageLiterals.TabBar.selected_mypage
         }
     }
     
     func setTabBarItem() -> UITabBarItem {
-        return UITabBarItem(title: title, image: unSelectedIcon, selectedImage: selectedIcon)
+        return UITabBarItem(title: "", image: unSelectedIcon, selectedImage: selectedIcon)
     }
 }
