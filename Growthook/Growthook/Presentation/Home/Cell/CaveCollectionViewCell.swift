@@ -69,4 +69,11 @@ extension CaveCollectionViewCell {
             $0.centerX.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: CaveProfileModel) {
+        caveImageView.image = model.image
+        caveTitle.text = model.title
+    }
 }

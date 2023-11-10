@@ -41,7 +41,7 @@ extension HomeViewController {
     private func bindViewModel() {
         viewModel.data
             .bind(to: homeCaveView.caveCollectionView.rx.items(cellIdentifier: "CaveCollectionViewCell", cellType: CaveCollectionViewCell.self)) { (_, element, cell) in
-                // 바인딩?
+                cell.configureCell(element)
             }
             .disposed(by: disposeBag)
         

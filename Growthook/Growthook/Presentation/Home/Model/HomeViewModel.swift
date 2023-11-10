@@ -25,8 +25,8 @@ protocol HomeViewModelType {
 
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
     
-    private let items = BehaviorSubject<[String]>(value: [])
-    var data: Observable<[String]> {
+    private let items = BehaviorSubject<[CaveProfileModel]>(value: [])
+    var data: Observable<[CaveProfileModel]> {
         return items.asObserver()
     }
     
@@ -36,7 +36,7 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     init() {}
     
     func caveCollectionViewBind() {
-        let newData = ["", "", ""]
-        items.onNext(newData)
+        let dummy = CaveProfileModel.caveprofileDummyData()
+        items.onNext(dummy)
     }
 }

@@ -12,6 +12,7 @@
 		033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */; };
 		033E9C1B2AFE606E0051A9E8 /* CaveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */; };
 		033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */; };
+		033E9C202AFE725D0051A9E8 /* CaveProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1F2AFE725D0051A9E8 /* CaveProfileModel.swift */; };
 		03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC532AF55FF900A5751C /* GeneralResponse.swift */; };
 		03B9AC562AF5608900A5751C /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC552AF5608900A5751C /* NetworkLoggerPlugin.swift */; };
 		03B9AC592AF560D800A5751C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC582AF560D800A5751C /* Config.swift */; };
@@ -68,6 +69,7 @@
 		033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaveView.swift; sourceTree = "<group>"; };
 		033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveCollectionViewCell.swift; sourceTree = "<group>"; };
 		033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		033E9C1F2AFE725D0051A9E8 /* CaveProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveProfileModel.swift; sourceTree = "<group>"; };
 		03B9AC532AF55FF900A5751C /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		03B9AC552AF5608900A5751C /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		03B9AC582AF560D800A5751C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
+				033E9C1F2AFE725D0051A9E8 /* CaveProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
+				033E9C202AFE725D0051A9E8 /* CaveProfileModel.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
