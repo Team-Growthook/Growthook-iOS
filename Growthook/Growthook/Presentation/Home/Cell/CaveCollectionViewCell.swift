@@ -12,6 +12,8 @@ import Then
 
 final class CaveCollectionViewCell: UICollectionViewCell {
     
+    static let identifier = "CaveCollectionViewCell"
+    
     // MARK: - UI Components
     
     private let caveImageView = UIImageView()

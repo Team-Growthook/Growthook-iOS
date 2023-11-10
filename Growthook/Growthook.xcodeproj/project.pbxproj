@@ -11,6 +11,7 @@
 		033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */; };
 		033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */; };
 		033E9C1B2AFE606E0051A9E8 /* CaveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */; };
+		033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */; };
 		03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC532AF55FF900A5751C /* GeneralResponse.swift */; };
 		03B9AC562AF5608900A5751C /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC552AF5608900A5751C /* NetworkLoggerPlugin.swift */; };
 		03B9AC592AF560D800A5751C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9AC582AF560D800A5751C /* Config.swift */; };
@@ -66,6 +67,7 @@
 		033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaveView.swift; sourceTree = "<group>"; };
 		033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveCollectionViewCell.swift; sourceTree = "<group>"; };
+		033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		03B9AC532AF55FF900A5751C /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		03B9AC552AF5608900A5751C /* NetworkLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLoggerPlugin.swift; sourceTree = "<group>"; };
 		03B9AC582AF560D800A5751C /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -151,6 +153,14 @@
 				033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		033E9C1C2AFE63C80051A9E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		03B9AC472AF55CA000A5751C /* Application */ = {
@@ -330,6 +340,7 @@
 		03B9AC9E2AF7B15E00A5751C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				033E9C1C2AFE63C80051A9E8 /* Model */,
 				033E9C142AFE30350051A9E8 /* View */,
 				03B9AC9F2AF7B24200A5751C /* ViewController */,
 				033E9C192AFE60570051A9E8 /* Cell */,
@@ -495,6 +506,7 @@
 				03B9AC822AF5658F00A5751C /* FontLiterals.swift in Sources */,
 				03B9AC952AF566C800A5751C /* BlurredLabel.swift in Sources */,
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
+				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,

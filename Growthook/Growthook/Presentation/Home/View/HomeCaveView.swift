@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
 
 final class HomeCaveView: UIView {
     
@@ -19,17 +21,22 @@ final class HomeCaveView: UIView {
     private let seedImage = UIImageView()
     private let seedCountLabel = UILabel()
     private let notificationButton = UIButton()
-    private let caveCollectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return collectionView
-    }()
+//    let caveCollectionView: UICollectionView = {
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        return collectionView
+//    }()
+    lazy var caveCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let caveLineView = UIView()
     private let addCaveButton = UIButton()
     private let underLineView = UIView()
+    private let flowLayout = UICollectionViewFlowLayout()
     
     // MARK: - Properties
+    
+    private let disposeBag = DisposeBag()
+    private let viewModel = HomeViewModel()
     
     // MARK: - Initializer
     
@@ -37,6 +44,8 @@ final class HomeCaveView: UIView {
         super.init(frame: frame)
         setUI()
         setLayout()
+        bindViewModel()
+        setRegister()
     }
     
     required init?(coder: NSCoder) {
@@ -46,6 +55,11 @@ final class HomeCaveView: UIView {
 
 extension HomeCaveView {
     
+    private func bindViewModel() {
+        caveCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+    }
+
     // MARK: - UI Components Property
     
     private func setUI() {
@@ -93,6 +107,14 @@ extension HomeCaveView {
         
         underLineView.do {
             $0.backgroundColor = .gray400
+        }
+        
+        flowLayout.do {
+            $0.scrollDirection = .horizontal
+            $0.itemSize = CGSize(width: (SizeLiterals.Screen.screenWidth * 86) / 375,
+                                 height: (SizeLiterals.Screen.screenHeight * 96) / 812)
+            $0.minimumLineSpacing = 0
+            $0.minimumInteritemSpacing = 0
         }
     }
     
@@ -162,5 +184,13 @@ extension HomeCaveView {
     
     // MARK: - Methods
     
+    private func setRegister() {
+        caveCollectionView.register(CaveCollectionViewCell.self, forCellWithReuseIdentifier: "CaveCollectionViewCell")
+    }
+    
     // MARK: - @objc Methods
+}
+
+extension HomeCaveView: UICollectionViewDelegateFlowLayout {
+    
 }

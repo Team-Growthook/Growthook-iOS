@@ -10,6 +10,8 @@ import UIKit
 import Moya
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
 
 final class HomeViewController: UIViewController {
     
@@ -19,6 +21,9 @@ final class HomeViewController: UIViewController {
     
     // MARK: - Properties
     
+    private let disposeBag = DisposeBag()
+    private let viewModel = HomeViewModel()
+    
     // MARK: - Initializer
     
     // MARK: - View Life Cycle
@@ -27,10 +32,21 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         setUI()
         setLayout()
+        bindViewModel()
     }
 }
 
 extension HomeViewController {
+    
+    private func bindViewModel() {
+        viewModel.data
+            .bind(to: homeCaveView.caveCollectionView.rx.items(cellIdentifier: "CaveCollectionViewCell", cellType: CaveCollectionViewCell.self)) { (_, element, cell) in
+                // 바인딩?
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.inputs.caveCollectionViewBind()
+    }
     
     // MARK: - UI Components Property
     
