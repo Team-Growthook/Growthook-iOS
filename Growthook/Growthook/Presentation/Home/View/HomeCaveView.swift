@@ -1,0 +1,166 @@
+//
+//  HomeCaveView.swift
+//  Growthook
+//
+//  Created by KJ on 11/10/23.
+//
+
+import UIKit
+
+import SnapKit
+import Then
+
+final class HomeCaveView: UIView {
+    
+    // MARK: - UI Components
+    
+    private let userLabel = UILabel()
+    private let seedView = UILabel()
+    private let seedImage = UIImageView()
+    private let seedCountLabel = UILabel()
+    private let notificationButton = UIButton()
+    private let caveCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return collectionView
+    }()
+    private let caveLineView = UIView()
+    private let addCaveButton = UIButton()
+    private let underLineView = UIView()
+    
+    // MARK: - Properties
+    
+    // MARK: - Initializer
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setUI()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HomeCaveView {
+    
+    // MARK: - UI Components Property
+    
+    private func setUI() {
+        
+        backgroundColor = .gray700
+        
+        userLabel.do {
+            $0.text = "EON님의 동굴 속"
+            $0.font = .fontGuide(.head1)
+            $0.textColor = .white000
+        }
+        
+        seedView.do {
+            $0.backgroundColor = .green400
+            $0.makeCornerRound(radius: 28 / 2)
+        }
+        
+        seedImage.do {
+            $0.image = ImageLiterals.Component.icn_seed_light
+        }
+        
+        seedCountLabel.do {
+            $0.text = "00"
+            $0.font = .fontGuide(.detail2_bold)
+            $0.textColor = .white000
+        }
+        
+        notificationButton.do {
+            $0.setImage(ImageLiterals.Home.icn_noti_check, for: .normal)
+        }
+        
+        caveCollectionView.do {
+            $0.isScrollEnabled = true
+            $0.backgroundColor = .clear
+            $0.showsHorizontalScrollIndicator = false
+        }
+        
+        caveLineView.do {
+            $0.backgroundColor = .white000
+        }
+        
+        addCaveButton.do {
+            $0.setImage(ImageLiterals.Home.btn_add_cave, for: .normal)
+        }
+        
+        underLineView.do {
+            $0.backgroundColor = .gray400
+        }
+    }
+    
+    // MARK: - Layout Helper
+    
+    private func setLayout() {
+        
+        addSubviews(userLabel, seedView, notificationButton, caveCollectionView,
+                    caveLineView, addCaveButton, underLineView)
+        seedView.addSubviews(seedImage, seedCountLabel)
+        
+        userLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(24)
+            $0.leading.equalToSuperview().inset(18)
+        }
+        
+        notificationButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(14)
+            $0.trailing.equalToSuperview().inset(8)
+            $0.size.equalTo(48)
+        }
+        
+        seedView.snp.makeConstraints {
+            $0.top.equalTo(userLabel)
+            $0.trailing.equalTo(notificationButton.snp.leading).offset(2)
+            $0.width.equalTo(61)
+            $0.height.equalTo(28)
+        }
+        
+        seedImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(11)
+            $0.size.equalTo(19)
+        }
+        
+        seedCountLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(11)
+        }
+        
+        addCaveButton.snp.makeConstraints {
+            $0.top.equalTo(seedView.snp.bottom).offset(18)
+            $0.trailing.equalToSuperview().inset(12)
+            $0.size.equalTo(62)
+        }
+        
+        caveLineView.snp.makeConstraints {
+            $0.top.equalTo(addCaveButton)
+            $0.trailing.equalTo(addCaveButton.snp.leading).offset(-18)
+            $0.width.equalTo(1)
+            $0.height.equalTo(62)
+        }
+        
+        caveCollectionView.snp.makeConstraints {
+            $0.top.equalTo(userLabel.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().inset(8)
+            $0.trailing.equalTo(caveLineView.snp.leading).offset(9)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 96 / 812)
+        }
+        
+        underLineView.snp.makeConstraints {
+            $0.top.equalTo(caveCollectionView.snp.bottom).offset(14)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+    }
+    
+    // MARK: - Methods
+    
+    // MARK: - @objc Methods
+}
