@@ -163,7 +163,7 @@ extension HomeCaveView {
         
         caveLineView.snp.makeConstraints {
             $0.top.equalTo(addCaveButton)
-            $0.trailing.equalTo(addCaveButton.snp.leading).offset(-18)
+            $0.trailing.equalTo(addCaveButton.snp.leading).offset(SizeLiterals.Screen.screenWidth * -18 / 375)
             $0.width.equalTo(1)
             $0.height.equalTo(62)
         }
