@@ -171,7 +171,7 @@ extension HomeCaveView {
         caveCollectionView.snp.makeConstraints {
             $0.top.equalTo(userLabel.snp.bottom).offset(10)
             $0.leading.equalToSuperview().inset(8)
-            $0.trailing.equalTo(caveLineView.snp.leading).offset(9)
+            $0.trailing.equalTo(caveLineView.snp.leading).offset(-9)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 96 / 812)
         }
         

@@ -61,7 +61,7 @@ extension CaveCollectionViewCell {
         caveImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(6)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(62)
+            $0.size.equalTo(SizeLiterals.Screen.screenHeight * 64 / 812)
         }
         
         caveTitle.snp.makeConstraints {
