@@ -149,7 +149,6 @@ Packages
 .build/
 xcuserdata
 DerivedData/
-*.xcodeproj
 
 GoogleService-Info.plist
 
