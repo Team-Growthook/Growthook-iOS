@@ -36,7 +36,8 @@ extension InsightListCollectionViewCell {
     
     private func setUI() {
         
-        backgroundColor = .gray400
+        self.backgroundColor = .gray400
+        self.makeCornerRound(radius: 12)
         
         scrapButton.do {
             $0.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
@@ -63,7 +64,7 @@ extension InsightListCollectionViewCell {
         
         scrapButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(18)
+            $0.leading.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints {
