@@ -71,6 +71,10 @@ extension UIColor {
         return UIColor(hex: "#C3C4CE")
     }
     
+    static var gray95: UIColor {
+        return UIColor(hex: "#1D1F29").withAlphaComponent(0.95)
+    }
+    
     // MARK: - Black and White
     
     static var black000: UIColor {

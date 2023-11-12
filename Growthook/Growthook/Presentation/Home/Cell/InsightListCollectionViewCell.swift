@@ -16,6 +16,8 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     private let scrapButton = UIButton()
     private let titleLabel = UILabel()
     private let dueTimeLabel = UILabel()
+    private let lockView = UIView()
+    private let lockImageView = UIImageView()
     
     // MARK: - View Life Cycle
     
@@ -54,13 +56,23 @@ extension InsightListCollectionViewCell {
             $0.font = .fontGuide(.detail3_reg)
             $0.textColor = .white000
         }
+        
+        lockView.do {
+            $0.backgroundColor = .gray95
+            $0.isHidden = true
+        }
+        
+        lockImageView.do {
+            $0.image = ImageLiterals.Home.icn_lock
+        }
     }
     
     // MARK: - Layout Helper
     
     private func setLayout() {
         
-        addSubviews(scrapButton, titleLabel, dueTimeLabel)
+        addSubviews(scrapButton, titleLabel, dueTimeLabel, lockView)
+        lockView.addSubviews(lockImageView)
         
         scrapButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -73,8 +85,16 @@ extension InsightListCollectionViewCell {
         }
         
         dueTimeLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.bottom.equalToSuperview().inset(10)
             $0.leading.equalTo(titleLabel)
+        }
+        
+        lockView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        lockImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     
@@ -84,14 +104,28 @@ extension InsightListCollectionViewCell {
         switch model.scrapStatus {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+            backgroundColor = .gray900
+            titleLabel.textColor = .gray200
+            dueTimeLabel.textColor = .gray200
+        case .scrapDark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+            backgroundColor = .gray900
+            titleLabel.textColor = .gray200
+            dueTimeLabel.textColor = .gray200
         case .scrapLight:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
         case .light:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
         case .lock:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-        case .scrapDark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+            backgroundColor = .gray900
+            makeBorder(width: 0.5, color: .gray200)
+            titleLabel.textColor = .gray200
+            dueTimeLabel.textColor = .gray200
+//            let blurView = UIView(frame: bounds)
+//            addSubviews(blurView)
+//            blurView.backgroundColor = .gray95
+            lockView.isHidden = false
         }
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
