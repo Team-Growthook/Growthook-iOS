@@ -43,6 +43,10 @@ enum ImageLiterals {
         static var icn_noti_checking: UIImage { .load(name: "noti_checking") }
         static var icn_noti_new: UIImage { .load(name: "noti_new") }
         static var btn_scrap: UIImage { .load(name: "btn_scrap") }
+        static var btn_scrap_dark_off: UIImage { .load(name: "btn_scrap_dark_off") }
+        static var btn_scrap_dark_on: UIImage { .load(name: "btn_scrap_dark_on") }
+        static var btn_scrap_light_off: UIImage { .load(name: "btn_scrap_light_off") }
+        static var btn_scrap_light_on: UIImage { .load(name: "btn_scrap_light_on") }
     }
     
     enum Insight {
