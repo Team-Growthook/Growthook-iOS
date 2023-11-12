@@ -9,14 +9,6 @@ import UIKit
 
 final class InsightListCollectionViewCell: UICollectionViewCell {
     
-    private enum InsightStatus {
-        case scrapLight
-        case light
-        case lock
-        case scrapDark
-        case dark
-    }
-    
     static let identifier = "InsightListCollectionViewCell"
     
     // MARK: - UI Components
@@ -87,5 +79,20 @@ extension InsightListCollectionViewCell {
     
     // MARK: - Methods
     
-
+    func configureCell(_ model: InsightListModel) {
+        switch model.scrapStatus {
+        case .dark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+        case .scrapLight:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
+        case .light:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
+        case .lock:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+        case .scrapDark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+        }
+        titleLabel.text = model.title
+        dueTimeLabel.text = model.dueTime
+    }
 }

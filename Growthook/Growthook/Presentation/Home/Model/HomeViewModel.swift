@@ -12,6 +12,7 @@ import RxCocoa
 
 protocol HomeViewModelInputs {
     func caveCollectionViewBind()
+    func insightListCollectionViewBind()
 }
 
 protocol HomeViewModelOutputs {
@@ -25,9 +26,13 @@ protocol HomeViewModelType {
 
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
     
-    private let items = BehaviorSubject<[CaveProfileModel]>(value: [])
-    var data: Observable<[CaveProfileModel]> {
-        return items.asObserver()
+    private let caveProfileItems = BehaviorSubject<[CaveProfileModel]>(value: [])
+    var caveProfileData: Observable<[CaveProfileModel]> {
+        return caveProfileItems.asObserver()
+    }
+    private let insightListItems = BehaviorSubject<[InsightListModel]>(value: [])
+    var insightListData: Observable<[InsightListModel]> {
+        return insightListItems.asObserver()
     }
     
     var inputs: HomeViewModelInputs { return self }
@@ -37,6 +42,11 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func caveCollectionViewBind() {
         let dummy = CaveProfileModel.caveprofileDummyData()
-        items.onNext(dummy)
+        caveProfileItems.onNext(dummy)
+    }
+    
+    func insightListCollectionViewBind() {
+        let dummy = InsightListModel.insightListDummyData()
+        insightListItems.onNext(dummy)
     }
 }

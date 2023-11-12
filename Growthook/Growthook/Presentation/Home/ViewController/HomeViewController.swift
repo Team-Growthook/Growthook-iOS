@@ -38,15 +38,21 @@ final class HomeViewController: UIViewController {
 extension HomeViewController {
     
     private func bindViewModel() {
-        viewModel.data
+        viewModel.caveProfileData
             .bind(to: homeCaveView.caveCollectionView.rx.items(
                 cellIdentifier: "CaveCollectionViewCell",
                 cellType: CaveCollectionViewCell.self)) { (_, element, cell) in
                 cell.configureCell(element)
             }
             .disposed(by: disposeBag)
-        
         viewModel.inputs.caveCollectionViewBind()
+        
+        viewModel.insightListData
+            .bind(to: insightListView.insightCollectionView.rx.items(cellIdentifier: "InsightListCollectionViewCell", cellType: InsightListCollectionViewCell.self)) { (_, element, cell) in
+                cell.configureCell(element)
+            }
+            .disposed(by: disposeBag)
+        viewModel.inputs.insightListCollectionViewBind()
     }
     
     // MARK: - UI Components Property

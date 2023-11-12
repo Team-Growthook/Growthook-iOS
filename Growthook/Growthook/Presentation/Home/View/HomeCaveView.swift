@@ -185,6 +185,4 @@ extension HomeCaveView {
     // MARK: - @objc Methods
 }
 
-extension HomeCaveView: UICollectionViewDelegateFlowLayout {
-    
-}
+extension HomeCaveView: UICollectionViewDelegateFlowLayout {}

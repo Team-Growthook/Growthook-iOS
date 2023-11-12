@@ -9,6 +9,8 @@ import UIKit
 
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
 
 final class InsightListView: UIView {
     
@@ -16,12 +18,13 @@ final class InsightListView: UIView {
     
     private let seedTitleLabel = UILabel()
     private let scrapButton = ScrapOnlyButton()
-    private lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
     // MARK: - Properties
     
-    // MARK: - Initializer
+    private let disposeBag = DisposeBag()
+    private let viewModel = HomeViewModel()
     
     // MARK: - View Life Cycle
     
@@ -29,6 +32,8 @@ final class InsightListView: UIView {
         super.init(frame: frame)
         setUI()
         setLayout()
+        bindViewModel()
+        setRegister()
     }
     
     required init?(coder: NSCoder) {
@@ -37,6 +42,11 @@ final class InsightListView: UIView {
 }
 
 extension InsightListView {
+    
+    private func bindViewModel() {
+        insightCollectionView.rx.setDelegate(self)
+            .disposed(by: disposeBag)
+    }
     
     // MARK: - UI Components Property
     
@@ -92,5 +102,11 @@ extension InsightListView {
     
     // MARK: - Methods
     
+    private func setRegister() {
+        insightCollectionView.register(InsightListCollectionViewCell.self, forCellWithReuseIdentifier: "InsightListCollectionViewCell")
+    }
+    
     // MARK: - @objc Methods
 }
+
+extension InsightListView: UICollectionViewDelegateFlowLayout {}
