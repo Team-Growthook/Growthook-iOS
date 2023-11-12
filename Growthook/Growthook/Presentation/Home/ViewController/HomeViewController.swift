@@ -24,8 +24,6 @@ final class HomeViewController: UIViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = HomeViewModel()
     
-    // MARK: - Initializer
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {

@@ -21,12 +21,6 @@ final class HomeCaveView: UIView {
     private let seedImage = UIImageView()
     private let seedCountLabel = UILabel()
     private let notificationButton = UIButton()
-//    let caveCollectionView: UICollectionView = {
-//        let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        return collectionView
-//    }()
     lazy var caveCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let caveLineView = UIView()
     private let addCaveButton = UIButton()
