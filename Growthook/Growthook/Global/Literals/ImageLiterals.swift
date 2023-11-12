@@ -42,6 +42,7 @@ enum ImageLiterals {
         static var icn_noti_check: UIImage { .load(name: "noti_check") }
         static var icn_noti_checking: UIImage { .load(name: "noti_checking") }
         static var icn_noti_new: UIImage { .load(name: "noti_new") }
+        static var btn_scrap: UIImage { .load(name: "btn_scrap") }
     }
     
     enum Insight {
