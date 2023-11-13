@@ -57,6 +57,12 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
+		092725E42B00BC260070B2BF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 092725E32B00BC260070B2BF /* Lottie */; };
+		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
+		09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */; };
+		09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */; };
+		09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7042B00EC03005F8821 /* CreateCaveView.swift */; };
+		09A7D7072B01CBFE005F8821 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7062B01CBFE005F8821 /* CustomTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +111,11 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
+		09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewModel.swift; sourceTree = "<group>"; };
+		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
+		09A7D7042B00EC03005F8821 /* CreateCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveView.swift; sourceTree = "<group>"; };
+		09A7D7062B01CBFE005F8821 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +130,7 @@
 				03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */,
 				03E4811C2AF2B130002F4CBC /* Then in Frameworks */,
 				03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */,
+				092725E42B00BC260070B2BF /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */,
+				09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */,
+				09A7D7062B01CBFE005F8821 /* CustomTextFieldView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -167,6 +181,7 @@
 				03B9AC9E2AF7B15E00A5751C /* Home */,
 				03B9ACA22AF7B27600A5751C /* ActionList */,
 				03B9ACA32AF7B28200A5751C /* Mypage */,
+				09A7D6FA2B00DCAA005F8821 /* CreateCave */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -384,6 +399,40 @@
 			path = Growthook;
 			sourceTree = "<group>";
 		};
+		09A7D6FA2B00DCAA005F8821 /* CreateCave */ = {
+			isa = PBXGroup;
+			children = (
+				09A7D7032B00EBF2005F8821 /* View */,
+				09A7D6FB2B00DE65005F8821 /* ViewController */,
+				09A7D6FE2B00DEAF005F8821 /* ViewModel */,
+			);
+			path = CreateCave;
+			sourceTree = "<group>";
+		};
+		09A7D6FB2B00DE65005F8821 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		09A7D6FE2B00DEAF005F8821 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		09A7D7032B00EBF2005F8821 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09A7D7042B00EC03005F8821 /* CreateCaveView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,6 +457,7 @@
 				03E4811E2AF2B13A002F4CBC /* SnapKit */,
 				03E481212AF2B1DA002F4CBC /* Moya */,
 				03E481232AF2B1DA002F4CBC /* RxMoya */,
+				092725E32B00BC260070B2BF /* Lottie */,
 			);
 			productName = Growthook;
 			productReference = 03E480FC2AF2AFDC002F4CBC /* Growthook.app */;
@@ -442,6 +492,7 @@
 				03E4811A2AF2B130002F4CBC /* XCRemoteSwiftPackageReference "Then" */,
 				03E4811D2AF2B13A002F4CBC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */,
+				092725E22B00BC260070B2BF /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 03E480FD2AF2AFDC002F4CBC /* Products */;
 			projectDirPath = "";
@@ -475,8 +526,11 @@
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
+				09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
+				09A7D7072B01CBFE005F8821 /* CustomTextFieldView.swift in Sources */,
+				09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
 				03B9AC932AF566B300A5751C /* ButtonPress.swift in Sources */,
@@ -497,6 +551,7 @@
 				03B9AC912AF5669600A5751C /* MakeAlert.swift in Sources */,
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
+				09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
@@ -508,6 +563,7 @@
 				03B9AC782AF564C400A5751C /* UILabel+.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
+				09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */,
 				03B9AC622AF5624D00A5751C /* DTO.swift in Sources */,
 				03B9AC8B2AF5660D00A5751C /* Protocol.swift in Sources */,
 			);
@@ -756,6 +812,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		092725E22B00BC260070B2BF /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +857,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		092725E32B00BC260070B2BF /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 092725E22B00BC260070B2BF /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
