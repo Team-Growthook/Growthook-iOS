@@ -122,9 +122,6 @@ extension InsightListCollectionViewCell {
             makeBorder(width: 0.5, color: .gray200)
             titleLabel.textColor = .gray200
             dueTimeLabel.textColor = .gray200
-//            let blurView = UIView(frame: bounds)
-//            addSubviews(blurView)
-//            blurView.backgroundColor = .gray95
             lockView.isHidden = false
         }
         titleLabel.text = model.title
