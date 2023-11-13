@@ -68,7 +68,7 @@ extension InsightListView {
         
         flowLayout.do {
             $0.scrollDirection = .vertical
-            $0.itemSize = CGSize(width: (SizeLiterals.Screen.screenWidth * 339) / 375,
+            $0.itemSize = CGSize(width: (SizeLiterals.Screen.screenWidth - 36),
                                  height: 60)
             $0.minimumLineSpacing = 12
             $0.minimumInteritemSpacing = 0

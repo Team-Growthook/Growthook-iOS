@@ -19,6 +19,7 @@ final class HomeViewController: UIViewController {
     
     private let homeCaveView = HomeCaveView()
     private let insightListView = InsightListView()
+    private let seedPlusButton = UIButton()
     
     // MARK: - Properties
     
@@ -61,13 +62,16 @@ extension HomeViewController {
         
         view.backgroundColor = .gray700
         
+        seedPlusButton.do {
+            $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
+        }
     }
     
     // MARK: - Layout Helper
     
     private func setLayout() {
         
-        view.addSubviews(homeCaveView, insightListView)
+        view.addSubviews(homeCaveView, insightListView, seedPlusButton)
         
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -80,9 +84,22 @@ extension HomeViewController {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+        
+        seedPlusButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
+            $0.trailing.equalToSuperview().inset(8)
+        }
     }
     
     // MARK: - Methods
+    
+    private func seedPlusBottomInset() -> CGFloat {
+        if let tabBarHeight = tabBarController?.tabBar.bounds.height {
+            return tabBarHeight + self.safeAreaBottomInset()
+        } else {
+            return 0
+        }
+    }
     
     // MARK: - @objc Methods
 }
