@@ -88,7 +88,7 @@ extension InsightListView {
         
         scrapButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(5)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 110 / 375)
             $0.height.equalTo(44)
         }
