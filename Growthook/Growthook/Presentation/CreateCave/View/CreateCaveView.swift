@@ -13,7 +13,9 @@ import Then
 class CreateCaveView: UIView {
     private let closeButton = CustomNavigationBar()
     private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()    
+    private let descriptionLabel = UILabel()
+    private let nameTextFieldView = CustomTextFieldView(type: .caveName)
+    private let descriptionTextFieldView = CustomTextFieldView(type: .caveDescription)
     private let createCaveButton = BottomCTAButton(type: .createNewCave)
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +53,8 @@ extension CreateCaveView {
     }
     
     private func setLayout() {
-        self.addSubviews(closeButton, titleLabel, descriptionLabel, createCaveButton)
+        self.addSubviews(closeButton, titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, createCaveButton)
+        
         
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
@@ -66,6 +69,18 @@ extension CreateCaveView {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(22)
             $0.leading.equalToSuperview().inset(18)
+        }
+        
+        nameTextFieldView.snp.makeConstraints {
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(34)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(99)
+        }
+        
+        descriptionTextFieldView.snp.makeConstraints {
+            $0.top.equalTo(nameTextFieldView.snp.bottom).offset(14)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(99)
         }
         
         createCaveButton.snp.makeConstraints {

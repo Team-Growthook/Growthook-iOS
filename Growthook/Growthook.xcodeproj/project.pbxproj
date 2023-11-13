@@ -63,6 +63,7 @@
 		09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */; };
 		09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7042B00EC03005F8821 /* CreateCaveView.swift */; };
 		09A7D7072B01CBFE005F8821 /* CustomTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7062B01CBFE005F8821 /* CustomTextFieldView.swift */; };
+		09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
 		09A7D7042B00EC03005F8821 /* CreateCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveView.swift; sourceTree = "<group>"; };
 		09A7D7062B01CBFE005F8821 /* CustomTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldView.swift; sourceTree = "<group>"; };
+		09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +404,7 @@
 		09A7D6FA2B00DCAA005F8821 /* CreateCave */ = {
 			isa = PBXGroup;
 			children = (
+				09A7D7082B01E68C005F8821 /* Model */,
 				09A7D7032B00EBF2005F8821 /* View */,
 				09A7D6FB2B00DE65005F8821 /* ViewController */,
 				09A7D6FE2B00DEAF005F8821 /* ViewModel */,
@@ -431,6 +434,14 @@
 				09A7D7042B00EC03005F8821 /* CreateCaveView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		09A7D7082B01E68C005F8821 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +568,7 @@
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
+				09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */,
 				03B9AC592AF560D800A5751C /* Config.swift in Sources */,
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
 				03B9AC722AF5646000A5751C /* UITextField+.swift in Sources */,
