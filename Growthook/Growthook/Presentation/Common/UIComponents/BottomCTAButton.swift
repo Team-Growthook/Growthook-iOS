@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Then
+
 enum BottomCTAButtonType {
     case select
     case createAction
@@ -54,10 +56,12 @@ class BottomCTAButton: UIButton {
 
 extension BottomCTAButton {
     private func setUI() {
-        self.setTitle(titleType.title, for: .normal)
-        self.backgroundColor = .green400
-        self.titleLabel?.font = .fontGuide(.body1_bold)
-        self.setTitleColor(.white000, for: .normal)
-        self.layer.cornerRadius = 10
+        self.do {
+            $0.setTitle(titleType.title, for: .normal)
+            $0.backgroundColor = .green400
+            $0.titleLabel?.font = .fontGuide(.body1_bold)
+            $0.setTitleColor(.white000, for: .normal)
+            $0.layer.cornerRadius = 10
+        }
     }
 }
