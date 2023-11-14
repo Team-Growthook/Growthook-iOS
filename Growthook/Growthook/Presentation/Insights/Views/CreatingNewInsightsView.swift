@@ -7,8 +7,6 @@
 
 import UIKit
 
-class CreatingNewInsightsView: UIView {
-
-    
+final class CreatingNewInsightsView: BaseView {
 
 }
