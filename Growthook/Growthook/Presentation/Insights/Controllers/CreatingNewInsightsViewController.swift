@@ -9,6 +9,7 @@ import UIKit
 
 final class CreatingNewInsightsViewController: BaseViewController {
 
+    // Text 의 경우, StringLiterals 로 교체하기
     private let insightTextField = UITextFieldWithTinitedWhenEdited(placeholders: "찾아낸 새로운 가치를 한 줄로 표현해주세요")
     private let memoTextField = UITextViewWithTintedWhenEdited(placeholder: "찾아낸 가치에 대한 생각을 적어보세요 (생략)")
     
@@ -22,10 +23,6 @@ final class CreatingNewInsightsViewController: BaseViewController {
     
     override func setStyles() {
         view.backgroundColor = .gray700
-        
-//        insightTextField.do {
-//            $0.placeholder = "찾아낸 새로운 가치를 한 줄로 표현해주세요"
-//        }
     }
     
     override func setLayout() {
@@ -44,9 +41,3 @@ final class CreatingNewInsightsViewController: BaseViewController {
         }
     }
 }
-//
-//@available(iOS 17.0, *)
-//#Preview {
-//    let vc = CreatingNewInsightsViewController()
-//    return vc
-//}
