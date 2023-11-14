@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 protocol InsightsViewModelInput {
-//    func
+    
 }
 
 protocol InsightsViewModelOutput {
