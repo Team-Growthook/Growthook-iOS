@@ -57,6 +57,16 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
+		58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F972B00B15A00512FE2 /* BaseViewController.swift */; };
+		58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F992B00B33F00512FE2 /* BaseView.swift */; };
+		58E75F9D2B00B63C00512FE2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */; };
+		58E75FA02B00B72400512FE2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 58E75F9F2B00B72400512FE2 /* Lottie */; };
+		58E75FA32B00BB1E00512FE2 /* GrowthookSplashLottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 58E75FA22B00BB1E00512FE2 /* GrowthookSplashLottie.json */; };
+		58E75FAA2B00C15800512FE2 /* CreatingNewInsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FA92B00C15800512FE2 /* CreatingNewInsightsViewController.swift */; };
+		58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAB2B00C16900512FE2 /* InsightsViewModel.swift */; };
+		58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */; };
+		58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */; };
+		58E75FB22B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,6 +115,15 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58E75F972B00B15A00512FE2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		58E75F992B00B33F00512FE2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		58E75FA22B00BB1E00512FE2 /* GrowthookSplashLottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GrowthookSplashLottie.json; sourceTree = "<group>"; };
+		58E75FA92B00C15800512FE2 /* CreatingNewInsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingNewInsightsViewController.swift; sourceTree = "<group>"; };
+		58E75FAB2B00C16900512FE2 /* InsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModel.swift; sourceTree = "<group>"; };
+		58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingNewInsightsView.swift; sourceTree = "<group>"; };
+		58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithTintedWhenEdited.swift; sourceTree = "<group>"; };
+		58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithTinitedWhenEdited.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +138,7 @@
 				03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */,
 				03E4811C2AF2B130002F4CBC /* Then in Frameworks */,
 				03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */,
+				58E75FA02B00B72400512FE2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */,
+				58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */,
+				58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -138,6 +160,7 @@
 			children = (
 				03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */,
 				03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */,
+				58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -163,6 +186,7 @@
 		03B9AC4A2AF55E3D00A5751C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				58E75FA42B00C0C700512FE2 /* Insights */,
 				03B9AC982AF7A86800A5751C /* Common */,
 				03B9AC9E2AF7B15E00A5751C /* Home */,
 				03B9ACA22AF7B27600A5751C /* ActionList */,
@@ -186,6 +210,7 @@
 		03B9AC4C2AF55E9D00A5751C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				58E75FA12B00BAFC00512FE2 /* Lotties */,
 				03B9AC4D2AF55EA100A5751C /* AssetCatalog */,
 				03B9AC4E2AF55EB300A5751C /* Font */,
 				03E4810A2AF2AFDD002F4CBC /* LaunchScreen.storyboard */,
@@ -292,6 +317,7 @@
 		03B9AC982AF7A86800A5751C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				58E75F962B00B14B00512FE2 /* Base */,
 				033E9C112AFD2F230051A9E8 /* UIComponents */,
 				03B9AC992AF7A89500A5751C /* TabBar */,
 			);
@@ -384,6 +410,57 @@
 			path = Growthook;
 			sourceTree = "<group>";
 		};
+		58E75F962B00B14B00512FE2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				58E75F972B00B15A00512FE2 /* BaseViewController.swift */,
+				58E75F992B00B33F00512FE2 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		58E75FA12B00BAFC00512FE2 /* Lotties */ = {
+			isa = PBXGroup;
+			children = (
+				58E75FA22B00BB1E00512FE2 /* GrowthookSplashLottie.json */,
+			);
+			path = Lotties;
+			sourceTree = "<group>";
+		};
+		58E75FA42B00C0C700512FE2 /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				58E75FA52B00C0D100512FE2 /* Controllers */,
+				58E75FA82B00C11D00512FE2 /* ViewModels */,
+				58E75FA72B00C0E400512FE2 /* Views */,
+			);
+			path = Insights;
+			sourceTree = "<group>";
+		};
+		58E75FA52B00C0D100512FE2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				58E75FA92B00C15800512FE2 /* CreatingNewInsightsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		58E75FA72B00C0E400512FE2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58E75FA82B00C11D00512FE2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				58E75FAB2B00C16900512FE2 /* InsightsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -408,6 +485,7 @@
 				03E4811E2AF2B13A002F4CBC /* SnapKit */,
 				03E481212AF2B1DA002F4CBC /* Moya */,
 				03E481232AF2B1DA002F4CBC /* RxMoya */,
+				58E75F9F2B00B72400512FE2 /* Lottie */,
 			);
 			productName = Growthook;
 			productReference = 03E480FC2AF2AFDC002F4CBC /* Growthook.app */;
@@ -442,6 +520,7 @@
 				03E4811A2AF2B130002F4CBC /* XCRemoteSwiftPackageReference "Then" */,
 				03E4811D2AF2B13A002F4CBC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */,
+				58E75F9E2B00B72400512FE2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 03E480FD2AF2AFDC002F4CBC /* Products */;
 			projectDirPath = "";
@@ -459,6 +538,7 @@
 			files = (
 				03E4810C2AF2AFDD002F4CBC /* LaunchScreen.storyboard in Resources */,
 				033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */,
+				58E75FA32B00BB1E00512FE2 /* GrowthookSplashLottie.json in Resources */,
 				03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,22 +553,28 @@
 				03B9AC822AF5658F00A5751C /* FontLiterals.swift in Sources */,
 				03B9AC952AF566C800A5751C /* BlurredLabel.swift in Sources */,
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
+				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
+				58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */,
 				03B9AC932AF566B300A5751C /* ButtonPress.swift in Sources */,
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
+				58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */,
+				58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
 				03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */,
+				58E75F9D2B00B63C00512FE2 /* SplashViewController.swift in Sources */,
 				03B9AC562AF5608900A5751C /* NetworkLoggerPlugin.swift in Sources */,
 				03E481002AF2AFDC002F4CBC /* AppDelegate.swift in Sources */,
+				58E75FAA2B00C15800512FE2 /* CreatingNewInsightsViewController.swift in Sources */,
 				03E481022AF2AFDC002F4CBC /* SceneDelegate.swift in Sources */,
 				03B9AC5B2AF5610D00A5751C /* APIConstant.swift in Sources */,
 				03B9AC7C2AF5651600A5751C /* UITabBar+.swift in Sources */,
@@ -502,12 +588,14 @@
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
+				58E75FB22B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift in Sources */,
 				03B9AC592AF560D800A5751C /* Config.swift in Sources */,
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
 				03B9AC722AF5646000A5751C /* UITextField+.swift in Sources */,
 				03B9AC782AF564C400A5751C /* UILabel+.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
+				58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */,
 				03B9AC622AF5624D00A5751C /* DTO.swift in Sources */,
 				03B9AC8B2AF5660D00A5751C /* Protocol.swift in Sources */,
 			);
@@ -579,7 +667,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -636,7 +724,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -653,23 +741,28 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Growthook;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kwonjeong.Growthook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -680,23 +773,28 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Growthook;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kwonjeong.Growthook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -756,6 +854,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		58E75F9E2B00B72400512FE2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -793,6 +899,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		58E75F9F2B00B72400512FE2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58E75F9E2B00B72400512FE2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
