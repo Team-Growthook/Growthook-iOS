@@ -87,18 +87,18 @@ extension CustomInputView {
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().inset(18)
+            $0.leading.equalToSuperview()
         }
         
         textField.snp.makeConstraints {
             $0.top.equalTo(type.setting.title == nil ? 0 : 27)
-            $0.horizontalEdges.equalToSuperview().inset(18)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(48)
         }
         
         lineView.snp.makeConstraints {
             $0.top.equalTo(textField.snp.bottom)
-            $0.horizontalEdges.equalToSuperview().inset(18)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }
         

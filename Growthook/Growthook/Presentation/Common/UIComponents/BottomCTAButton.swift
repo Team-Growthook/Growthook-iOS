@@ -65,7 +65,8 @@ class BottomCTAButton: UIButton {
 extension BottomCTAButton {
     private func setUI() {
         self.do {
-            $0.frame(forAlignmentRect: CG)
+            $0.frame(forAlignmentRect: CGRect(origin: .zero, size: CGSize(width: SizeLiterals.Screen.screenWidth - 32,
+                                                                          height: SizeLiterals.Screen.screenHeight * 50 / 812)))
             $0.setTitle(titleType.title, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.layer.cornerRadius = 10

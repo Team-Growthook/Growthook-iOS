@@ -12,7 +12,6 @@ import RxSwift
 import RxRelay
 
 protocol CreateCaveViewModelInputs {
-//sumResult: BehaviorRelay<CGFloat> { get }
     var name: BehaviorRelay<String> { get }
     func setName(with value: String)
     func setDescription(with value: String)
@@ -37,7 +36,6 @@ final class CreateCaveViewModel: CreateCaveViewModelInputs, CreateCaveViewModelO
     
     var inputs: CreateCaveViewModelInputs { return self }
     var outputs: CreateCaveViewModelOutput { return self }
-//    var sumResult: BehaviorRelay<CreateCaveModel> = BehaviorRelay(value: CreateCaveModel(name: "", description: ""))
     
     var caveModel: BehaviorRelay<CreateCaveModel> = BehaviorRelay(value: CreateCaveModel(name: "", description: ""))
     var switchStatus: BehaviorRelay<Bool> = BehaviorRelay(value: false)
@@ -69,8 +67,6 @@ final class CreateCaveViewModel: CreateCaveViewModelInputs, CreateCaveViewModelO
     var isValid: Observable<Bool> {
         return BehaviorRelay.combineLatest(name, description)
             .map { name, description in
-                print("name : \(name), description : \(description)")
-                print(!name.isEmpty && !description.isEmpty)
                 return !name.isEmpty && !description.isEmpty
             }
     }

@@ -12,6 +12,7 @@ import Then
 
 class CreateCaveView: UIView {
     private let closeButton = CustomNavigationBar()
+    private let containerView = UIView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let nameTextFieldView = CustomInputView(type: .caveName)
@@ -23,6 +24,7 @@ class CreateCaveView: UIView {
         super.init(frame: frame)
         setUI()
         setLayout()
+        containerView.backgroundColor = .systemPink
     }
 
     @available(*, unavailable)
@@ -60,21 +62,31 @@ extension CreateCaveView {
     }
     
     private func setLayout() {
-        self.addSubviews(closeButton, titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, shareCaveView, switchButton, createCaveButton)
+        self.addSubviews(closeButton, containerView, createCaveButton)
+        containerView.addSubviews(titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, shareCaveView, switchButton)
         
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
             $0.trailing.equalToSuperview().inset(8)
         }
         
-        titleLabel.snp.makeConstraints {
+        containerView.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
-            $0.leading.equalToSuperview().inset(18)
+            $0.horizontalEdges.equalToSuperview().inset(18)
+//            $0.bottom.equalToSuperview()
+            $0.height.equalTo(431)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.height.equalTo(29)
         }
         
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(22)
-            $0.leading.equalToSuperview().inset(18)
+            $0.leading.equalToSuperview()
+            $0.height.equalTo(48)
         }
         
         nameTextFieldView.snp.makeConstraints {
@@ -97,59 +109,86 @@ extension CreateCaveView {
         
         switchButton.snp.makeConstraints {
             $0.top.equalTo(shareCaveView.snp.bottom).offset(11)
-            $0.leading.equalToSuperview().inset(21)
+            $0.leading.equalToSuperview().inset(3)
         }
         
-        createCaveButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(52)
-            $0.horizontalEdges.equalToSuperview().inset(18)
-            $0.height.equalTo(50)
+        if(SizeLiterals.Screen.screenHeight < 812) {
+            createCaveButton.snp.makeConstraints {
+                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
+                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
+        }
+        
+        else {
+            createCaveButton.snp.makeConstraints {
+                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
         }
     }
     
     func setViewUp() {
         UIView.animate(withDuration: 0.4, animations: { [self] in
-            titleLabel.frame.origin.y -= 50
-            descriptionLabel.frame.origin.y -= 50
-            nameTextFieldView.frame.origin.y -= 50
-            descriptionTextFieldView.frame.origin.y -= 50
-            shareCaveView.frame.origin.y -= 50
-            switchButton.frame.origin.y -= 50
-            createCaveButton.frame.origin.y -= 280
+            containerView.frame.origin.y -= 50
+            createCaveButton.frame.origin.y -= SizeLiterals.Screen.screenHeight < 812 ? 50 : 280
             setLayoutUp()
         })
     }
     
     func setViewDown() {
         UIView.animate(withDuration: 0.4, animations: { [self] in
-            titleLabel.frame.origin.y += 50
-            descriptionLabel.frame.origin.y += 50
-            nameTextFieldView.frame.origin.y += 50
-            descriptionTextFieldView.frame.origin.y += 50
-            shareCaveView.frame.origin.y += 50
-            switchButton.frame.origin.y += 50
-            createCaveButton.frame.origin.y += 280
+            containerView.frame.origin.y += 50
+            createCaveButton.frame.origin.y += SizeLiterals.Screen.screenHeight < 812 ? 50 : 280
             setLayoutDown()
         })
     }
     
     private func setLayoutUp() {
-        titleLabel.snp.updateConstraints {
+        containerView.snp.updateConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(2)
         }
         
-        createCaveButton.snp.updateConstraints {
-            $0.bottom.equalToSuperview().inset(52 + 280)
+        if(SizeLiterals.Screen.screenHeight < 812) {
+            createCaveButton.snp.remakeConstraints {
+                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
+                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
+        }
+        
+        else {
+            createCaveButton.snp.remakeConstraints {
+                $0.bottom.lessThanOrEqualToSuperview().inset(52 + 280).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
         }
     }
     
     private func setLayoutDown() {
-        titleLabel.snp.updateConstraints {
+        containerView.snp.updateConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
         }
         
-        createCaveButton.snp.updateConstraints {
-            $0.bottom.equalToSuperview().inset(52)
+        if(SizeLiterals.Screen.screenHeight < 812) {
+            createCaveButton.snp.remakeConstraints {
+                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
+                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
+        }
+        
+        else {
+            createCaveButton.snp.remakeConstraints {
+                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            }
         }
     }
 }
