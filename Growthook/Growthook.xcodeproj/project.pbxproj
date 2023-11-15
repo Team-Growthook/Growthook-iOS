@@ -57,6 +57,8 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
+		09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A692B03B3E2006C07B8 /* AlertBuilder.swift */; };
+		09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */; };
 		092725E42B00BC260070B2BF /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 092725E32B00BC260070B2BF /* Lottie */; };
 		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
 		09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */; };
@@ -112,6 +114,8 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09089A692B03B3E2006C07B8 /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
 		09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewModel.swift; sourceTree = "<group>"; };
 		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
@@ -416,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */,
+				09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 		09A7D6FE2B00DEAF005F8821 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				09089A692B03B3E2006C07B8 /* AlertBuilder.swift */,
 				09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */,
 			);
 			path = ViewModel;
@@ -544,12 +550,14 @@
 				09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
+				09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */,
 				03B9AC932AF566B300A5751C /* ButtonPress.swift in Sources */,
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
+				09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
 				03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */,
 				03B9AC562AF5608900A5751C /* NetworkLoggerPlugin.swift in Sources */,
@@ -721,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = KKFK367WP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -748,7 +756,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = KKFK367WP8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

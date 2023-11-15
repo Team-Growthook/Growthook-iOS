@@ -34,10 +34,9 @@ class CustomInputView: UIView {
     var type: CustomTextFieldViewType
     
     private let titleLabel = UILabel()
-    private let textField = UITextField()
-    private let lineView = UIView()
-    private let lengthLabel = UILabel()
-    private let toggleSwitch = UISwitch()
+    let textField = UITextField()
+    let lineView = UIView()
+    let lengthLabel = UILabel()
     
     init(type: CustomTextFieldViewType) {
         self.type = type
@@ -81,15 +80,10 @@ extension CustomInputView {
             $0.textColor = .gray300
             $0.isHidden = type.setting.placeholder == nil ? true : false
         }
-        
-        toggleSwitch.do {
-            $0.onTintColor = .gray400
-            $0.isHidden = type.setting.placeholder != nil ? true : false
-        }
     }
     
     private func setLayout() {
-        self.addSubviews(titleLabel, textField, lineView, lengthLabel, toggleSwitch)
+        self.addSubviews(titleLabel, textField, lineView, lengthLabel)
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
@@ -112,18 +106,19 @@ extension CustomInputView {
             $0.top.equalTo(lineView.snp.bottom).offset(4)
             $0.trailing.equalTo(textField.snp.trailing).offset(-4)
         }
-        
-        toggleSwitch.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(11)
-            $0.leading.equalToSuperview().inset(21)
-            $0.width.equalTo(51)
-            $0.height.equalTo(31)
-        }
     }
 }
 
 extension CustomInputView {
     func setFocus() {
         lineView.backgroundColor = .green200
+    }
+    
+    func setDone() {
+        lineView.backgroundColor = .white000
+    }
+    
+    func setEmpty() {
+        lineView.backgroundColor = .gray300
     }
 }

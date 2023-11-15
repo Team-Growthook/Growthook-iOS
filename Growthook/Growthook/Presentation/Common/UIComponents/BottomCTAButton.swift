@@ -38,9 +38,17 @@ enum BottomCTAButtonType {
     }
 }
 
-
 class BottomCTAButton: UIButton {
     var titleType: BottomCTAButtonType
+    
+    var enableStatus: Bool = true {
+        didSet {
+            switch enableStatus {
+            case true: setEnabled()
+            case false: setDisabled()
+            }
+        }
+    }
     
     init(type: BottomCTAButtonType) {
         self.titleType = type
@@ -57,11 +65,29 @@ class BottomCTAButton: UIButton {
 extension BottomCTAButton {
     private func setUI() {
         self.do {
+            $0.frame(forAlignmentRect: CG)
             $0.setTitle(titleType.title, for: .normal)
-            $0.backgroundColor = .green400
             $0.titleLabel?.font = .fontGuide(.body1_bold)
-            $0.setTitleColor(.white000, for: .normal)
             $0.layer.cornerRadius = 10
+        }
+        setEnabled()
+    }
+}
+
+extension BottomCTAButton {
+    func setEnabled() {
+        self.do {
+            $0.backgroundColor = .green400
+            $0.setTitleColor(.white000, for: .normal)
+            $0.isEnabled = true
+        }
+    }
+    
+    func setDisabled() {
+        self.do {
+            $0.backgroundColor = .gray500
+            $0.setTitleColor(.gray300, for: .normal)
+            $0.isEnabled = false
         }
     }
 }

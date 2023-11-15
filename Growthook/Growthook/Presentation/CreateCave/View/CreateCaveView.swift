@@ -12,12 +12,13 @@ import Then
 
 class CreateCaveView: UIView {
     private let closeButton = CustomNavigationBar()
-    private let titleLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let nameTextFieldView = CustomInputView(type: .caveName)
-    private let descriptionTextFieldView = CustomInputView(type: .caveDescription)
-    private let shareCaveView = CustomInputView(type: .share)
-    private let createCaveButton = BottomCTAButton(type: .createNewCave)
+    let titleLabel = UILabel()
+    let descriptionLabel = UILabel()
+    let nameTextFieldView = CustomInputView(type: .caveName)
+    let descriptionTextFieldView = CustomInputView(type: .caveDescription)
+    let shareCaveView = CustomInputView(type: .share)
+    let switchButton = UISwitch()
+    let createCaveButton = BottomCTAButton(type: .createNewCave)
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -51,11 +52,15 @@ extension CreateCaveView {
             $0.numberOfLines = 2
             $0.setLineSpacing(lineSpacing: 6)
         }
+        
+        switchButton.do {
+            $0.onTintColor = .green400
+            $0.tintColor = .gray400
+        }
     }
     
     private func setLayout() {
-        self.addSubviews(closeButton, titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, shareCaveView, createCaveButton)
-        
+        self.addSubviews(closeButton, titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, shareCaveView, switchButton, createCaveButton)
         
         closeButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
@@ -87,6 +92,12 @@ extension CreateCaveView {
         shareCaveView.snp.makeConstraints {
             $0.top.equalTo(descriptionTextFieldView.snp.bottom).offset(14)
             $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(27)
+        }
+        
+        switchButton.snp.makeConstraints {
+            $0.top.equalTo(shareCaveView.snp.bottom).offset(11)
+            $0.leading.equalToSuperview().inset(21)
         }
         
         createCaveButton.snp.makeConstraints {
@@ -94,5 +105,65 @@ extension CreateCaveView {
             $0.horizontalEdges.equalToSuperview().inset(18)
             $0.height.equalTo(50)
         }
+    }
+    
+    func setViewUp() {
+        UIView.animate(withDuration: 0.4, animations: { [self] in
+            titleLabel.frame.origin.y -= 50
+            descriptionLabel.frame.origin.y -= 50
+            nameTextFieldView.frame.origin.y -= 50
+            descriptionTextFieldView.frame.origin.y -= 50
+            shareCaveView.frame.origin.y -= 50
+            switchButton.frame.origin.y -= 50
+            createCaveButton.frame.origin.y -= 280
+            setLayoutUp()
+        })
+    }
+    
+    func setViewDown() {
+        UIView.animate(withDuration: 0.4, animations: { [self] in
+            titleLabel.frame.origin.y += 50
+            descriptionLabel.frame.origin.y += 50
+            nameTextFieldView.frame.origin.y += 50
+            descriptionTextFieldView.frame.origin.y += 50
+            shareCaveView.frame.origin.y += 50
+            switchButton.frame.origin.y += 50
+            createCaveButton.frame.origin.y += 280
+            setLayoutDown()
+        })
+    }
+    
+    private func setLayoutUp() {
+        titleLabel.snp.updateConstraints {
+            $0.top.equalTo(closeButton.snp.bottom).offset(2)
+        }
+        
+        createCaveButton.snp.updateConstraints {
+            $0.bottom.equalToSuperview().inset(52 + 280)
+        }
+    }
+    
+    private func setLayoutDown() {
+        titleLabel.snp.updateConstraints {
+            $0.top.equalTo(closeButton.snp.bottom).offset(52)
+        }
+        
+        createCaveButton.snp.updateConstraints {
+            $0.bottom.equalToSuperview().inset(52)
+        }
+    }
+}
+
+extension CreateCaveView {
+    @discardableResult
+    override func becomeFirstResponder() -> Bool {
+      super.becomeFirstResponder()
+        return self.nameTextFieldView.textField.becomeFirstResponder()
+    }
+
+    @discardableResult
+    override func resignFirstResponder() -> Bool {
+      super.resignFirstResponder()
+        return self.nameTextFieldView.textField.resignFirstResponder()
     }
 }
