@@ -8,10 +8,15 @@
 import UIKit
 
 import Moya
+import RxCocoa
+import RxSwift
 import SnapKit
 import Then
 
-final class ActionListViewController: UIViewController {
+final class ActionListViewController: BaseViewController {
+    
+    private var viewModel = ActionListViewModel()
+    private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
@@ -26,22 +31,25 @@ final class ActionListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
-        setLayout()
     }
-}
-
-extension ActionListViewController {
+    
+    override func bindViewModel() {
+        viewModel.outputs.titleText
+            .drive(onNext: { [weak self] title in
+                self?.titleBarView.setTitleText(title)
+            })
+            .disposed(by: disposeBag)
+    }
     
     // MARK: - UI Components Property
     
-    private func setUI() {
+    override func setStyles() {
         view.backgroundColor = .gray700
     }
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         view.addSubviews(titleBarView, segmentedView)
         
         titleBarView.snp.makeConstraints {
@@ -61,3 +69,4 @@ extension ActionListViewController {
     
     // MARK: - @objc Methods
 }
+
