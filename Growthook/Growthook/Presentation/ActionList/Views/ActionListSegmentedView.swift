@@ -10,12 +10,12 @@ import UIKit
 import Then
 import SnapKit
 
-class ActionListSegmentedView: UIView {
+class ActionListSegmentedView: BaseView {
     
     // MARK: - UI Components
     
-    private let inProgressButton = UIButton()
-    private let completedButtom = UIButton()
+    private lazy var inProgressButton = UIButton(frame: .zero, primaryAction: moveToInProgress())
+    private lazy var completedButtom = UIButton(frame: .zero, primaryAction: moveToCompleted())
     private let backLineView = UIView()
     private let segmentedLineView = UIView()
     
@@ -27,22 +27,15 @@ class ActionListSegmentedView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setLayout()
-        setAddTarget()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-extension ActionListSegmentedView {
-    
     // MARK: - UI Components Property
     
-    private func setUI(){
+    override func setStyles(){
         inProgressButton.do {
             $0.setTitle("진행중", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
@@ -67,7 +60,7 @@ extension ActionListSegmentedView {
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         self.addSubviews(inProgressButton, completedButtom, backLineView, segmentedLineView)
         
         inProgressButton.snp.makeConstraints {
@@ -102,6 +95,80 @@ extension ActionListSegmentedView {
     // MARK: - Methods
     
     private func setAddTarget() {}
+    
+    private func updateButton(index: Int) {
+        switch index {
+        case 0:
+            inProgressButton.setTitleColor(.gray400, for: .normal)
+            completedButtom.setTitleColor(.green400, for: .normal)
+        case 1:
+            inProgressButton.setTitleColor(.green400, for: .normal)
+            completedButtom.setTitleColor(.gray400, for: .normal)
+        default:
+            break
+        }
+    }
+    
+    private func moveToCompleted() -> UIAction? {
+        let action = UIAction(handler: { [weak self] _ in
+            guard let index = self?.selectedIndex else { return }
+            
+            if index == 1 {
+                return
+            }
+            
+            self?.updateButton(index: index)
+            self?.moveBarAction(index: index)
+        })
+        return action
+    }
+    
+    private func moveToInProgress() -> UIAction? {
+        let action = UIAction(handler: { [weak self] _ in
+            guard let index = self?.selectedIndex else { return }
+            
+            if index == 0 {
+                return
+            }
+            
+            self?.updateButton(index: index)
+            self?.moveBarAction(index: index)
+        })
+        return action
+    }
+    
+    private func moveBarAction(index: Int) {
+        switch index {
+        case 0:
+            segmentedLineView.snp.remakeConstraints {
+                $0.width.equalToSuperview().dividedBy(2)
+                $0.height.equalTo(2)
+                $0.bottom.equalToSuperview()
+                $0.leading.equalTo(completedButtom.snp.leading).inset(1)
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                self.layoutIfNeeded()
+            }
+            
+            selectedIndex = 1
+        case 1:
+            segmentedLineView.snp.remakeConstraints {
+                $0.width.equalToSuperview().dividedBy(2)
+                $0.height.equalTo(2)
+                $0.bottom.equalToSuperview()
+                $0.leading.equalTo(inProgressButton.snp.leading).inset(1)
+            }
+            
+            UIView.animate(withDuration: 0.2) {
+                self.layoutIfNeeded()
+            }
+            
+            selectedIndex = 0
+        default:
+            break
+        }
+    }
     
     // MARK: - @objc Methods
     
