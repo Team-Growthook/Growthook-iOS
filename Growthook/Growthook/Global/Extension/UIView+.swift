@@ -58,7 +58,7 @@ extension UIView {
         let toastWidth = SizeLiterals.Screen.screenWidth - 38 * 2.0
         let toastHeight = SizeLiterals.Screen.screenHeight * 50.0 / 812
         toastLabel.frame = CGRect(x: SizeLiterals.Screen.screenWidth/2 - toastWidth/2,
-                                  y: SizeLiterals.Screen.screenHeight - toastHeight - (SizeLiterals.Screen.screenHeight * 136 / 812),
+                                  y: SizeLiterals.Screen.screenHeight - toastHeight - 136,
                                   width: toastWidth,
                                   height: toastHeight)
         self.addSubviews(toastLabel)

@@ -161,6 +161,7 @@ extension CreateCaveViewController {
     
     private func pushToEmptyViewController() {
         let emptyViewController = EmptyViewController()
+        emptyViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(emptyViewController, animated: true)
     }
 }

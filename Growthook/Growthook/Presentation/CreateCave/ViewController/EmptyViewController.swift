@@ -29,6 +29,7 @@ final class EmptyViewController: UIViewController {
 extension EmptyViewController {
 
     private func setLayout() {
+        view.backgroundColor = .black000
         view.addSubview(emptySeedView)
         emptySeedView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(280)
@@ -37,7 +38,7 @@ extension EmptyViewController {
     }
     
     private func setToast() {
-        view.showToast(message: "dsdsfdfasd")
+        view.showToast(message: "새 동굴을 만들었어요!")
     }
     
     private func tapCloseButton(_ sender: Any) {
