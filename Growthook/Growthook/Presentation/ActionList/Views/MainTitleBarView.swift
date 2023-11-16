@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MainTitleBarView: UIView {
+final class MainTitleBarView: BaseView {
     
     // MARK: - UI Components
     
@@ -18,34 +18,22 @@ final class MainTitleBarView: UIView {
     
     // MARK: - Properties
     
-    private let userName: String = "EON"
     
     // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setLayout()
         setAddTarget()
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("deinit call MainTitleBar")
-    }
-}
-
-extension MainTitleBarView {
-    
     // MARK: - UI Components Property
     
-    private func setUI(){
+    override func setStyles(){
         mainTitleLabel.do {
-            $0.text = "\(userName)님의 액션"
             $0.font = .fontGuide(.head1)
             $0.textColor = .white000
         }
@@ -54,7 +42,7 @@ extension MainTitleBarView {
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         addSubviews(mainTitleLabel)
         
         mainTitleLabel.snp.makeConstraints {
@@ -66,6 +54,10 @@ extension MainTitleBarView {
     // MARK: - Methods
     
     private func setAddTarget() {}
+    
+    func setTitleText(_ text: String) {
+         mainTitleLabel.text = "\(text)님의 액션"
+     }
     
     // MARK: - @objc Methods
     
