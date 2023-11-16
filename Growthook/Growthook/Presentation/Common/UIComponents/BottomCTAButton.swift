@@ -38,7 +38,7 @@ enum BottomCTAButtonType {
     }
 }
 
-class BottomCTAButton: UIButton {
+final class BottomCTAButton: UIButton {
     var titleType: BottomCTAButtonType
     
     var enableStatus: Bool = true {

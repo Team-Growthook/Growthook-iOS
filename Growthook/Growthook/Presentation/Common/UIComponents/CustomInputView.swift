@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-enum CustomTextFieldViewType {
+enum CustomInputViewType {
     case caveName
     case caveDescription
     case detailActionPlan
@@ -30,15 +30,15 @@ enum CustomTextFieldViewType {
     }
 }
 
-class CustomInputView: UIView {
-    var type: CustomTextFieldViewType
+final class CustomInputView: UIView {
+    var type: CustomInputViewType
     
     private let titleLabel = UILabel()
     let textField = UITextField()
     let lineView = UIView()
     let lengthLabel = UILabel()
     
-    init(type: CustomTextFieldViewType) {
+    init(type: CustomInputViewType) {
         self.type = type
         super.init(frame: .zero)
         setUI()

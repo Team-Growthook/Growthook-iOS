@@ -66,6 +66,8 @@
 		09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7042B00EC03005F8821 /* CreateCaveView.swift */; };
 		09A7D7072B01CBFE005F8821 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7062B01CBFE005F8821 /* CustomInputView.swift */; };
 		09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */; };
+		09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */; };
+		09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		09A7D7042B00EC03005F8821 /* CreateCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveView.swift; sourceTree = "<group>"; };
 		09A7D7062B01CBFE005F8821 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveModel.swift; sourceTree = "<group>"; };
+		09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySeedView.swift; sourceTree = "<group>"; };
+		09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +425,7 @@
 			children = (
 				09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */,
 				09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */,
+				09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				09A7D7042B00EC03005F8821 /* CreateCaveView.swift */,
+				09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
+				09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
 				09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
@@ -579,6 +586,7 @@
 				09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */,
 				03B9AC592AF560D800A5751C /* Config.swift in Sources */,
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
+				09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */,
 				03B9AC722AF5646000A5751C /* UITextField+.swift in Sources */,
 				03B9AC782AF564C400A5751C /* UILabel+.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,

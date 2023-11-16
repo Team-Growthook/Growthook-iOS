@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
-class CreateCaveView: UIView {
+final class CreateCaveView: UIView {
     private let closeButton = CustomNavigationBar()
-    private let containerView = UIView()
+    let containerView = UIView()
     let titleLabel = UILabel()
     let descriptionLabel = UILabel()
     let nameTextFieldView = CustomInputView(type: .caveName)
@@ -24,7 +24,6 @@ class CreateCaveView: UIView {
         super.init(frame: frame)
         setUI()
         setLayout()
-        containerView.backgroundColor = .systemPink
     }
 
     @available(*, unavailable)
@@ -73,7 +72,6 @@ extension CreateCaveView {
         containerView.snp.makeConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
             $0.horizontalEdges.equalToSuperview().inset(18)
-//            $0.bottom.equalToSuperview()
             $0.height.equalTo(431)
         }
         
@@ -129,24 +127,10 @@ extension CreateCaveView {
             }
         }
     }
-    
-    func setViewUp() {
-        UIView.animate(withDuration: 0.4, animations: { [self] in
-            containerView.frame.origin.y -= 50
-            createCaveButton.frame.origin.y -= SizeLiterals.Screen.screenHeight < 812 ? 50 : 280
-            setLayoutUp()
-        })
-    }
-    
-    func setViewDown() {
-        UIView.animate(withDuration: 0.4, animations: { [self] in
-            containerView.frame.origin.y += 50
-            createCaveButton.frame.origin.y += SizeLiterals.Screen.screenHeight < 812 ? 50 : 280
-            setLayoutDown()
-        })
-    }
-    
-    private func setLayoutUp() {
+}
+
+extension CreateCaveView {
+    func setLayoutUp() {
         containerView.snp.updateConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(2)
         }
@@ -169,7 +153,7 @@ extension CreateCaveView {
         }
     }
     
-    private func setLayoutDown() {
+    func setLayoutDown() {
         containerView.snp.updateConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
         }

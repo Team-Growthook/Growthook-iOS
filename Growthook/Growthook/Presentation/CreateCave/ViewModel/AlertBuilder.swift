@@ -12,7 +12,7 @@ struct AddAction {
     var action: (() -> Void)?
 }
 
-class AlertBuilder {
+final class AlertBuilder {
     private let baseViewController: UIViewController
     private let alertViewController = CustomAlertViewController()
     

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CustomAlertViewController: UIViewController {
+final class CustomAlertViewController: UIViewController {
     var alertTitle: String?
     var message: String?
     var addActionConfirm: AddAction?
