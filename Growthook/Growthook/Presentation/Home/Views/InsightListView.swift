@@ -21,11 +21,6 @@ final class InsightListView: BaseView {
     lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
-    // MARK: - Properties
-    
-    private let disposeBag = DisposeBag()
-    private let viewModel = HomeViewModel()
-    
     // MARK: - View Life Cycle
     
     override init(frame: CGRect) {
@@ -87,16 +82,4 @@ final class InsightListView: BaseView {
             $0.bottom.equalToSuperview()
         }
     }
-    
-    // MARK: - Methods
-    
-    override func setDelegates() {
-        insightCollectionView.delegate = self
-    }
-    
-    override func setRegisters() {
-        insightCollectionView.register(InsightListCollectionViewCell.self, forCellWithReuseIdentifier: "InsightListCollectionViewCell")
-    }
 }
-
-extension InsightListView: UICollectionViewDelegateFlowLayout {}

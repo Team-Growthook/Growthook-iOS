@@ -158,16 +158,4 @@ final class HomeCaveView: BaseView {
             $0.height.equalTo(1)
         }
     }
-    
-    // MARK: - Methods
-    
-    override func setDelegates() {
-        caveCollectionView.delegate = self
-    }
-    
-    override func setRegisters() {
-        caveCollectionView.register(CaveCollectionViewCell.self, forCellWithReuseIdentifier: "CaveCollectionViewCell")
-    }
 }
-
-extension HomeCaveView: UICollectionViewDelegateFlowLayout {}

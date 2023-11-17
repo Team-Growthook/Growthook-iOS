@@ -33,21 +33,21 @@ final class HomeViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        viewModel.caveProfileData
-            .bind(to: homeCaveView.caveCollectionView.rx.items(
-                cellIdentifier: "CaveCollectionViewCell",
-                cellType: CaveCollectionViewCell.self)) { (_, element, cell) in
-                cell.configureCell(element)
-            }
-            .disposed(by: disposeBag)
-        viewModel.inputs.caveCollectionViewBind()
+        viewModel.outputs.caveCollectionViewBind
+            .bind(to: homeCaveView.caveCollectionView.rx
+                .items(cellIdentifier: CaveCollectionViewCell.className,
+                       cellType: CaveCollectionViewCell.self)) { (index, model, cell) in
+                cell.configureCell(model)
+                }
+                .disposed(by: disposeBag)
         
-        viewModel.insightListData
-            .bind(to: insightListView.insightCollectionView.rx.items(cellIdentifier: "InsightListCollectionViewCell", cellType: InsightListCollectionViewCell.self)) { (_, element, cell) in
-                cell.configureCell(element)
-            }
-            .disposed(by: disposeBag)
-        viewModel.inputs.insightListCollectionViewBind()
+        viewModel.outputs.insightListCollectionViewBind
+            .bind(to: insightListView.insightCollectionView.rx
+                .items(cellIdentifier: InsightListCollectionViewCell.className,
+                       cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
+                cell.configureCell(model)
+                }
+                .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -83,6 +83,16 @@ final class HomeViewController: BaseViewController {
             $0.trailing.equalToSuperview().inset(8)
         }
     }
+    
+    override func setDelegates() {
+        homeCaveView.caveCollectionView.delegate = self
+        insightListView.insightCollectionView.delegate = self
+    }
+    
+    override func setRegister() {
+        homeCaveView.caveCollectionView.register(CaveCollectionViewCell.self, forCellWithReuseIdentifier: CaveCollectionViewCell.className)
+        insightListView.insightCollectionView.register(InsightListCollectionViewCell.self, forCellWithReuseIdentifier: InsightListCollectionViewCell.className)
+    }
 }
 
 extension HomeViewController {
@@ -97,3 +107,5 @@ extension HomeViewController {
         }
     }
 }
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout {}

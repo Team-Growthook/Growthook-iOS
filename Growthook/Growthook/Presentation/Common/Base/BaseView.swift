@@ -21,8 +21,6 @@ class BaseView: UIView {
         bindViewModel()
         setStyles()
         setLayout()
-        setDelegates()
-        setRegisters()
     }
     
     override func removeFromSuperview() {
@@ -36,10 +34,6 @@ class BaseView: UIView {
     func setStyles() {}
     /// View 의 Layout 을 set 합니다.
     func setLayout() {}
-    /// View 의 Delegate 을 set 합니다.
-    func setDelegates() {}
-    /// View 의 Register 를 set 합니다.
-    func setRegisters() {}
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

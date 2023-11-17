@@ -172,13 +172,13 @@
 			path = UIComponents;
 			sourceTree = "<group>";
 		};
-		033E9C142AFE30350051A9E8 /* View */ = {
+		033E9C142AFE30350051A9E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */,
 				035DB2A62B00E6F200161872 /* InsightListView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		033E9C192AFE60570051A9E8 /* Cell */ = {
@@ -190,14 +190,21 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		033E9C1C2AFE63C80051A9E8 /* Model */ = {
+		033E9C1C2AFE63C80051A9E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
 				033E9C1F2AFE725D0051A9E8 /* CaveProfileModel.swift */,
 				035DB2AC2B01041B00161872 /* InsightListModel.swift */,
 			);
-			path = Model;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		035DB2AE2B076F4B00161872 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		03B9AC472AF55CA000A5751C /* Application */ = {
@@ -381,20 +388,21 @@
 		03B9AC9E2AF7B15E00A5751C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				033E9C1C2AFE63C80051A9E8 /* Model */,
-				033E9C142AFE30350051A9E8 /* View */,
-				03B9AC9F2AF7B24200A5751C /* ViewController */,
+				035DB2AE2B076F4B00161872 /* ViewModels */,
+				033E9C1C2AFE63C80051A9E8 /* Models */,
+				033E9C142AFE30350051A9E8 /* Views */,
+				03B9AC9F2AF7B24200A5751C /* ViewControllers */,
 				033E9C192AFE60570051A9E8 /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		03B9AC9F2AF7B24200A5751C /* ViewController */ = {
+		03B9AC9F2AF7B24200A5751C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				03B9ACA02AF7B25B00A5751C /* HomeViewController.swift */,
 			);
-			path = ViewController;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		03B9ACA22AF7B27600A5751C /* ActionList */ = {
