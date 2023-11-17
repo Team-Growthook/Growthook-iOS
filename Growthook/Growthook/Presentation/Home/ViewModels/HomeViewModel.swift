@@ -15,8 +15,8 @@ protocol HomeViewModelInputs {
 }
 
 protocol HomeViewModelOutputs {
-    var caveCollectionViewBind: BehaviorRelay<[CaveProfileModel]> { get }
-    var insightListCollectionViewBind: BehaviorRelay<[InsightListModel]> { get }
+    var caveProfile: BehaviorRelay<[CaveProfile]> { get }
+    var insightList: BehaviorRelay<[InsightList]> { get }
 }
 
 protocol HomeViewModelType {
@@ -25,14 +25,14 @@ protocol HomeViewModelType {
 }
 
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
-    var caveCollectionViewBind: BehaviorRelay<[CaveProfileModel]> = BehaviorRelay(value: [])
-    var insightListCollectionViewBind: BehaviorRelay<[InsightListModel]> = BehaviorRelay(value: [])
+    var caveProfile: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
+    var insightList: BehaviorRelay<[InsightList]> = BehaviorRelay(value: [])
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
     
     init() {
-        self.caveCollectionViewBind.accept(CaveProfileModel.caveprofileDummyData())
-        self.insightListCollectionViewBind.accept(InsightListModel.insightListDummyData())
+        self.caveProfile.accept(CaveProfile.caveprofileDummyData())
+        self.insightList.accept(InsightList.insightListDummyData())
     }
 }

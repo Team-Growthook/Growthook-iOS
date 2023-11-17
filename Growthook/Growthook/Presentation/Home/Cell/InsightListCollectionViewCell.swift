@@ -100,7 +100,7 @@ extension InsightListCollectionViewCell {
     
     // MARK: - Methods
     
-    func configureCell(_ model: InsightListModel) {
+    func configureCell(_ model: InsightList) {
         switch model.scrapStatus {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)

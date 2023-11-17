@@ -27,16 +27,6 @@ final class HomeCaveView: BaseView {
     private let underLineView = UIView()
     private let flowLayout = UICollectionViewFlowLayout()
     
-    // MARK: - Initializer
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - UI Components Property
     
     override func setStyles() {

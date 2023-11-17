@@ -72,7 +72,7 @@ extension CaveCollectionViewCell {
     
     // MARK: - Methods
     
-    func configureCell(_ model: CaveProfileModel) {
+    func configureCell(_ model: CaveProfile) {
         caveImageView.image = model.image
         caveTitle.text = model.title
     }

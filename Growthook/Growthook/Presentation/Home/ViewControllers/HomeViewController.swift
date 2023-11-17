@@ -33,7 +33,7 @@ final class HomeViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        viewModel.outputs.caveCollectionViewBind
+        viewModel.outputs.caveProfile
             .bind(to: homeCaveView.caveCollectionView.rx
                 .items(cellIdentifier: CaveCollectionViewCell.className,
                        cellType: CaveCollectionViewCell.self)) { (index, model, cell) in
@@ -41,7 +41,7 @@ final class HomeViewController: BaseViewController {
                 }
                 .disposed(by: disposeBag)
         
-        viewModel.outputs.insightListCollectionViewBind
+        viewModel.outputs.insightList
             .bind(to: insightListView.insightCollectionView.rx
                 .items(cellIdentifier: InsightListCollectionViewCell.className,
                        cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
