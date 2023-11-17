@@ -12,7 +12,7 @@ import Then
 import RxCocoa
 import RxSwift
 
-final class InsightListView: UIView {
+final class InsightListView: BaseView {
     
     // MARK: - UI Components
     
@@ -30,27 +30,15 @@ final class InsightListView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setLayout()
-        bindViewModel()
-        setRegister()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension InsightListView {
-    
-    private func bindViewModel() {
-        insightCollectionView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
-    }
     
     // MARK: - UI Components Property
     
-    private func setUI() {
+    override func setStyles() {
         
         backgroundColor = .clear
         
@@ -77,7 +65,7 @@ extension InsightListView {
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         
         addSubviews(seedTitleLabel, scrapButton, insightCollectionView)
         
@@ -102,11 +90,13 @@ extension InsightListView {
     
     // MARK: - Methods
     
-    private func setRegister() {
-        insightCollectionView.register(InsightListCollectionViewCell.self, forCellWithReuseIdentifier: "InsightListCollectionViewCell")
+    override func setDelegates() {
+        insightCollectionView.delegate = self
     }
     
-    // MARK: - @objc Methods
+    override func setRegisters() {
+        insightCollectionView.register(InsightListCollectionViewCell.self, forCellWithReuseIdentifier: "InsightListCollectionViewCell")
+    }
 }
 
 extension InsightListView: UICollectionViewDelegateFlowLayout {}

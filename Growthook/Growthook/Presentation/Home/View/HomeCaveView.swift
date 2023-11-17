@@ -12,7 +12,7 @@ import Then
 import RxCocoa
 import RxSwift
 
-final class HomeCaveView: UIView {
+final class HomeCaveView: BaseView {
     
     // MARK: - UI Components
     
@@ -27,36 +27,19 @@ final class HomeCaveView: UIView {
     private let underLineView = UIView()
     private let flowLayout = UICollectionViewFlowLayout()
     
-    // MARK: - Properties
-    
-    private let disposeBag = DisposeBag()
-    private let viewModel = HomeViewModel()
-    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
-        setLayout()
-        bindViewModel()
-        setRegister()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension HomeCaveView {
     
-    private func bindViewModel() {
-        caveCollectionView.rx.setDelegate(self)
-            .disposed(by: disposeBag)
-    }
-
     // MARK: - UI Components Property
     
-    private func setUI() {
+    override func setStyles() {
         
         backgroundColor = .gray700
         
@@ -114,7 +97,7 @@ extension HomeCaveView {
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         
         addSubviews(userLabel, seedView, notificationButton, caveCollectionView,
                     caveLineView, addCaveButton, underLineView)
@@ -178,11 +161,13 @@ extension HomeCaveView {
     
     // MARK: - Methods
     
-    private func setRegister() {
-        caveCollectionView.register(CaveCollectionViewCell.self, forCellWithReuseIdentifier: "CaveCollectionViewCell")
+    override func setDelegates() {
+        caveCollectionView.delegate = self
     }
     
-    // MARK: - @objc Methods
+    override func setRegisters() {
+        caveCollectionView.register(CaveCollectionViewCell.self, forCellWithReuseIdentifier: "CaveCollectionViewCell")
+    }
 }
 
 extension HomeCaveView: UICollectionViewDelegateFlowLayout {}

@@ -13,7 +13,7 @@ import Then
 import RxCocoa
 import RxSwift
 
-final class HomeViewController: UIViewController {
+final class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
     
@@ -30,15 +30,9 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
-        setLayout()
-        bindViewModel()
     }
-}
-
-extension HomeViewController {
     
-    private func bindViewModel() {
+    override func bindViewModel() {
         viewModel.caveProfileData
             .bind(to: homeCaveView.caveCollectionView.rx.items(
                 cellIdentifier: "CaveCollectionViewCell",
@@ -58,10 +52,9 @@ extension HomeViewController {
     
     // MARK: - UI Components Property
     
-    private func setUI() {
+    override func setStyles() {
         
         view.backgroundColor = .gray700
-        
         seedPlusButton.do {
             $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
         }
@@ -69,7 +62,7 @@ extension HomeViewController {
     
     // MARK: - Layout Helper
     
-    private func setLayout() {
+    override func setLayout() {
         
         view.addSubviews(homeCaveView, insightListView, seedPlusButton)
         
@@ -90,6 +83,9 @@ extension HomeViewController {
             $0.trailing.equalToSuperview().inset(8)
         }
     }
+}
+
+extension HomeViewController {
     
     // MARK: - Methods
     
@@ -100,6 +96,4 @@ extension HomeViewController {
             return 0
         }
     }
-    
-    // MARK: - @objc Methods
 }
