@@ -10,6 +10,10 @@ import UIKit
 import Then
 import SnapKit
 
+protocol ActionListSegmentDelegate: AnyObject {
+    func movePage(to index: Int)
+}
+
 class ActionListSegmentedView: BaseView {
     
     // MARK: - UI Components
@@ -22,6 +26,7 @@ class ActionListSegmentedView: BaseView {
     // MARK: - Properties
     
     private var selectedIndex: Int = 0
+    weak var delegate: ActionListSegmentDelegate?
     
     // MARK: - Initializer
     
@@ -96,7 +101,7 @@ class ActionListSegmentedView: BaseView {
     
     private func setAddTarget() {}
     
-    private func updateButton(index: Int) {
+    func updateButton(index: Int) {
         switch index {
         case 0:
             inProgressButton.setTitleColor(.gray400, for: .normal)
@@ -117,8 +122,8 @@ class ActionListSegmentedView: BaseView {
                 return
             }
             
-            self?.updateButton(index: index)
             self?.moveBarAction(index: index)
+            self?.delegate?.movePage(to: index)
         })
         return action
     }
@@ -131,8 +136,8 @@ class ActionListSegmentedView: BaseView {
                 return
             }
             
-            self?.updateButton(index: index)
             self?.moveBarAction(index: index)
+            self?.delegate?.movePage(to: index)
         })
         return action
     }
