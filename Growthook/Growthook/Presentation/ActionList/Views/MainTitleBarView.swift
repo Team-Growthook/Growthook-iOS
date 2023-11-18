@@ -14,7 +14,7 @@ final class MainTitleBarView: BaseView {
     
     // MARK: - UI Components
     
-    private let mainTitleLabel = UILabel()
+    let mainTitleLabel = UILabel()
     
     // MARK: - Properties
     
