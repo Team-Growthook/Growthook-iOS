@@ -15,6 +15,8 @@ protocol ActionListViewModelInput {
 
 protocol ActionListViewModelOutput {
     var titleText: Driver<String> { get }
+    var selectedIndex: BehaviorRelay<Int> { get }
+    var actionList: BehaviorRelay<[ActionListModel]> { get }
 }
 
 protocol ActionListViewModelType {
@@ -23,21 +25,30 @@ protocol ActionListViewModelType {
 }
 
 final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOutput, ActionListViewModelType {
+  
+    var selectedIndex: BehaviorRelay<Int> = BehaviorRelay(value: 1)
+    var actionList: BehaviorRelay<[ActionListModel]> = BehaviorRelay(value: [])
+
+
+    
     var inputs: ActionListViewModelInput { return self }
     var outputs: ActionListViewModelOutput { return self }
     
-    // MARK: - Outputs
     
     var titleText: Driver<String> {
         return .just("Action List")
     }
     
     func didTapInProgressButton() {
-        print("InProgressButton Tapped")
+        selectedIndex.accept(1)
     }
 
     func didTapCompletedButton() {
-        print("CompletedButton Tapped")
+        selectedIndex.accept(0)
+    }
+    
+    init() {
+        self.actionList.accept(ActionListModel.actionListModelDummyData())
     }
 }
 
