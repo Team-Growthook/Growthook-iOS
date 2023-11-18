@@ -39,6 +39,18 @@ final class ActionListViewController: BaseViewController {
                 self?.titleBarView.setTitleText(title)
             })
             .disposed(by: disposeBag)
+        
+        segmentedView.inProgressButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.didTapInProgressButton()
+            }
+        
+        segmentedView.completedButtom.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.didTapCompletedButton()
+            }
     }
     
     // MARK: - UI Components Property
