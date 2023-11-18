@@ -14,8 +14,8 @@ class ActionListSegmentedView: BaseView {
     
     // MARK: - UI Components
     
-    private lazy var inProgressButton = UIButton(frame: .zero, primaryAction: moveToInProgress())
-    private lazy var completedButtom = UIButton(frame: .zero, primaryAction: moveToCompleted())
+    lazy var inProgressButton = UIButton(frame: .zero, primaryAction: moveToInProgress())
+    lazy var completedButtom = UIButton(frame: .zero, primaryAction: moveToCompleted())
     private let backLineView = UIView()
     private let segmentedLineView = UIView()
     
