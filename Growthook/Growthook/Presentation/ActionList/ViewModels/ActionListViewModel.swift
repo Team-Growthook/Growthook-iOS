@@ -9,7 +9,8 @@ import RxCocoa
 import RxSwift
 
 protocol ActionListViewModelInput {
-    func segmentButtonTap()
+    func didTapInProgressButton()
+    func didTapCompletedButton()
 }
 
 protocol ActionListViewModelOutput {
@@ -29,6 +30,14 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     var titleText: Driver<String> {
         return .just("Action List")
+    }
+    
+    func didTapInProgressButton() {
+        print("InProgressButton Tapped")
+    }
+
+    func didTapCompletedButton() {
+        print("CompletedButton Tapped")
     }
 }
 
