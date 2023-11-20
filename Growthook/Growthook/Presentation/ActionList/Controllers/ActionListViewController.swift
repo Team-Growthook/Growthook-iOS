@@ -41,22 +41,29 @@ final class ActionListViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        
         segmentedView.inProgressButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapInProgressButton()
             }
+            .disposed(by: disposeBag)
         
         segmentedView.completedButtom.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapCompletedButton()
             }
+            .disposed(by: disposeBag)
         
         viewModel.outputs.titleText
             .drive(onNext: { [weak self] title in
                 self?.titleBarView.setTitleText(title)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.titlePersent
+            .drive(onNext: { [weak self] persent in
+                self?.titleBarView.setPersentText(persent)
             })
             .disposed(by: disposeBag)
         
@@ -85,14 +92,14 @@ final class ActionListViewController: BaseViewController {
         
         titleBarView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(48)
+            $0.height.equalTo(107)
             $0.top.equalTo(view.safeAreaLayoutGuide)
         }
         
         segmentedView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(50)
-            $0.top.equalTo(titleBarView.snp.bottom).offset(18)
+            $0.height.equalTo(51)
+            $0.top.equalTo(titleBarView.snp.bottom)
         }
         
         pageViewController.view.snp.makeConstraints {
@@ -116,6 +123,7 @@ final class ActionListViewController: BaseViewController {
     }
     
     // MARK: - @objc Methods
+    
 }
 
 
