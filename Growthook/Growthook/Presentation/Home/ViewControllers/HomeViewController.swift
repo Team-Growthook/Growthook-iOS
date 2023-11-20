@@ -31,8 +31,7 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.longPressGesture.delegate = self
-        insightListView.insightCollectionView.addGestureRecognizer(longPressGesture)
+        addGesture()
     }
     
     override func bindViewModel() {
@@ -90,6 +89,7 @@ final class HomeViewController: BaseViewController {
     override func setDelegates() {
         homeCaveView.caveCollectionView.delegate = self
         insightListView.insightCollectionView.delegate = self
+        longPressGesture.delegate = self
     }
     
     override func setRegister() {
@@ -108,6 +108,10 @@ extension HomeViewController {
         } else {
             return 0
         }
+    }
+    
+    private func addGesture() {
+        insightListView.insightCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     // MARK: - @objc Methods
