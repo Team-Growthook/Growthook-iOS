@@ -94,7 +94,6 @@ class ActionListSegmentedView: BaseView {
             $0.bottom.equalToSuperview()
             $0.leading.equalTo(inProgressButton.snp.leading).inset(1)
         }
-        
     }
     
     // MARK: - Methods

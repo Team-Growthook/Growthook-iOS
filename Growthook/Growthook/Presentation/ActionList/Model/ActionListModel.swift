@@ -18,7 +18,6 @@ struct ActionListModel {
 }
 
 extension ActionListModel {
-    
     static func actionListModelDummyData() -> [ActionListModel] {
         return [
             ActionListModel(scrapStatus: .unScrap, title: "북극성 지표를 적용해야한다"),

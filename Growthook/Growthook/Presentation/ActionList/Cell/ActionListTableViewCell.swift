@@ -12,7 +12,6 @@ import SnapKit
 
 class ActionListTableViewCell: UITableViewCell {
     
-    
     // MARK: - UI Components
     
     private let scrapButton = UIButton()
@@ -23,6 +22,7 @@ class ActionListTableViewCell: UITableViewCell {
     private let bottomBorder = UIView()
     
     // MARK: - Property
+    
     
     // MARK: - Initializer
     
@@ -41,7 +41,6 @@ class ActionListTableViewCell: UITableViewCell {
 extension ActionListTableViewCell {
     
     // MARK: - UI Components Property
-    /// View 의 Style 을 set 합니다.
 
     private func setStyles() {
         self.backgroundColor = .gray700
@@ -88,7 +87,7 @@ extension ActionListTableViewCell {
     
     
     // MARK: - Layout Helper
-    /// View 의 Layout 을 set 합니다.
+
     func setLayout() {
         addSubviews(scrapButton, actionTitleLabel, seedButton, completButton, topBorder, bottomBorder)
         
@@ -139,6 +138,4 @@ extension ActionListTableViewCell {
         }
         actionTitleLabel.text = model.title
     }
-    
-
 }
