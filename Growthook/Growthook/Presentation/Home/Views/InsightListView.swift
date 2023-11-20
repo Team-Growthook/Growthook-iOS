@@ -21,6 +21,16 @@ final class InsightListView: BaseView {
     lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
+    // MARK: - Properties
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - UI Components Property
     
     override func setStyles() {
@@ -72,4 +82,7 @@ final class InsightListView: BaseView {
             $0.bottom.equalToSuperview()
         }
     }
+    
+    // MARK: - Methods
+    
 }

@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelInputs {
+    func handleLongPress(at indexPath: IndexPath)
     
 }
 
@@ -25,6 +26,7 @@ protocol HomeViewModelType {
 }
 
 final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewModelType {
+    
     var caveProfile: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
     var insightList: BehaviorRelay<[InsightList]> = BehaviorRelay(value: [])
     
@@ -34,5 +36,11 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     init() {
         self.caveProfile.accept(CaveProfile.caveprofileDummyData())
         self.insightList.accept(InsightList.insightListDummyData())
+    }
+    
+    func handleLongPress(at indexPath: IndexPath) {
+        let items = InsightList.insightListDummyData()
+        let selectedItem = items[indexPath.item]
+        print("\(indexPath.row) / 제목 :  \(selectedItem.title)")
     }
 }

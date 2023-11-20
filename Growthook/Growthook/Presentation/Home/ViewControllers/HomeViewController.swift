@@ -25,11 +25,14 @@ final class HomeViewController: BaseViewController {
     
     private let disposeBag = DisposeBag()
     private let viewModel = HomeViewModel()
+    lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.longPressGesture.delegate = self
+        insightListView.insightCollectionView.addGestureRecognizer(longPressGesture)
     }
     
     override func bindViewModel() {
@@ -106,6 +109,22 @@ extension HomeViewController {
             return 0
         }
     }
+    
+    // MARK: - @objc Methods
+    
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        let location = gesture.location(in: gesture.view)
+        let collectionView = gesture.view as! UICollectionView
+        if gesture.state == .began {
+            // 꾹 눌림이 시작될 때 실행할 코드
+            if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
+                viewModel.handleLongPress(at: indexPath)
+                makeVibrate()
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {}
+
+extension HomeViewController: UIGestureRecognizerDelegate {}
