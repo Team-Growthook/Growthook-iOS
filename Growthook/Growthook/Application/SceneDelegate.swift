@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        let splashViewController = TabBarController()
+        let splashViewController = HomeViewController()
         
         window?.rootViewController = splashViewController
         window?.makeKeyAndVisible()

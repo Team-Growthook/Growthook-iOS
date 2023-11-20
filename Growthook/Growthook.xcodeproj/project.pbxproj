@@ -54,6 +54,7 @@
 		03B9ACA12AF7B25B00A5751C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9ACA02AF7B25B00A5751C /* HomeViewController.swift */; };
 		03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */; };
 		03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */; };
+		03C3565F2B0B702900750758 /* InsightTapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */; };
 		03E481002AF2AFDC002F4CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */; };
 		03E481022AF2AFDC002F4CBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */; };
 		03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E481082AF2AFDD002F4CBC /* Assets.xcassets */; };
@@ -125,6 +126,7 @@
 		03B9ACA02AF7B25B00A5751C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewController.swift; sourceTree = "<group>"; };
 		03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTapBottomSheet.swift; sourceTree = "<group>"; };
 		03E480FC2AF2AFDC002F4CBC /* Growthook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Growthook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			children = (
 				033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */,
 				035DB2A62B00E6F200161872 /* InsightListView.swift */,
+				03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
 				033E9C202AFE725D0051A9E8 /* CaveProfile.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
+				03C3565F2B0B702900750758 /* InsightTapBottomSheet.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
 				58E75FB22B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift in Sources */,
