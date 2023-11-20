@@ -15,6 +15,7 @@ protocol ActionListViewModelInput {
 
 protocol ActionListViewModelOutput {
     var titleText: Driver<String> { get }
+    var titlePersent: Driver<String> { get }
     var selectedIndex: BehaviorRelay<Int> { get }
     var actionList: BehaviorRelay<[ActionListModel]> { get }
 }
@@ -25,11 +26,9 @@ protocol ActionListViewModelType {
 }
 
 final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOutput, ActionListViewModelType {
-  
+    
     var selectedIndex: BehaviorRelay<Int> = BehaviorRelay(value: 1)
     var actionList: BehaviorRelay<[ActionListModel]> = BehaviorRelay(value: [])
-
-
     
     var inputs: ActionListViewModelInput { return self }
     var outputs: ActionListViewModelOutput { return self }
@@ -37,6 +36,10 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     var titleText: Driver<String> {
         return .just("Action List")
+    }
+    
+    var titlePersent: Driver<String> {
+        return .just("00")
     }
     
     func didTapInProgressButton() {
@@ -51,10 +54,6 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
         self.actionList.accept(ActionListModel.actionListModelDummyData())
     }
 }
-
-
-
-
 
 /**
  Input은
