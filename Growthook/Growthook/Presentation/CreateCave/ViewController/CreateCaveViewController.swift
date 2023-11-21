@@ -39,8 +39,9 @@ final class CreateCaveViewController: UIViewController {
 }
 
 extension CreateCaveViewController {
+    
     private func bindViewModel() {
-        createCaveView.nameTextFieldView.textField.rx.text
+        createCaveView.nameTextField.rx.text
             .orEmpty
             .distinctUntilChanged()
             .bind { [weak self] value in
@@ -49,34 +50,27 @@ extension CreateCaveViewController {
             }
             .disposed(by: disposeBag)
         
-        createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidBegin])
+        createCaveView.nameTextField.rx.controlEvent([.editingDidBegin])
             .bind { [weak self] in
                 guard let self else { return }
                 self.setUpAnimation()
-                self.createCaveView.nameTextFieldView.setFocus()
             }
             .disposed(by: disposeBag)
         
-        createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidEnd])
+        createCaveView.nameTextField.rx.controlEvent([.editingDidEnd])
             .bind { [weak self] in
                 guard let self else { return }
-                if(self.createCaveView.nameTextFieldView.textField.text?.isEmpty == true) {
-                    self.createCaveView.nameTextFieldView.setEmpty()
-                }
-                else {
-                    self.createCaveView.nameTextFieldView.setDone()
-                }
                 self.setDownAnimation()
             }
             .disposed(by: disposeBag)
         
-        createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidEndOnExit])
+        createCaveView.nameTextField.rx.controlEvent([.editingDidEndOnExit])
             .bind { [weak self] in
                 guard let self else { return }
                 self.setNextTextField()
             }.disposed(by: disposeBag)
         
-        createCaveView.descriptionTextFieldView.textField.rx.text
+        createCaveView.introduceTextView.rx.text
             .orEmpty
             .distinctUntilChanged()
             .bind { [weak self] value in
@@ -85,23 +79,27 @@ extension CreateCaveViewController {
             }
             .disposed(by: disposeBag)
         
-        createCaveView.descriptionTextFieldView.textField.rx.controlEvent([.editingDidBegin])
+        createCaveView.introduceTextView.rx.didBeginEditing
+//        controlEvent([.editingDidBegin])
             .bind { [weak self] in
                 self?.setUpAnimation()
-                self?.createCaveView.descriptionTextFieldView.setFocus()
+//                self?.createCaveView.introduceTextView.setFocus()
             }
             .disposed(by: disposeBag)
         
-        createCaveView.descriptionTextFieldView.textField.rx.controlEvent([.editingDidEnd])
+        createCaveView.introduceTextView.rx.didEndEditing
+//            .controlEvent([.editingDidEnd])
             .bind { [weak self] in
-                if(self?.createCaveView.descriptionTextFieldView.textField.text?.isEmpty == true) {
-                    
-                    self?.createCaveView.descriptionTextFieldView.setEmpty()
-                }
-                else {
-                    self?.createCaveView.descriptionTextFieldView.setDone()
-                }
-                self?.setDownAnimation()
+                
+                    guard let self else { return }
+//                if(self?.createCaveView.introduceTextView.text?.isEmpty == true) {
+//                    
+//                    self?.createCaveView.introduceTextView.setEmpty()
+//                }
+//                else {
+//                    self?.createCaveView.introduceTextView.setDone()
+//                }
+                self.setDownAnimation()
             }
             .disposed(by: disposeBag)
         
@@ -159,8 +157,9 @@ extension CreateCaveViewController {
     }
     
     private func setNextTextField() {
-        createCaveView.descriptionTextFieldView.setFocus()
-        createCaveView.descriptionTextFieldView.textField.becomeFirstResponder()
+//        createCaveView.introduceTextView.setFocus()
+//        createCaveView.introduceTextView.focus
+        createCaveView.introduceTextView.becomeFirstResponder()
     }
     
     private func pushToEmptyViewController() {
