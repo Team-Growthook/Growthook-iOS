@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-final class CustomAlertViewController: UIViewController {
+final class CustomAlertViewController: BaseViewController {
+    
     var alertTitle: String?
     var message: String?
     var addActionConfirm: AddAction?
@@ -23,13 +24,11 @@ final class CustomAlertViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        setStyles()
         setLayout()
     }
-}
-
-extension CustomAlertViewController {
-    private func setUI() {
+    
+    override func setStyles() {
         self.view.backgroundColor = .black000.withAlphaComponent(0.6)
         
         alertView.do {
@@ -66,8 +65,7 @@ extension CustomAlertViewController {
         }
     }
     
-    private func setLayout() {
-        
+    override func setLayout() {
         view.addSubview(alertView)
         alertView.addSubviews(titleLabel, messageLabel, horizontalDividerView, confirmButton)
         alertView.snp.makeConstraints {
@@ -104,6 +102,7 @@ extension CustomAlertViewController {
 }
 
 extension CustomAlertViewController {
+    
     @objc func pressed() {
         addActionConfirm?.action?()
         dismiss(animated: true)

@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-final class CreateCaveView: UIView {
+final class CreateCaveView: BaseView {
+    
     private let closeButton = CustomNavigationBar()
     let containerView = UIView()
     let titleLabel = UILabel()
@@ -20,9 +21,10 @@ final class CreateCaveView: UIView {
     let shareCaveView = CustomInputView(type: .share)
     let switchButton = UISwitch()
     let createCaveButton = BottomCTAButton(type: .createNewCave)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
+        setStyles()
         setLayout()
     }
 
@@ -30,37 +32,35 @@ final class CreateCaveView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension CreateCaveView {
-    private func setUI() {
-        self.backgroundColor = .gray700
-        
-        closeButton.do {
-            $0.isCloseButtonIncluded = true
-        }
-        
-        titleLabel.do {
-            $0.text = "새 동굴 파기"
-            $0.font = .fontGuide(.head1)
-            $0.textColor = .white000
-        }
-        
-        descriptionLabel.do {
-            $0.text = "새로운 동굴을 만들어,\n나만의 인사이트를 마음껏 담아보세요."
-            $0.font = .fontGuide(.body2_reg)
-            $0.textColor = .white000
-            $0.numberOfLines = 2
-            $0.setLineSpacing(lineSpacing: 6)
-        }
-        
-        switchButton.do {
-            $0.onTintColor = .green400
-            $0.tintColor = .gray400
-        }
+    
+    override func setStyles() {
+            self.backgroundColor = .gray700
+            
+            closeButton.do {
+                $0.isCloseButtonIncluded = true
+            }
+            
+            titleLabel.do {
+                $0.text = "새 동굴 파기"
+                $0.font = .fontGuide(.head1)
+                $0.textColor = .white000
+            }
+            
+            descriptionLabel.do {
+                $0.text = "새로운 동굴을 만들어,\n나만의 인사이트를 마음껏 담아보세요."
+                $0.font = .fontGuide(.body2_reg)
+                $0.textColor = .white000
+                $0.numberOfLines = 2
+                $0.setLineSpacing(lineSpacing: 6)
+            }
+            
+            switchButton.do {
+                $0.onTintColor = .green400
+                $0.tintColor = .gray400
+            }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         self.addSubviews(closeButton, containerView, createCaveButton)
         containerView.addSubviews(titleLabel, descriptionLabel, nameTextFieldView, descriptionTextFieldView, shareCaveView, switchButton)
         
@@ -110,21 +110,10 @@ extension CreateCaveView {
             $0.leading.equalToSuperview().inset(3)
         }
         
-        if(SizeLiterals.Screen.screenHeight < 812) {
-            createCaveButton.snp.makeConstraints {
-                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
-                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
-            }
-        }
-        
-        else {
-            createCaveButton.snp.makeConstraints {
-                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
-            }
+        createCaveButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(18)
+            $0.horizontalEdges.equalToSuperview().inset(18)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
         }
     }
 }
@@ -136,19 +125,14 @@ extension CreateCaveView {
         }
         
         if(SizeLiterals.Screen.screenHeight < 812) {
-            createCaveButton.snp.remakeConstraints {
-                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
-                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            createCaveButton.snp.updateConstraints {
+                $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(68)
             }
         }
         
         else {
-            createCaveButton.snp.remakeConstraints {
-                $0.bottom.lessThanOrEqualToSuperview().inset(52 + 280).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            createCaveButton.snp.updateConstraints {
+                $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(18 + 280)
             }
         }
     }
@@ -158,21 +142,8 @@ extension CreateCaveView {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
         }
         
-        if(SizeLiterals.Screen.screenHeight < 812) {
-            createCaveButton.snp.remakeConstraints {
-                $0.top.greaterThanOrEqualTo(containerView.snp.bottom).offset(30)
-                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
-            }
-        }
-        
-        else {
-            createCaveButton.snp.remakeConstraints {
-                $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-                $0.horizontalEdges.equalToSuperview().inset(18)
-                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
-            }
+        createCaveButton.snp.updateConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(18)
         }
     }
 }

@@ -13,6 +13,7 @@ struct AddAction {
 }
 
 final class AlertBuilder {
+    
     private let baseViewController: UIViewController
     private let alertViewController = CustomAlertViewController()
     
@@ -37,7 +38,7 @@ final class AlertBuilder {
         addActionConfirm = AddAction(text: text, action: action)
         return self
     }
-    @discardableResult
+    
     func show() -> Self {
         alertViewController.modalPresentationStyle = .overFullScreen
         alertViewController.modalTransitionStyle = .crossDissolve

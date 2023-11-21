@@ -12,7 +12,6 @@ import RxSwift
 import RxRelay
 
 protocol CreateCaveViewModelInputs {
-    var name: BehaviorRelay<String> { get }
     func setName(with value: String)
     func setDescription(with value: String)
     func switchTapped()
@@ -34,25 +33,12 @@ protocol CreateCaveViewModelType {
 
 final class CreateCaveViewModel: CreateCaveViewModelInputs, CreateCaveViewModelOutput, CreateCaveViewModelType {
     
-    var inputs: CreateCaveViewModelInputs { return self }
-    var outputs: CreateCaveViewModelOutput { return self }
-    
-    var caveModel: BehaviorRelay<CreateCaveModel> = BehaviorRelay(value: CreateCaveModel(name: "", description: ""))
-    var switchStatus: BehaviorRelay<Bool> = BehaviorRelay(value: false)
-    
-    let name = BehaviorRelay<String>(value: "")
-    let description = BehaviorRelay<String>(value: "")
-    init() {
-        self.switchStatus.accept(false)
-    }
-    
     func setName(with value: String) {
         name.accept(value)
     }
     
     func setDescription(with value: String) {
         description.accept(value)
-        
     }
     
     func switchTapped() {
@@ -64,10 +50,21 @@ final class CreateCaveViewModel: CreateCaveViewModelInputs, CreateCaveViewModelO
         caveModel.accept(CreateCaveModel(name: name.value, description: description.value))
     }
     
+    var inputs: CreateCaveViewModelInputs { return self }
+    var outputs: CreateCaveViewModelOutput { return self }
+    
+    var name = BehaviorRelay<String>(value: "")
+    var description = BehaviorRelay<String>(value: "")
+    var caveModel: BehaviorRelay<CreateCaveModel> = BehaviorRelay(value: CreateCaveModel(name: "", description: ""))
+    var switchStatus: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var isValid: Observable<Bool> {
         return BehaviorRelay.combineLatest(name, description)
             .map { name, description in
                 return !name.isEmpty && !description.isEmpty
             }
+    }
+    
+    init() {
+        self.switchStatus.accept(false)
     }
 }

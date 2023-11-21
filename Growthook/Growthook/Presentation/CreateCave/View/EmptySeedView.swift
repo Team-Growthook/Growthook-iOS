@@ -10,7 +10,8 @@ import UIKit
 import SnapKit
 import Then
 
-final class EmptySeedView: UIView {
+final class EmptySeedView: BaseView {
+    
     private let titleLabel = UILabel()
     private let scrapView = UIImageView()
     private let mugwortView = UIImageView()
@@ -18,7 +19,7 @@ final class EmptySeedView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUI()
+        setStyles()
         setLayout()
     }
 
@@ -26,10 +27,8 @@ final class EmptySeedView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
-
-extension EmptySeedView {
-    private func setUI() {
+    
+    override func setStyles() {
         self.backgroundColor = .gray700
         self.roundCorners(cornerRadius: 20, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         
@@ -48,7 +47,7 @@ extension EmptySeedView {
         }
     }
     
-    private func setLayout() {
+    override func setLayout() {
         self.addSubviews(titleLabel, scrapView, mugwortView, plantSeedButton)
         
         titleLabel.snp.makeConstraints {

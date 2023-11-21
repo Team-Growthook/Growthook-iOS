@@ -12,8 +12,14 @@ import RxSwift
 import Then
 
 final class CreateCaveViewController: UIViewController {
+    
     private var viewModel = CreateCaveViewModel()
+    
     private let disposeBag = DisposeBag()
+    
+    override func loadView() {
+        self.view = createCaveView
+    }
     
     private let createCaveView = CreateCaveView()
     override func viewDidLoad() {
@@ -25,10 +31,6 @@ final class CreateCaveViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func loadView() {
-        self.view = createCaveView
     }
     
     deinit {
@@ -49,27 +51,29 @@ extension CreateCaveViewController {
         
         createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidBegin])
             .bind { [weak self] in
-                self?.setUpAnimation()
-                self?.createCaveView.nameTextFieldView.setFocus()
+                guard let self else { return }
+                self.setUpAnimation()
+                self.createCaveView.nameTextFieldView.setFocus()
             }
             .disposed(by: disposeBag)
         
         createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidEnd])
             .bind { [weak self] in
-                if(self?.createCaveView.nameTextFieldView.textField.text?.isEmpty == true) {
-                    
-                    self?.createCaveView.nameTextFieldView.setEmpty()
+                guard let self else { return }
+                if(self.createCaveView.nameTextFieldView.textField.text?.isEmpty == true) {
+                    self.createCaveView.nameTextFieldView.setEmpty()
                 }
                 else {
-                    self?.createCaveView.nameTextFieldView.setDone()
+                    self.createCaveView.nameTextFieldView.setDone()
                 }
-                self?.setDownAnimation()
+                self.setDownAnimation()
             }
             .disposed(by: disposeBag)
         
         createCaveView.nameTextFieldView.textField.rx.controlEvent([.editingDidEndOnExit])
             .bind { [weak self] in
-                self?.setNextTextField()
+                guard let self else { return }
+                self.setNextTextField()
             }.disposed(by: disposeBag)
         
         createCaveView.descriptionTextFieldView.textField.rx.text
@@ -117,7 +121,7 @@ extension CreateCaveViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.isValid
+        viewModel.outputs.isValid
             .map { $0 ? true : false }
             .bind(to: createCaveView.createCaveButton.rx.enableStatus)
             .disposed(by: disposeBag)
@@ -164,10 +168,4 @@ extension CreateCaveViewController {
         emptyViewController.modalPresentationStyle = UIModalPresentationStyle.fullScreen
         self.present(emptyViewController, animated: true)
     }
-}
-
-@available(iOS 17.0, *)
-#Preview {
-    let vc = CreateCaveView()
-    return vc
 }

@@ -45,7 +45,7 @@ extension UIView {
         toastLabel.textColor = .green100
         toastLabel.textAlignment = .left
         toastLabel.font = .fontGuide(.body3_reg)
-        toastLabel.alpha = 1.0
+        toastLabel.alpha = 0.0
         toastLabel.layer.cornerRadius = SizeLiterals.Screen.screenHeight * 50.0 / 812 / 2
         toastLabel.clipsToBounds = true
         let leadingImage = NSTextAttachment(image: ImageLiterals.Component.icn_check_green)
@@ -63,7 +63,10 @@ extension UIView {
                                   height: toastHeight)
         self.addSubviews(toastLabel)
         
-        UIView.animate(withDuration: 1.0, delay: 3.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1.0, delay: 0, options: .curveEaseIn, animations: {
+            toastLabel.alpha = 1.0
+        })
+        UIView.animate(withDuration: 1.0, delay: 2.0, options: .curveEaseIn, animations: {
             toastLabel.alpha = 0.0
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
