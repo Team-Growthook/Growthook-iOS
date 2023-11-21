@@ -25,4 +25,29 @@ extension UIViewController {
         view.endEditing(true)
     }
     
+    func safeAreaTopInset() -> CGFloat {
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first
+            let top = window?.safeAreaInsets.top
+            return top ?? 0.0
+            
+        } else if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let top = window?.safeAreaInsets.top
+            return top ?? 0.0
+        }
+    }
+    
+    func safeAreaBottomInset() -> CGFloat {
+        if #available(iOS 13.0, *) {
+            let window = UIApplication.shared.windows.first
+            let bottom = window?.safeAreaInsets.bottom
+            return bottom ?? 0.0
+            
+        } else if #available(iOS 11.0, *) {
+            let window = UIApplication.shared.keyWindow
+            let bottom = window?.safeAreaInsets.bottom
+            return bottom ?? 0.0
+        }
+    }
 }

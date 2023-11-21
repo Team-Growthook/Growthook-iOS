@@ -68,5 +68,13 @@ extension UIView {
         }, completion: {(isCompleted) in
             toastLabel.removeFromSuperview()
         })
+      
+    func addBlurEffect(style: UIBlurEffect.Style, alpha: CGFloat) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = alpha
+        addSubview(blurEffectView)
     }
 }

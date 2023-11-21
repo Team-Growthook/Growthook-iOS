@@ -10,18 +10,17 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-                    
-                    guard let windowScene = (scene as? UIWindowScene) else { return }
-                    window = UIWindow(windowScene: windowScene)
-                    
-                    let naviVC = UINavigationController(rootViewController: CreateCaveViewController())
-                    
-                    window?.rootViewController = naviVC
-                    window?.makeKeyAndVisible()
-                }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: windowScene)
+        
+        let splashViewController = TabBarController()
+        
+        window?.rootViewController = splashViewController
+        window?.makeKeyAndVisible()
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
