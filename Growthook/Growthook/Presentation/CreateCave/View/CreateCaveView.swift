@@ -64,6 +64,10 @@ final class CreateCaveView: BaseView {
             $0.font = .fontGuide(.head4)
         }
         
+        nameTextField.do {
+            $0.returnKeyType = .done
+        }
+        
         nameCountLabel.do {
             $0.text = "0/7"
             $0.textColor = .gray300
@@ -74,6 +78,10 @@ final class CreateCaveView: BaseView {
             $0.text = "소개"
             $0.textColor = .green400
             $0.font = .fontGuide(.head4)
+        }
+        
+        introduceTextView.do {
+            $0.returnKeyType = .done
         }
         
         introduceCountLabel.do {
@@ -173,19 +181,25 @@ final class CreateCaveView: BaseView {
 
 extension CreateCaveView {
     func setLayoutUp() {
-        containerView.snp.updateConstraints {
+        containerView.snp.remakeConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(2)
+            $0.horizontalEdges.equalToSuperview().inset(18)
+            $0.height.equalTo(431)
         }
         
         if(SizeLiterals.Screen.screenHeight < 812) {
-            createCaveButton.snp.updateConstraints {
+            createCaveButton.snp.remakeConstraints {
                 $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(68)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
             }
         }
         
         else {
-            createCaveButton.snp.updateConstraints {
-                $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(18 + 280)
+            createCaveButton.snp.remakeConstraints {
+                $0.bottom.equalTo(self.safeAreaLayoutGuide).inset(298)
+                $0.horizontalEdges.equalToSuperview().inset(18)
+                $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
             }
         }
     }
@@ -193,6 +207,8 @@ extension CreateCaveView {
     func setLayoutDown() {
         containerView.snp.updateConstraints {
             $0.top.equalTo(closeButton.snp.bottom).offset(52)
+            $0.horizontalEdges.equalToSuperview().inset(18)
+            $0.height.equalTo(431)
         }
         
         createCaveButton.snp.updateConstraints {
@@ -202,15 +218,8 @@ extension CreateCaveView {
 }
 
 extension CreateCaveView {
-    @discardableResult
     override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()
         return self.nameTextField.becomeFirstResponder()
-    }
-    
-    @discardableResult
-    override func resignFirstResponder() -> Bool {
-        super.resignFirstResponder()
-        return self.nameTextField.resignFirstResponder()
     }
 }

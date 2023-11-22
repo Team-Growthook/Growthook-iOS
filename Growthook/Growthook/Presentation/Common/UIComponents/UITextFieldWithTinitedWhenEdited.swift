@@ -78,7 +78,7 @@ extension UITextFieldWithTinitedWhenEdited: UITextFieldDelegate {
         if text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             modifyBorderLine(with: .gray200)
         } else {
-            modifyBorderLine(with: .green200)
+            modifyBorderLine(with: .white000)
         }
     }
     

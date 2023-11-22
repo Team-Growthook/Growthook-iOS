@@ -13,15 +13,14 @@ import Then
 
 final class CreateCaveViewController: UIViewController {
     
+    private let createCaveView = CreateCaveView()
     private var viewModel = CreateCaveViewModel()
-    
     private let disposeBag = DisposeBag()
     
     override func loadView() {
         self.view = createCaveView
     }
     
-    private let createCaveView = CreateCaveView()
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -70,6 +69,11 @@ extension CreateCaveViewController {
                 self.setNextTextField()
             }.disposed(by: disposeBag)
         
+        
+        
+        
+        
+        
         createCaveView.introduceTextView.rx.text
             .orEmpty
             .distinctUntilChanged()
@@ -80,29 +84,59 @@ extension CreateCaveViewController {
             .disposed(by: disposeBag)
         
         createCaveView.introduceTextView.rx.didBeginEditing
-//        controlEvent([.editingDidBegin])
             .bind { [weak self] in
-                self?.setUpAnimation()
-//                self?.createCaveView.introduceTextView.setFocus()
+                guard let self else { return }
+                self.setUpAnimation()
             }
             .disposed(by: disposeBag)
         
         createCaveView.introduceTextView.rx.didEndEditing
-//            .controlEvent([.editingDidEnd])
             .bind { [weak self] in
-                
-                    guard let self else { return }
-//                if(self?.createCaveView.introduceTextView.text?.isEmpty == true) {
-//                    
-//                    self?.createCaveView.introduceTextView.setEmpty()
-//                }
-//                else {
-//                    self?.createCaveView.introduceTextView.setDone()
-//                }
+                guard let self else { return }
                 self.setDownAnimation()
             }
             .disposed(by: disposeBag)
         
+        
+        
+        
+        
+        
+        
+        
+        
+//        createCaveView.introduceTextView.rx.text
+//            .orEmpty
+//            .distinctUntilChanged()
+//            .bind { [weak self] value in
+//                guard let self else { return }
+//                self.viewModel.inputs.setDescription(with: value)
+//            }
+//            .disposed(by: disposeBag)
+//        
+//        createCaveView.introduceTextView.rx.didBeginEditing
+////        controlEvent([.editingDidBegin])
+//            .bind { [weak self] in
+//                self?.setUpAnimation()
+////                self?.createCaveView.introduceTextView.setFocus()
+//            }
+//            .disposed(by: disposeBag)
+//        
+//        createCaveView.introduceTextView.rx.didEndEditing
+////            .controlEvent([.editingDidEnd])
+//            .bind { [weak self] in
+//                    guard let self else { return }
+////                if(self?.createCaveView.introduceTextView.text?.isEmpty == true) {
+////                    
+////                    self?.createCaveView.introduceTextView.setEmpty()
+////                }
+////                else {
+////                    self?.createCaveView.introduceTextView.setDone()
+////                }
+//                self.setDownAnimation()
+//            }
+//            .disposed(by: disposeBag)
+//        
         createCaveView.switchButton.rx.isOn
             .subscribe { [weak self] value in
                 if value == true {
