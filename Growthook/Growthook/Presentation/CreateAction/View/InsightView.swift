@@ -155,7 +155,6 @@ extension InsightView {
     }
     
     func showDetail() {
-        print("tapped")
         self.dateLabel.isHidden = false
         self.verticalDivisionLabel.isHidden = false
         self.dDayLabel.isHidden = false
@@ -177,7 +176,6 @@ extension InsightView {
     }
     
     func fold() {
-        print("fold")
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
             self.dateLabel.alpha = 0.0
             self.verticalDivisionLabel.alpha = 0.0
