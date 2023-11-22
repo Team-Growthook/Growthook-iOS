@@ -18,14 +18,14 @@ final class CreateActionViewControlller: BaseViewController {
     private var viewModel = CreateActionViewModel()
     private let disposeBag = DisposeBag()
     
+    private var isFolded = true
+    
     override func loadView() {
         self.view = createActionView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
-        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +37,24 @@ final class CreateActionViewControlller: BaseViewController {
         print(#function)
     }
     
-//    override func bindViewModel() {
-//        <#code#>
-//    }
+    override func bindViewModel() {
+        viewModel.outputs.insight
+            .bind(onNext: { value in
+                self.createActionView.insightView.bindInsight(model: value)
+            })
+            .disposed(by: disposeBag)
+        
+        createActionView.insightView.moreButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                switch isFolded {
+                case true:
+                    self.createActionView.setShowingAnimation()
+                case false:
+                    self.createActionView.setFoldingAnimation()
+                }
+                self.isFolded.toggle()
+            }
+            .disposed(by: disposeBag)
+    }
 }
