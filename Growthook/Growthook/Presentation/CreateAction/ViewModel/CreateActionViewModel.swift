@@ -13,7 +13,6 @@ import RxRelay
 
 protocol CreateActionViewModelInputs {
     func setActionPlan(with value: String)
-    func setFolded(with value: FoldStatus)
 }
 
 protocol CreateActionViewModelOutputs {
