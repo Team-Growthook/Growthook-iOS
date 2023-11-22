@@ -12,15 +12,15 @@ import Then
 
 final class CreateActionView: BaseView {
     
+    private let topView = UIView()
     private let navigationBar = CustomNavigationBar()
     let confirmButton = UIButton()
-    private let insightView = InsightView()
+    let insightView = InsightView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyles()
         setLayout()
-        insightView.bindInsight(model: InsightModel.dummy())
     }
     
     @available(*, unavailable)
@@ -31,7 +31,12 @@ final class CreateActionView: BaseView {
     override func setStyles() {
         self.backgroundColor = .gray700
         
+        topView.do {
+            $0.backgroundColor = .gray600
+        }
+        
         navigationBar.do {
+            $0.backgroundColor = .gray600
             $0.isTitleViewIncluded = true
             $0.isTitleLabelIncluded = "액션 만들기"
             $0.isBackButtonIncluded = true
@@ -46,15 +51,53 @@ final class CreateActionView: BaseView {
     }
     
     override func setLayout() {
-        self.addSubviews(navigationBar, insightView)
+        self.addSubviews(topView, navigationBar, insightView)
+        
+        topView.snp.makeConstraints {
+            $0.top.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.top)
+        }
         navigationBar.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(44)
+            $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
         }
         
         insightView.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(125)
+        }
+    }
+}
+
+extension CreateActionView {
+    
+    func setFoldingAnimation() {
+        UIView.animate(withDuration: 0.4, animations: { [self] in
+            insightView.frame.size.height = 125
+            insightView.fold()
+            
+        })
+        
+        insightView.snp.remakeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(125)
+        }
+    }
+    
+    func setShowingAnimation() {
+        UIView.animate(withDuration: 0.4, animations: { [self] in
+            insightView.frame.size.height = 153 + 125
+            insightView.showDetail()
+        
+            
+        })
+        
+        insightView.snp.remakeConstraints {
+            $0.top.equalTo(navigationBar.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(278)
         }
     }
 }
