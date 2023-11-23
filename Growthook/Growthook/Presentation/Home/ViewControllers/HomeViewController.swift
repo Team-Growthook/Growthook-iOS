@@ -50,6 +50,15 @@ final class HomeViewController: BaseViewController {
                 cell.configureCell(model)
                 }
                 .disposed(by: disposeBag)
+        viewModel.outputs.insightLongTap
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                self.makeVibrate()
+                self.presentToHalfModalViewController()
+                if let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) {
+                    
+                }
+            })
     }
     
     // MARK: - UI Components Property
@@ -114,6 +123,23 @@ extension HomeViewController {
         insightListView.insightCollectionView.addGestureRecognizer(longPressGesture)
     }
     
+    func presentToHalfModalViewController() {
+        let projectStartTimeVC = InsightTapBottomSheet()
+        projectStartTimeVC.modalPresentationStyle = .pageSheet
+        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+            return SizeLiterals.Screen.screenHeight * 84 / 812
+        }
+        
+        if let sheet = projectStartTimeVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 0
+            sheet.delegate = self
+            sheet.prefersGrabberVisible = false
+        }
+        present(projectStartTimeVC, animated: true, completion: nil)
+    }
+    
     // MARK: - @objc Methods
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
@@ -123,7 +149,6 @@ extension HomeViewController {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
                 viewModel.handleLongPress(at: indexPath)
-                makeVibrate()
             }
         }
     }
@@ -132,3 +157,5 @@ extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {}
 
 extension HomeViewController: UIGestureRecognizerDelegate {}
+
+extension HomeViewController: UISheetPresentationControllerDelegate {}

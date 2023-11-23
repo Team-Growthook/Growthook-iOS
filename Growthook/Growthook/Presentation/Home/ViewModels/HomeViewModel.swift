@@ -12,12 +12,12 @@ import RxCocoa
 
 protocol HomeViewModelInputs {
     func handleLongPress(at indexPath: IndexPath)
-    
 }
 
 protocol HomeViewModelOutputs {
     var caveProfile: BehaviorRelay<[CaveProfile]> { get }
     var insightList: BehaviorRelay<[InsightList]> { get }
+    var insightLongTap: PublishSubject<IndexPath> { get }
 }
 
 protocol HomeViewModelType {
@@ -29,6 +29,7 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     var caveProfile: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
     var insightList: BehaviorRelay<[InsightList]> = BehaviorRelay(value: [])
+    var insightLongTap: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -42,5 +43,6 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
         let items = InsightList.insightListDummyData()
         let selectedItem = items[indexPath.item]
         print("\(indexPath.row) / 제목 :  \(selectedItem.title)")
+        self.insightLongTap.onNext(indexPath)
     }
 }

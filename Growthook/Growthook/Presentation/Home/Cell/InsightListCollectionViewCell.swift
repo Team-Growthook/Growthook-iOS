@@ -18,6 +18,8 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     private let dueTimeLabel = UILabel()
     private let lockView = UIView()
     private let lockImageView = UIImageView()
+    private let selectedView = UIView()
+    private let selectedImageView = UIImageView()
     
     // MARK: - View Life Cycle
     
@@ -65,14 +67,24 @@ extension InsightListCollectionViewCell {
         lockImageView.do {
             $0.image = ImageLiterals.Home.icn_lock
         }
+        
+        selectedView.do {
+            $0.backgroundColor = .green400
+            $0.isHidden = true
+        }
+        
+        selectedImageView.do {
+            $0.image = ImageLiterals.Component.icn_check_white
+        }
     }
     
     // MARK: - Layout Helper
     
     private func setLayout() {
         
-        addSubviews(scrapButton, titleLabel, dueTimeLabel, lockView)
+        addSubviews(scrapButton, titleLabel, dueTimeLabel, lockView, selectedView)
         lockView.addSubviews(lockImageView)
+        selectedView.addSubviews(selectedImageView)
         
         scrapButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -94,6 +106,14 @@ extension InsightListCollectionViewCell {
         }
         
         lockImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        selectedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        selectedImageView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
     }
@@ -126,5 +146,9 @@ extension InsightListCollectionViewCell {
         }
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
+    }
+    
+    func selectedCell() {
+        selectedView.isHidden = false
     }
 }
