@@ -136,7 +136,6 @@ extension HomeViewController {
     func presentToHalfModalViewController(_ indexPath: IndexPath) {
         let insightTapVC = InsightTapBottomSheet()
         insightTapVC.modalPresentationStyle = .pageSheet
-        insightTapVC.insightDismissDelegate = self
         let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
         let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
             return SizeLiterals.Screen.screenHeight * 84 / 812
@@ -153,32 +152,15 @@ extension HomeViewController {
         insightTapVC.onDismiss = { [weak self] in
             print("Dismissed")
             self?.viewModel.inputs.dismissInsightTap(at: indexPath)
-//            if let indexPath = self?.insightListView.insightCollectionView.indexPathsForSelectedItems?.first,
-//               let cell = self?.insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
-//                cell.unSelectedCell()
-//                print("Dismissed")
-//            }
         }
         
         present(insightTapVC, animated: true)
     }
     
-//    func dismissHalfModalViewController() {
-//        // 모달이 화면에서 사라질 때 실행될 코드
-//        if let presentingViewController = presentingViewController as? InsightTapBottomSheet {
-//            if let indexPath = insightListView.insightCollectionView.indexPathsForSelectedItems?.first,
-//               let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
-//                cell.unSelectedCell() // 적절한 함수 호출
-//            }
-//        }
-//        dismiss(animated: true, completion: nil)
-//    }
-    
     // MARK: - @objc Methods
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
         let location = gesture.location(in: gesture.view)
-//        let collectionView = gesture.view as! UICollectionView
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
@@ -193,15 +175,3 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {}
 extension HomeViewController: UIGestureRecognizerDelegate {}
 
 extension HomeViewController: UISheetPresentationControllerDelegate {}
-
-extension HomeViewController: InsightDismissProtocol {
-    
-    func insightDismiss() {
-        print("ddddd")
-        if let indexPath = insightListView.insightCollectionView.indexPathsForSelectedItems?.first,
-           let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
-            print("ddd")
-            cell.unSelectedCell() // 적절한 함수 호출
-        }
-    }
-}
