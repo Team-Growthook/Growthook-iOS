@@ -13,6 +13,10 @@ import Then
 import RxCocoa
 import RxSwift
 
+protocol InsightDismissProtocol: AnyObject {
+    func insightDismiss()
+}
+
 class InsightTapBottomSheet: BaseViewController {
 
     // MARK: - UI Components
@@ -20,6 +24,12 @@ class InsightTapBottomSheet: BaseViewController {
     private let buttonView = UIView()
     private let moveButton = UIButton()
     private let deleteButton = UIButton()
+    
+    var onDismiss: (() -> Void)?
+    
+    // MARK: - Properties
+    
+    weak var insightDismissDelegate: InsightDismissProtocol?
     
     // MARK: - UI Components Property
     
@@ -62,5 +72,22 @@ class InsightTapBottomSheet: BaseViewController {
             $0.top.equalTo(moveButton)
             $0.trailing.equalToSuperview().inset(SizeLiterals.Screen.screenWidth * 70 / 375)
         }
+    }
+    
+    override func setDelegates() {
+        self.presentationController?.delegate = self
+    }
+    
+    // MARK: - Methods
+ 
+}
+
+extension InsightTapBottomSheet: UIAdaptivePresentationControllerDelegate {
+    
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("dismiss")
+        onDismiss?()
+        insightDismissDelegate?.insightDismiss()
+//        dismiss(animated: true)
     }
 }

@@ -151,4 +151,8 @@ extension InsightListCollectionViewCell {
     func selectedCell() {
         selectedView.isHidden = false
     }
+    
+    func unSelectedCell() {
+        selectedView.isHidden = true
+    }
 }
