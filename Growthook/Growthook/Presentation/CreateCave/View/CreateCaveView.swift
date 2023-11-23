@@ -24,8 +24,6 @@ final class CreateCaveView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setStyles()
-        setLayout()
     }
 
     @available(*, unavailable)

@@ -19,8 +19,6 @@ final class EmptySeedView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setStyles()
-        setLayout()
     }
 
     @available(*, unavailable)
