@@ -69,7 +69,7 @@ extension InsightListCollectionViewCell {
         }
         
         selectedView.do {
-            $0.backgroundColor = .green400
+            $0.backgroundColor = .green50
             $0.isHidden = true
         }
         
