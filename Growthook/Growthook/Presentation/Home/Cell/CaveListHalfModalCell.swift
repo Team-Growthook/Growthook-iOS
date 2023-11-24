@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class CaveListHalfModalCell: UITableViewCell {
+final class CaveListHalfModalCell: UITableViewCell {
     
     // MARK: - UI Components
     

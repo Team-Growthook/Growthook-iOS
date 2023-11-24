@@ -146,7 +146,6 @@ extension HomeViewController {
             sheet.preferredCornerRadius = 0
             sheet.delegate = self
             sheet.delegate = insightTapVC as? any UISheetPresentationControllerDelegate
-            sheet.prefersGrabberVisible = false
         }
         
         insightTapVC.onDismiss = { [weak self] in

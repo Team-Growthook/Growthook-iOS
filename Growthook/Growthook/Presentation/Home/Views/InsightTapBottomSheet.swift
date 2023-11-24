@@ -13,7 +13,7 @@ import Then
 import RxCocoa
 import RxSwift
 
-class InsightTapBottomSheet: BaseViewController {
+final class InsightTapBottomSheet: BaseViewController {
 
     // MARK: - UI Components
     
@@ -23,7 +23,22 @@ class InsightTapBottomSheet: BaseViewController {
     
     // MARK: - Properties
     
+    private let viewModel = InsightTapViewModel()
+    private let disposeBag = DisposeBag()
     var onDismiss: (() -> Void)?
+    
+    override func bindViewModel() {
+        moveButton.rx.tap
+            .bind { [weak self] in
+                self?.viewModel.inputs.moveButtonTap()
+            }
+            .disposed(by: disposeBag)
+        viewModel.outputs.presentToCaveList
+            .subscribe(onNext: { [weak self] in
+                self?.presentToCaveListVC()
+            })
+            .disposed(by: disposeBag)
+    }
     
     // MARK: - UI Components Property
     
@@ -72,6 +87,24 @@ class InsightTapBottomSheet: BaseViewController {
     
     override func setDelegates() {
         self.presentationController?.delegate = self
+    }
+    
+    private func presentToCaveListVC() {
+        let caveListVC = CaveListHalfModal()
+        caveListVC.modalPresentationStyle = .pageSheet
+        let customDetentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: customDetentIdentifier) { (_) in
+            return SizeLiterals.Screen.screenHeight * 420 / 812
+        }
+        
+        if let sheet = caveListVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 15
+            sheet.prefersGrabberVisible = true
+            sheet.delegate = caveListVC as? any UISheetPresentationControllerDelegate
+        }
+        
+        present(caveListVC, animated: true)
     }
 }
 

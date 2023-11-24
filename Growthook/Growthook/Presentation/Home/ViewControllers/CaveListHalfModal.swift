@@ -42,7 +42,7 @@ class CaveListHalfModal: BaseViewController {
         self.view.backgroundColor = .gray400
         
         caveListTableView.do {
-            $0.rowHeight = SizeLiterals.Screen.screenHeight * 54 / 812
+            $0.rowHeight = 54
             $0.separatorColor = .gray200
             $0.backgroundColor = .clear
             $0.separatorStyle = .singleLine
@@ -62,7 +62,7 @@ class CaveListHalfModal: BaseViewController {
         self.view.addSubviews(caveListTableView, selectButton)
         
         caveListTableView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(56)
+            $0.top.equalToSuperview().inset(12)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(60)
         }
@@ -70,7 +70,7 @@ class CaveListHalfModal: BaseViewController {
         selectButton.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.horizontalEdges.equalToSuperview().inset(18)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+            $0.height.equalTo(50)
         }
     }
     

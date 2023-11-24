@@ -58,6 +58,7 @@
 		03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356602B0F533E00750758 /* CaveListHalfModal.swift */; };
 		03C356632B1069AC00750758 /* CaveListHalfModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356622B1069AC00750758 /* CaveListHalfModalCell.swift */; };
 		03C356652B106AC800750758 /* CaveListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356642B106AC800750758 /* CaveListViewModel.swift */; };
+		03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356662B108EB800750758 /* InsightTapViewModel.swift */; };
 		03E481002AF2AFDC002F4CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */; };
 		03E481022AF2AFDC002F4CBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */; };
 		03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E481082AF2AFDD002F4CBC /* Assets.xcassets */; };
@@ -133,6 +134,7 @@
 		03C356602B0F533E00750758 /* CaveListHalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListHalfModal.swift; sourceTree = "<group>"; };
 		03C356622B1069AC00750758 /* CaveListHalfModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListHalfModalCell.swift; sourceTree = "<group>"; };
 		03C356642B106AC800750758 /* CaveListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListViewModel.swift; sourceTree = "<group>"; };
+		03C356662B108EB800750758 /* InsightTapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTapViewModel.swift; sourceTree = "<group>"; };
 		03E480FC2AF2AFDC002F4CBC /* Growthook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Growthook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
+				03C356662B108EB800750758 /* InsightTapViewModel.swift */,
 				03C356642B106AC800750758 /* CaveListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -638,6 +641,7 @@
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
+				03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
 				58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */,
