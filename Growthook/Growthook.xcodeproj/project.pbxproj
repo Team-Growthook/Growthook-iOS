@@ -55,6 +55,9 @@
 		03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */; };
 		03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */; };
 		03C3565F2B0B702900750758 /* InsightTapBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */; };
+		03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356602B0F533E00750758 /* CaveListHalfModal.swift */; };
+		03C356632B1069AC00750758 /* CaveListHalfModalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356622B1069AC00750758 /* CaveListHalfModalCell.swift */; };
+		03C356652B106AC800750758 /* CaveListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C356642B106AC800750758 /* CaveListViewModel.swift */; };
 		03E481002AF2AFDC002F4CBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */; };
 		03E481022AF2AFDC002F4CBC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */; };
 		03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03E481082AF2AFDD002F4CBC /* Assets.xcassets */; };
@@ -127,6 +130,9 @@
 		03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewController.swift; sourceTree = "<group>"; };
 		03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
 		03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightTapBottomSheet.swift; sourceTree = "<group>"; };
+		03C356602B0F533E00750758 /* CaveListHalfModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListHalfModal.swift; sourceTree = "<group>"; };
+		03C356622B1069AC00750758 /* CaveListHalfModalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListHalfModalCell.swift; sourceTree = "<group>"; };
+		03C356642B106AC800750758 /* CaveListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveListViewModel.swift; sourceTree = "<group>"; };
 		03E480FC2AF2AFDC002F4CBC /* Growthook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Growthook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03E480FF2AF2AFDC002F4CBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03E481012AF2AFDC002F4CBC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +195,7 @@
 			children = (
 				033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */,
 				035DB2AA2B00FF2400161872 /* InsightListCollectionViewCell.swift */,
+				03C356622B1069AC00750758 /* CaveListHalfModalCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -206,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
+				03C356642B106AC800750758 /* CaveListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -404,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				03B9ACA02AF7B25B00A5751C /* HomeViewController.swift */,
+				03C356602B0F533E00750758 /* CaveListHalfModal.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -611,6 +620,7 @@
 			files = (
 				03B9AC822AF5658F00A5751C /* FontLiterals.swift in Sources */,
 				035DB2AB2B00FF2400161872 /* InsightListCollectionViewCell.swift in Sources */,
+				03C356632B1069AC00750758 /* CaveListHalfModalCell.swift in Sources */,
 				03B9AC952AF566C800A5751C /* BlurredLabel.swift in Sources */,
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
 				035DB2AD2B01041B00161872 /* InsightList.swift in Sources */,
@@ -620,6 +630,7 @@
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
+				03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
 				58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */,
@@ -659,6 +670,7 @@
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
 				03B9AC722AF5646000A5751C /* UITextField+.swift in Sources */,
 				033E9C1B2AFE606E0051A9E8 /* CaveCollectionViewCell.swift in Sources */,
+				03C356652B106AC800750758 /* CaveListViewModel.swift in Sources */,
 				03B9AC782AF564C400A5751C /* UILabel+.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
