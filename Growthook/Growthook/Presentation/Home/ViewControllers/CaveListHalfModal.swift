@@ -33,6 +33,14 @@ class CaveListHalfModal: BaseViewController {
                     cell.configureCell(model)
                 }
                 .disposed(by: disposeBag)
+        viewModel.outputs.selectedCellIndex
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
+                    cell.selectedCell()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -83,5 +91,10 @@ class CaveListHalfModal: BaseViewController {
     }
 }
 
-extension CaveListHalfModal: UITableViewDelegate {}
+extension CaveListHalfModal: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.inputs.caveListCellTap(at: indexPath)
+    }
+}
 

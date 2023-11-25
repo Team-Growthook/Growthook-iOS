@@ -13,11 +13,12 @@ import RxSwift
 import RxCocoa
 
 protocol CaveListModelInputs {
-
+    func caveListCellTap(at indexPath: IndexPath)
 }
 
 protocol CaveListModelOutputs {
     var caveList: BehaviorRelay<[CaveProfile]> { get }
+    var selectedCellIndex: PublishSubject<IndexPath> { get }
 }
 
 protocol CaveListModelType {
@@ -28,12 +29,17 @@ protocol CaveListModelType {
 final class CaveListViewModel: CaveListModelInputs, CaveListModelOutputs, CaveListModelType {
     
     var caveList: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
+    var selectedCellIndex: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: CaveListModelInputs { return self }
     var outputs: CaveListModelOutputs { return self }
     
     init() {
         self.caveList.accept(CaveProfile.caveprofileDummyData())
+    }
+    
+    func caveListCellTap(at indexPath: IndexPath) {
+        self.selectedCellIndex.onNext(indexPath)
     }
 }
 

@@ -15,7 +15,7 @@ final class CaveListHalfModalCell: UITableViewCell {
     // MARK: - UI Components
     
     private let titleLabel = UILabel()
-    private let underLineView = UIView()
+    private let selectedRoundView = UIView()
     
     // MARK: - View Life Cycle
 
@@ -45,8 +45,10 @@ extension CaveListHalfModalCell {
             $0.font = .fontGuide(.body1_reg)
         }
         
-        underLineView.do {
-            $0.backgroundColor = .gray200
+        selectedRoundView.do {
+            $0.backgroundColor = .green400
+            $0.isHidden = true
+            $0.makeCornerRound(radius: self.selectedRoundView.frame.width / 2)
         }
     }
     
@@ -54,11 +56,17 @@ extension CaveListHalfModalCell {
     
     private func setLayout() {
         
-        contentView.addSubviews(titleLabel)
+        contentView.addSubviews(titleLabel, selectedRoundView)
         
         titleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(16)
+        }
+        
+        selectedRoundView.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.centerY.equalToSuperview()
+            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 12 / 375)
         }
     }
     
@@ -66,5 +74,19 @@ extension CaveListHalfModalCell {
     
     func configureCell(_ model: CaveProfile) {
         titleLabel.text = model.title
+    }
+    
+    func selectedCell() {
+        titleLabel.font = .fontGuide(.body1_bold)
+        titleLabel.textColor = .green400
+        selectedRoundView.isHidden = false
+        contentView.backgroundColor = .gray500
+    }
+    
+    func unSelectedCell() {
+        titleLabel.font = .fontGuide(.body1_reg)
+        titleLabel.textColor = .gray200
+        selectedRoundView.isHidden = true
+        contentView.backgroundColor = .clear
     }
 }
