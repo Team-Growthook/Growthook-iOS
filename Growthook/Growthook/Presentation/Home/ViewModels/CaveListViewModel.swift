@@ -18,7 +18,8 @@ protocol CaveListModelInputs {
 
 protocol CaveListModelOutputs {
     var caveList: BehaviorRelay<[CaveProfile]> { get }
-    var selectedCellIndex: PublishSubject<IndexPath> { get }
+    var selectedCellIndex: BehaviorSubject<IndexPath?> { get }
+    var unSelectedCellIndex: PublishSubject<IndexPath> { get }
 }
 
 protocol CaveListModelType {
@@ -29,7 +30,8 @@ protocol CaveListModelType {
 final class CaveListViewModel: CaveListModelInputs, CaveListModelOutputs, CaveListModelType {
     
     var caveList: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
-    var selectedCellIndex: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
+    var selectedCellIndex: BehaviorSubject<IndexPath?> = BehaviorSubject<IndexPath?>(value: nil)
+    var unSelectedCellIndex: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: CaveListModelInputs { return self }
     var outputs: CaveListModelOutputs { return self }

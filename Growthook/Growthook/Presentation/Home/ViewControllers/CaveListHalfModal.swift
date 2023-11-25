@@ -31,13 +31,24 @@ class CaveListHalfModal: BaseViewController {
                 .items(cellIdentifier: CaveListHalfModalCell.className, cellType: CaveListHalfModalCell.self)) {
                         (index, model, cell) in
                     cell.configureCell(model)
+                    cell.selectionStyle = UITableViewCell.SelectionStyle.none
                 }
                 .disposed(by: disposeBag)
         viewModel.outputs.selectedCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
+                if let indexPath = indexPath {
+                    if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
+                        cell.selectedCell()
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+        viewModel.outputs.unSelectedCellIndex
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
                 if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
-                    cell.selectedCell()
+                    cell.unSelectedCell()
                 }
             })
             .disposed(by: disposeBag)
