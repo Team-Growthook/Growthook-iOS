@@ -29,8 +29,8 @@ class CaveListHalfModal: BaseViewController {
         viewModel.outputs.caveList
             .bind(to: caveListTableView.rx
                 .items(cellIdentifier: CaveListHalfModalCell.className, cellType: CaveListHalfModalCell.self)) {
-                        (index, modal, cell) in
-                    // 데이터바인딩
+                        (index, model, cell) in
+                    cell.configureCell(model)
                 }
                 .disposed(by: disposeBag)
     }

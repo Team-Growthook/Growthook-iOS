@@ -61,4 +61,10 @@ extension CaveListHalfModalCell {
             $0.leading.equalToSuperview().inset(16)
         }
     }
+    
+    // MARK: - Methods
+    
+    func configureCell(_ model: CaveProfile) {
+        titleLabel.text = model.title
+    }
 }
