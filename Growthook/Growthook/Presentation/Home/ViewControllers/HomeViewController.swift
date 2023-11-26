@@ -98,7 +98,7 @@ final class HomeViewController: BaseViewController {
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 173 / 812)
+            $0.height.equalTo(173)
         }
         
         insightListView.snp.makeConstraints {

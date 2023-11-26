@@ -31,7 +31,7 @@ final class HomeCaveView: BaseView {
     
     override func setStyles() {
         
-        backgroundColor = .gray700
+        backgroundColor = .clear
         
         userLabel.do {
             $0.text = "EON님의 동굴 속"

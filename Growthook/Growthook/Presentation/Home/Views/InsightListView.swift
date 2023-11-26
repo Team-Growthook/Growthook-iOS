@@ -69,7 +69,7 @@ final class InsightListView: BaseView {
         addSubviews(seedTitleLabel, scrapButton, insightCollectionView)
         
         seedTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(22)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 22 / 812)
             $0.leading.equalToSuperview().inset(18)
         }
         
