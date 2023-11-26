@@ -66,7 +66,7 @@ extension CaveListHalfModalCell {
         selectedRoundView.do {
             $0.backgroundColor = .green400
             $0.isHidden = true
-            $0.makeCornerRound(radius: self.selectedRoundView.frame.width / 2)
+            $0.makeCornerRound(radius: 6)
         }
     }
     
@@ -84,7 +84,7 @@ extension CaveListHalfModalCell {
         selectedRoundView.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(20)
             $0.centerY.equalToSuperview()
-            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 12 / 375)
+            $0.size.equalTo(12)
         }
     }
     
