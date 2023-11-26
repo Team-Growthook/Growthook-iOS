@@ -22,13 +22,11 @@ final class CaveListHalfModalCell: UITableViewCell {
     override var isSelected: Bool {
         didSet {
             if isSelected {
-                // 선택된 상태일 때의 배경 색상
                 titleLabel.font = .fontGuide(.body1_bold)
                 titleLabel.textColor = .green400
                 selectedRoundView.isHidden = false
                 contentView.backgroundColor = .gray500
             } else {
-                // 선택되지 않은 상태일 때의 배경 색상
                 titleLabel.font = .fontGuide(.body1_reg)
                 titleLabel.textColor = .gray200
                 selectedRoundView.isHidden = true
@@ -94,19 +92,5 @@ extension CaveListHalfModalCell {
     
     func configureCell(_ model: CaveProfile) {
         titleLabel.text = model.title
-    }
-    
-    func selectedCell() {
-        titleLabel.font = .fontGuide(.body1_bold)
-        titleLabel.textColor = .green400
-        selectedRoundView.isHidden = false
-        contentView.backgroundColor = .gray500
-    }
-    
-    func unSelectedCell() {
-        titleLabel.font = .fontGuide(.body1_reg)
-        titleLabel.textColor = .gray200
-        selectedRoundView.isHidden = true
-        contentView.backgroundColor = .clear
     }
 }

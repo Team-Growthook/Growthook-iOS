@@ -43,20 +43,18 @@ class CaveListHalfModal: BaseViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let indexPath = indexPath {
-//                    if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
-//                        cell.selectedCell()
-//                    }
                     self.updateSelectedCell(at: indexPath)
                 }
             })
             .disposed(by: disposeBag)
-        viewModel.outputs.unSelectedCellIndex
-            .subscribe(onNext: { [weak self] indexPath in
-                guard let self = self else { return }
-//                if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
-//                    cell.unSelectedCell()
-//                }
-                self.updateSelectedCell(at: indexPath)
+        selectButton.rx.tap
+            .bind { [weak self] in
+                self?.viewModel.inputs.selectButtonTap()
+            }
+            .disposed(by: disposeBag)
+        viewModel.outputs.dismissToHome
+            .subscribe(onNext: { [weak self] in
+                self?.dismissToHomeVC()
             })
             .disposed(by: disposeBag)
     }
@@ -115,6 +113,10 @@ class CaveListHalfModal: BaseViewController {
         if let indexPath = self.viewModel.outputs.selectedCellIndex.value {
             caveListTableView.reloadRows(at: [indexPath], with: .none)
         }
+    }
+    
+    private func dismissToHomeVC() {
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 
