@@ -32,24 +32,31 @@ class CaveListHalfModal: BaseViewController {
                         (index, model, cell) in
                     cell.configureCell(model)
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none
+                    if let selectedIndexPath = self.viewModel.outputs.selectedCellIndex.value {
+                        cell.isSelected = selectedIndexPath.row == index
+                    } else {
+                        cell.isSelected = false
+                    }
                 }
                 .disposed(by: disposeBag)
         viewModel.outputs.selectedCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let indexPath = indexPath {
-                    if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
-                        cell.selectedCell()
-                    }
+//                    if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
+//                        cell.selectedCell()
+//                    }
+                    self.updateSelectedCell(at: indexPath)
                 }
             })
             .disposed(by: disposeBag)
         viewModel.outputs.unSelectedCellIndex
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
-                    cell.unSelectedCell()
-                }
+//                if let cell = caveListTableView.cellForRow(at: indexPath) as? CaveListHalfModalCell {
+//                    cell.unSelectedCell()
+//                }
+                self.updateSelectedCell(at: indexPath)
             })
             .disposed(by: disposeBag)
     }
@@ -99,6 +106,15 @@ class CaveListHalfModal: BaseViewController {
     
     override func setRegister() {
         caveListTableView.register(CaveListHalfModalCell.self, forCellReuseIdentifier: CaveListHalfModalCell.className)
+    }
+    
+    // MARK: - Methods
+    
+    private func updateSelectedCell(at indexPath: IndexPath?) {
+        caveListTableView.reloadData()
+        if let indexPath = self.viewModel.outputs.selectedCellIndex.value {
+            caveListTableView.reloadRows(at: [indexPath], with: .none)
+        }
     }
 }
 

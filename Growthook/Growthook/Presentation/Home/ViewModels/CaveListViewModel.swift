@@ -18,8 +18,8 @@ protocol CaveListModelInputs {
 
 protocol CaveListModelOutputs {
     var caveList: BehaviorRelay<[CaveProfile]> { get }
-    var selectedCellIndex: BehaviorSubject<IndexPath?> { get }
-    var unSelectedCellIndex: PublishSubject<IndexPath> { get }
+    var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
+    var unSelectedCellIndex: BehaviorRelay<IndexPath?> { get }
 }
 
 protocol CaveListModelType {
@@ -30,8 +30,8 @@ protocol CaveListModelType {
 final class CaveListViewModel: CaveListModelInputs, CaveListModelOutputs, CaveListModelType {
     
     var caveList: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
-    var selectedCellIndex: BehaviorSubject<IndexPath?> = BehaviorSubject<IndexPath?>(value: nil)
-    var unSelectedCellIndex: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
+    var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
+    var unSelectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
     
     var inputs: CaveListModelInputs { return self }
     var outputs: CaveListModelOutputs { return self }
@@ -41,7 +41,14 @@ final class CaveListViewModel: CaveListModelInputs, CaveListModelOutputs, CaveLi
     }
     
     func caveListCellTap(at indexPath: IndexPath) {
-        self.selectedCellIndex.onNext(indexPath)
+//        self.selectedCellIndex.onNext(indexPath)
+//        guard selectedCellIndex.value != indexPath else { return }
+//        if let selectedIndexPath = selectedCellIndex.value {
+            // 선택된 셀이 있을 때
+//            unSelectedCellIndex.accept(indexPath)
+//            selectedCellIndex.accept(nil)
+//        }
+        selectedCellIndex.accept(indexPath)
     }
 }
 
