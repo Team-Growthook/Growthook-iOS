@@ -52,7 +52,7 @@ class CaveListHalfModal: BaseViewController {
                 self?.viewModel.inputs.selectButtonTap()
             }
             .disposed(by: disposeBag)
-        viewModel.outputs.dismissToHome
+        viewModel.outputs.moveToCave
             .subscribe(onNext: { [weak self] in
                 self?.dismissToHomeVC()
             })

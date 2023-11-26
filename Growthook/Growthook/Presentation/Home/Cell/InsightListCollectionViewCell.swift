@@ -21,6 +21,18 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     private let selectedView = UIView()
     private let selectedImageView = UIImageView()
     
+    // MARK: - Properties
+    
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                selectedView.isHidden = false
+            } else {
+                selectedView.isHidden = true
+            }
+        }
+    }
+    
     // MARK: - View Life Cycle
     
     override init(frame: CGRect) {

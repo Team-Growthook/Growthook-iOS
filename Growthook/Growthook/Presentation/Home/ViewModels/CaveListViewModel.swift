@@ -20,7 +20,7 @@ protocol CaveListModelInputs {
 protocol CaveListModelOutputs {
     var caveList: BehaviorRelay<[CaveProfile]> { get }
     var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
-    var dismissToHome: Observable<Void> { get }
+    var moveToCave: Observable<Void> { get }
 }
 
 protocol CaveListModelType {
@@ -33,7 +33,7 @@ final class CaveListViewModel: CaveListModelInputs, CaveListModelOutputs, CaveLi
     var caveList: BehaviorRelay<[CaveProfile]> = BehaviorRelay(value: [])
     var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
     let buttonTapSubject: PublishSubject<Void> = PublishSubject<Void>()
-    var dismissToHome: Observable<Void> {
+    var moveToCave: Observable<Void> {
         return buttonTapSubject.asObservable()
     }
     

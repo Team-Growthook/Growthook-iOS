@@ -58,7 +58,6 @@ final class HomeViewController: BaseViewController {
                 if let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
                     cell.selectedCell()
                 }
-                
             })
             .disposed(by: disposeBag)
         viewModel.outputs.insightBackground
@@ -154,6 +153,10 @@ extension HomeViewController {
         }
         
         present(insightTapVC, animated: true)
+    }
+    
+    private func updateSelectedCell() {
+        insightListView.insightCollectionView.reloadData()
     }
     
     // MARK: - @objc Methods
