@@ -24,6 +24,8 @@ class CaveListHalfModal: BaseViewController {
     
     private let viewModel = CaveListViewModel()
     private let disposeBag = DisposeBag()
+    private let homeViewModel = HomeViewModel()
+    var indexPath: IndexPath? = nil
     
     override func bindViewModel() {
         viewModel.outputs.caveList
@@ -54,6 +56,8 @@ class CaveListHalfModal: BaseViewController {
             .disposed(by: disposeBag)
         viewModel.outputs.moveToCave
             .subscribe(onNext: { [weak self] in
+                // 실행 안됨
+                self?.homeViewModel.inputs.reloadInsight()
                 self?.dismissToHomeVC()
             })
             .disposed(by: disposeBag)
@@ -81,6 +85,8 @@ class CaveListHalfModal: BaseViewController {
         }
     }
     
+    // MARK: - Layout Helper
+    
     override func setLayout() {
         
         self.view.addSubviews(caveListTableView, selectButton)
@@ -98,6 +104,8 @@ class CaveListHalfModal: BaseViewController {
         }
     }
     
+    // MARK: - Methods
+    
     override func setDelegates() {
         caveListTableView.delegate = self
     }
@@ -105,8 +113,6 @@ class CaveListHalfModal: BaseViewController {
     override func setRegister() {
         caveListTableView.register(CaveListHalfModalCell.self, forCellReuseIdentifier: CaveListHalfModalCell.className)
     }
-    
-    // MARK: - Methods
     
     private func updateSelectedCell(at indexPath: IndexPath?) {
         caveListTableView.reloadData()

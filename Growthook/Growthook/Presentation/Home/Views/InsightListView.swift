@@ -17,7 +17,7 @@ final class InsightListView: BaseView {
     // MARK: - UI Components
     
     private let seedTitleLabel = UILabel()
-    private let scrapButton = ScrapOnlyButton()
+    private let scrapButton = UIButton()
     lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
@@ -41,6 +41,10 @@ final class InsightListView: BaseView {
             $0.text = "00개의 씨앗을 모았어요!"
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
+        }
+        
+        scrapButton.do {
+            $0.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
         }
         
         insightCollectionView.do {
@@ -71,8 +75,8 @@ final class InsightListView: BaseView {
         
         scrapButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 110 / 375)
+            $0.trailing.equalToSuperview().inset(18)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 102 / 375)
             $0.height.equalTo(44)
         }
         

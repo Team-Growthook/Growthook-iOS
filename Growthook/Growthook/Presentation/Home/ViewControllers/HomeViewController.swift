@@ -50,6 +50,7 @@ final class HomeViewController: BaseViewController {
                 cell.configureCell(model)
                 }
                 .disposed(by: disposeBag)
+        
         viewModel.outputs.insightLongTap
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
@@ -60,12 +61,20 @@ final class HomeViewController: BaseViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
         viewModel.outputs.insightBackground
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 if let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
                     cell.unSelectedCell()
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.reloadInsightList
+            .subscribe(onNext: { [weak self] in
+                print("?")
+                self?.updateInsightList()
             })
             .disposed(by: disposeBag)
     }
@@ -152,10 +161,16 @@ extension HomeViewController {
             self?.viewModel.inputs.dismissInsightTap(at: indexPath)
         }
         
+        insightTapVC.indexPath = indexPath
         present(insightTapVC, animated: true)
     }
     
-    private func updateSelectedCell() {
+    func updateInsightList() {
+        if let selectedItems = insightListView.insightCollectionView.indexPathsForSelectedItems {
+            for indexPath in selectedItems {
+                insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
+            }
+        }
         insightListView.insightCollectionView.reloadData()
     }
     

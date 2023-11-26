@@ -13,6 +13,7 @@ import RxCocoa
 protocol HomeViewModelInputs {
     func handleLongPress(at indexPath: IndexPath)
     func dismissInsightTap(at indexPath: IndexPath)
+    func reloadInsight()
 }
 
 protocol HomeViewModelOutputs {
@@ -20,6 +21,7 @@ protocol HomeViewModelOutputs {
     var insightList: BehaviorRelay<[InsightList]> { get }
     var insightLongTap: PublishSubject<IndexPath> { get }
     var insightBackground: PublishSubject<IndexPath> { get }
+    var reloadInsightList: Observable<Void> { get }
 }
 
 protocol HomeViewModelType {
@@ -33,6 +35,10 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var insightList: BehaviorRelay<[InsightList]> = BehaviorRelay(value: [])
     var insightLongTap: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var insightBackground: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
+    let reloadInsightSubject: PublishSubject<Void> = PublishSubject<Void>()
+    var reloadInsightList: Observable<Void> {
+        return reloadInsightSubject.asObservable()
+    }
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -51,5 +57,9 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func dismissInsightTap(at indexPath: IndexPath) {
         self.insightBackground.onNext(indexPath)
+    }
+    
+    func reloadInsight() {
+        self.reloadInsightSubject.onNext(())
     }
 }

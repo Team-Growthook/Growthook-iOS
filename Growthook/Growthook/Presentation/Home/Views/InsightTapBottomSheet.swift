@@ -26,6 +26,7 @@ final class InsightTapBottomSheet: BaseViewController {
     private let viewModel = InsightTapViewModel()
     private let disposeBag = DisposeBag()
     var onDismiss: (() -> Void)?
+    var indexPath: IndexPath? = nil
     
     override func bindViewModel() {
         moveButton.rx.tap
@@ -104,6 +105,7 @@ final class InsightTapBottomSheet: BaseViewController {
             sheet.delegate = caveListVC as? any UISheetPresentationControllerDelegate
         }
         
+        caveListVC.indexPath = self.indexPath
         present(caveListVC, animated: true)
     }
 }
