@@ -26,12 +26,14 @@ final class HomeViewController: BaseViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = HomeViewModel()
     lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+    private var insightDummyData = InsightList.insightListDummyData()
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addGesture()
+        setNotification()
     }
     
     override func bindViewModel() {
@@ -113,6 +115,8 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    // MARK: - Methods
+    
     override func setDelegates() {
         homeCaveView.caveCollectionView.delegate = self
         insightListView.insightCollectionView.delegate = self
@@ -174,6 +178,10 @@ extension HomeViewController {
         insightListView.insightCollectionView.reloadData()
     }
     
+    private func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
+    }
+    
     // MARK: - @objc Methods
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
@@ -184,6 +192,10 @@ extension HomeViewController {
                 viewModel.inputs.handleLongPress(at: indexPath)
             }
         }
+    }
+    
+    @objc func clearNotification() {
+        updateInsightList()
     }
 }
 

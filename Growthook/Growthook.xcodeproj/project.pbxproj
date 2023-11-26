@@ -184,7 +184,6 @@
 			children = (
 				033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */,
 				035DB2A62B00E6F200161872 /* InsightListView.swift */,
-				03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				03B9ACA02AF7B25B00A5751C /* HomeViewController.swift */,
+				03C3565E2B0B702900750758 /* InsightTapBottomSheet.swift */,
 				03C356602B0F533E00750758 /* CaveListHalfModal.swift */,
 			);
 			path = ViewControllers;

@@ -24,8 +24,8 @@ class CaveListHalfModal: BaseViewController {
     
     private let viewModel = CaveListViewModel()
     private let disposeBag = DisposeBag()
-    private let homeViewModel = HomeViewModel()
     var indexPath: IndexPath? = nil
+    private let deSelectInsightNotification = Notification.Name("DeSelectInsightNotification")
     
     override func bindViewModel() {
         viewModel.outputs.caveList
@@ -56,8 +56,7 @@ class CaveListHalfModal: BaseViewController {
             .disposed(by: disposeBag)
         viewModel.outputs.moveToCave
             .subscribe(onNext: { [weak self] in
-                // 실행 안됨
-                self?.homeViewModel.inputs.reloadInsight()
+                self?.clearInsight()
                 self?.dismissToHomeVC()
             })
             .disposed(by: disposeBag)
@@ -123,6 +122,10 @@ class CaveListHalfModal: BaseViewController {
     
     private func dismissToHomeVC() {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    private func clearInsight() {
+        NotificationCenter.default.post(name: deSelectInsightNotification, object: nil)
     }
 }
 
