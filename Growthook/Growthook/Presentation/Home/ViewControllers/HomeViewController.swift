@@ -189,7 +189,11 @@ extension HomeViewController {
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
-                viewModel.inputs.handleLongPress(at: indexPath)
+                if insightDummyData[indexPath.item].scrapStatus == .lock {
+                    return
+                } else {
+                    viewModel.inputs.handleLongPress(at: indexPath)
+                }
             }
         }
     }
