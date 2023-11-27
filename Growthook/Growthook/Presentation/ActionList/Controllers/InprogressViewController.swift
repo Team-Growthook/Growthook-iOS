@@ -34,6 +34,7 @@ final class InprogressViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        
     }
     
     // MARK: - UI Components Property
@@ -87,6 +88,10 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionListTableCell", for: indexPath) as! ActionListTableViewCell
         let model = viewModel.outputs.actionList.value[indexPath.row]
         cell.configure(model)
+        cell.onCompletionButtonTapped = { [weak self] in
+            let bottomSheetVC = ActionListBottomSheetViewController()
+            self?.present(bottomSheetVC, animated: true, completion: nil)
+        }
         return cell
     }
 }
