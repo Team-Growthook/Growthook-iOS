@@ -11,6 +11,9 @@ import RxSwift
 protocol ActionListViewModelInput {
     func didTapInProgressButton()
     func didTapCompletedButton()
+    func didTapSeedButton()
+    func didTapCompletButton()
+    func setReviewText(with value: String)
 }
 
 protocol ActionListViewModelOutput {
@@ -18,6 +21,8 @@ protocol ActionListViewModelOutput {
     var titlePersent: Driver<String> { get }
     var selectedIndex: BehaviorRelay<Int> { get }
     var actionList: BehaviorRelay<[ActionListModel]> { get }
+    var isReviewEntered: Driver<Bool> { get }
+    var reviewTextCount: Driver<String> { get }
 }
 
 protocol ActionListViewModelType {
@@ -29,6 +34,7 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     var selectedIndex: BehaviorRelay<Int> = BehaviorRelay(value: 1)
     var actionList: BehaviorRelay<[ActionListModel]> = BehaviorRelay(value: [])
+    var reviewText = BehaviorRelay<String>(value: "")
     
     var inputs: ActionListViewModelInput { return self }
     var outputs: ActionListViewModelOutput { return self }
@@ -42,12 +48,34 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
         return .just("00")
     }
     
+    var isReviewEntered: Driver<Bool> {
+         return reviewText.asDriver()
+             .map { !$0.isEmpty }
+     }
+    
+    var reviewTextCount: Driver<String> {
+        return reviewText.asDriver()
+            .map { "\($0.count)/300" }
+    }
+    
     func didTapInProgressButton() {
         selectedIndex.accept(1)
     }
 
     func didTapCompletedButton() {
         selectedIndex.accept(0)
+    }
+    
+    func didTapSeedButton() {
+        print("11")
+    }
+    
+    func didTapCompletButton() {
+        print("11")
+    }
+    
+    func setReviewText(with value: String) {
+        reviewText.accept(value)
     }
     
     init() {
