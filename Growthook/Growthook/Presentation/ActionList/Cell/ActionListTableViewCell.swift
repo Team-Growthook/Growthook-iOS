@@ -16,12 +16,13 @@ class ActionListTableViewCell: UITableViewCell {
     
     private let scrapButton = UIButton()
     private let actionTitleLabel = UILabel()
-    private let seedButton = UIButton()
-    private let completButton = UIButton()
+    let seedButton = UIButton()
+    let completButton = UIButton()
     private let topBorder = UIView()
     private let bottomBorder = UIView()
     
     // MARK: - Property
+    var onCompletionButtonTapped: (() -> Void)?
     
     
     // MARK: - Initializer
@@ -41,7 +42,7 @@ class ActionListTableViewCell: UITableViewCell {
 extension ActionListTableViewCell {
     
     // MARK: - UI Components Property
-
+    
     private func setStyles() {
         self.backgroundColor = .gray700
         
@@ -69,6 +70,8 @@ extension ActionListTableViewCell {
             $0.titleLabel?.font = .fontGuide(.detail1_bold)
             $0.backgroundColor = .green400
             $0.layer.cornerRadius = 10
+            $0.addTarget(self, action: #selector(completButtonTapped), for: .touchUpInside)
+            $0.isUserInteractionEnabled = true
         }
         
         topBorder.do {
@@ -82,14 +85,14 @@ extension ActionListTableViewCell {
     
     // MARK: - Data Bind
     /// Data 와 UI 를 bind 합니다.
-
+    
     func bindViewModel() {}
     
     
     // MARK: - Layout Helper
-
+    
     func setLayout() {
-        addSubviews(scrapButton, actionTitleLabel, seedButton, completButton, topBorder, bottomBorder)
+        contentView.addSubviews(scrapButton, actionTitleLabel, seedButton, completButton, topBorder, bottomBorder)
         
         scrapButton.snp.makeConstraints {
             $0.top.equalToSuperview().offset(6)
@@ -126,6 +129,10 @@ extension ActionListTableViewCell {
             $0.height.equalTo(1)
         }
     }
+    
+    @objc func completButtonTapped() {
+           onCompletionButtonTapped?()
+       }
     
     // MARK: - Configure
     
