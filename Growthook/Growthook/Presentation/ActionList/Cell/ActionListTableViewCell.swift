@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class ActionListTableViewCell: UITableViewCell {
+final class ActionListTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
@@ -131,8 +131,8 @@ extension ActionListTableViewCell {
     }
     
     @objc func completButtonTapped() {
-           onCompletionButtonTapped?()
-       }
+        onCompletionButtonTapped?()
+    }
     
     // MARK: - Configure
     
