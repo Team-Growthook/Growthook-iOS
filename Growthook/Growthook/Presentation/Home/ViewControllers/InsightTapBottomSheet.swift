@@ -124,11 +124,9 @@ final class InsightTapBottomSheet: BaseViewController {
     }
     
     private func addRemoveInsightAlert() {
-        view.addSubview(removeInsightAlertView)
-        removeInsightAlertView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(173)
-            $0.bottom.horizontalEdges.equalToSuperview()
-        }
+        let removeInsightAlertVC = RemoveInsightAlertViewController()
+        removeInsightAlertVC.modalPresentationStyle = .overFullScreen
+        presentWithoutAnimation(removeInsightAlertVC, animated: false, completion: nil)
     }
 }
 

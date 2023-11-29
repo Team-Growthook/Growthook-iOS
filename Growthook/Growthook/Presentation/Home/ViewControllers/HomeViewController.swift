@@ -20,6 +20,7 @@ final class HomeViewController: BaseViewController {
     private let homeCaveView = HomeCaveView()
     private let insightListView = InsightListView()
     private let seedPlusButton = UIButton()
+//    private let insightTapBottomSheet = InsightTapBottomSheetView()
     private let unLockAlertView = UnLockAlertView()
     
     // MARK: - Properties

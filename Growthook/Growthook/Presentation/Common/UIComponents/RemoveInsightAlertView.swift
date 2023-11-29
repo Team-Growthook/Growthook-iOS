@@ -91,18 +91,20 @@ final class RemoveInsightAlertView: BaseView {
         }
         
         underLineView.snp.makeConstraints {
-            $0.bottom.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(keepButton.snp.top)
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(0.5)
         }
         
         keepButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.leading.equalToSuperview()
+            $0.leading.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 145 / 375)
             $0.height.equalTo(50)
         }
         
         removeButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
+            $0.bottom.trailing.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 145 / 375)
             $0.height.equalTo(50)
         }
