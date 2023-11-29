@@ -136,35 +136,33 @@ extension InsightListCollectionViewCell {
         switch model.scrapStatus {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            backgroundColor = .gray900
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
+            darkCellStyle()
         case .scrapDark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
-            backgroundColor = .gray900
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
+            darkCellStyle()
         case .scrapLight:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
         case .light:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
         case .lock:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            backgroundColor = .gray900
-            makeBorder(width: 0.5, color: .gray200)
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
-            lockView.isHidden = false
+            lockCellStyle()
         }
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
     }
     
-    func selectedCell() {
-        selectedView.isHidden = false
+    private func lockCellStyle() {
+        scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+        backgroundColor = .gray900
+        makeBorder(width: 0.5, color: .gray200)
+        titleLabel.textColor = .gray200
+        dueTimeLabel.textColor = .gray200
+        lockView.isHidden = false
     }
     
-    func unSelectedCell() {
-        selectedView.isHidden = true
+    private func darkCellStyle() {
+        backgroundColor = .gray900
+        titleLabel.textColor = .gray200
+        dueTimeLabel.textColor = .gray200
     }
 }
