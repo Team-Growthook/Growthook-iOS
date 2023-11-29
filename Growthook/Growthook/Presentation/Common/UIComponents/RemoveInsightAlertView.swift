@@ -110,3 +110,10 @@ final class RemoveInsightAlertView: BaseView {
         }
     }
 }
+
+extension RemoveInsightAlertView {
+    
+    func removeButtonTap() {
+        print("removeButtonTap")
+    }
+}

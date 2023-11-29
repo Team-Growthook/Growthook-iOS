@@ -120,7 +120,8 @@ final class UnLockAlertView: BaseView {
         contentView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
             $0.centerX.equalToSuperview()
-            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
+            $0.height.equalTo(290)
         }
         
         titleLabel.snp.makeConstraints {

@@ -30,6 +30,12 @@ final class RemoveInsightAlertViewController: BaseViewController {
                 self?.dismiss(animated: false)
             })
             .disposed(by: disposeBag)
+        
+        removeInsightView.removeButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.removeInsightView.removeButtonTap()
+            })
+            .disposed(by: disposeBag)
     }
 
     // MARK: - UI Components Property
