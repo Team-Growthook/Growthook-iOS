@@ -136,7 +136,7 @@ final class UnLockAlertView: BaseView {
         tipView.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(14)
             $0.leading.trailing.equalToSuperview().inset(12)
-            $0.height.equalTo(55)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 55 / 812)
         }
         
         tipLael.snp.makeConstraints {
@@ -144,7 +144,7 @@ final class UnLockAlertView: BaseView {
         }
         
         leftoverMugwortView.snp.makeConstraints {
-            $0.top.equalTo(tipView.snp.bottom).offset(16)
+            $0.bottom.equalTo(underLineView.snp.bottom).offset(-SizeLiterals.Screen.screenHeight * 23 / 812)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(120)
             $0.height.equalTo(26)
