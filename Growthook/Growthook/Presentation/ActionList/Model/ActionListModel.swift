@@ -28,3 +28,17 @@ extension ActionListModel {
         ]
     }
 }
+
+struct CompleteActionListModel {
+    let scrapStatus: ActionListStatus
+    let title: String
+}
+
+extension CompleteActionListModel {
+    static func completeActionListModelDummyData() -> [CompleteActionListModel] {
+        return [
+            CompleteActionListModel(scrapStatus: .unScrap, title: "북극성 지표를 적용해야한다"),
+            CompleteActionListModel(scrapStatus: .scrap, title: "MVVM? 그냥 날 죽여라"),
+        ]
+    }
+}
