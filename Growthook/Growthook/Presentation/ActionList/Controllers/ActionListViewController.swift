@@ -13,7 +13,11 @@ import RxSwift
 import SnapKit
 import Then
 
-final class ActionListViewController: BaseViewController {
+protocol viewMove: AnyObject {
+    func didTapButtonInCompleteViewController()
+}
+
+final class ActionListViewController: BaseViewController, viewMove {
     
     private var viewModel = ActionListViewModel()
     private let disposeBag = DisposeBag()
@@ -30,13 +34,14 @@ final class ActionListViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private var actionListReviewViewController: ActionListReviewViewController?
+
     // MARK: - Initializer
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDelegate()
         setPage()
     }
     
@@ -109,11 +114,14 @@ final class ActionListViewController: BaseViewController {
         }
     }
     
-    // MARK: - Methods
+    // MARK: - set Delegates
     
-    private func setDelegate() {
+    override func setDelegates() {
         segmentedView.delegate = self
+        completeViewController.delegate = self
     }
+    
+    // MARK: - Methods
     
     private func setPage() {
         if let firstViewController = viewControllers.first {
@@ -121,6 +129,14 @@ final class ActionListViewController: BaseViewController {
             currentPage = firstViewController
         }
     }
+    
+    func didTapButtonInCompleteViewController() {
+        let vc = ActionListReviewViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+        print("didTapButtonInCompleteViewController")
+    }
+    
+
     
     // MARK: - @objc Methods
     
