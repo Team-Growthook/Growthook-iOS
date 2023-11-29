@@ -91,6 +91,27 @@ final class HomeViewController: BaseViewController {
                 self?.unLockAlertView.useButtonTapped()
             })
             .disposed(by: disposeBag)
+        
+        homeCaveView.addCaveButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                print("addCaveButtonTap")
+            })
+            .disposed(by: disposeBag)
+        
+        homeCaveView.notificationButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                print("notificationButtonTap")
+            })
+            .disposed(by: disposeBag)
+        
+        insightListView.scrapButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                if let type = self?.insightListView.scrapType {
+                    self?.scrapTypeSetting(type)
+                }
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     // MARK: - UI Components Property
@@ -205,6 +226,17 @@ extension HomeViewController {
         } else {
             print("pushToInsightDetail")
         }
+    }
+    
+    
+    private func scrapTypeSetting(_ type: Bool) {
+        let newType = type ? false : true
+        if newType {
+            insightListView.scrapButton.setImage(ImageLiterals.Scrap.btn_scrap_active, for: .normal)
+        } else {
+            insightListView.scrapButton.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
+        }
+        insightListView.scrapType = newType
     }
     
     // MARK: - @objc Methods

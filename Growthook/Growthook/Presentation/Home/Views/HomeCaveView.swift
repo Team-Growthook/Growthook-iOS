@@ -20,10 +20,10 @@ final class HomeCaveView: BaseView {
     private let seedView = UILabel()
     private let seedImage = UIImageView()
     private let seedCountLabel = UILabel()
-    private let notificationButton = UIButton()
+    let notificationButton = UIButton()
     lazy var caveCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let caveLineView = UIView()
-    private let addCaveButton = UIButton()
+    let addCaveButton = UIButton()
     private let underLineView = UIView()
     private let flowLayout = UICollectionViewFlowLayout()
     

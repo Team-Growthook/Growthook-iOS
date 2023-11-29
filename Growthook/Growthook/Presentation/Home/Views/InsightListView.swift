@@ -17,11 +17,13 @@ final class InsightListView: BaseView {
     // MARK: - UI Components
     
     private let seedTitleLabel = UILabel()
-    private let scrapButton = UIButton()
+    let scrapButton = UIButton()
     lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
     
     // MARK: - Properties
+    
+    var scrapType: Bool = false
     
     override init(frame: CGRect) {
         super.init(frame: frame)
