@@ -18,8 +18,8 @@ final class RemoveInsightAlertView: BaseView {
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let underLineView = UIView()
-    private let keepButton = UIButton()
-    private let removeButton = UIButton()
+    let keepButton = UIButton()
+    let removeButton = UIButton()
     
     // MARK: - UI Components Property
     

@@ -9,12 +9,28 @@ import UIKit
 
 import SnapKit
 import Then
+import RxCocoa
+import RxSwift
 
 final class RemoveInsightAlertViewController: BaseViewController {
     
     // MARK: - UI Components
 
     private let removeInsightView = RemoveInsightAlertView()
+    
+    // MARK: - Properties
+    
+    private let viewModel = RemoveInsightViewModel()
+    private let disposeBag = DisposeBag()
+    
+    override func bindViewModel() {
+        removeInsightView.keepButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+//                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+                self?.dismiss(animated: false)
+            })
+            .disposed(by: disposeBag)
+    }
 
     // MARK: - UI Components Property
     

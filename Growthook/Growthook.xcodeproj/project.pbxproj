@@ -10,6 +10,7 @@
 		032213322B14C4EF00FF5CF1 /* UnLockAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */; };
 		0322137A2B17642E00FF5CF1 /* RemoveInsightAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */; };
 		0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */; };
+		032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137F2B177F8E00FF5CF1 /* RemoveInsightViewModel.swift */; };
 		033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033E9C0F2AFCE0860051A9E8 /* Image.xcassets */; };
 		033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */; };
 		033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */; };
@@ -88,6 +89,7 @@
 		032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLockAlertView.swift; sourceTree = "<group>"; };
 		032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertView.swift; sourceTree = "<group>"; };
 		0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertViewController.swift; sourceTree = "<group>"; };
+		0322137F2B177F8E00FF5CF1 /* RemoveInsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightViewModel.swift; sourceTree = "<group>"; };
 		033E9C0F2AFCE0860051A9E8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaveView.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */,
 				03C356662B108EB800750758 /* InsightTapViewModel.swift */,
 				03C356642B106AC800750758 /* CaveListViewModel.swift */,
+				0322137F2B177F8E00FF5CF1 /* RemoveInsightViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				03B9AC952AF566C800A5751C /* BlurredLabel.swift in Sources */,
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
 				035DB2AD2B01041B00161872 /* InsightList.swift in Sources */,
+				032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */,
 				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
