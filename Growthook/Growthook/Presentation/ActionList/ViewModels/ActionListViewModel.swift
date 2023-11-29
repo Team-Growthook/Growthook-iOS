@@ -11,8 +11,10 @@ import RxSwift
 protocol ActionListViewModelInput {
     func didTapInProgressButton()
     func didTapCompletedButton()
+    func didTapInprogressScrapButton()
     func didTapSeedButton()
     func didTapCompletButton()
+    func didTapReviewButton()
     func setReviewText(with value: String)
 }
 
@@ -21,6 +23,7 @@ protocol ActionListViewModelOutput {
     var titlePersent: Driver<String> { get }
     var selectedIndex: BehaviorRelay<Int> { get }
     var actionList: BehaviorRelay<[ActionListModel]> { get }
+    var completeActionList: BehaviorRelay<[CompleteActionListModel]> { get }
     var isReviewEntered: Driver<Bool> { get }
     var reviewTextCount: Driver<String> { get }
 }
@@ -34,6 +37,7 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     var selectedIndex: BehaviorRelay<Int> = BehaviorRelay(value: 1)
     var actionList: BehaviorRelay<[ActionListModel]> = BehaviorRelay(value: [])
+    var completeActionList: BehaviorRelay<[CompleteActionListModel]> = BehaviorRelay(value: [])
     var reviewText = BehaviorRelay<String>(value: "")
     
     var inputs: ActionListViewModelInput { return self }
@@ -66,12 +70,20 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
         selectedIndex.accept(0)
     }
     
+    func didTapInprogressScrapButton() {
+        print("스크랩만 보기 버튼이 탭 되었습니다")
+    }
+    
     func didTapSeedButton() {
-        print("11")
+        print("씨앗보기 버튼이 탭 되었습니다")
     }
     
     func didTapCompletButton() {
-        print("11")
+        print("완료하기 버튼이 탭 되었습니다")
+    }
+    
+    func didTapReviewButton() {
+        print("리뷰보기 버튼이 탭 되었습니다")
     }
     
     func setReviewText(with value: String) {
@@ -80,6 +92,7 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     init() {
         self.actionList.accept(ActionListModel.actionListModelDummyData())
+        self.completeActionList.accept(CompleteActionListModel.completeActionListModelDummyData())
     }
 }
 
