@@ -123,13 +123,17 @@ final class HomeViewController: BaseViewController {
         seedPlusButton.do {
             $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
         }
+        
+        notificationView.do {
+            $0.isHidden = true
+        }
     }
     
     // MARK: - Layout Helper
     
     override func setLayout() {
         
-        view.addSubviews(homeCaveView, insightListView, seedPlusButton)
+        view.addSubviews(homeCaveView, insightListView, seedPlusButton, notificationView)
         
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -146,6 +150,13 @@ final class HomeViewController: BaseViewController {
         seedPlusButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
             $0.trailing.equalToSuperview().inset(8)
+        }
+        
+        notificationView.snp.makeConstraints {
+            $0.top.equalTo(homeCaveView.notificationButton.snp.bottom).offset(8)
+            $0.trailing.equalToSuperview().inset(18)
+            $0.width.equalTo(168)
+            $0.height.equalTo(112)
         }
     }
     
@@ -229,7 +240,6 @@ extension HomeViewController {
         }
     }
     
-    
     private func scrapTypeSetting(_ type: Bool) {
         let newType = type ? false : true
         if newType {
@@ -241,13 +251,15 @@ extension HomeViewController {
     }
     
     private func notificationButtonTap() {
-        view.addSubview(notificationView)
-        notificationView.snp.makeConstraints {
-            $0.top.equalTo(homeCaveView.notificationButton.snp.bottom).offset(8)
-            $0.trailing.equalToSuperview().inset(18)
-            $0.width.equalTo(168)
-            $0.height.equalTo(112)
+        notificationView.isHidden = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            self.notificationView.isHidden = true // 3초 후에 뷰를 숨김
         }
+
+        // 배경을 터치했을 때도 숨기고자 한다면, 해당 뷰에 탭 제스처를 추가하여 구현할 수 있습니다
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideNotificationView))
+        view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - @objc Methods
@@ -268,6 +280,10 @@ extension HomeViewController {
     
     @objc func clearNotification() {
         updateInsightList()
+    }
+    
+    @objc func hideNotificationView(_ sender: UITapGestureRecognizer) {
+        notificationView.isHidden = true
     }
 }
 
