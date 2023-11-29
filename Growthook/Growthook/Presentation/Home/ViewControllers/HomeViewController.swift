@@ -260,6 +260,7 @@ extension HomeViewController {
         // 배경을 터치했을 때도 숨기고자 한다면, 해당 뷰에 탭 제스처를 추가하여 구현할 수 있습니다
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideNotificationView))
         view.addGestureRecognizer(tapGesture)
+        tapGesture.cancelsTouchesInView = false
     }
     
     // MARK: - @objc Methods
