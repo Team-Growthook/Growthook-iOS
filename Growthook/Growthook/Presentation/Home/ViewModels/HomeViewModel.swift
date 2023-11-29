@@ -14,6 +14,8 @@ protocol HomeViewModelInputs {
     func handleLongPress(at indexPath: IndexPath)
     func dismissInsightTap(at indexPath: IndexPath)
     func reloadInsight()
+    func insightCellTap(at indexPath: IndexPath)
+    func giveUpButtonTap()
 }
 
 protocol HomeViewModelOutputs {
@@ -22,6 +24,7 @@ protocol HomeViewModelOutputs {
     var insightLongTap: PublishSubject<IndexPath> { get }
     var insightBackground: PublishSubject<IndexPath> { get }
     var reloadInsightList: Observable<Void> { get }
+    var pushToInsightDetail: PublishSubject<IndexPath> { get }
 }
 
 protocol HomeViewModelType {
@@ -39,6 +42,8 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var reloadInsightList: Observable<Void> {
         return reloadInsightSubject.asObservable()
     }
+    var pushToInsightDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
+    var dismissToHomeVC: PublishSubject<Void> = PublishSubject<Void>()
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -61,5 +66,13 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func reloadInsight() {
         self.reloadInsightSubject.onNext(())
+    }
+    
+    func insightCellTap(at indexPath: IndexPath) {
+        self.pushToInsightDetail.onNext(indexPath)
+    }
+    
+    func giveUpButtonTap() {
+        self.dismissToHomeVC.onNext(())
     }
 }

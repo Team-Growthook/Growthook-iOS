@@ -20,6 +20,7 @@ final class HomeViewController: BaseViewController {
     private let homeCaveView = HomeCaveView()
     private let insightListView = InsightListView()
     private let seedPlusButton = UIButton()
+    private let unLockAlertView = UnLockAlertView()
     
     // MARK: - Properties
     
@@ -77,6 +78,24 @@ final class HomeViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 print("?")
                 self?.updateInsightList()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.pushToInsightDetail
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.pushToInsightDetail(at: indexPath )
+            })
+            .disposed(by: disposeBag)
+        
+        unLockAlertView.giveUpButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.unLockAlertView.removeFromSuperview()
+            })
+            .disposed(by: disposeBag)
+        
+        unLockAlertView.useButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.unLockAlertView.useButtonTapped()
             })
             .disposed(by: disposeBag)
     }
@@ -182,6 +201,21 @@ extension HomeViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
     }
     
+    private func pushToInsightDetail(at indexPath: IndexPath) {
+        insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
+        if insightDummyData[indexPath.item].scrapStatus == .lock {
+            let alert = unLockAlertView
+            view.addSubviews(alert)
+            alert.snp.makeConstraints {
+                $0.bottom.equalToSuperview()
+                $0.horizontalEdges.equalToSuperview()
+                $0.top.equalTo(homeCaveView.snp.bottom)
+            }
+        } else {
+            print("pushToInsightDetail")
+        }
+    }
+    
     // MARK: - @objc Methods
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
@@ -203,7 +237,12 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController: UICollectionViewDelegateFlowLayout {}
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.inputs.insightCellTap(at: indexPath)
+    }
+}
 
 extension HomeViewController: UIGestureRecognizerDelegate {}
 

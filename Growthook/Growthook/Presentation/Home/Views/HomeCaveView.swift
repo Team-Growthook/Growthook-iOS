@@ -143,7 +143,7 @@ final class HomeCaveView: BaseView {
         }
         
         underLineView.snp.makeConstraints {
-            $0.top.equalTo(caveCollectionView.snp.bottom).offset(14)
+            $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }

@@ -24,8 +24,8 @@ final class UnLockAlertView: BaseView {
     private let mugwortImage = UIImageView()
     private let mugwortCount = UILabel()
     private let underLineView = UIView()
-    private let giveUpButton = UIButton()
-    private let useButton = UIButton()
+    let giveUpButton = UIButton()
+    let useButton = UIButton()
     
     // MARK: - UI Components Property
     
@@ -94,14 +94,14 @@ final class UnLockAlertView: BaseView {
         giveUpButton.do {
             $0.setTitle("포기하기", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
-            $0.titleLabel?.textColor = .gray200
+            $0.setTitleColor(.gray200, for: .normal)
             $0.backgroundColor = .clear
         }
         
         useButton.do {
             $0.setTitle("사용하기", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
-            $0.titleLabel?.textColor = .green400
+            $0.setTitleColor(.green400, for: .normal)
             $0.backgroundColor = .clear
         }
     }
@@ -135,7 +135,7 @@ final class UnLockAlertView: BaseView {
         
         tipView.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom).offset(14)
-            $0.horizontalEdges.equalTo(12)
+            $0.leading.trailing.equalToSuperview().inset(12)
             $0.height.equalTo(55)
         }
         
@@ -158,13 +158,13 @@ final class UnLockAlertView: BaseView {
         mugwortImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(mugwortLabel.snp.trailing).offset(4)
-            $0.width.equalTo(30)
-            $0.height.equalTo(18)
+            $0.width.equalTo(10)
+            $0.height.equalTo(12)
         }
         
         mugwortCount.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalTo(mugwortImage.snp.leading)
+            $0.leading.equalTo(mugwortImage.snp.trailing).offset(4)
         }
         
         underLineView.snp.makeConstraints {
@@ -184,5 +184,12 @@ final class UnLockAlertView: BaseView {
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 145 / 375)
             $0.height.equalTo(giveUpButton)
         }
+    }
+}
+
+extension UnLockAlertView {
+    
+    func useButtonTapped() {
+        print("useButtonTapped")
     }
 }
