@@ -21,6 +21,7 @@ final class HomeViewController: BaseViewController {
     private let insightListView = InsightListView()
     private let seedPlusButton = UIButton()
     private let unLockAlertView = UnLockAlertView()
+    private let notificationView = NotificationAlertView()
     
     // MARK: - Properties
     
@@ -94,13 +95,13 @@ final class HomeViewController: BaseViewController {
         
         homeCaveView.addCaveButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                print("addCaveButtonTap")
+                // addCave
             })
             .disposed(by: disposeBag)
         
         homeCaveView.notificationButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                print("notificationButtonTap")
+                self?.notificationButtonTap()
             })
             .disposed(by: disposeBag)
         
@@ -237,6 +238,16 @@ extension HomeViewController {
             insightListView.scrapButton.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
         }
         insightListView.scrapType = newType
+    }
+    
+    private func notificationButtonTap() {
+        view.addSubview(notificationView)
+        notificationView.snp.makeConstraints {
+            $0.top.equalTo(homeCaveView.notificationButton.snp.bottom).offset(8)
+            $0.trailing.equalToSuperview().inset(18)
+            $0.width.equalTo(168)
+            $0.height.equalTo(112)
+        }
     }
     
     // MARK: - @objc Methods
