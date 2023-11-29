@@ -42,4 +42,21 @@ extension UIButton {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
     }
+    
+    
+    
+    func applyCornerRadiusToBottomCorners(radius: CGFloat) {
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: bounds,
+                                      byRoundingCorners: [.bottomLeft, .bottomRight],
+                                      cornerRadii: CGSize(width: radius, height: radius)).cgPath
+        layer.mask = maskLayer
+        /**
+         좌우 하단에만 ConrnerRadius를 주는 func
+         ex:
+         button.applyCornerRadiusToBottomCorners(radius: 20)
+         
+         */
+        
+    }
 }
