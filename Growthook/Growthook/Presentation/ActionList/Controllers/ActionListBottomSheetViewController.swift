@@ -39,11 +39,11 @@ final class ActionListBottomSheetViewController: BaseViewController {
     
     override func bindViewModel() {
         reviewTextView.rx.text.orEmpty
-             .bind { [weak self] value in
-                 self?.viewModel.inputs.setReviewText(with: value)
-             }
-             .disposed(by: disposeBag)
-
+            .bind { [weak self] value in
+                self?.viewModel.inputs.setReviewText(with: value)
+            }
+            .disposed(by: disposeBag)
+        
         viewModel.outputs.isReviewEntered
             .drive(onNext: { [weak self] isEntered in
                 self?.saveButton.backgroundColor = isEntered ? .green400 : .gray500
@@ -92,6 +92,7 @@ final class ActionListBottomSheetViewController: BaseViewController {
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.backgroundColor = .gray500
             $0.layer.cornerRadius = 10
+            $0.addTarget(self, action: #selector(saveButtonTap), for: .touchUpInside)
         }
         
         cancelButton.do {
@@ -154,5 +155,18 @@ final class ActionListBottomSheetViewController: BaseViewController {
         self.dismiss(animated: true)
     }
     
+    @objc
+    private func saveButtonTap() {
+        self.dismiss(animated: false) {
+            let customAlertVC = AlertViewController()
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+               let mainWindow = windowScene.windows.first {
+                mainWindow.rootViewController?.present(customAlertVC, animated: false, completion: nil)
+            }
+        }
+    }
+    
     // MARK: - @objc Methods
 }
+
