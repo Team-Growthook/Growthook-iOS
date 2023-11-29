@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032213322B14C4EF00FF5CF1 /* UnLockAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */; };
 		033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033E9C0F2AFCE0860051A9E8 /* Image.xcassets */; };
 		033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */; };
 		033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */; };
@@ -82,6 +83,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLockAlertView.swift; sourceTree = "<group>"; };
 		033E9C0F2AFCE0860051A9E8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaveView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */,
 				58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */,
 				58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */,
+				032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
+				032213322B14C4EF00FF5CF1 /* UnLockAlertView.swift in Sources */,
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
 				033E9C202AFE725D0051A9E8 /* CaveProfile.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
