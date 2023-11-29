@@ -5,8 +5,6 @@
 //  Created by KJ on 11/24/23.
 //
 
-import Foundation
-
 import UIKit
 
 import RxSwift
@@ -14,11 +12,12 @@ import RxCocoa
 
 protocol InsightTapModelInputs {
     func moveButtonTap()
-//    func deleteButtonTap()
+    func deleteButtonTap()
 }
 
 protocol InsightTapModelOutputs {
-    var presentToCaveList: Observable<Void> { get }
+    var presentToCaveList: PublishSubject<Void> { get }
+    var removeInsightAlertView: PublishSubject<Void> { get }
 }
 
 protocol InsightTapModelType {
@@ -28,18 +27,19 @@ protocol InsightTapModelType {
 
 final class InsightTapViewModel: InsightTapModelInputs, InsightTapModelOutputs, InsightTapModelType {
     
-    let buttonTapSubject: PublishSubject<Void> = PublishSubject<Void>()
-    var presentToCaveList: Observable<Void> {
-        return buttonTapSubject.asObservable()
-    }
+    var presentToCaveList: PublishSubject<Void> = PublishSubject<Void>()
+    var removeInsightAlertView: PublishSubject<Void> = PublishSubject<Void>()
     
     func moveButtonTap() {
-        return buttonTapSubject.onNext(())
+        presentToCaveList.onNext(())
+    }
+    
+    func deleteButtonTap() {
+        removeInsightAlertView.onNext(())
     }
     
     var inputs: InsightTapModelInputs { return self }
     var outputs: InsightTapModelOutputs { return self }
-    
     
     init() {}
 }

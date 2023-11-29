@@ -204,11 +204,9 @@ extension HomeViewController {
     private func pushToInsightDetail(at indexPath: IndexPath) {
         insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
         if insightDummyData[indexPath.item].scrapStatus == .lock {
-            let alert = unLockAlertView
-            view.addSubviews(alert)
-            alert.snp.makeConstraints {
-                $0.bottom.equalToSuperview()
-                $0.horizontalEdges.equalToSuperview()
+            view.addSubview(unLockAlertView)
+            unLockAlertView.snp.makeConstraints {
+                $0.bottom.horizontalEdges.equalToSuperview()
                 $0.top.equalTo(homeCaveView.snp.bottom)
             }
         } else {

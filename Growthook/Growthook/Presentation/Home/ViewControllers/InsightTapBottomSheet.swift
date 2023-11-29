@@ -20,6 +20,7 @@ final class InsightTapBottomSheet: BaseViewController {
     private let buttonView = UIView()
     private let moveButton = UIButton()
     private let deleteButton = UIButton()
+    private let removeInsightAlertView = UIView()
     
     // MARK: - Properties
     
@@ -34,9 +35,22 @@ final class InsightTapBottomSheet: BaseViewController {
                 self?.viewModel.inputs.moveButtonTap()
             }
             .disposed(by: disposeBag)
+        
         viewModel.outputs.presentToCaveList
             .subscribe(onNext: { [weak self] in
                 self?.presentToCaveListVC()
+            })
+            .disposed(by: disposeBag)
+        
+        deleteButton.rx.tap
+            .bind { [weak self] in
+                self?.viewModel.inputs.deleteButtonTap()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.removeInsightAlertView
+            .subscribe(onNext: { [weak self] in
+                self?.addRemoveInsightAlert()
             })
             .disposed(by: disposeBag)
     }
@@ -107,6 +121,14 @@ final class InsightTapBottomSheet: BaseViewController {
         
         caveListVC.indexPath = self.indexPath
         present(caveListVC, animated: true)
+    }
+    
+    private func addRemoveInsightAlert() {
+        view.addSubview(removeInsightAlertView)
+        removeInsightAlertView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(173)
+            $0.bottom.horizontalEdges.equalToSuperview()
+        }
     }
 }
 

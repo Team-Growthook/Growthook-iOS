@@ -46,6 +46,10 @@ final class RemoveInsightAlertView: BaseView {
             $0.numberOfLines = 2
         }
         
+        underLineView.do {
+            $0.backgroundColor = .gray200
+        }
+        
         keepButton.do {
             $0.setTitle("유지하기", for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
@@ -66,7 +70,15 @@ final class RemoveInsightAlertView: BaseView {
     override func setLayout() {
         
         self.addSubviews(contentView)
-        contentView.addSubviews(titleLabel, descriptionLabel, keepButton, removeButton)
+        contentView.addSubviews(titleLabel, descriptionLabel, underLineView,
+                                keepButton, removeButton)
+        
+        contentView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(94)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
+            $0.height.equalTo(189)
+        }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(34)
@@ -76,6 +88,11 @@ final class RemoveInsightAlertView: BaseView {
         descriptionLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(7)
             $0.centerX.equalToSuperview()
+        }
+        
+        underLineView.snp.makeConstraints {
+            $0.bottom.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(0.5)
         }
         
         keepButton.snp.makeConstraints {
