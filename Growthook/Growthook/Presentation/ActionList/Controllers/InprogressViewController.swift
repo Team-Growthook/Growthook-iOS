@@ -25,6 +25,8 @@ final class InprogressViewController: BaseViewController {
     
     // MARK: - Properties
     
+    private var isShowingScrappedData = false
+    
     // MARK: - Initializer
     
     // MARK: - View Life Cycle
@@ -34,7 +36,15 @@ final class InprogressViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        
+        scrapButton.rx.tap
+            .bind { [weak self]  in
+                guard let self else { return }
+                self.viewModel.inputs.didTapInprogressScrapButton()
+                self.isShowingScrappedData.toggle()
+                self.tableView.reloadData()
+
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -70,6 +80,15 @@ final class InprogressViewController: BaseViewController {
     
     // MARK: - Methods
     
+    private func presentToBottomSheet() {
+        let bottomSheetVC = ActionListBottomSheetViewController()
+        self.present(bottomSheetVC, animated: true, completion: nil)
+    }
+    
+    private func getScrappedActionList() -> [ActionListModel] {
+        return viewModel.outputs.actionList.value.filter { $0.scrapStatus == .scrap }
+    }
+    
     // MARK: - @objc Methods
 }
 
@@ -81,17 +100,39 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.outputs.actionList.value.count
+        if isShowingScrappedData {
+            return getScrappedActionList().count
+        } else {
+            return viewModel.outputs.actionList.value.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "actionListTableCell", for: indexPath) as! ActionListTableViewCell
-        let model = viewModel.outputs.actionList.value[indexPath.row]
-        cell.configure(model)
-        cell.onCompletionButtonTapped = { [weak self] in
-            let bottomSheetVC = ActionListBottomSheetViewController()
-            self?.present(bottomSheetVC, animated: true, completion: nil)
+        let model: ActionListModel
+        
+        if isShowingScrappedData {
+            model = getScrappedActionList()[indexPath.row]
+        } else {
+            model = viewModel.outputs.actionList.value[indexPath.row]
         }
+        cell.configure(model)
+
+        cell.seedButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.didTapSeedButton()
+            }
+            .disposed(by: disposeBag)
+        
+        cell.completButton.rx.tap
+            .bind { [weak self]  in
+                guard let self else { return }
+                self.viewModel.inputs.didTapCompletButton()
+                self.presentToBottomSheet()
+            }
+            .disposed(by: disposeBag)
+
         return cell
     }
 }
