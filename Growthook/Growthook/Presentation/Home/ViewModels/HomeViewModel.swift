@@ -23,7 +23,6 @@ protocol HomeViewModelOutputs {
     var insightList: BehaviorRelay<[InsightList]> { get }
     var insightLongTap: PublishSubject<IndexPath> { get }
     var insightBackground: PublishSubject<IndexPath> { get }
-    var reloadInsightList: Observable<Void> { get }
     var pushToInsightDetail: PublishSubject<IndexPath> { get }
 }
 
@@ -39,9 +38,6 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var insightLongTap: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var insightBackground: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     let reloadInsightSubject: PublishSubject<Void> = PublishSubject<Void>()
-    var reloadInsightList: Observable<Void> {
-        return reloadInsightSubject.asObservable()
-    }
     var pushToInsightDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var dismissToHomeVC: PublishSubject<Void> = PublishSubject<Void>()
     

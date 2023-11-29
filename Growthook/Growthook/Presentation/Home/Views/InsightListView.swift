@@ -86,7 +86,13 @@ final class InsightListView: BaseView {
             $0.bottom.equalToSuperview()
         }
     }
+}
+
+extension InsightListView: UICollectionViewDelegateFlowLayout {
     
-    // MARK: - Methods
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let insightCell = cell as? InsightListCollectionViewCell {
+            insightCell.setCellStyle()
+        }
+    }
 }

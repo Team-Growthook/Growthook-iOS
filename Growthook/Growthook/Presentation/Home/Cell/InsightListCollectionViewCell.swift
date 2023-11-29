@@ -9,8 +9,6 @@ import UIKit
 
 final class InsightListCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "InsightListCollectionViewCell"
-    
     // MARK: - UI Components
     
     private let scrapButton = UIButton()
@@ -23,6 +21,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
+    private var cellType: InsightStatus?
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -39,6 +38,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUI()
         setLayout()
+        setCellStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -149,6 +149,26 @@ extension InsightListCollectionViewCell {
         }
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
+        cellType = model.scrapStatus
+    }
+    
+    func setCellStyle() {
+        switch cellType {
+        case .dark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+            darkCellStyle()
+        case .scrapDark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+            darkCellStyle()
+        case .scrapLight:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
+        case .light:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
+        case .lock:
+            lockCellStyle()
+        case .none:
+            return
+        }
     }
     
     private func lockCellStyle() {
@@ -164,5 +184,13 @@ extension InsightListCollectionViewCell {
         backgroundColor = .gray900
         titleLabel.textColor = .gray200
         dueTimeLabel.textColor = .gray200
+    }
+    
+    func selectedCell() {
+        selectedView.isHidden = false
+    }
+    
+    func unSelectedCell() {
+        selectedView.isHidden = true
     }
 }

@@ -20,7 +20,6 @@ final class HomeViewController: BaseViewController {
     private let homeCaveView = HomeCaveView()
     private let insightListView = InsightListView()
     private let seedPlusButton = UIButton()
-//    private let insightTapBottomSheet = InsightTapBottomSheetView()
     private let unLockAlertView = UnLockAlertView()
     
     // MARK: - Properties
@@ -72,13 +71,6 @@ final class HomeViewController: BaseViewController {
                 if let cell = insightListView.insightCollectionView.cellForItem(at: indexPath) as? InsightListCollectionViewCell {
                     cell.unSelectedCell()
                 }
-            })
-            .disposed(by: disposeBag)
-        
-        viewModel.outputs.reloadInsightList
-            .subscribe(onNext: { [weak self] in
-                print("?")
-                self?.updateInsightList()
             })
             .disposed(by: disposeBag)
         
