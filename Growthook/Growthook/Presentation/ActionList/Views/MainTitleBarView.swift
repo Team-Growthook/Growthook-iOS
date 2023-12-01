@@ -29,10 +29,6 @@ final class MainTitleBarView: BaseView {
         setAddTarget()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - UI Components Property
     
     override func setStyles(){
@@ -89,9 +85,7 @@ final class MainTitleBarView: BaseView {
     }
     
     // MARK: - Methods
-    
-    private func setAddTarget() {}
-    
+        
     func setTitleText(_ text: String) {
          mainTitleLabel.text = "\(text)님의 액션"
      }
@@ -102,4 +96,7 @@ final class MainTitleBarView: BaseView {
     
     // MARK: - @objc Methods
     
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
