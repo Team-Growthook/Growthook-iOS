@@ -36,6 +36,11 @@ final class ActionListReviewViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
     override func bindViewModel() {
         
     }
@@ -50,6 +55,10 @@ final class ActionListReviewViewController: BaseViewController {
             $0.isTitleViewIncluded = true
             $0.isTitleLabelIncluded = "리뷰 조회"
             $0.isBackButtonIncluded = true
+            $0.setupBackButtonTarget()
+            $0.backButtonAction = { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            }
         }
         
         titleLabel.do {
@@ -74,7 +83,7 @@ final class ActionListReviewViewController: BaseViewController {
         view.addSubviews(navigationBar, titleLabel, scrapButton, reviewTextView, writtenDateLabel)
         
         navigationBar.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalTo(safeAreaTopInset())
             $0.horizontalEdges.equalToSuperview()
         }
         
@@ -100,10 +109,17 @@ final class ActionListReviewViewController: BaseViewController {
             $0.top.equalTo(reviewTextView.snp.bottom).offset(4)
             $0.trailing.equalTo(reviewTextView.snp.trailing).inset(4)
         }
+        
+        
     }
     
     // MARK: - Methods
     
     // MARK: - @objc Methods
+    
+    @objc
+    private func popActionListReviewViewController() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
