@@ -62,6 +62,11 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
             .map { "\($0.count)/300" }
     }
     
+    init() {
+        self.actionList.accept(ActionListModel.actionListModelDummyData())
+        self.completeActionList.accept(CompleteActionListModel.completeActionListModelDummyData())
+    }
+    
     func didTapInProgressButton() {
         selectedIndex.accept(1)
     }
@@ -88,11 +93,6 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     
     func setReviewText(with value: String) {
         reviewText.accept(value)
-    }
-    
-    init() {
-        self.actionList.accept(ActionListModel.actionListModelDummyData())
-        self.completeActionList.accept(CompleteActionListModel.completeActionListModelDummyData())
     }
 }
 
