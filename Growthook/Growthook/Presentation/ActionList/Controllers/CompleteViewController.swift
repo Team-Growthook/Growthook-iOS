@@ -25,7 +25,7 @@ final class CompleteViewController: BaseViewController {
     
     // MARK: - Properties
     
-    weak var delegate: viewMove?
+    weak var delegate: PushToActionListReviewViewController?
     
     // MARK: - Initializer
     

@@ -26,7 +26,6 @@ final class MainTitleBarView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setAddTarget()
     }
     
     // MARK: - UI Components Property

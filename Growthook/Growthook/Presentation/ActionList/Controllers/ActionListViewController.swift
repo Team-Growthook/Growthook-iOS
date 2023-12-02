@@ -13,11 +13,11 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol viewMove: AnyObject {
+protocol PushToActionListReviewViewController: AnyObject {
     func didTapButtonInCompleteViewController()
 }
 
-final class ActionListViewController: BaseViewController, viewMove {
+final class ActionListViewController: BaseViewController {
     
     private var viewModel = ActionListViewModel()
     private let disposeBag = DisposeBag()
@@ -136,14 +136,12 @@ final class ActionListViewController: BaseViewController, viewMove {
         print("didTapButtonInCompleteViewController")
     }
     
-
-    
     // MARK: - @objc Methods
     
 }
 
 
-extension ActionListViewController: ActionListSegmentDelegate {
+extension ActionListViewController: ActionListSegmentDelegate , PushToActionListReviewViewController{
     func movePage(to index: Int) {
         switch index {
         case 0:
