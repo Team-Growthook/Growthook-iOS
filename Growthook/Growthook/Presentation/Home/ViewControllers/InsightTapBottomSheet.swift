@@ -126,7 +126,7 @@ final class InsightTapBottomSheet: BaseViewController {
     private func addRemoveInsightAlert() {
         let removeInsightAlertVC = RemoveInsightAlertViewController()
         removeInsightAlertVC.modalPresentationStyle = .overFullScreen
-        presentWithoutAnimation(removeInsightAlertVC, animated: false, completion: nil)
+        self.present(removeInsightAlertVC, animated: false, completion: nil)
     }
 }
 

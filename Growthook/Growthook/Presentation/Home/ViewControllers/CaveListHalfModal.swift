@@ -30,8 +30,9 @@ class CaveListHalfModal: BaseViewController {
     override func bindViewModel() {
         viewModel.outputs.caveList
             .bind(to: caveListTableView.rx
-                .items(cellIdentifier: CaveListHalfModalCell.className, cellType: CaveListHalfModalCell.self)) {
-                        (index, model, cell) in
+                .items(cellIdentifier: CaveListHalfModalCell.className,
+                       cellType: CaveListHalfModalCell.self)) { [weak self] (index, model, cell) in
+                    guard let self = self else { return }
                     cell.configureCell(model)
                     cell.selectionStyle = UITableViewCell.SelectionStyle.none
                     if let selectedIndexPath = self.viewModel.outputs.selectedCellIndex.value {
