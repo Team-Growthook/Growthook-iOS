@@ -74,6 +74,17 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
+		250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */; };
+		250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D742B14624300D9726F /* ActionListReviewViewController.swift */; };
+		250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D762B16D01500D9726F /* AlertViewController.swift */; };
+		252DD8842B063A7900DBB1D1 /* ActionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */; };
+		2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */; };
+		25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */; };
+		25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951A2B089B9900E72ADC /* ActionListModel.swift */; };
+		25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */; };
+		25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951E2B08F73700E72ADC /* CompleteViewController.swift */; };
+		25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */; };
+		25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */; };
 		58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F972B00B15A00512FE2 /* BaseViewController.swift */; };
 		58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F992B00B33F00512FE2 /* BaseView.swift */; };
 		58E75F9D2B00B63C00512FE2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */; };
@@ -149,6 +160,17 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		250F7D742B14624300D9726F /* ActionListReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListReviewViewController.swift; sourceTree = "<group>"; };
+		250F7D762B16D01500D9726F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewModel.swift; sourceTree = "<group>"; };
+		2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListBottomSheetViewController.swift; sourceTree = "<group>"; };
+		25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListTableViewCell.swift; sourceTree = "<group>"; };
+		25BD951A2B089B9900E72ADC /* ActionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListModel.swift; sourceTree = "<group>"; };
+		25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressViewController.swift; sourceTree = "<group>"; };
+		25BD951E2B08F73700E72ADC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleBarView.swift; sourceTree = "<group>"; };
+		25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListSegmentedView.swift; sourceTree = "<group>"; };
 		58E75F972B00B15A00512FE2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		58E75F992B00B33F00512FE2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -435,7 +457,11 @@
 		03B9ACA22AF7B27600A5751C /* ActionList */ = {
 			isa = PBXGroup;
 			children = (
-				03B9ACA42AF7B29800A5751C /* ViewController */,
+				25BD95192B089B9000E72ADC /* Model */,
+				252DD8822B0639FF00DBB1D1 /* Controllers */,
+				252DD8812B0639FE00DBB1D1 /* ViewModels */,
+				252DD8802B0639FC00DBB1D1 /* Views */,
+				25BD95162B08946D00E72ADC /* Cell */,
 			);
 			path = ActionList;
 			sourceTree = "<group>";
@@ -446,14 +472,6 @@
 				03B9ACA72AF7B2A600A5751C /* ViewController */,
 			);
 			path = Mypage;
-			sourceTree = "<group>";
-		};
-		03B9ACA42AF7B29800A5751C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		03B9ACA72AF7B2A600A5751C /* ViewController */ = {
@@ -491,6 +509,53 @@
 				03E4810D2AF2AFDD002F4CBC /* Info.plist */,
 			);
 			path = Growthook;
+			sourceTree = "<group>";
+		};
+		252DD8802B0639FC00DBB1D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */,
+				25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		252DD8812B0639FE00DBB1D1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		252DD8822B0639FF00DBB1D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
+				25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */,
+				25BD951E2B08F73700E72ADC /* CompleteViewController.swift */,
+				2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */,
+				250F7D742B14624300D9726F /* ActionListReviewViewController.swift */,
+				250F7D762B16D01500D9726F /* AlertViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25BD95162B08946D00E72ADC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */,
+				250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25BD95192B089B9000E72ADC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25BD951A2B089B9900E72ADC /* ActionListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		58E75F962B00B14B00512FE2 /* Base */ = {
@@ -643,6 +708,7 @@
 				032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */,
 				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
+				25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
@@ -650,6 +716,8 @@
 				03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
+				250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */,
+				250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */,
 				58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */,
 				03B9AC932AF566B300A5751C /* ButtonPress.swift in Sources */,
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
@@ -668,14 +736,20 @@
 				58E75FAA2B00C15800512FE2 /* CreatingNewInsightsViewController.swift in Sources */,
 				03E481022AF2AFDC002F4CBC /* SceneDelegate.swift in Sources */,
 				03B9AC5B2AF5610D00A5751C /* APIConstant.swift in Sources */,
+				25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */,
 				035DB2A72B00E6F200161872 /* InsightListView.swift in Sources */,
+				25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */,
 				03B9AC7C2AF5651600A5751C /* UITabBar+.swift in Sources */,
+				25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */,
 				03B9AC862AF565BA00A5751C /* SizeLiterals.swift in Sources */,
 				03B9ACA12AF7B25B00A5751C /* HomeViewController.swift in Sources */,
+				252DD8842B063A7900DBB1D1 /* ActionListViewModel.swift in Sources */,
 				03B9AC912AF5669600A5751C /* MakeAlert.swift in Sources */,
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
+				2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */,
+				25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
 				032213322B14C4EF00FF5CF1 /* UnLockAlertView.swift in Sources */,
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
@@ -691,11 +765,13 @@
 				033E9C1B2AFE606E0051A9E8 /* CaveCollectionViewCell.swift in Sources */,
 				03C356652B106AC800750758 /* CaveListViewModel.swift in Sources */,
 				03B9AC782AF564C400A5751C /* UILabel+.swift in Sources */,
+				250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
 				033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */,
 				0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */,
 				58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */,
+				25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */,
 				03B9AC622AF5624D00A5751C /* DTO.swift in Sources */,
 				03B9AC8B2AF5660D00A5751C /* Protocol.swift in Sources */,
 			);
