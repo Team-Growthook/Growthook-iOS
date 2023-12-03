@@ -30,6 +30,9 @@ enum ImageLiterals {
         static var img_mugwort: UIImage { .load(name: "mugwort_img") }
         static var icn_seed_dark: UIImage { .load(name: "seed_dark_icn") }
         static var icn_seed_light: UIImage { .load(name: "seed_light_icn") }
+        static var ic_largethook_color: UIImage { .load(name: "ic_largethook_color") }
+        static var ic_largethook_mono: UIImage { .load(name: "ic_largethook_mono") }
+        static var ic_thook: UIImage { .load(name: "ic_thook") }
     }
     
     enum Home {
@@ -49,6 +52,10 @@ enum ImageLiterals {
         static var btn_scrap_light_on: UIImage { .load(name: "btn_scrap_light_on") }
         static var notification_empty: UIImage { .load(name: "notification_empty") }
         static var notification_new: UIImage { .load(name: "notification_new") }
+        static var img_cave_night: UIImage { .load(name: "img_cave_night") }
+        static var img_cave_pink: UIImage { .load(name: "img_cave_pink") }
+        static var img_cave_sunrise: UIImage { .load(name: "img_cave_sunrise") }
+        static var img_cave_sunset: UIImage { .load(name: "img_cave_sunset") }
     }
     
     enum Insight {
