@@ -20,10 +20,10 @@ final class HomeCaveView: BaseView {
     private let seedView = UILabel()
     private let seedImage = UIImageView()
     private let seedCountLabel = UILabel()
-    private let notificationButton = UIButton()
+    let notificationButton = UIButton()
     lazy var caveCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let caveLineView = UIView()
-    private let addCaveButton = UIButton()
+    let addCaveButton = UIButton()
     private let underLineView = UIView()
     private let flowLayout = UICollectionViewFlowLayout()
     
@@ -31,7 +31,7 @@ final class HomeCaveView: BaseView {
     
     override func setStyles() {
         
-        backgroundColor = .gray700
+        backgroundColor = .clear
         
         userLabel.do {
             $0.text = "EON님의 동굴 속"
@@ -143,7 +143,7 @@ final class HomeCaveView: BaseView {
         }
         
         underLineView.snp.makeConstraints {
-            $0.top.equalTo(caveCollectionView.snp.bottom).offset(14)
+            $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }

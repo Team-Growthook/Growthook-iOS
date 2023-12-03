@@ -9,8 +9,6 @@ import UIKit
 
 final class InsightListCollectionViewCell: UICollectionViewCell {
     
-    static let identifier = "InsightListCollectionViewCell"
-    
     // MARK: - UI Components
     
     private let scrapButton = UIButton()
@@ -18,6 +16,21 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     private let dueTimeLabel = UILabel()
     private let lockView = UIView()
     private let lockImageView = UIImageView()
+    private let selectedView = UIView()
+    private let selectedImageView = UIImageView()
+    
+    // MARK: - Properties
+    
+    private var cellType: InsightStatus?
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                selectedView.isHidden = false
+            } else {
+                selectedView.isHidden = true
+            }
+        }
+    }
     
     // MARK: - View Life Cycle
     
@@ -25,6 +38,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         setUI()
         setLayout()
+        setCellStyle()
     }
     
     required init?(coder: NSCoder) {
@@ -65,14 +79,24 @@ extension InsightListCollectionViewCell {
         lockImageView.do {
             $0.image = ImageLiterals.Home.icn_lock
         }
+        
+        selectedView.do {
+            $0.backgroundColor = .green50
+            $0.isHidden = true
+        }
+        
+        selectedImageView.do {
+            $0.image = ImageLiterals.Component.icn_check_white
+        }
     }
     
     // MARK: - Layout Helper
     
     private func setLayout() {
         
-        addSubviews(scrapButton, titleLabel, dueTimeLabel, lockView)
+        addSubviews(scrapButton, titleLabel, dueTimeLabel, lockView, selectedView)
         lockView.addSubviews(lockImageView)
+        selectedView.addSubviews(selectedImageView)
         
         scrapButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -96,6 +120,14 @@ extension InsightListCollectionViewCell {
         lockImageView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+        
+        selectedView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        selectedImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
     // MARK: - Methods
@@ -104,27 +136,61 @@ extension InsightListCollectionViewCell {
         switch model.scrapStatus {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            backgroundColor = .gray900
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
+            darkCellStyle()
         case .scrapDark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
-            backgroundColor = .gray900
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
+            darkCellStyle()
         case .scrapLight:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
         case .light:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
         case .lock:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            backgroundColor = .gray900
-            makeBorder(width: 0.5, color: .gray200)
-            titleLabel.textColor = .gray200
-            dueTimeLabel.textColor = .gray200
-            lockView.isHidden = false
+            lockCellStyle()
         }
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
+        cellType = model.scrapStatus
+    }
+    
+    func setCellStyle() {
+        switch cellType {
+        case .dark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+            darkCellStyle()
+        case .scrapDark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+            darkCellStyle()
+        case .scrapLight:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
+        case .light:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
+        case .lock:
+            lockCellStyle()
+        case .none:
+            return
+        }
+    }
+    
+    private func lockCellStyle() {
+        scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+        backgroundColor = .gray900
+        makeBorder(width: 0.5, color: .gray200)
+        titleLabel.textColor = .gray200
+        dueTimeLabel.textColor = .gray200
+        lockView.isHidden = false
+    }
+    
+    private func darkCellStyle() {
+        backgroundColor = .gray900
+        titleLabel.textColor = .gray200
+        dueTimeLabel.textColor = .gray200
+    }
+    
+    func selectedCell() {
+        selectedView.isHidden = false
+    }
+    
+    func unSelectedCell() {
+        selectedView.isHidden = true
     }
 }

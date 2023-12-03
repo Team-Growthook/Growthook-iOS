@@ -17,9 +17,21 @@ final class InsightListView: BaseView {
     // MARK: - UI Components
     
     private let seedTitleLabel = UILabel()
-    private let scrapButton = ScrapOnlyButton()
+    let scrapButton = UIButton()
     lazy var insightCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     private let flowLayout = UICollectionViewFlowLayout()
+    
+    // MARK: - Properties
+    
+    var scrapType: Bool = false
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - UI Components Property
     
@@ -31,6 +43,10 @@ final class InsightListView: BaseView {
             $0.text = "00개의 씨앗을 모았어요!"
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
+        }
+        
+        scrapButton.do {
+            $0.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
         }
         
         insightCollectionView.do {
@@ -55,14 +71,14 @@ final class InsightListView: BaseView {
         addSubviews(seedTitleLabel, scrapButton, insightCollectionView)
         
         seedTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(22)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 22 / 812)
             $0.leading.equalToSuperview().inset(18)
         }
         
         scrapButton.snp.makeConstraints {
             $0.top.equalToSuperview().inset(44)
-            $0.trailing.equalToSuperview().inset(5)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 110 / 375)
+            $0.trailing.equalToSuperview().inset(18)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 102 / 375)
             $0.height.equalTo(44)
         }
         
@@ -70,6 +86,15 @@ final class InsightListView: BaseView {
             $0.top.equalTo(scrapButton.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+    }
+}
+
+extension InsightListView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if let insightCell = cell as? InsightListCollectionViewCell {
+            insightCell.setCellStyle()
         }
     }
 }

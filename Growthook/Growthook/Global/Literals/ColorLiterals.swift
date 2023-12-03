@@ -27,6 +27,10 @@ extension UIColor {
         return UIColor(hex: "#9BE6C5")
     }
     
+    static var green50: UIColor {
+        return UIColor(hex: "23B877").withAlphaComponent(0.5)
+    }
+    
     // MARK: - Red
     
     static var red400: UIColor {
