@@ -40,18 +40,4 @@ extension UIViewController {
             return bottom ?? 0.0
         }
     }
-    
-    func presentWithoutAnimation(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
-        let transition: () -> Void = {
-            self.present(viewControllerToPresent, animated: false, completion: completion)
-        }
-        
-        if flag {
-            UIView.performWithoutAnimation {
-                transition()
-            }
-        } else {
-            transition()
-        }
-    }
 }

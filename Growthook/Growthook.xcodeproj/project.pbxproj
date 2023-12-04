@@ -12,6 +12,7 @@
 		0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */; };
 		032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137F2B177F8E00FF5CF1 /* RemoveInsightViewModel.swift */; };
 		032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213812B17960700FF5CF1 /* NotificationAlertView.swift */; };
+		032213A52B1C54EB00FF5CF1 /* ScrapOnlyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213A42B1C54EB00FF5CF1 /* ScrapOnlyButton.swift */; };
 		033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 033E9C0F2AFCE0860051A9E8 /* Image.xcassets */; };
 		033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */; };
 		033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */; };
@@ -103,6 +104,7 @@
 		0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertViewController.swift; sourceTree = "<group>"; };
 		0322137F2B177F8E00FF5CF1 /* RemoveInsightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightViewModel.swift; sourceTree = "<group>"; };
 		032213812B17960700FF5CF1 /* NotificationAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationAlertView.swift; sourceTree = "<group>"; };
+		032213A42B1C54EB00FF5CF1 /* ScrapOnlyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapOnlyButton.swift; sourceTree = "<group>"; };
 		033E9C0F2AFCE0860051A9E8 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		033E9C172AFE33A80051A9E8 /* HomeCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCaveView.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */,
 				032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */,
 				032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */,
+				032213A42B1C54EB00FF5CF1 /* ScrapOnlyButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -434,8 +437,8 @@
 		03B9AC9E2AF7B15E00A5751C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				035DB2AE2B076F4B00161872 /* ViewModels */,
 				033E9C1C2AFE63C80051A9E8 /* Models */,
+				035DB2AE2B076F4B00161872 /* ViewModels */,
 				033E9C142AFE30350051A9E8 /* Views */,
 				03B9AC9F2AF7B24200A5751C /* ViewControllers */,
 				033E9C192AFE60570051A9E8 /* Cell */,
@@ -755,6 +758,7 @@
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
 				033E9C202AFE725D0051A9E8 /* CaveProfile.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
+				032213A52B1C54EB00FF5CF1 /* ScrapOnlyButton.swift in Sources */,
 				03C3565F2B0B702900750758 /* InsightTapBottomSheet.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,

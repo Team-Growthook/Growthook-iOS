@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "back_ios.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "back_ios@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "back_ios@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "ic_back_ios.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

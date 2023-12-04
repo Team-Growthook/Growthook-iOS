@@ -78,7 +78,7 @@ final class UnLockAlertView: BaseView {
         }
         
         mugwortImage.do {
-            $0.image = ImageLiterals.Component.icn_seed_light
+            $0.image = ImageLiterals.Component.ic_thook
         }
         
         mugwortCount.do {
@@ -159,8 +159,7 @@ final class UnLockAlertView: BaseView {
         mugwortImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(mugwortLabel.snp.trailing).offset(4)
-            $0.width.equalTo(10)
-            $0.height.equalTo(12)
+            $0.size.equalTo(12)
         }
         
         mugwortCount.snp.makeConstraints {
