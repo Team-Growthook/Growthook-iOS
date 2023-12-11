@@ -59,10 +59,10 @@ final class KakaoLoginViewController: BaseViewController {
             let userName = user?.kakaoAccount?.name
             let userEmail = user?.kakaoAccount?.email
             
-            let contentText =
-            "user name : \(userName)\n userEmail : \(userEmail)\n"
+            print("userName : ", userName ?? "")
+            print("userEmail : ", userEmail ?? "")
             
-            print("user - \(user)")
+            self.loginSuccess()
             
             if userEmail == nil {
                 // 동의 안함
@@ -97,6 +97,18 @@ final class KakaoLoginViewController: BaseViewController {
                     self.kakaoGetUserInfo()
                 }
             }
+        }
+    }
+    
+    private func loginSuccess() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            let vc = TabBarController()
+            let rootVC = UINavigationController(rootViewController: vc)
+            rootVC.navigationController?.isNavigationBarHidden = true
+            window.rootViewController = rootVC
+            window.makeKeyAndVisible()
         }
     }
 }
