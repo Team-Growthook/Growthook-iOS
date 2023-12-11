@@ -12,6 +12,7 @@
 		03115F842B26FCA8009D1517 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F832B26FCA8009D1517 /* KakaoSDKAuth */; };
 		03115F862B26FCA8009D1517 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F852B26FCA8009D1517 /* KakaoSDKCommon */; };
 		03115F882B26FCA8009D1517 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F872B26FCA8009D1517 /* KakaoSDKUser */; };
+		03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */; };
 		032213322B14C4EF00FF5CF1 /* UnLockAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */; };
 		0322137A2B17642E00FF5CF1 /* RemoveInsightAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */; };
 		0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */; };
@@ -104,6 +105,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
 		032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLockAlertView.swift; sourceTree = "<group>"; };
 		032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertView.swift; sourceTree = "<group>"; };
 		0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertViewController.swift; sourceTree = "<group>"; };
@@ -213,6 +215,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03115F892B270698009D1517 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				03115F8A2B2706AD009D1517 /* ViewControllers */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		03115F8A2B2706AD009D1517 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		033E9C112AFD2F230051A9E8 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,8 +315,9 @@
 		03B9AC4A2AF55E3D00A5751C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				58E75FA42B00C0C700512FE2 /* Insights */,
+				03115F892B270698009D1517 /* Onboarding */,
 				03B9AC982AF7A86800A5751C /* Common */,
+				58E75FA42B00C0C700512FE2 /* Insights */,
 				03B9AC9E2AF7B15E00A5751C /* Home */,
 				03B9ACA22AF7B27600A5751C /* ActionList */,
 				03B9ACA32AF7B28200A5751C /* Mypage */,
@@ -743,6 +762,7 @@
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */,
+				03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
 				58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */,
