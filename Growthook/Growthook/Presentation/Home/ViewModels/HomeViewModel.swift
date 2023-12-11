@@ -16,6 +16,8 @@ protocol HomeViewModelInputs {
     func reloadInsight()
     func insightCellTap(at indexPath: IndexPath)
     func giveUpButtonTap()
+    func caveListCellTap(at indexPath: IndexPath)
+    func selectButtonTap()
 }
 
 protocol HomeViewModelOutputs {
@@ -24,6 +26,8 @@ protocol HomeViewModelOutputs {
     var insightLongTap: PublishSubject<IndexPath> { get }
     var insightBackground: PublishSubject<IndexPath> { get }
     var pushToInsightDetail: PublishSubject<IndexPath> { get }
+    var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
+    var moveToCave: Observable<Void> { get }
 }
 
 protocol HomeViewModelType {
@@ -40,6 +44,11 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     let reloadInsightSubject: PublishSubject<Void> = PublishSubject<Void>()
     var pushToInsightDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var dismissToHomeVC: PublishSubject<Void> = PublishSubject<Void>()
+    var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
+    let buttonTapSubject: PublishSubject<Void> = PublishSubject<Void>()
+    var moveToCave: Observable<Void> {
+        return buttonTapSubject.asObservable()
+    }
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -70,5 +79,13 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func giveUpButtonTap() {
         self.dismissToHomeVC.onNext(())
+    }
+    
+    func caveListCellTap(at indexPath: IndexPath) {
+        selectedCellIndex.accept(indexPath)
+    }
+    
+    func selectButtonTap() {
+        return buttonTapSubject.onNext(())
     }
 }

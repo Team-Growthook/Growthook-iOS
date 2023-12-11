@@ -22,13 +22,13 @@ class CaveListHalfModal: BaseViewController {
     
     // MARK: - Properties
     
-    private let viewModel = CaveListViewModel()
+    private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
     var indexPath: IndexPath? = nil
     private let deSelectInsightNotification = Notification.Name("DeSelectInsightNotification")
     
     override func bindViewModel() {
-        viewModel.outputs.caveList
+        viewModel.outputs.caveProfile
             .bind(to: caveListTableView.rx
                 .items(cellIdentifier: CaveListHalfModalCell.className,
                        cellType: CaveListHalfModalCell.self)) { [weak self] (index, model, cell) in
