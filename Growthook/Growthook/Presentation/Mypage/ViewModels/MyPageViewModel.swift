@@ -52,7 +52,7 @@ final class MyPageViewModel: MyPageViewModelInputs, MyPageViewModelOutputs, MyPa
     init() {
         myPageComponentsList.accept(myPageList)
         setVersionOfTheApp()
-//        setDummyData()
+        setDummyData()
     }
     
     func editMyInformationDidTap() {
@@ -88,12 +88,12 @@ final class MyPageViewModel: MyPageViewModelInputs, MyPageViewModelOutputs, MyPa
 
 extension MyPageViewModel {
     
-//    private func setDummyData() {
-//        userProfileName.accept("GrowthookMan")
-//        userEarnedThookCount.accept(60)
-//        userSpentThookCount.accept(32)
-//        userProfileImage.accept("https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/302492881_1018016299029456_116960852711349429_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=m8FQanKBjigAX9xHgcr&_nc_ht=scontent-gmp1-1.xx&oh=00_AfA97sLh96dO9yRUJmOtBLqnkmV53olEj2OWDNR9DqhhPA&oe=658226F5")
-//    }
+    private func setDummyData() {
+        userProfileName.accept("GrowthookMan")
+        userEarnedThookCount.accept(60)
+        userSpentThookCount.accept(32)
+        userProfileImage.accept("https://scontent-gmp1-1.xx.fbcdn.net/v/t39.30808-6/302492881_1018016299029456_116960852711349429_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=m8FQanKBjigAX9xHgcr&_nc_ht=scontent-gmp1-1.xx&oh=00_AfA97sLh96dO9yRUJmOtBLqnkmV53olEj2OWDNR9DqhhPA&oe=658226F5")
+    }
     
     private func setVersionOfTheApp() {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String else {
