@@ -60,7 +60,7 @@ final class CaveDetailView: BaseView {
         caveDescriptionView.snp.makeConstraints {
             $0.top.equalTo(navigationView.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 188 / 812)
+            $0.height.equalTo(188)
         }
         
         insightListView.snp.makeConstraints {
