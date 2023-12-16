@@ -21,6 +21,11 @@ final class CaveDetailViewController: BaseViewController {
     
     // MARK: - UI Components Property
     
+    override func setStyles() {
+        
+        self.view.backgroundColor = .gray600
+    }
+    
     // MARK: - Layout Helper
     
     override func setLayout() {

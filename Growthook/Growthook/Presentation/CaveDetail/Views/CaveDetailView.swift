@@ -10,15 +10,13 @@ import UIKit
 import Moya
 import SnapKit
 import Then
-import RxCocoa
-import RxSwift
 
 final class CaveDetailView: BaseView {
 
     // MARK: - UI Components
     
     private let navigationView = CustomNavigationBar()
-    private let caveDescriptionView = UIView()
+    private let caveDescriptionView = CaveDescriptionView()
     private let insightListView = InsightListView()
     private let addSeedButton = UIButton()
     
@@ -26,11 +24,12 @@ final class CaveDetailView: BaseView {
     
     override func setStyles() {
         
-        self.backgroundColor = .clear
+        self.backgroundColor = .gray600
         
         navigationView.do {
             $0.isBackButtonIncluded = true
             $0.isMenuButtonIncluded = true
+            $0.isBackgroundColor = .gray600
         }
         
         insightListView.do {
