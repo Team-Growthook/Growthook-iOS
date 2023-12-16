@@ -172,8 +172,6 @@ final class HomeViewController: BaseViewController {
     // MARK: - Methods
     
     override func setDelegates() {
-        homeCaveView.caveCollectionView.delegate = self
-//        insightListView.insightCollectionView.delegate = self
         longPressGesture.delegate = self
     }
     
@@ -293,9 +291,6 @@ extension HomeViewController {
     @objc func hideNotificationView(_ sender: UITapGestureRecognizer) {
         notificationView.isHidden = true
     }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension HomeViewController: UIGestureRecognizerDelegate {}
