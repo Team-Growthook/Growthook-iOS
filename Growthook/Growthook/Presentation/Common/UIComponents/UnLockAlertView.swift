@@ -118,9 +118,8 @@ final class UnLockAlertView: BaseView {
         leftoverMugwortView.addSubviews(mugwortLabel, mugwortImage, mugwortCount)
         
         contentView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(44)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 261 / 812)
+            $0.horizontalEdges.equalToSuperview().inset(43)
             $0.height.equalTo(290)
         }
         

@@ -233,7 +233,6 @@ extension HomeViewController {
             view.addSubview(unLockAlertView)
             unLockAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
-//                $0.top.equalTo(homeCaveView.snp.bottom)
             }
         } else {
             print("pushToInsightDetail")
