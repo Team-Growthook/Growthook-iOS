@@ -232,8 +232,8 @@ extension HomeViewController {
         if insightDummyData[indexPath.item].scrapStatus == .lock {
             view.addSubview(unLockAlertView)
             unLockAlertView.snp.makeConstraints {
-                $0.bottom.horizontalEdges.equalToSuperview()
-                $0.top.equalTo(homeCaveView.snp.bottom)
+                $0.edges.equalToSuperview()
+//                $0.top.equalTo(homeCaveView.snp.bottom)
             }
         } else {
             print("pushToInsightDetail")

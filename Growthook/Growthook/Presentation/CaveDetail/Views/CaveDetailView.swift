@@ -19,7 +19,7 @@ final class CaveDetailView: BaseView {
     private let caveDescriptionView = CaveDescriptionView()
     let insightListView = InsightListView()
     private let bottomView = UIView()
-    private let addSeedButton = UIButton()
+    lazy var addSeedButton = UIButton()
     
     // 그림자를 그리는 CAGradientLayer를 생성합니다.
     let gradientLayer = CAGradientLayer()
