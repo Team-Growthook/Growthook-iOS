@@ -75,9 +75,18 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        insightListView.insightCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                    print(indexPath)
+//                    self?.insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
+                    self.viewModel.inputs.insightCellTap(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.outputs.pushToInsightDetail
             .subscribe(onNext: { [weak self] indexPath in
-                self?.pushToInsightDetail(at: indexPath )
+                self?.pushToInsightDetail(at: indexPath)
             })
             .disposed(by: disposeBag)
         
@@ -164,7 +173,7 @@ final class HomeViewController: BaseViewController {
     
     override func setDelegates() {
         homeCaveView.caveCollectionView.delegate = self
-        insightListView.insightCollectionView.delegate = self
+//        insightListView.insightCollectionView.delegate = self
         longPressGesture.delegate = self
     }
     
@@ -287,10 +296,6 @@ extension HomeViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.inputs.insightCellTap(at: indexPath)
-    }
 }
 
 extension HomeViewController: UIGestureRecognizerDelegate {}
