@@ -172,6 +172,7 @@ final class HomeViewController: BaseViewController {
         }
         
         seedPlusButton.snp.makeConstraints {
+            print(seedPlusBottomInset())
             $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
             $0.trailing.equalToSuperview().inset(8)
         }
@@ -201,11 +202,7 @@ extension HomeViewController {
     // MARK: - Methods
     
     private func seedPlusBottomInset() -> CGFloat {
-        if let tabBarHeight = tabBarController?.tabBar.bounds.height {
-            return tabBarHeight + self.safeAreaBottomInset()
-        } else {
-            return 0
-        }
+        return 49 + self.safeAreaBottomInset()
     }
     
     private func addGesture() {
