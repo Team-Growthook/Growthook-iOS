@@ -37,7 +37,7 @@ final class InsightListView: BaseView {
     
     override func setStyles() {
         
-        backgroundColor = .clear
+        backgroundColor = .gray700
         
         seedTitleLabel.do {
             $0.text = "00개의 씨앗을 모았어요!"
