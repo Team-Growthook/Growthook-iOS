@@ -21,11 +21,7 @@ final class MypageViewController: BaseViewController {
     private let earnedThookView = MyPageThookBoxView(type: .earned)
     private let spentThookView = MyPageThookBoxView(type: .spent)
     private let myPageListTableView = UITableView()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+
     override func bindViewModel() {
         viewModel.outputs.userProfileImage
             .bind { [weak self] imageUrl in
@@ -132,12 +128,15 @@ final class MypageViewController: BaseViewController {
         
         myPageListTableView.do {
             $0.rowHeight = 60
-            $0.register(MyPageListTableViewCell.self, forCellReuseIdentifier: MyPageListTableViewCell.className)
             $0.bounces = true
             $0.backgroundColor = .gray600
             $0.separatorColor = .gray400
             $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0   )
         }
+    }
+    
+    override func setRegister() {
+        myPageListTableView.register(MyPageListTableViewCell.self, forCellReuseIdentifier: MyPageListTableViewCell.className)
     }
 
     override func setLayout() {
