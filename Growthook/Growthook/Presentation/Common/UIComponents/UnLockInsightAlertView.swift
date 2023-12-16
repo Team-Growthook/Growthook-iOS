@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class UnLockAlertView: BaseView {
+final class UnLockInsightAlertView: BaseView {
     
     // MARK: - UI Components
     
@@ -186,7 +186,7 @@ final class UnLockAlertView: BaseView {
     }
 }
 
-extension UnLockAlertView {
+extension UnLockInsightAlertView {
     
     func useButtonTapped() {
         print("useButtonTapped")

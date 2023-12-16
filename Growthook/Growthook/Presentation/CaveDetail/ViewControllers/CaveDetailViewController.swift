@@ -18,7 +18,7 @@ final class CaveDetailViewController: BaseViewController {
     // MARK: - UI Components
     
     private let caveDetailView = CaveDetailView()
-    private let unLockAlertView = UnLockAlertView()
+    private let unLockAlertView = UnLockInsightAlertView()
     lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
     
     // MARK: - Properties
