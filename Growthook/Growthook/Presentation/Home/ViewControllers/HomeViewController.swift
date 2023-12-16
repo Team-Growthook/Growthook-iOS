@@ -82,7 +82,6 @@ final class HomeViewController: BaseViewController {
         homeCaveView.caveCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                print(indexPath)
                 self.viewModel.inputs.caveCellTap(at: indexPath)
             })
             .disposed(by: disposeBag)
