@@ -11,11 +11,11 @@ import RxSwift
 import RxCocoa
 
 protocol CaveDetailViewModelInputs {
-    
+
 }
 
 protocol CaveDetailViewModelOutputs {
-    var insightList: BehaviorRelay<[InsightList]> { get }
+
 }
 
 protocol CaveDetailViewModelType {
@@ -25,12 +25,9 @@ protocol CaveDetailViewModelType {
 
 final class CaveDetailViewModel: CaveDetailViewModelInputs, CaveDetailViewModelOutputs, CaveDetailViewModelType {
     
-    var insightList: BehaviorRelay<[InsightList]> = BehaviorRelay(value: [])
     
     var inputs: CaveDetailViewModelInputs { return self }
     var outputs: CaveDetailViewModelOutputs { return self }
     
-    init() {
-        self.insightList.accept(InsightList.insightListDummyData())
-    }
+    init() {}
 }

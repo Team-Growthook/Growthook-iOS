@@ -19,7 +19,7 @@ final class CaveDescriptionView: BaseView {
     private let caveDescriptionLabel = UILabel()
     private let userImageView = UIImageView()
     private let nicknameLabel = UILabel()
-    private let lockButton = UIButton()
+    let lockButton = UIButton()
     
     override func setStyles() {
         

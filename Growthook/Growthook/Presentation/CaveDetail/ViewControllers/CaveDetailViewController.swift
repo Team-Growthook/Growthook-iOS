@@ -18,12 +18,14 @@ final class CaveDetailViewController: BaseViewController {
     // MARK: - UI Components
     
     private let caveDetailView = CaveDetailView()
-    private let unLockAlertView = UnLockInsightAlertView()
+    private lazy var unLockInsightAlertView = UnLockInsightAlertView()
+    private lazy var unLockCaveAlertView = UnLockCaveAlertView()
     lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
     
     // MARK: - Properties
     
     private let viewModel = HomeViewModel()
+    private let caveDetailViewModel = CaveDetailViewModel()
     private let disposeBag = DisposeBag()
     private var insightDummyData = InsightList.insightListDummyData()
     
@@ -63,15 +65,15 @@ final class CaveDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        unLockAlertView.useButton.rx.tap
+        unLockInsightAlertView.useButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.unLockAlertView.useButtonTapped()
+                self?.unLockInsightAlertView.useButtonTapped()
             })
             .disposed(by: disposeBag)
         
-        unLockAlertView.giveUpButton.rx.tap
+        unLockInsightAlertView.giveUpButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.unLockAlertView.removeFromSuperview()
+                self?.unLockInsightAlertView.removeFromSuperview()
             })
             .disposed(by: disposeBag)
         
@@ -80,6 +82,24 @@ final class CaveDetailViewController: BaseViewController {
                 if let type = self?.caveDetailView.insightListView.scrapType {
                     self?.scrapTypeSetting(type)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        caveDetailView.caveDescriptionView.lockButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.addUnLockCave()
+            })
+            .disposed(by: disposeBag)
+        
+        unLockCaveAlertView.checkButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.unLockCaveAlertView.removeFromSuperview()
+            })
+            .disposed(by: disposeBag)
+        
+        caveDetailView.addSeedButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                // add Seed
             })
             .disposed(by: disposeBag)
     }
@@ -138,8 +158,8 @@ extension CaveDetailViewController {
     private func pushToInsightDetail(at indexPath: IndexPath) {
         caveDetailView.insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
         if insightDummyData[indexPath.item].scrapStatus == .lock {
-            view.addSubview(unLockAlertView)
-            unLockAlertView.snp.makeConstraints {
+            view.addSubview(unLockInsightAlertView)
+            unLockInsightAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
             }
         } else {
@@ -188,6 +208,13 @@ extension CaveDetailViewController {
         
         insightTapVC.indexPath = indexPath
         present(insightTapVC, animated: true)
+    }
+    
+    private func addUnLockCave() {
+        view.addSubview(unLockCaveAlertView)
+        unLockCaveAlertView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     // MARK: - @objc Methods
