@@ -57,8 +57,8 @@ final class CaveDetailView: BaseView {
             $0.frame = bottomView.bounds
             $0.colors = [UIColor.gray900.cgColor, UIColor.clear.cgColor]
             $0.locations = [0.0, 1.0]
-            $0.startPoint = CGPoint(x: 0.7, y: 1.0)
-            $0.endPoint = CGPoint(x: 0.7, y: 0.0)
+            $0.startPoint = CGPoint(x: 0.8, y: 1.0)
+            $0.endPoint = CGPoint(x: 0.8, y: 0.0)
         }
         
         bottomView.do {
@@ -89,7 +89,7 @@ final class CaveDetailView: BaseView {
         insightListView.snp.makeConstraints {
             $0.top.equalTo(caveDescriptionView.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(84)
+            $0.bottom.equalToSuperview().inset(50)
         }
         
         bottomView.snp.makeConstraints {
@@ -98,7 +98,7 @@ final class CaveDetailView: BaseView {
         }
         
         addSeedButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(54)
+            $0.bottom.equalToSuperview().inset(20)
             $0.horizontalEdges.equalToSuperview().inset(18)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
         }
