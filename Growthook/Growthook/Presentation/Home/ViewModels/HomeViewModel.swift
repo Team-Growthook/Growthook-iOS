@@ -18,6 +18,7 @@ protocol HomeViewModelInputs {
     func giveUpButtonTap()
     func caveListCellTap(at indexPath: IndexPath)
     func selectButtonTap()
+    func caveCellTap(at indexPath: IndexPath)
 }
 
 protocol HomeViewModelOutputs {
@@ -28,6 +29,7 @@ protocol HomeViewModelOutputs {
     var pushToInsightDetail: PublishSubject<IndexPath> { get }
     var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
     var moveToCave: Observable<Void> { get }
+    var pushToCaveDetail: PublishSubject<IndexPath> { get }
 }
 
 protocol HomeViewModelType {
@@ -49,6 +51,7 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var moveToCave: Observable<Void> {
         return buttonTapSubject.asObservable()
     }
+    var pushToCaveDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: HomeViewModelInputs { return self }
     var outputs: HomeViewModelOutputs { return self }
@@ -71,6 +74,10 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     
     func reloadInsight() {
         self.reloadInsightSubject.onNext(())
+    }
+    
+    func caveCellTap(at indexPath: IndexPath) {
+        self.pushToCaveDetail.onNext(indexPath)
     }
     
     func insightCellTap(at indexPath: IndexPath) {

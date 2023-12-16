@@ -32,6 +32,10 @@ final class HomeViewController: BaseViewController {
     
     // MARK: - View Life Cycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addGesture()
@@ -75,10 +79,24 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        homeCaveView.caveCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                print(indexPath)
+                self.viewModel.inputs.caveCellTap(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.pushToCaveDetail
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.pushToCaveDetailVC()
+            })
+            .disposed(by: disposeBag)
+        
         insightListView.insightCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                    self.viewModel.inputs.insightCellTap(at: indexPath)
+                self.viewModel.inputs.insightCellTap(at: indexPath)
             })
             .disposed(by: disposeBag)
         
@@ -264,6 +282,12 @@ extension HomeViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideNotificationView))
         view.addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false
+    }
+    
+    private func pushToCaveDetailVC() {
+        let caveDetailVC = CaveDetailViewController()
+        caveDetailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(caveDetailVC, animated: true)
     }
     
     // MARK: - @objc Methods
