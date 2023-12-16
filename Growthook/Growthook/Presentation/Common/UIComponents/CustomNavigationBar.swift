@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class CustomNavigationBar: UIView {
+final class CustomNavigationBar: UIView {
     
     // MARK: - UI Components
 
@@ -45,6 +45,11 @@ class CustomNavigationBar: UIView {
     var isMenuButtonIncluded: Bool {
         get { !menuButton.isHidden }
         set { menuButton.isHidden = !newValue }
+    }
+    
+    var isBackgroundColor: UIColor? {
+        get { backgroundColor }
+        set { backgroundColor = newValue }
     }
     
     var backButtonAction: (() -> Void)?
