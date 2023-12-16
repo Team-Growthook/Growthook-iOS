@@ -16,9 +16,9 @@ final class CustomNavigationBar: UIView {
 
     private lazy var titleView = UIView()
     private lazy var titleLabel = UILabel()
-    private lazy var backButton = UIButton()
-    private lazy var closeButton = UIButton()
-    private lazy var menuButton = UIButton()
+    lazy var backButton = UIButton()
+    lazy var closeButton = UIButton()
+    lazy var menuButton = UIButton()
     
     // MARK: - Properties
     

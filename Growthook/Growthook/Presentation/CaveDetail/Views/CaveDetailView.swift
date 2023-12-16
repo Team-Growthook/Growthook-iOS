@@ -15,7 +15,7 @@ final class CaveDetailView: BaseView {
 
     // MARK: - UI Components
     
-    private let navigationView = CustomNavigationBar()
+    let navigationView = CustomNavigationBar()
     let caveDescriptionView = CaveDescriptionView()
     let insightListView = InsightListView()
     private let bottomView = UIView()

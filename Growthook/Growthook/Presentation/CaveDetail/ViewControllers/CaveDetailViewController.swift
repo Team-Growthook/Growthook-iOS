@@ -87,7 +87,7 @@ final class CaveDetailViewController: BaseViewController {
         
         caveDetailView.caveDescriptionView.lockButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.addUnLockCave()
+                self?.addUnLockCaveAlert()
             })
             .disposed(by: disposeBag)
         
@@ -100,6 +100,12 @@ final class CaveDetailViewController: BaseViewController {
         caveDetailView.addSeedButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 // add Seed
+            })
+            .disposed(by: disposeBag)
+        
+        caveDetailView.navigationView.backButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.backToHomeVC()
             })
             .disposed(by: disposeBag)
     }
@@ -210,11 +216,15 @@ extension CaveDetailViewController {
         present(insightTapVC, animated: true)
     }
     
-    private func addUnLockCave() {
+    private func addUnLockCaveAlert() {
         view.addSubview(unLockCaveAlertView)
         unLockCaveAlertView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    private func backToHomeVC() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - @objc Methods
