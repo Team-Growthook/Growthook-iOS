@@ -46,7 +46,7 @@ final class CaveDetailView: BaseView {
         }
         
         addSeedButton.do {
-            $0.setTitle("씨앗 심기", for: .normal)
+            $0.setTitle(I18N.CaveDetail.addSeed, for: .normal)
             $0.setTitleColor(.white000, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.backgroundColor = .green400

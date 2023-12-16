@@ -32,7 +32,7 @@ final class InsightListView: BaseView {
         backgroundColor = .gray700
         
         seedTitleLabel.do {
-            $0.text = "00개의 씨앗을 모았어요!"
+            $0.text = "00\(I18N.Home.seedsCollected)"
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }

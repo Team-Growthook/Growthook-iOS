@@ -32,7 +32,7 @@ final class UnLockCaveAlertView: BaseView {
         }
         
         titleLabel.do {
-            $0.text = "내 동굴에 친구를 초대해\n인사이트를 공유해요!"
+            $0.text = I18N.Component.UnLockCave.title
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
             $0.textAlignment = .center
@@ -40,7 +40,7 @@ final class UnLockCaveAlertView: BaseView {
         }
         
         descriptionLabel.do {
-            $0.text = "해당 기능은 추후 업데이트 예정이에요:)"
+            $0.text = I18N.Component.UnLockCave.description
             $0.font = .fontGuide(.body3_reg)
             $0.textColor = .gray100
         }
@@ -50,7 +50,7 @@ final class UnLockCaveAlertView: BaseView {
         }
         
         checkButton.do {
-            $0.setTitle("확인", for: .normal)
+            $0.setTitle(I18N.Component.UnLockCave.check, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.setTitleColor(.green400, for: .normal)
             $0.backgroundColor = .clear
