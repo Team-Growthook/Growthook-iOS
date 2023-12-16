@@ -78,8 +78,6 @@ final class HomeViewController: BaseViewController {
         insightListView.insightCollectionView.rx.itemSelected
             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
-                    print(indexPath)
-//                    self?.insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
                     self.viewModel.inputs.insightCellTap(at: indexPath)
             })
             .disposed(by: disposeBag)
