@@ -9,7 +9,7 @@ import UIKit
 
 final class TextFieldBlockWithTitle: BaseView {
 
-//    @objc dynamic private(set) var textCount: Int = 0
+    @objc dynamic private(set) var textCount: Int = 0
     
     private let titleLabel = UILabel()
     private let textCountLabel = UILabel()
