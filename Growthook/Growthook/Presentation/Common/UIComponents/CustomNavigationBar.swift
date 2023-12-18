@@ -10,15 +10,15 @@ import UIKit
 import Then
 import SnapKit
 
-class CustomNavigationBar: UIView {
+final class CustomNavigationBar: UIView {
     
     // MARK: - UI Components
 
     private lazy var titleView = UIView()
     private lazy var titleLabel = UILabel()
-    private lazy var backButton = UIButton()
-    private lazy var closeButton = UIButton()
-    private lazy var menuButton = UIButton()
+    lazy var backButton = UIButton()
+    lazy var closeButton = UIButton()
+    lazy var menuButton = UIButton()
     
     // MARK: - Properties
     
@@ -45,6 +45,11 @@ class CustomNavigationBar: UIView {
     var isMenuButtonIncluded: Bool {
         get { !menuButton.isHidden }
         set { menuButton.isHidden = !newValue }
+    }
+    
+    var isBackgroundColor: UIColor? {
+        get { backgroundColor }
+        set { backgroundColor = newValue }
     }
     
     var backButtonAction: (() -> Void)?
@@ -130,7 +135,6 @@ extension CustomNavigationBar {
         menuButton.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(8)
             $0.centerY.equalToSuperview()
-            $0.size.equalToSuperview()
         }
     }
     

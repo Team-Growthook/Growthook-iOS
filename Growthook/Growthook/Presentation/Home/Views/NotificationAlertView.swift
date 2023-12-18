@@ -34,7 +34,7 @@ final class NotificationAlertView: BaseView {
         }
         
         notificationLabel.do {
-            $0.text = "잠금이 3일 이하로\n남은 씨앗이 3개 있어요!"
+            $0.text = "\(I18N.Home.notiDescription1)3\(I18N.Home.notiDescription2)3\(I18N.Home.notiDescription3)"
             $0.font = .fontGuide(.body3_reg)
             $0.textColor = .white000
             $0.numberOfLines = 2

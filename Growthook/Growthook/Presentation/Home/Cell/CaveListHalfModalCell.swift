@@ -58,7 +58,7 @@ extension CaveListHalfModalCell {
         contentView.backgroundColor = .clear
         
         titleLabel.do {
-            $0.text = "동굴 이름"
+            $0.text = I18N.Home.caveName
             $0.textColor = .gray200
             $0.font = .fontGuide(.body1_reg)
         }
