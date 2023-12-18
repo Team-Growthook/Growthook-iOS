@@ -102,6 +102,10 @@
 		09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */; };
 		09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */; };
 		09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */; };
+		58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */; };
+		58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */; };
+		58AB70B12B2C90560061C072 /* MyPageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */; };
+		58AB70B42B2C970E0061C072 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 58AB70B32B2C970E0061C072 /* Kingfisher */; };
 		58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F972B00B15A00512FE2 /* BaseViewController.swift */; };
 		58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F992B00B33F00512FE2 /* BaseView.swift */; };
 		58E75F9D2B00B63C00512FE2 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */; };
@@ -200,6 +204,9 @@
 		09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveModel.swift; sourceTree = "<group>"; };
 		09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySeedView.swift; sourceTree = "<group>"; };
 		09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
+		58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageThookBoxView.swift; sourceTree = "<group>"; };
+		58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListTableViewCell.swift; sourceTree = "<group>"; };
 		58E75F972B00B15A00512FE2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		58E75F992B00B33F00512FE2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		58E75F9C2B00B63C00512FE2 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +225,7 @@
 			files = (
 				03E481192AF2B126002F4CBC /* RxSwift in Frameworks */,
 				03E481172AF2B126002F4CBC /* RxRelay in Frameworks */,
+				58AB70B42B2C970E0061C072 /* Kingfisher in Frameworks */,
 				03E481222AF2B1DA002F4CBC /* Moya in Frameworks */,
 				03E481152AF2B126002F4CBC /* RxCocoa in Frameworks */,
 				03115F862B26FCA8009D1517 /* KakaoSDKCommon in Frameworks */,
@@ -524,17 +532,11 @@
 		03B9ACA32AF7B28200A5751C /* Mypage */ = {
 			isa = PBXGroup;
 			children = (
-				03B9ACA72AF7B2A600A5751C /* ViewController */,
+				58AB70AA2B2C7C330061C072 /* ViewModels */,
+				58AB70A92B2C7C2C0061C072 /* Views */,
+				58AB70A82B2C7C240061C072 /* Controllers */,
 			);
 			path = Mypage;
-			sourceTree = "<group>";
-		};
-		03B9ACA72AF7B2A600A5751C /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		03E480F32AF2AFDC002F4CBC = {
@@ -660,6 +662,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		58AB70A82B2C7C240061C072 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		58AB70A92B2C7C2C0061C072 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */,
+				58AB70AF2B2C903D0061C072 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58AB70AA2B2C7C330061C072 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		58AB70AF2B2C903D0061C072 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		58E75F962B00B14B00512FE2 /* Base */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,6 +776,7 @@
 				03115F832B26FCA8009D1517 /* KakaoSDKAuth */,
 				03115F852B26FCA8009D1517 /* KakaoSDKCommon */,
 				03115F872B26FCA8009D1517 /* KakaoSDKUser */,
+				58AB70B32B2C970E0061C072 /* Kingfisher */,
 			);
 			productName = Growthook;
 			productReference = 03E480FC2AF2AFDC002F4CBC /* Growthook.app */;
@@ -777,6 +813,7 @@
 				03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */,
 				58E75F9E2B00B72400512FE2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				03115F7E2B26FB9A009D1517 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				58AB70B22B2C970E0061C072 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 03E480FD2AF2AFDC002F4CBC /* Products */;
 			projectDirPath = "";
@@ -808,6 +845,7 @@
 			files = (
 				03B9AC822AF5658F00A5751C /* FontLiterals.swift in Sources */,
 				035DB2AB2B00FF2400161872 /* InsightListCollectionViewCell.swift in Sources */,
+				58AB70B12B2C90560061C072 /* MyPageListTableViewCell.swift in Sources */,
 				0322137A2B17642E00FF5CF1 /* RemoveInsightAlertView.swift in Sources */,
 				03C356632B1069AC00750758 /* CaveListHalfModalCell.swift in Sources */,
 				03B9AC952AF566C800A5751C /* BlurredLabel.swift in Sources */,
@@ -836,11 +874,13 @@
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */,
+				58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */,
 				03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
 				58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */,
+				58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */,
 				58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */,
 				09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
@@ -1158,6 +1198,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		58AB70B22B2C970E0061C072 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.1;
+			};
+		};
 		58E75F9E2B00B72400512FE2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios";
@@ -1228,6 +1276,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 03E481202AF2B1DA002F4CBC /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		58AB70B32B2C970E0061C072 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58AB70B22B2C970E0061C072 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		58E75F9F2B00B72400512FE2 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
