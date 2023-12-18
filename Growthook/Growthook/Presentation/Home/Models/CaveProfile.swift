@@ -16,12 +16,12 @@ extension CaveProfile {
     
     static func caveprofileDummyData() -> [CaveProfile] {
         return [
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "하나"),
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "둘"),
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "셋셋셋"),
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "넷넨네네"),
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "다섯다섯다섯"),
-            CaveProfile(image: ImageLiterals.Home.img_cave, title: "최대일곱글자야")
+            CaveProfile(image: ImageLiterals.Home.img_cave_sunrise, title: "하나"),
+            CaveProfile(image: ImageLiterals.Home.img_cave_pink, title: "둘"),
+            CaveProfile(image: ImageLiterals.Home.img_cave_night, title: "셋셋셋"),
+            CaveProfile(image: ImageLiterals.Home.img_cave_sunrise, title: "넷넨네네"),
+            CaveProfile(image: ImageLiterals.Home.img_cave_night, title: "다섯다섯다섯"),
+            CaveProfile(image: ImageLiterals.Home.img_cave_pink, title: "최대일곱글자야")
         ]
     }
 }

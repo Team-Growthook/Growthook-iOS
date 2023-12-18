@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Property 1=disabled-1.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Property 1=disabled@2x-1.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Property 1=disabled@3x-1.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Property 1=disabled-1.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {

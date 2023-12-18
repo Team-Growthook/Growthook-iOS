@@ -98,7 +98,7 @@ extension UITextViewWithTintedWhenEdited: UITextViewDelegate {
             self.font = .fontGuide(.body3_reg)
             modifyBorderLine(with: .gray200)
         } else {
-            modifyBorderLine(with: .green200)
+            modifyBorderLine(with: .white000)
         }
     }
     

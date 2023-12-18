@@ -47,6 +47,8 @@ class CustomNavigationBar: UIView {
         set { menuButton.isHidden = !newValue }
     }
     
+    var backButtonAction: (() -> Void)?
+    
     // MARK: - Initializer
 
     override init(frame: CGRect) {
@@ -130,5 +132,13 @@ extension CustomNavigationBar {
             $0.centerY.equalToSuperview()
             $0.size.equalToSuperview()
         }
+    }
+    
+    @objc private func backButtonTapped() {
+        backButtonAction?()
+    }
+
+    func setupBackButtonTarget() {
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
 }
