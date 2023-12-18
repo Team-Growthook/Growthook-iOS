@@ -2,20 +2,20 @@
 //  ScrapOnlyButton.swift
 //  Growthook
 //
-//  Created by KJ on 11/12/23.
+//  Created by KJ on 12/3/23.
 //
 
 import UIKit
 
 final class ScrapOnlyButton: UIButton {
     
-    // MARK: - Property
+    // MARK: - Properties
     
     var buttonName: AttributedString = "스크랩만 보기"
     var buttonImage: UIImage = ImageLiterals.Home.btn_scrap
     
     // MARK: - Initializer
-    
+
     init() {
         super.init(frame: .zero)
         setUI()
@@ -28,12 +28,10 @@ final class ScrapOnlyButton: UIButton {
     // MARK: - UI Components Property
     
     func setUI() {
-        
         buttonName.font = .fontGuide(.detail2_reg)
         
         var config = UIButton.Configuration.filled()
         config.attributedTitle = buttonName
-        config.titleAlignment = .leading
         config.image = buttonImage
         config.imagePadding = 4
         config.baseBackgroundColor = .clear

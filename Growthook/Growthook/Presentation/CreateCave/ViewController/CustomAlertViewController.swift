@@ -24,8 +24,6 @@ final class CustomAlertViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setStyles()
-        setLayout()
     }
     
     override func setStyles() {

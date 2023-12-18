@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Property 1=off.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Property 1=off@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Property 1=off@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Property 1=off.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
