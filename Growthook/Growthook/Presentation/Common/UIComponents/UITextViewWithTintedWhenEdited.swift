@@ -26,7 +26,7 @@ final class UITextViewWithTintedWhenEdited: UITextView {
         self.initialPlaceholder = placeholder
         self.maxLength = maxLength
         super.init(frame: .zero, textContainer: nil)
-        self.delegate = self
+//        self.delegate = self
         setStyles()
         setBorderLine()
         setToolBarItems()

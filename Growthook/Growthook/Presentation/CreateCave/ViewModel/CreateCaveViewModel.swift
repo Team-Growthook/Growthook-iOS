@@ -60,7 +60,7 @@ final class CreateCaveViewModel: CreateCaveViewModelInputs, CreateCaveViewModelO
     var isValid: Observable<Bool> {
         return BehaviorRelay.combineLatest(name, description)
             .map { name, description in
-                return !name.isEmpty && !description.isEmpty
+                return !name.isEmpty && description != "동굴을 간략히 소개해주세요"
             }
     }
     
