@@ -22,6 +22,13 @@ final class CaveDetailViewController: BaseViewController {
     private lazy var unLockCaveAlertView = UnLockCaveAlertView()
     lazy var longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
     
+    // MARK: - View Life Cycle
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: - Properties
     
     private let viewModel = HomeViewModel()
