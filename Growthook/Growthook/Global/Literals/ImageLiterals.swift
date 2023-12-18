@@ -85,4 +85,8 @@ enum ImageLiterals {
         static var btn_open: UIImage { .load(name: "open_btn") }
         static var img_mugwort_empty: UIImage { .load(name: "mugwort_empty_img") }
     }
+    
+    enum MyPage {
+        static var ic_mypage_profileImage: UIImage { .load(name: "ic_mypage").withRenderingMode(.alwaysTemplate).withTintColor(.gray100) }
+    }
 }
