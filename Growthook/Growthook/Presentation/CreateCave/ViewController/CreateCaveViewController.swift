@@ -69,11 +69,6 @@ extension CreateCaveViewController {
                 self.setNextTextField()
             }.disposed(by: disposeBag)
         
-        
-        
-        
-        
-        
         createCaveView.introduceTextView.rx.text
             .orEmpty
             .distinctUntilChanged()
@@ -191,8 +186,6 @@ extension CreateCaveViewController {
     }
     
     private func setNextTextField() {
-//        createCaveView.introduceTextView.setFocus()
-//        createCaveView.introduceTextView.focus
         createCaveView.introduceTextView.becomeFirstResponder()
     }
     
