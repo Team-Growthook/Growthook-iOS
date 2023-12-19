@@ -20,7 +20,7 @@ final class HomeViewController: BaseViewController {
     private let homeCaveView = HomeCaveView()
     private let insightListView = InsightListView()
     private let seedPlusButton = UIButton()
-    private let unLockAlertView = UnLockAlertView()
+    private let unLockAlertView = UnLockInsightAlertView()
     private let notificationView = NotificationAlertView()
     
     // MARK: - Properties
@@ -31,6 +31,15 @@ final class HomeViewController: BaseViewController {
     private var insightDummyData = InsightList.insightListDummyData()
     
     // MARK: - View Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,9 +84,29 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        homeCaveView.caveCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                self.viewModel.inputs.caveCellTap(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.outputs.pushToCaveDetail
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.pushToCaveDetailVC()
+            })
+            .disposed(by: disposeBag)
+        
+        insightListView.insightCollectionView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                guard let self = self else { return }
+                self.viewModel.inputs.insightCellTap(at: indexPath)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.outputs.pushToInsightDetail
             .subscribe(onNext: { [weak self] indexPath in
-                self?.pushToInsightDetail(at: indexPath )
+                self?.pushToInsightDetail(at: indexPath)
             })
             .disposed(by: disposeBag)
         
@@ -148,6 +177,7 @@ final class HomeViewController: BaseViewController {
         }
         
         seedPlusButton.snp.makeConstraints {
+            print(seedPlusBottomInset())
             $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
             $0.trailing.equalToSuperview().inset(8)
         }
@@ -163,8 +193,6 @@ final class HomeViewController: BaseViewController {
     // MARK: - Methods
     
     override func setDelegates() {
-        homeCaveView.caveCollectionView.delegate = self
-        insightListView.insightCollectionView.delegate = self
         longPressGesture.delegate = self
     }
     
@@ -179,11 +207,7 @@ extension HomeViewController {
     // MARK: - Methods
     
     private func seedPlusBottomInset() -> CGFloat {
-        if let tabBarHeight = tabBarController?.tabBar.bounds.height {
-            return tabBarHeight + self.safeAreaBottomInset()
-        } else {
-            return 0
-        }
+        return 49 + self.safeAreaBottomInset()
     }
     
     private func addGesture() {
@@ -232,8 +256,7 @@ extension HomeViewController {
         if insightDummyData[indexPath.item].scrapStatus == .lock {
             view.addSubview(unLockAlertView)
             unLockAlertView.snp.makeConstraints {
-                $0.bottom.horizontalEdges.equalToSuperview()
-                $0.top.equalTo(homeCaveView.snp.bottom)
+                $0.edges.equalToSuperview()
             }
         } else {
             print("pushToInsightDetail")
@@ -262,6 +285,12 @@ extension HomeViewController {
         tapGesture.cancelsTouchesInView = false
     }
     
+    private func pushToCaveDetailVC() {
+        let caveDetailVC = CaveDetailViewController()
+        caveDetailVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(caveDetailVC, animated: true)
+    }
+    
     // MARK: - @objc Methods
     
     @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
@@ -284,13 +313,6 @@ extension HomeViewController {
     
     @objc func hideNotificationView(_ sender: UITapGestureRecognizer) {
         notificationView.isHidden = true
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewModel.inputs.insightCellTap(at: indexPath)
     }
 }
 

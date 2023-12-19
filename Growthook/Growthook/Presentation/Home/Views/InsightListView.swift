@@ -25,22 +25,14 @@ final class InsightListView: BaseView {
     
     var scrapType: Bool = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - UI Components Property
     
     override func setStyles() {
         
-        backgroundColor = .clear
+        backgroundColor = .gray700
         
         seedTitleLabel.do {
-            $0.text = "00개의 씨앗을 모았어요!"
+            $0.text = "00\(I18N.Home.seedsCollected)"
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }

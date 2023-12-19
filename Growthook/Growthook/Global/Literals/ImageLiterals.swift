@@ -80,7 +80,7 @@ enum ImageLiterals {
         static var seed_light_default: UIImage { .load(name: "seed_light_default") }
     }
     
-    enum Storage {
+    enum CaveDetail {
         static var btn_close: UIImage { .load(name: "close_btn") }
         static var btn_open: UIImage { .load(name: "open_btn") }
         static var img_mugwort_empty: UIImage { .load(name: "mugwort_empty_img") }
