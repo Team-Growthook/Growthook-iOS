@@ -81,6 +81,16 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
+		09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A692B03B3E2006C07B8 /* AlertBuilder.swift */; };
+		09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */; };
+		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
+		09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */; };
+		09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */; };
+		09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7042B00EC03005F8821 /* CreateCaveView.swift */; };
+		09A7D7072B01CBFE005F8821 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7062B01CBFE005F8821 /* CustomInputView.swift */; };
+		09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */; };
+		09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */; };
+		09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */; };
 		250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */; };
 		250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D742B14624300D9726F /* ActionListReviewViewController.swift */; };
 		250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D762B16D01500D9726F /* AlertViewController.swift */; };
@@ -92,16 +102,8 @@
 		25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951E2B08F73700E72ADC /* CompleteViewController.swift */; };
 		25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */; };
 		25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */; };
-		09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A692B03B3E2006C07B8 /* AlertBuilder.swift */; };
-		09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */; };
-		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
-		09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */; };
-		09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */; };
-		09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7042B00EC03005F8821 /* CreateCaveView.swift */; };
-		09A7D7072B01CBFE005F8821 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7062B01CBFE005F8821 /* CustomInputView.swift */; };
-		09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */; };
-		09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */; };
-		09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */; };
+		582F9C482B304B5E0000D161 /* TextFieldBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */; };
+		582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */; };
 		58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */; };
 		58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */; };
 		58AB70B12B2C90560061C072 /* MyPageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */; };
@@ -183,6 +185,16 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09089A692B03B3E2006C07B8 /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
+		09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
+		09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewModel.swift; sourceTree = "<group>"; };
+		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
+		09A7D7042B00EC03005F8821 /* CreateCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveView.swift; sourceTree = "<group>"; };
+		09A7D7062B01CBFE005F8821 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
+		09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveModel.swift; sourceTree = "<group>"; };
+		09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySeedView.swift; sourceTree = "<group>"; };
+		09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
 		250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListCompleteTableViewCell.swift; sourceTree = "<group>"; };
 		250F7D742B14624300D9726F /* ActionListReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListReviewViewController.swift; sourceTree = "<group>"; };
 		250F7D762B16D01500D9726F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
@@ -194,16 +206,8 @@
 		25BD951E2B08F73700E72ADC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleBarView.swift; sourceTree = "<group>"; };
 		25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListSegmentedView.swift; sourceTree = "<group>"; };
-		09089A692B03B3E2006C07B8 /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
-		09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
-		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
-		09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewModel.swift; sourceTree = "<group>"; };
-		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
-		09A7D7042B00EC03005F8821 /* CreateCaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveView.swift; sourceTree = "<group>"; };
-		09A7D7062B01CBFE005F8821 /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
-		09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveModel.swift; sourceTree = "<group>"; };
-		09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySeedView.swift; sourceTree = "<group>"; };
-		09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBlockWithTitle.swift; sourceTree = "<group>"; };
+		582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBlockWithTitle.swift; sourceTree = "<group>"; };
 		58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageThookBoxView.swift; sourceTree = "<group>"; };
 		58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListTableViewCell.swift; sourceTree = "<group>"; };
@@ -568,53 +572,6 @@
 			path = Growthook;
 			sourceTree = "<group>";
 		};
-		252DD8802B0639FC00DBB1D1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */,
-				25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		252DD8812B0639FE00DBB1D1 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		252DD8822B0639FF00DBB1D1 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
-				25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */,
-				25BD951E2B08F73700E72ADC /* CompleteViewController.swift */,
-				2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */,
-				250F7D742B14624300D9726F /* ActionListReviewViewController.swift */,
-				250F7D762B16D01500D9726F /* AlertViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		25BD95162B08946D00E72ADC /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */,
-				250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		25BD95192B089B9000E72ADC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				25BD951A2B089B9900E72ADC /* ActionListModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		09A7D6FA2B00DCAA005F8821 /* CreateCave */ = {
 			isa = PBXGroup;
 			children = (
@@ -658,6 +615,53 @@
 			isa = PBXGroup;
 			children = (
 				09A7D7092B01E6A9005F8821 /* CreateCaveModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		252DD8802B0639FC00DBB1D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */,
+				25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		252DD8812B0639FE00DBB1D1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		252DD8822B0639FF00DBB1D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
+				25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */,
+				25BD951E2B08F73700E72ADC /* CompleteViewController.swift */,
+				2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */,
+				250F7D742B14624300D9726F /* ActionListReviewViewController.swift */,
+				250F7D762B16D01500D9726F /* AlertViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25BD95162B08946D00E72ADC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */,
+				250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25BD95192B089B9000E72ADC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25BD951A2B089B9900E72ADC /* ActionListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -734,6 +738,8 @@
 			isa = PBXGroup;
 			children = (
 				58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */,
+				582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */,
+				582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -861,6 +867,7 @@
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
 				03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */,
+				582F9C482B304B5E0000D161 /* TextFieldBlockWithTitle.swift in Sources */,
 				09A7D7072B01CBFE005F8821 /* CustomInputView.swift in Sources */,
 				09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
@@ -903,6 +910,7 @@
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
+				582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */,
 				2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */,
 				25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */,
 				09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */,
