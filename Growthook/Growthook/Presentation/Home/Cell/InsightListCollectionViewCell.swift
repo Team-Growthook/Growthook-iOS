@@ -66,7 +66,7 @@ extension InsightListCollectionViewCell {
         }
         
         dueTimeLabel.do {
-            $0.text = "00일 후 잠금"
+            $0.text = "00\(I18N.InsightList.lockInsight)"
             $0.font = .fontGuide(.detail3_reg)
             $0.textColor = .white000
         }

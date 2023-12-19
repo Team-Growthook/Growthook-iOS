@@ -10,7 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-final class UnLockAlertView: BaseView {
+final class UnLockInsightAlertView: BaseView {
     
     // MARK: - UI Components
     
@@ -39,13 +39,13 @@ final class UnLockAlertView: BaseView {
         }
         
         titleLabel.do {
-            $0.text = "잠금 해제하기"
+            $0.text = I18N.Component.UnLockInsight.title
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
         descriptionLabel.do {
-            $0.text = "씨앗의 잠금을 해제하기 위해\n쑥 1개를 사용합니다."
+            $0.text = I18N.Component.UnLockInsight.description
             $0.font = .fontGuide(.body3_reg)
             $0.textColor = .gray100
             $0.textAlignment = .center
@@ -58,12 +58,12 @@ final class UnLockAlertView: BaseView {
         }
         
         tipLael.do {
-            $0.text = "Tip. 인사이트의 액션 플랜을 만들고 이를 달성하면,\n쑥을 얻을 수 있어요!"
+            $0.text = I18N.Component.UnLockInsight.insightTip
             $0.font = .fontGuide(.detail3_reg)
             $0.textColor = .gray200
             $0.textAlignment = .center
             $0.numberOfLines = 2
-            $0.partColorChange(targetString: "Tip.", textColor: .green400)
+            $0.partColorChange(targetString: I18N.Component.UnLockInsight.tip, textColor: .green400)
         }
         
         leftoverMugwortView.do {
@@ -72,7 +72,7 @@ final class UnLockAlertView: BaseView {
         }
         
         mugwortLabel.do {
-            $0.text = "현재 남은 쑥"
+            $0.text = I18N.Component.UnLockInsight.leftover
             $0.font = .fontGuide(.detail2_bold)
             $0.textColor = .white000
         }
@@ -92,14 +92,14 @@ final class UnLockAlertView: BaseView {
         }
         
         giveUpButton.do {
-            $0.setTitle("포기하기", for: .normal)
+            $0.setTitle(I18N.Component.UnLockInsight.giveUp, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.setTitleColor(.gray200, for: .normal)
             $0.backgroundColor = .clear
         }
         
         useButton.do {
-            $0.setTitle("사용하기", for: .normal)
+            $0.setTitle(I18N.Component.UnLockInsight.use, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.setTitleColor(.green400, for: .normal)
             $0.backgroundColor = .clear
@@ -118,9 +118,8 @@ final class UnLockAlertView: BaseView {
         leftoverMugwortView.addSubviews(mugwortLabel, mugwortImage, mugwortCount)
         
         contentView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(44)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 290 / 375)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 261 / 812)
+            $0.horizontalEdges.equalToSuperview().inset(43)
             $0.height.equalTo(290)
         }
         
@@ -187,7 +186,7 @@ final class UnLockAlertView: BaseView {
     }
 }
 
-extension UnLockAlertView {
+extension UnLockInsightAlertView {
     
     func useButtonTapped() {
         print("useButtonTapped")

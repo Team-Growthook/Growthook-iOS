@@ -78,7 +78,7 @@ class CaveListHalfModal: BaseViewController {
         }
         
         selectButton.do {
-            $0.setTitle("선택", for: .normal)
+            $0.setTitle(I18N.Home.select, for: .normal)
             $0.backgroundColor = .green400
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.makeCornerRound(radius: 10)

@@ -33,13 +33,13 @@ final class RemoveInsightAlertView: BaseView {
         }
         
         titleLabel.do {
-            $0.text = "정말로 삭제할까요?"
+            $0.text = I18N.Component.RemoveInsight.title
             $0.font = .fontGuide(.head4)
             $0.textColor = .white000
         }
         
         descriptionLabel.do {
-            $0.text = "삭제한 인사이트는 다시 복구할 수 없으니\n신중하게 결정해 주세요!"
+            $0.text = I18N.Component.RemoveInsight.description
             $0.font = .fontGuide(.body3_reg)
             $0.textColor = .gray100
             $0.textAlignment = .center
@@ -51,14 +51,14 @@ final class RemoveInsightAlertView: BaseView {
         }
         
         keepButton.do {
-            $0.setTitle("유지하기", for: .normal)
+            $0.setTitle(I18N.Component.RemoveInsight.keep, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.setTitleColor(.green400, for: .normal)
             $0.backgroundColor = .clear
         }
         
         removeButton.do {
-            $0.setTitle("삭제하기", for: .normal)
+            $0.setTitle(I18N.Component.RemoveInsight.remove, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.setTitleColor(.gray200, for: .normal)
             $0.backgroundColor = .clear
