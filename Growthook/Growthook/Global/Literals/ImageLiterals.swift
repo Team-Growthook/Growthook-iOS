@@ -88,6 +88,10 @@ enum ImageLiterals {
         static var img_mugwort_empty: UIImage { .load(name: "mugwort_empty_img") }
     }
     
+    enum Storage {
+        static var img_mugwort_empty: UIImage { .load(name: "mugwort_empty_img") }
+    }
+    
     enum MyPage {
         static var ic_mypage_profileImage: UIImage { .load(name: "ic_mypage").withRenderingMode(.alwaysTemplate).withTintColor(.gray100) }
     }
