@@ -44,16 +44,16 @@ final class CommonTextViewWithBorder: UITextView, CommonTextComponentType {
             }
         }
         .asDriver(onErrorJustReturn: "")
-//    
-//    // MARK: - UIBarButtonItem
-//    /// TextView 에서 .resignResponder() 를 한 이후의 행동을 추가할 수 있습니다.
-//    lazy var moveToNextButton: UIBarButtonItem = {
-//        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 17)
-//        let buttonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.right.fill", withConfiguration: symbolConfiguration), style: .plain, target: self, action: nil)
-//        buttonItem.tintColor = .gray100
-//        return buttonItem
-//    }()
-//    
+    
+    // MARK: - UIBarButtonItem
+    /// TextView 에서 .resignResponder() 를 한 이후의 행동을 추가할 수 있습니다.
+    lazy var moveToNextButton: UIBarButtonItem = {
+        let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 17)
+        let buttonItem = UIBarButtonItem(image: UIImage(systemName: "arrowshape.right.fill", withConfiguration: symbolConfiguration), style: .plain, target: self, action: nil)
+        buttonItem.tintColor = .gray100
+        return buttonItem
+    }()
+    
     // MARK: - Life cycle
     init(placeholder: String, maxLength: Int) {
         self.customPlaceholder = placeholder
