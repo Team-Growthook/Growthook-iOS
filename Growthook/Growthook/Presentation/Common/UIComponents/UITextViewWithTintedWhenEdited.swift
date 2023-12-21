@@ -14,7 +14,7 @@ import Then
 final class UITextViewWithTintedWhenEdited: UITextView {
     
     private var initialPlaceholder: String
-    private var maxLength: Int
+    private(set) var maxLength: Int
     private var toolBarItems: [UIBarButtonItem] = []
 
     /**

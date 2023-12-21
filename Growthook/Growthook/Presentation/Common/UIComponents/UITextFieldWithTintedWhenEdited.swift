@@ -15,7 +15,7 @@ protocol TextFieldTypeWithBorder {
     func modifyBorderLine(with color: UIColor)
 }
 
-final class UITextFieldWithTintedWhenEdited: UITextField {
+final class UITextFieldWithTinitedWhenEdited: UITextField {
     
     var placeholderFor: String
     
@@ -44,7 +44,7 @@ final class UITextFieldWithTintedWhenEdited: UITextField {
     }
 }
 
-extension UITextFieldWithTintedWhenEdited: TextFieldTypeWithBorder {
+extension UITextFieldWithTinitedWhenEdited: TextFieldTypeWithBorder {
     
     private func setStyles() {
         self.backgroundColor = .gray900
@@ -72,7 +72,7 @@ extension UITextFieldWithTintedWhenEdited: TextFieldTypeWithBorder {
     }
 }
 
-extension UITextFieldWithTintedWhenEdited: UITextFieldDelegate {
+extension UITextFieldWithTinitedWhenEdited: UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         modifyBorderLine(with: .green200)
