@@ -12,11 +12,13 @@ protocol ActionListViewModelInput {
     func didTapInProgressButton()
     func didTapCompletedButton()
     func didTapInprogressScrapButton()
+    func didTapCompleteScrapButton()
     func didTapSeedButton()
     func didTapCompletButton()
     func didTapReviewButton()
     func setReviewText(with value: String)
     func didTapCancelButtonInBottomSheet()
+    func didTapSaveButtonInBottomSheet()
 }
 
 protocol ActionListViewModelOutput {
@@ -81,7 +83,11 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     }
     
     func didTapInprogressScrapButton() {
-        print("스크랩만 보기 버튼이 탭 되었습니다")
+        print("진행중 탭 에서스크랩만 보기 버튼이 탭 되었습니다")
+    }
+    
+    func didTapCompleteScrapButton() {
+        print("완료 탭 에서 스크랩만 보기 버튼이 탭 되었습니다")
     }
     
     func didTapSeedButton() {
@@ -101,7 +107,11 @@ final class ActionListViewModel: ActionListViewModelInput, ActionListViewModelOu
     }
     
     func didTapCancelButtonInBottomSheet() {
-        didTapCompletedButton()
+        selectedIndex.accept(0)
+    }
+    
+    func didTapSaveButtonInBottomSheet() {
+        selectedIndex.accept(2)
     }
     
 }
