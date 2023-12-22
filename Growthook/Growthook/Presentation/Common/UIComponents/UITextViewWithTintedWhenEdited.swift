@@ -143,11 +143,15 @@ extension UITextViewWithTintedWhenEdited {
             let flexibleButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             let hidesKeyboardButton = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down", withConfiguration: symbolConfiguration), style: .plain, target: self, action: #selector(hidesKeyboardWhenTapped))
             hidesKeyboardButton.tintColor = .gray100
-            toolBar.sizeToFit()
-            toolBar.setItems([emptyButtonOnLeft, flexibleButton, hidesKeyboardButton], animated: false)
+            toolBar.frame = CGRect(x: 0, y: 0, width: 100, height: 45)
+            toolBar.setItems([
+                emptyButtonOnLeft,
+                flexibleButton,
+                hidesKeyboardButton
+            ], animated: false)
             self.inputAccessoryView = toolBar
         } else {
-            toolBar.sizeToFit()
+            toolBar.frame = CGRect(x: 0, y: 0, width: 100, height: 45)
             toolBar.setItems(self.toolBarItems, animated: false)
             self.inputAccessoryView = toolBar
         }
