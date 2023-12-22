@@ -14,7 +14,8 @@ import SnapKit
 import Then
 
 protocol NotificationDismissBottomSheet: AnyObject {
-    func notificationDismiss()
+    func notificationDismissInCancelButton()
+    func notificationDismissInSaveButton()
 }
 
 final class ActionListBottomSheetViewController: BaseViewController {
@@ -44,12 +45,30 @@ final class ActionListBottomSheetViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        
+        dismissButton.rx.tap
+            .bind { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
+
         cancelButton.rx.tap
             .bind { [weak self] in
                 guard let self = self else { return }
                 self.dismiss(animated: true)
-                self.delegate?.notificationDismiss()
+                self.delegate?.notificationDismissInCancelButton()
                 self.viewModel.inputs.didTapCancelButtonInBottomSheet()
+            }
+            .disposed(by: disposeBag)
+        
+        saveButton.rx.tap
+            .bind { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+                self.delegate?.notificationDismissInSaveButton()
+                self.viewModel.inputs.didTapSaveButtonInBottomSheet()
+                
             }
             .disposed(by: disposeBag)
         
@@ -93,7 +112,6 @@ final class ActionListBottomSheetViewController: BaseViewController {
         
         dismissButton.do {
             $0.setImage(ImageLiterals.NavigationBar.close, for: .normal)
-            $0.addTarget(self, action: #selector(addismissButton), for: .touchUpInside)
         }
         
         reviewCountLabel.do {
@@ -108,7 +126,6 @@ final class ActionListBottomSheetViewController: BaseViewController {
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.backgroundColor = .gray500
             $0.layer.cornerRadius = 10
-            $0.addTarget(self, action: #selector(saveButtonTap), for: .touchUpInside)
         }
         
         cancelButton.do {
@@ -164,25 +181,67 @@ final class ActionListBottomSheetViewController: BaseViewController {
         }
     }
     
+    override func setDelegates() {
+        reviewTextView.delegate = self
+    }
+
+    
     // MARK: - Methods
-    
-    @objc
-    private func addismissButton() {
-        self.dismiss(animated: true)
-    }
-    
-    @objc
-    private func saveButtonTap() {
-        self.dismiss(animated: false) {
-            let customAlertVC = AlertViewController()
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-               let mainWindow = windowScene.windows.first {
-                mainWindow.rootViewController?.present(customAlertVC, animated: false, completion: nil)
-            }
-        }
-    }
     
     // MARK: - @objc Methods
 }
+
+extension ActionListBottomSheetViewController: UITextViewDelegate {
+    
+    private func modifyBorderLine(with color: UIColor) {
+        reviewTextView.layer.borderColor = color.cgColor
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        modifyBorderLine(with: .green200)
+        if reviewTextView.text == "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요" {
+            reviewTextView.text = nil
+            reviewTextView.textColor = .white000
+            reviewTextView.font = .fontGuide(.body3_bold)
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if reviewTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            reviewTextView.text = "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요"
+            reviewTextView.textColor = .gray400
+            reviewTextView.font = .fontGuide(.body3_reg)
+            modifyBorderLine(with: .gray200)
+        } else {
+            modifyBorderLine(with: .white000)
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let maxLength = 300
+        if reviewTextView.text.count > maxLength {
+            reviewTextView.text = String(reviewTextView.text.prefix(maxLength))
+        }
+        
+        let maxNumberOfLine = 2
+        let lineBreakCharacter = "\n"
+        let lines = reviewTextView.text.components(separatedBy: lineBreakCharacter)
+        var consecutiveLineBreakCount = 0
+        
+        for line in lines {
+            if line.isEmpty {
+                consecutiveLineBreakCount += 1
+            } else {
+                consecutiveLineBreakCount = 0
+            }
+            
+            if consecutiveLineBreakCount > maxNumberOfLine {
+                reviewTextView.text = String(reviewTextView.text.dropLast())
+                break
+            }
+        }
+    }
+}
+
+
 
