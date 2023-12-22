@@ -25,7 +25,7 @@ final class ActionListViewController: BaseViewController {
     // MARK: - UI Components
     
     private let titleBarView = MainTitleBarView()
-    private let segmentedView = ActionListSegmentedView()
+    let segmentedView = ActionListSegmentedView()
     private let inprogressViewController = InprogressViewController()
     private let completeViewController = CompleteViewController()
     private lazy var viewControllers: [UIViewController] = [inprogressViewController, completeViewController]
@@ -74,7 +74,7 @@ final class ActionListViewController: BaseViewController {
         
         viewModel.outputs.selectedIndex
                 .bind(onNext: { [weak self] index in
-                    self?.segmentedView.updateButton(index: index)
+                    self?.segmentedView.moveToPage(index: index)
                 })
                 .disposed(by: disposeBag)
     }
@@ -119,6 +119,7 @@ final class ActionListViewController: BaseViewController {
     override func setDelegates() {
         segmentedView.delegate = self
         completeViewController.delegate = self
+        inprogressViewController.delegate = self
     }
     
     // MARK: - Methods
@@ -141,7 +142,11 @@ final class ActionListViewController: BaseViewController {
 }
 
 
-extension ActionListViewController: ActionListSegmentDelegate , PushToActionListReviewViewController{
+extension ActionListViewController: ActionListSegmentDelegate , PushToActionListReviewViewController, NotificationActionListVC {
+    func moveToCompletePage() {
+        viewModel.inputs.didTapCancelButtonInBottomSheet()
+    }
+    
     func movePage(to index: Int) {
         switch index {
         case 0:
