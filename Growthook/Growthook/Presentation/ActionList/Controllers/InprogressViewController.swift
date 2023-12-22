@@ -31,6 +31,7 @@ final class InprogressViewController: BaseViewController, NotificationDismissBot
     
     weak var delegate: NotificationActionListVC?
     private var isShowingScrappedData = false
+    private var isPresentingBottomSheet = false
     
     // MARK: - Initializer
     
@@ -86,9 +87,17 @@ final class InprogressViewController: BaseViewController, NotificationDismissBot
     // MARK: - Methods
     
     private func presentToBottomSheet() {
+        guard !isPresentingBottomSheet else {
+            return
+        }
+        isPresentingBottomSheet = true
+
         let bottomSheetVC = ActionListBottomSheetViewController()
         bottomSheetVC.delegate = self
-        self.present(bottomSheetVC, animated: true, completion: nil)
+
+        self.present(bottomSheetVC, animated: true) {
+            self.isPresentingBottomSheet = false
+        }
     }
     
     private func getScrappedActionList() -> [ActionListModel] {
@@ -133,7 +142,6 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapSeedButton()
-                print(cell.actionTitleLabel.text)
             }
             .disposed(by: disposeBag)
         
