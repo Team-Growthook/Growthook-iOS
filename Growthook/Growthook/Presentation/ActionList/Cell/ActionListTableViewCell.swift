@@ -7,10 +7,16 @@
 
 import UIKit
 
-import Then
+import Moya
+import RxCocoa
+import RxSwift
 import SnapKit
+import Then
 
 final class ActionListTableViewCell: UITableViewCell {
+    
+    private var viewModel = ActionListViewModel()
+    var disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
