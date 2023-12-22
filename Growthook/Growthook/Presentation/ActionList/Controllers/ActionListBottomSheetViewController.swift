@@ -13,6 +13,10 @@ import RxSwift
 import SnapKit
 import Then
 
+protocol NotificationDismissBottomSheet: AnyObject {
+    func notificationDismiss()
+}
+
 final class ActionListBottomSheetViewController: BaseViewController {
     
     private var viewModel = ActionListViewModel()
@@ -29,6 +33,8 @@ final class ActionListBottomSheetViewController: BaseViewController {
     
     // MARK: - Properties
     
+    weak var delegate: NotificationDismissBottomSheet?
+    
     // MARK: - Initializer
     
     // MARK: - View Life Cycle
@@ -38,6 +44,15 @@ final class ActionListBottomSheetViewController: BaseViewController {
     }
     
     override func bindViewModel() {
+        cancelButton.rx.tap
+            .bind { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+                self.delegate?.notificationDismiss()
+                self.viewModel.inputs.didTapCancelButtonInBottomSheet()
+            }
+            .disposed(by: disposeBag)
+        
         reviewTextView.rx.text.orEmpty
             .bind { [weak self] value in
                 self?.viewModel.inputs.setReviewText(with: value)
@@ -48,6 +63,7 @@ final class ActionListBottomSheetViewController: BaseViewController {
             .drive(onNext: { [weak self] isEntered in
                 self?.saveButton.backgroundColor = isEntered ? .green400 : .gray500
                 self?.saveButton.setTitleColor(isEntered ? .white000 : .gray300, for: .normal)
+                self?.saveButton.isEnabled = isEntered ? true : false
             })
             .disposed(by: disposeBag)
         
