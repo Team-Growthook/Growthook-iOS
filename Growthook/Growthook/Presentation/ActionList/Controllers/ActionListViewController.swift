@@ -35,7 +35,7 @@ final class ActionListViewController: BaseViewController {
     // MARK: - Properties
     
     private var actionListReviewViewController: ActionListReviewViewController?
-
+    
     // MARK: - Initializer
     
     // MARK: - View Life Cycle
@@ -73,10 +73,10 @@ final class ActionListViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         viewModel.outputs.selectedIndex
-                .bind(onNext: { [weak self] index in
-                    self?.segmentedView.moveToPage(index: index)
-                })
-                .disposed(by: disposeBag)
+            .bind(onNext: { [weak self] index in
+                self?.segmentedView.moveToPage(index: index)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -137,23 +137,30 @@ final class ActionListViewController: BaseViewController {
         print("didTapButtonInCompleteViewController")
     }
     
+    func openAlert() {
+        let customAlertVC = AlertViewController()
+        customAlertVC.modalPresentationStyle = .overFullScreen
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let mainWindow = windowScene.windows.first {
+            mainWindow.rootViewController?.present(customAlertVC, animated: false, completion: nil)
+        }
+    }
+    
     // MARK: - @objc Methods
     
 }
 
 
 extension ActionListViewController: ActionListSegmentDelegate , PushToActionListReviewViewController, NotificationActionListVC {
-    func moveToCompletePage() {
-        viewModel.inputs.didTapCancelButtonInBottomSheet()
-    }
     
     func movePage(to index: Int) {
-        print(index)
         switch index {
         case 0:
             switchPage(difference: 1)
         case 1:
             switchPage(difference: -1)
+        case 2:
+            switchPage(difference: 2)
         default:
             break
         }
@@ -163,17 +170,33 @@ extension ActionListViewController: ActionListSegmentDelegate , PushToActionList
         guard let page = viewControllers.firstIndex(of: currentPage) else { return }
         let targetPageIndex = page + difference
         
-        guard targetPageIndex >= 0, targetPageIndex < viewControllers.count else {
-            return 
+        guard targetPageIndex >= 0, targetPageIndex < viewControllers.count || difference == 2 else {
+            return
         }
         switch difference {
         case 1:
             pageViewController.setViewControllers([viewControllers[page + difference]], direction: .forward, animated: true)
         case -1:
             pageViewController.setViewControllers([viewControllers[page + difference]], direction: .reverse, animated: true)
+        case 2:
+            pageViewController.setViewControllers([viewControllers[page + 1]], direction: .forward, animated: true)
+            currentPage = viewControllers[page + 1]
+            return
         default:
             break
         }
         currentPage = viewControllers[page + difference]
     }
+    
+    func moveToCompletePageByCancelButton() {
+        viewModel.inputs.didTapCancelButtonInBottomSheet()
+    }
+    
+    func moveToCompletePageBySaveButton() {
+        openAlert()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.viewModel.inputs.didTapSaveButtonInBottomSheet()
+        }
+    }
+    
 }
