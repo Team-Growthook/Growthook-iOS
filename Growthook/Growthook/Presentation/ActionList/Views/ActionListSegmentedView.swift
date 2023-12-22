@@ -37,7 +37,7 @@ class ActionListSegmentedView: BaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     // MARK: - UI Components Property
     
     override func setStyles(){
@@ -104,9 +104,10 @@ class ActionListSegmentedView: BaseView {
         self.moveBarAction(index: index)
         self.delegate?.movePage(to: index)
         switch index {
-        case 0:
+        case 0, 2:
             inProgressButton.setTitleColor(.gray400, for: .normal)
             completedButtom.setTitleColor(.green400, for: .normal)
+            
         case 1:
             inProgressButton.setTitleColor(.green400, for: .normal)
             completedButtom.setTitleColor(.gray400, for: .normal)
@@ -128,7 +129,6 @@ class ActionListSegmentedView: BaseView {
             UIView.animate(withDuration: 0.2) {
                 self.layoutIfNeeded()
             }
-            
             selectedIndex = 1
         case 1:
             segmentedLineView.snp.remakeConstraints {
@@ -141,7 +141,18 @@ class ActionListSegmentedView: BaseView {
             UIView.animate(withDuration: 0.2) {
                 self.layoutIfNeeded()
             }
-            
+            selectedIndex = 0
+        case 2:
+            segmentedLineView.snp.remakeConstraints {
+                $0.width.equalToSuperview().dividedBy(2)
+                $0.height.equalTo(2)
+                $0.bottom.equalToSuperview()
+                $0.leading.equalTo(completedButtom.snp.leading).inset(1)
+            }
+            UIView.animate(withDuration: 0.2) {
+                self.layoutIfNeeded()
+            }
+            print("저장버튼을 누른 상황입니다")
             selectedIndex = 0
         default:
             break
