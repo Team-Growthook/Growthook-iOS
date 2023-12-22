@@ -14,13 +14,14 @@ import SnapKit
 import Then
 
 protocol NotificationActionListVC: AnyObject {
-    func moveToCompletePage()
+    func moveToCompletePageByCancelButton()
+    func moveToCompletePageBySaveButton()
 }
 
 final class InprogressViewController: BaseViewController, NotificationDismissBottomSheet {
     
     private var viewModel = ActionListViewModel()
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
@@ -40,15 +41,14 @@ final class InprogressViewController: BaseViewController, NotificationDismissBot
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     override func bindViewModel() {
         scrapButton.rx.tap
-            .bind { [weak self]  in
+            .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapInprogressScrapButton()
                 self.isShowingScrappedData.toggle()
                 self.tableView.reloadData()
-                
             }
             .disposed(by: disposeBag)
     }
@@ -104,9 +104,14 @@ final class InprogressViewController: BaseViewController, NotificationDismissBot
         return viewModel.outputs.actionList.value.filter { $0.scrapStatus == .scrap }
     }
     
-    func notificationDismiss() {
-        print("notificationDismiss in InprogressVC")
-        delegate?.moveToCompletePage()
+    func notificationDismissInCancelButton() {
+        print("notificationDismiss in InprogressVC by cancelButton")
+        delegate?.moveToCompletePageByCancelButton()
+    }
+    
+    func notificationDismissInSaveButton() {
+        print("notificationDismiss in InprogressVC by saveButton")
+        delegate?.moveToCompletePageBySaveButton()
     }
     
     // MARK: - @objc Methods
@@ -137,22 +142,23 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
             model = viewModel.outputs.actionList.value[indexPath.row]
         }
         cell.configure(model)
+        cell.disposeBag = DisposeBag()
         
         cell.seedButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapSeedButton()
             }
-            .disposed(by: disposeBag)
-        
+            .disposed(by: cell.disposeBag)
+
         cell.completButton.rx.tap
             .bind { [weak self]  in
                 guard let self else { return }
                 self.viewModel.inputs.didTapCompletButton()
                 self.presentToBottomSheet()
             }
-            .disposed(by: disposeBag)
-        
+            .disposed(by: cell.disposeBag)
+
         return cell
     }
 }
