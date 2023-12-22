@@ -18,8 +18,8 @@ class ActionListSegmentedView: BaseView {
     
     // MARK: - UI Components
     
-    lazy var inProgressButton = UIButton(frame: .zero, primaryAction: moveToInProgress())
-    lazy var completedButtom = UIButton(frame: .zero, primaryAction: moveToCompleted())
+    lazy var inProgressButton = UIButton(frame: .zero)
+    lazy var completedButtom = UIButton(frame: .zero)
     private let backLineView = UIView()
     private let segmentedLineView = UIView()
     
@@ -100,7 +100,9 @@ class ActionListSegmentedView: BaseView {
     
     private func setAddTarget() {}
     
-    func updateButton(index: Int) {
+    func moveToPage(index: Int) {
+        self.moveBarAction(index: index)
+        self.delegate?.movePage(to: index)
         switch index {
         case 0:
             inProgressButton.setTitleColor(.gray400, for: .normal)
@@ -111,34 +113,6 @@ class ActionListSegmentedView: BaseView {
         default:
             break
         }
-    }
-    
-    private func moveToCompleted() -> UIAction? {
-        let action = UIAction(handler: { [weak self] _ in
-            guard let index = self?.selectedIndex else { return }
-            
-            if index == 1 {
-                return
-            }
-            
-            self?.moveBarAction(index: index)
-            self?.delegate?.movePage(to: index)
-        })
-        return action
-    }
-    
-    private func moveToInProgress() -> UIAction? {
-        let action = UIAction(handler: { [weak self] _ in
-            guard let index = self?.selectedIndex else { return }
-            
-            if index == 0 {
-                return
-            }
-            
-            self?.moveBarAction(index: index)
-            self?.delegate?.movePage(to: index)
-        })
-        return action
     }
     
     private func moveBarAction(index: Int) {
