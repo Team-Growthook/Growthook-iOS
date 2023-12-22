@@ -13,7 +13,11 @@ import RxSwift
 import SnapKit
 import Then
 
-final class InprogressViewController: BaseViewController {
+protocol NotificationActionListVC: AnyObject {
+    func moveToCompletePage()
+}
+
+final class InprogressViewController: BaseViewController, NotificationDismissBottomSheet {
     
     private var viewModel = ActionListViewModel()
     private let disposeBag = DisposeBag()
@@ -25,6 +29,7 @@ final class InprogressViewController: BaseViewController {
     
     // MARK: - Properties
     
+    weak var delegate: NotificationActionListVC?
     private var isShowingScrappedData = false
     
     // MARK: - Initializer
@@ -42,7 +47,7 @@ final class InprogressViewController: BaseViewController {
                 self.viewModel.inputs.didTapInprogressScrapButton()
                 self.isShowingScrappedData.toggle()
                 self.tableView.reloadData()
-
+                
             }
             .disposed(by: disposeBag)
     }
@@ -82,11 +87,17 @@ final class InprogressViewController: BaseViewController {
     
     private func presentToBottomSheet() {
         let bottomSheetVC = ActionListBottomSheetViewController()
+        bottomSheetVC.delegate = self
         self.present(bottomSheetVC, animated: true, completion: nil)
     }
     
     private func getScrappedActionList() -> [ActionListModel] {
         return viewModel.outputs.actionList.value.filter { $0.scrapStatus == .scrap }
+    }
+    
+    func notificationDismiss() {
+        print("notificationDismiss in InprogressVC")
+        delegate?.moveToCompletePage()
     }
     
     // MARK: - @objc Methods
@@ -117,11 +128,12 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
             model = viewModel.outputs.actionList.value[indexPath.row]
         }
         cell.configure(model)
-
+        
         cell.seedButton.rx.tap
             .bind { [weak self] in
                 guard let self else { return }
                 self.viewModel.inputs.didTapSeedButton()
+                print(cell.actionTitleLabel.text)
             }
             .disposed(by: disposeBag)
         
@@ -132,7 +144,7 @@ extension InprogressViewController: UITableViewDelegate, UITableViewDataSource {
                 self.presentToBottomSheet()
             }
             .disposed(by: disposeBag)
-
+        
         return cell
     }
 }
