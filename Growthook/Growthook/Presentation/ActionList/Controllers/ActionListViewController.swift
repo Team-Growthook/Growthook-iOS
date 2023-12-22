@@ -148,6 +148,7 @@ extension ActionListViewController: ActionListSegmentDelegate , PushToActionList
     }
     
     func movePage(to index: Int) {
+        print(index)
         switch index {
         case 0:
             switchPage(difference: 1)
@@ -160,6 +161,11 @@ extension ActionListViewController: ActionListSegmentDelegate , PushToActionList
     
     private func switchPage(difference: Int) {
         guard let page = viewControllers.firstIndex(of: currentPage) else { return }
+        let targetPageIndex = page + difference
+        
+        guard targetPageIndex >= 0, targetPageIndex < viewControllers.count else {
+            return 
+        }
         switch difference {
         case 1:
             pageViewController.setViewControllers([viewControllers[page + difference]], direction: .forward, animated: true)
