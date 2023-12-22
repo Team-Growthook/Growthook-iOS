@@ -109,8 +109,6 @@ final class ActionListReviewViewController: BaseViewController {
             $0.top.equalTo(reviewTextView.snp.bottom).offset(4)
             $0.trailing.equalTo(reviewTextView.snp.trailing).inset(4)
         }
-        
-        
     }
     
     // MARK: - Methods

@@ -86,17 +86,6 @@
 		03E4811F2AF2B13A002F4CBC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 03E4811E2AF2B13A002F4CBC /* SnapKit */; };
 		03E481222AF2B1DA002F4CBC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481212AF2B1DA002F4CBC /* Moya */; };
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
-		250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */; };
-		250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D742B14624300D9726F /* ActionListReviewViewController.swift */; };
-		250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D762B16D01500D9726F /* AlertViewController.swift */; };
-		252DD8842B063A7900DBB1D1 /* ActionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */; };
-		2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */; };
-		25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */; };
-		25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951A2B089B9900E72ADC /* ActionListModel.swift */; };
-		25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */; };
-		25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951E2B08F73700E72ADC /* CompleteViewController.swift */; };
-		25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */; };
-		25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */; };
 		09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A692B03B3E2006C07B8 /* AlertBuilder.swift */; };
 		09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */; };
 		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
@@ -112,6 +101,17 @@
 		09CE00F92B0DD3E300CB42C4 /* ActionPlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CE00F82B0DD3E300CB42C4 /* ActionPlanModel.swift */; };
 		09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */; };
 		09DE08022B04FDF800D7DF3D /* EmptyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */; };
+		250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */; };
+		250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D742B14624300D9726F /* ActionListReviewViewController.swift */; };
+		250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D762B16D01500D9726F /* AlertViewController.swift */; };
+		252DD8842B063A7900DBB1D1 /* ActionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */; };
+		2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */; };
+		25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */; };
+		25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951A2B089B9900E72ADC /* ActionListModel.swift */; };
+		25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */; };
+		25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951E2B08F73700E72ADC /* CompleteViewController.swift */; };
+		25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */; };
+		25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */; };
 		58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */; };
 		58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */; };
 		58AB70B12B2C90560061C072 /* MyPageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */; };
@@ -198,17 +198,6 @@
 		03E481082AF2AFDD002F4CBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03E4810B2AF2AFDD002F4CBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListCompleteTableViewCell.swift; sourceTree = "<group>"; };
-		250F7D742B14624300D9726F /* ActionListReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListReviewViewController.swift; sourceTree = "<group>"; };
-		250F7D762B16D01500D9726F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
-		252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewModel.swift; sourceTree = "<group>"; };
-		2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListBottomSheetViewController.swift; sourceTree = "<group>"; };
-		25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListTableViewCell.swift; sourceTree = "<group>"; };
-		25BD951A2B089B9900E72ADC /* ActionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListModel.swift; sourceTree = "<group>"; };
-		25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressViewController.swift; sourceTree = "<group>"; };
-		25BD951E2B08F73700E72ADC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
-		25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleBarView.swift; sourceTree = "<group>"; };
-		25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListSegmentedView.swift; sourceTree = "<group>"; };
 		09089A692B03B3E2006C07B8 /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +213,17 @@
 		09CE00F82B0DD3E300CB42C4 /* ActionPlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlanModel.swift; sourceTree = "<group>"; };
 		09DE07FF2B04FAEE00D7DF3D /* EmptySeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySeedView.swift; sourceTree = "<group>"; };
 		09DE08012B04FDF800D7DF3D /* EmptyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewController.swift; sourceTree = "<group>"; };
+		250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListCompleteTableViewCell.swift; sourceTree = "<group>"; };
+		250F7D742B14624300D9726F /* ActionListReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListReviewViewController.swift; sourceTree = "<group>"; };
+		250F7D762B16D01500D9726F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewModel.swift; sourceTree = "<group>"; };
+		2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListBottomSheetViewController.swift; sourceTree = "<group>"; };
+		25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListTableViewCell.swift; sourceTree = "<group>"; };
+		25BD951A2B089B9900E72ADC /* ActionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListModel.swift; sourceTree = "<group>"; };
+		25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressViewController.swift; sourceTree = "<group>"; };
+		25BD951E2B08F73700E72ADC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
+		25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleBarView.swift; sourceTree = "<group>"; };
+		25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListSegmentedView.swift; sourceTree = "<group>"; };
 		58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageThookBoxView.swift; sourceTree = "<group>"; };
 		58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListTableViewCell.swift; sourceTree = "<group>"; };
@@ -285,10 +285,8 @@
 				033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */,
 				58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */,
 				58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */,
-				032213312B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift */,
 				09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */,
-				09A7D7062B01CBFE005F8821 /* CustomInputView.swift */,
-				032213312B14C4EF00FF5CF1 /* UnLockAlertView.swift */,
+				032213312B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift */,
 				032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */,
 				032213A42B1C54EB00FF5CF1 /* ScrapOnlyButton.swift */,
 				0345808B2B2DBC15002DDEBA /* UnLockCaveAlertView.swift */,
@@ -627,53 +625,6 @@
 			path = Growthook;
 			sourceTree = "<group>";
 		};
-		252DD8802B0639FC00DBB1D1 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */,
-				25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		252DD8812B0639FE00DBB1D1 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		252DD8822B0639FF00DBB1D1 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
-				25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */,
-				25BD951E2B08F73700E72ADC /* CompleteViewController.swift */,
-				2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */,
-				250F7D742B14624300D9726F /* ActionListReviewViewController.swift */,
-				250F7D762B16D01500D9726F /* AlertViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		25BD95162B08946D00E72ADC /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */,
-				250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		25BD95192B089B9000E72ADC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				25BD951A2B089B9900E72ADC /* ActionListModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		09A7D6FA2B00DCAA005F8821 /* CreateCave */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,39 +672,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		58AB70A82B2C7C240061C072 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		58AB70A92B2C7C2C0061C072 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */,
-				58AB70AF2B2C903D0061C072 /* Components */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		58AB70AA2B2C7C330061C072 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		58AB70AF2B2C903D0061C072 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		09CE00E72B0DB0F800CB42C4 /* CreateAction */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +715,86 @@
 				09CE00F82B0DD3E300CB42C4 /* ActionPlanModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		252DD8802B0639FC00DBB1D1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */,
+				25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		252DD8812B0639FE00DBB1D1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		252DD8822B0639FF00DBB1D1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B9ACA52AF7B2A200A5751C /* ActionListViewController.swift */,
+				25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */,
+				25BD951E2B08F73700E72ADC /* CompleteViewController.swift */,
+				2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */,
+				250F7D742B14624300D9726F /* ActionListReviewViewController.swift */,
+				250F7D762B16D01500D9726F /* AlertViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		25BD95162B08946D00E72ADC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */,
+				250F7D722B145F4C00D9726F /* ActionListCompleteTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		25BD95192B089B9000E72ADC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				25BD951A2B089B9900E72ADC /* ActionListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		58AB70A82B2C7C240061C072 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				03B9ACA82AF7B2B000A5751C /* MypageViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		58AB70A92B2C7C2C0061C072 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */,
+				58AB70AF2B2C903D0061C072 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		58AB70AA2B2C7C330061C072 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		58AB70AF2B2C903D0061C072 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		58E75F962B00B14B00512FE2 /* Base */ = {
@@ -967,7 +965,6 @@
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
 				03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */,
-				09A7D7072B01CBFE005F8821 /* CustomInputView.swift in Sources */,
 				09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
@@ -1192,7 +1189,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = X96X8FG389;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Growthook;
@@ -1224,7 +1221,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = X96X8FG389;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Growthook;

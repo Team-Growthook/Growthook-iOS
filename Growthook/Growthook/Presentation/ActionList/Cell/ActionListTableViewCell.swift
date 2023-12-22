@@ -14,15 +14,14 @@ final class ActionListTableViewCell: UITableViewCell {
     
     // MARK: - UI Components
     
-    private let scrapButton = UIButton()
-    private let actionTitleLabel = UILabel()
+    let scrapButton = UIButton()
+    let actionTitleLabel = UILabel()
     let seedButton = UIButton()
     let completButton = UIButton()
     private let topBorder = UIView()
     private let bottomBorder = UIView()
     
     // MARK: - Property
-    var onCompletionButtonTapped: (() -> Void)?
     
     
     // MARK: - Initializer
@@ -70,7 +69,6 @@ extension ActionListTableViewCell {
             $0.titleLabel?.font = .fontGuide(.detail1_bold)
             $0.backgroundColor = .green400
             $0.layer.cornerRadius = 10
-            $0.addTarget(self, action: #selector(completButtonTapped), for: .touchUpInside)
             $0.isUserInteractionEnabled = true
         }
         
@@ -129,10 +127,7 @@ extension ActionListTableViewCell {
             $0.height.equalTo(1)
         }
     }
-    
-    @objc func completButtonTapped() {
-        onCompletionButtonTapped?()
-    }
+
     
     // MARK: - Configure
     
