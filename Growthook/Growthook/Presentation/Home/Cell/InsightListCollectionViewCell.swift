@@ -7,11 +7,16 @@
 
 import UIKit
 
+import Then
+import SnapKit
+import RxSwift
+import RxCocoa
+
 final class InsightListCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    private let scrapButton = UIButton()
+    let scrapButton = UIButton()
     private let titleLabel = UILabel()
     private let dueTimeLabel = UILabel()
     private let lockView = UIView()
@@ -21,7 +26,12 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Properties
     
-    private var cellType: InsightStatus?
+//    var scrapButtonTap: Observable<Void> {
+//        return scrapButton.rx.tap.asObservable()
+//    }
+    private var disposeBag = DisposeBag()
+    var scrapButtonTapHandler: (() -> Void)?
+    var cellType: InsightStatus?
     override var isSelected: Bool {
         didSet {
             if isSelected {
@@ -32,6 +42,12 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        setCellStyle()
+    }
+    
     // MARK: - View Life Cycle
     
     override init(frame: CGRect) {
@@ -39,6 +55,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
         setUI()
         setLayout()
         setCellStyle()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -133,6 +150,9 @@ extension InsightListCollectionViewCell {
     // MARK: - Methods
     
     func configureCell(_ model: InsightList) {
+        titleLabel.text = model.title
+        dueTimeLabel.text = model.dueTime
+        cellType = model.scrapStatus
         switch model.scrapStatus {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
@@ -147,12 +167,11 @@ extension InsightListCollectionViewCell {
         case .lock:
             lockCellStyle()
         }
-        titleLabel.text = model.title
-        dueTimeLabel.text = model.dueTime
-        cellType = model.scrapStatus
     }
     
     func setCellStyle() {
+        guard let cellType = cellType else { return }
+        print("Setting cell  \(cellType)")
         switch cellType {
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
@@ -166,8 +185,6 @@ extension InsightListCollectionViewCell {
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
         case .lock:
             lockCellStyle()
-        case .none:
-            return
         }
     }
     
@@ -192,5 +209,39 @@ extension InsightListCollectionViewCell {
     
     func unSelectedCell() {
         selectedView.isHidden = true
+    }
+    
+    private func setAddTarget() {
+        scrapButton.addTarget(self, action: #selector(scrapButtonTap), for: .touchUpInside)
+    }
+    
+    func scrapButtonTapped() {
+        print("---tap----")
+        switch cellType {
+        case .dark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
+            cellType = .scrapDark
+            return
+        case .scrapDark:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
+            cellType = .dark
+            return
+        case .light:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
+            cellType = .scrapLight
+            return
+        case .scrapLight:
+            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
+            cellType = .light
+            return
+        default:
+            return
+        }
+        print("Change cell style for \(cellType)")
+    }
+    
+    @objc
+    private func scrapButtonTap() {
+        scrapButtonTapHandler?()
     }
 }

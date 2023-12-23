@@ -58,16 +58,21 @@ final class HomeViewController: BaseViewController {
                 .items(cellIdentifier: CaveCollectionViewCell.className,
                        cellType: CaveCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
-                }
-                .disposed(by: disposeBag)
+            }
+                       .disposed(by: disposeBag)
         
         viewModel.outputs.insightList
             .bind(to: insightListView.insightCollectionView.rx
                 .items(cellIdentifier: InsightListCollectionViewCell.className,
                        cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
+                cell.setCellStyle()
+                cell.scrapButtonTapHandler = { [weak self] in
+                    cell.scrapButtonTapped()
+                    cell.setCellStyle()
                 }
-                .disposed(by: disposeBag)
+            }
+                       .disposed(by: disposeBag)
         
         viewModel.outputs.insightLongTap
             .subscribe(onNext: { [weak self] indexPath in
@@ -143,6 +148,14 @@ final class HomeViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 if let type = self?.insightListView.scrapType {
                     self?.scrapTypeSetting(type)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        insightListView.insightCollectionView.rx.willDisplayCell
+            .subscribe(onNext: { event in
+                if let cell = event.cell as? InsightListCollectionViewCell {
+                    cell.setCellStyle()
                 }
             })
             .disposed(by: disposeBag)
@@ -243,6 +256,7 @@ extension HomeViewController {
         present(insightTapVC, animated: true)
     }
     
+    // 인사이트 업데이트
     func updateInsightList() {
         if let selectedItems = insightListView.insightCollectionView.indexPathsForSelectedItems {
             for indexPath in selectedItems {
@@ -288,7 +302,7 @@ extension HomeViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.notificationView.isHidden = true // 3초 후에 뷰를 숨김
         }
-
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideNotificationView))
         view.addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false

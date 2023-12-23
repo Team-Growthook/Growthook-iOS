@@ -25,6 +25,15 @@ final class InsightListView: BaseView {
     
     var scrapType: Bool = false
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        insightCollectionView.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - UI Components Property
     
     override func setStyles() {
@@ -84,9 +93,9 @@ final class InsightListView: BaseView {
 
 extension InsightListView: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let insightCell = cell as? InsightListCollectionViewCell {
-            insightCell.setCellStyle()
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if let insightCell = cell as? InsightListCollectionViewCell {
+//            insightCell.setCellStyle()
+//        }
+//    }
 }
