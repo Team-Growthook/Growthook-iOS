@@ -170,7 +170,7 @@ extension CaveDetailViewController {
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
         caveDetailView.insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
-        if insightDummyData[indexPath.item].scrapStatus == .lock {
+        if insightDummyData[indexPath.item].InsightStatus == .lock {
             view.addSubview(unLockInsightAlertView)
             unLockInsightAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
@@ -241,7 +241,7 @@ extension CaveDetailViewController {
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = caveDetailView.insightListView.insightCollectionView.indexPathForItem(at: location) {
-                if insightDummyData[indexPath.item].scrapStatus == .lock {
+                if insightDummyData[indexPath.item].InsightStatus == .lock {
                     return
                 } else {
                     viewModel.inputs.handleLongPress(at: indexPath)
