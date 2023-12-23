@@ -69,7 +69,7 @@ final class HomeViewController: BaseViewController {
                 cell.setCellStyle()
                 cell.scrapButtonTapHandler = { [weak self] in
                     guard let self else { return }
-                    cell.isScraoButtonTapped.toggle()
+                    cell.isScrapButtonTapped.toggle()
                 }
             }
             .disposed(by: disposeBag)
@@ -277,7 +277,7 @@ extension HomeViewController {
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
         insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
-        if insightDummyData[indexPath.item].scrapStatus == .lock {
+        if insightDummyData[indexPath.item].InsightStatus == .lock {
             view.addSubview(unLockAlertView)
             unLockAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
@@ -322,7 +322,7 @@ extension HomeViewController {
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
-                if insightDummyData[indexPath.item].scrapStatus == .lock {
+                if insightDummyData[indexPath.item].InsightStatus == .lock {
                     return
                 } else {
                     viewModel.inputs.handleLongPress(at: indexPath)

@@ -28,7 +28,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
 
     private var disposeBag = DisposeBag()
     var scrapButtonTapHandler: (() -> Void)?
-    var isScraoButtonTapped: Bool = false {
+    var isScrapButtonTapped: Bool = false {
         didSet {
             scrapButtonTapped()
         }
@@ -151,34 +151,27 @@ extension InsightListCollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         lockView.isHidden = true
+        isScrapButtonTapped = false
     }
     
     func configureCell(_ model: InsightList) {
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
-        cellType = model.scrapStatus
+        cellType = model.InsightStatus
+        isScrapButtonTapped = model.scrapStatus
         setCellStyle()
     }
     
     func setCellStyle() {
+        scrapButtonTapped()
         switch cellType {
         case .lock:
             lockCellStyle()
             cellType = .lock
         case .dark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
             darkCellStyle()
             cellType = .dark
-        case .scrapDark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
-            darkCellStyle()
-            cellType = .scrapDark
-        case .scrapLight:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
-            lightCellStyle()
-            cellType = .scrapLight
         case .light:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
             lightCellStyle()
             cellType = .light
         case .none:
@@ -222,10 +215,10 @@ extension InsightListCollectionViewCell {
     func scrapButtonTapped() {
         let buttonImage: UIImage
         switch cellType {
-        case .light, .scrapLight:
-            buttonImage = isScraoButtonTapped ? ImageLiterals.Home.btn_scrap_light_on : ImageLiterals.Home.btn_scrap_light_off
-        case .dark, .scrapDark:
-            buttonImage = isScraoButtonTapped ? ImageLiterals.Home.btn_scrap_dark_on : ImageLiterals.Home.btn_scrap_dark_off
+        case .light:
+            buttonImage = isScrapButtonTapped ? ImageLiterals.Home.btn_scrap_light_on : ImageLiterals.Home.btn_scrap_light_off
+        case .dark:
+            buttonImage = isScrapButtonTapped ? ImageLiterals.Home.btn_scrap_dark_on : ImageLiterals.Home.btn_scrap_dark_off
         case .none, .lock:
             return
         }
