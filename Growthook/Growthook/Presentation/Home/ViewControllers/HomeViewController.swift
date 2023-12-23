@@ -147,12 +147,6 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.moveToCave
-            .subscribe(onNext: { [weak self] in
-//                self?.setToast()
-            })
-            .disposed(by: disposeBag)
-        
     }
     
     // MARK: - UI Components Property
