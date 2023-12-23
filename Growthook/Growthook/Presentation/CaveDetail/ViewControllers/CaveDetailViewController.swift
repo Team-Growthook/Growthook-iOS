@@ -178,7 +178,11 @@ extension CaveDetailViewController {
     }
     
     private func setNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(clearNotification(_:)),
+            name: Notification.Name("DeSelectInsightNotification"),
+            object: nil)
     }
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
@@ -263,8 +267,17 @@ extension CaveDetailViewController {
         }
     }
     
-    @objc func clearNotification() {
+    @objc func clearNotification(_ notification: Notification) {
         updateInsightList()
+        caveDetailView.addSeedButton.isHidden = false
+        if let info = notification.userInfo?["type"] as? ClearInsightType {
+            switch info {
+            case .move:
+                view.showToast(message: "씨앗을 옮겨 심었어요")
+            case .delete:
+                view.showToast(message: "씨앗이 삭제되었어요")
+            }
+        }
     }
 }
 
