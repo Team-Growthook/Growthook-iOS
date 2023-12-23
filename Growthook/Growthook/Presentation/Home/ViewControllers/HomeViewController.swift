@@ -61,18 +61,18 @@ final class HomeViewController: BaseViewController {
             }
                        .disposed(by: disposeBag)
         
-        viewModel.outputs.insightList
-            .bind(to: insightListView.insightCollectionView.rx
-                .items(cellIdentifier: InsightListCollectionViewCell.className,
-                       cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
-                cell.configureCell(model)
-                cell.setCellStyle()
-                cell.scrapButtonTapHandler = { [weak self] in
-                    cell.scrapButtonTapped()
-                    cell.setCellStyle()
-                }
-            }
-                       .disposed(by: disposeBag)
+//        viewModel.outputs.insightList
+//            .bind(to: insightListView.insightCollectionView.rx
+//                .items(cellIdentifier: InsightListCollectionViewCell.className,
+//                       cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
+//                cell.configureCell(model)
+//                cell.setCellStyle()
+//                cell.scrapButtonTapHandler = { [weak self] in
+//                    cell.scrapButtonTapped()
+//                    cell.setCellStyle()
+//                }
+//            }
+//                       .disposed(by: disposeBag)
         
         viewModel.outputs.insightLongTap
             .subscribe(onNext: { [weak self] indexPath in
@@ -148,14 +148,6 @@ final class HomeViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 if let type = self?.insightListView.scrapType {
                     self?.scrapTypeSetting(type)
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        insightListView.insightCollectionView.rx.willDisplayCell
-            .subscribe(onNext: { event in
-                if let cell = event.cell as? InsightListCollectionViewCell {
-                    cell.setCellStyle()
                 }
             })
             .disposed(by: disposeBag)
