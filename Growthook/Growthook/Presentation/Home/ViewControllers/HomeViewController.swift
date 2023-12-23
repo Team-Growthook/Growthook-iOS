@@ -13,6 +13,11 @@ import Then
 import RxCocoa
 import RxSwift
 
+enum ClearInsightType {
+    case move
+    case delete
+}
+
 final class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
@@ -142,6 +147,12 @@ final class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.outputs.moveToCave
+            .subscribe(onNext: { [weak self] in
+//                self?.setToast()
+            })
+            .disposed(by: disposeBag)
+        
     }
     
     // MARK: - UI Components Property
@@ -248,7 +259,11 @@ extension HomeViewController {
     }
     
     private func setNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(clearNotification(_:)),
+            name: Notification.Name("DeSelectInsightNotification"),
+            object: nil)
     }
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
@@ -307,8 +322,16 @@ extension HomeViewController {
         }
     }
     
-    @objc func clearNotification() {
+    @objc func clearNotification(_ notification: Notification) {
         updateInsightList()
+        if let info = notification.userInfo?["type"] as? ClearInsightType {
+            switch info {
+            case .move:
+                view.showToast(message: "옮김")
+            case .delete:
+                view.showToast(message: "삭제")
+            }
+        }
     }
     
     @objc func hideNotificationView(_ sender: UITapGestureRecognizer) {

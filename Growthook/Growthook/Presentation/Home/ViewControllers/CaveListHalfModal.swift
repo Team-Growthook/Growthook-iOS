@@ -126,7 +126,11 @@ class CaveListHalfModal: BaseViewController {
     }
     
     private func clearInsight() {
-        NotificationCenter.default.post(name: deSelectInsightNotification, object: nil)
+        NotificationCenter.default.post(
+            name: deSelectInsightNotification,
+            object: nil,
+            userInfo: ["type": ClearInsightType.move]
+        )
     }
 }
 
