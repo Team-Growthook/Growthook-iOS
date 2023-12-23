@@ -64,7 +64,6 @@ final class HomeCaveView: BaseView {
             $0.isScrollEnabled = true
             $0.backgroundColor = .clear
             $0.showsHorizontalScrollIndicator = false
-            $0.isHidden = true
         }
         
         caveLineView.do {
@@ -89,6 +88,7 @@ final class HomeCaveView: BaseView {
         
         caveEmptyView.do {
             $0.backgroundColor = .clear
+            $0.isHidden = true
         }
         
         caveEmptyTextLabel.do {

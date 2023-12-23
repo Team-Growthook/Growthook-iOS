@@ -51,6 +51,8 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         addGesture()
         setNotification()
+        // empty 뷰 hidden
+        insightEmptyView.isHidden = true
     }
     
     override func bindViewModel() {
@@ -183,10 +185,6 @@ final class HomeViewController: BaseViewController {
         }
         
         notificationView.do {
-            $0.isHidden = true
-        }
-        
-        insightListView.do {
             $0.isHidden = true
         }
     }
