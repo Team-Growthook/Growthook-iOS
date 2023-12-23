@@ -20,6 +20,7 @@ final class CaveDetailView: BaseView {
     let insightListView = InsightListView()
     private let bottomView = UIView()
     lazy var addSeedButton = UIButton()
+    private lazy var emptyInsightView = EmptySeedView()
     
     // 그림자를 그리는 CAGradientLayer를 생성합니다.
     let gradientLayer = CAGradientLayer()
@@ -64,6 +65,10 @@ final class CaveDetailView: BaseView {
         bottomView.do {
             $0.layer.addSublayer(gradientLayer)
         }
+        
+        emptyInsightView.do {
+            $0.isHidden = true
+        }
     }
     
     // MARK: - Layout Helper
@@ -71,7 +76,7 @@ final class CaveDetailView: BaseView {
     override func setLayout() {
         
         self.addSubviews(navigationView, caveDescriptionView,
-                         insightListView, bottomView)
+                         insightListView, emptyInsightView, bottomView)
         bottomView.addSubviews(addSeedButton)
         
         navigationView.snp.makeConstraints {
@@ -101,6 +106,12 @@ final class CaveDetailView: BaseView {
             $0.bottom.equalToSuperview().inset(20)
             $0.horizontalEdges.equalToSuperview().inset(18)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+        }
+        
+        emptyInsightView.snp.makeConstraints {
+            $0.top.equalTo(caveDescriptionView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(50)
         }
     }
 }
