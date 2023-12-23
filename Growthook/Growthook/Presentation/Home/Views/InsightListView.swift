@@ -54,6 +54,7 @@ final class InsightListView: BaseView {
                                  height: 60)
             $0.minimumLineSpacing = 12
             $0.minimumInteritemSpacing = 0
+            $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
         }
     }
     
