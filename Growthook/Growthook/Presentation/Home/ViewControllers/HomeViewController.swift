@@ -177,6 +177,7 @@ final class HomeViewController: BaseViewController {
     override func setStyles() {
         
         view.backgroundColor = .gray700
+        
         seedPlusButton.do {
             $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
         }
@@ -194,7 +195,7 @@ final class HomeViewController: BaseViewController {
     
     override func setLayout() {
         
-        view.addSubviews(homeCaveView, insightListView, seedPlusButton, notificationView, insightEmptyView)
+        view.addSubviews(homeCaveView, insightListView, notificationView, insightEmptyView, seedPlusButton)
         
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
