@@ -41,6 +41,19 @@ final class CaveDetailViewController: BaseViewController {
         viewModel.outputs.insightList
             .bind(to: caveDetailView.insightListView.insightCollectionView.rx.items(cellIdentifier: InsightListCollectionViewCell.className, cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
+                cell.setCellStyle()
+                cell.scrapButtonTapHandler = { [weak self] in
+                    guard let self else { return }
+                    if !cell.isScrapButtonTapped {
+                        // 스크랩
+                        print("scrap")
+                        self.view.showScrapToast(message: "스크랩 완료!")
+                    } else {
+                        // 스크랩 해제
+                        print("unScrap")
+                    }
+                    cell.isScrapButtonTapped.toggle()
+                }
             }
             .disposed(by: disposeBag)
         
