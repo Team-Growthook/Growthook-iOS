@@ -25,10 +25,7 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     private let selectedImageView = UIImageView()
     
     // MARK: - Properties
-    
-//    var scrapButtonTap: Observable<Void> {
-//        return scrapButton.rx.tap.asObservable()
-//    }
+
     private var disposeBag = DisposeBag()
     var scrapButtonTapHandler: (() -> Void)?
     var cellType: InsightStatus?
@@ -43,11 +40,6 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - View Life Cycle
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        lockView.isHidden = true
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -145,69 +137,45 @@ extension InsightListCollectionViewCell {
             $0.center.equalToSuperview()
         }
     }
+}
+
+extension InsightListCollectionViewCell {
     
     // MARK: - Methods
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        lockView.isHidden = true
+    }
+    
     func configureCell(_ model: InsightList) {
-        print("configure")
         titleLabel.text = model.title
         dueTimeLabel.text = model.dueTime
         cellType = model.scrapStatus
-        switch cellType {
-        case .lock:
-            lockCellStyle()
-            cellType = .lock
-            return
-        case .dark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            darkCellStyle()
-            cellType = .dark
-            return
-        case .scrapDark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
-            darkCellStyle()
-            cellType = .scrapDark
-            return
-        case .scrapLight:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
-            cellType = .scrapLight
-            return
-        case .light:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
-            cellType = .light
-            return
-        case .none:
-            return
-        }
+        setCellStyle()
     }
     
     func setCellStyle() {
-        print(cellType)
         switch cellType {
         case .lock:
             lockCellStyle()
             cellType = .lock
-            return
         case .dark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
             darkCellStyle()
             cellType = .dark
-            return
         case .scrapDark:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
             darkCellStyle()
             cellType = .scrapDark
-            return
         case .scrapLight:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
             lightCellStyle()
             cellType = .scrapLight
-            return
         case .light:
             scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
             lightCellStyle()
             cellType = .light
-            return
         case .none:
             return
         }
@@ -268,7 +236,6 @@ extension InsightListCollectionViewCell {
         default:
             return
         }
-        print("Change cell style for \(cellType)")
     }
     
     @objc
