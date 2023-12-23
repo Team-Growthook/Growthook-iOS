@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
+protocol TextFieldTypeWithBorder {
+    func setBorderLine()
+    func modifyBorderLine(with color: UIColor)
+}
+
 final class UITextFieldWithTinitedWhenEdited: UITextField {
     
     var placeholderFor: String
@@ -39,7 +44,7 @@ final class UITextFieldWithTinitedWhenEdited: UITextField {
     }
 }
 
-extension UITextFieldWithTinitedWhenEdited {
+extension UITextFieldWithTinitedWhenEdited: TextFieldTypeWithBorder {
     
     private func setStyles() {
         self.backgroundColor = .gray900
@@ -55,14 +60,14 @@ extension UITextFieldWithTinitedWhenEdited {
         self.spellCheckingType = .no
     }
     
-    private func setBorderLine() {
+    func setBorderLine() {
         self.layer.borderWidth = 0.5
         self.layer.masksToBounds = true
         self.layer.cornerRadius = 7
         modifyBorderLine(with: .gray200)
     }
     
-    private func modifyBorderLine(with color: UIColor) {
+    func modifyBorderLine(with color: UIColor) {
         self.layer.borderColor = color.cgColor
     }
 }

@@ -113,6 +113,18 @@
 		25BD951F2B08F73700E72ADC /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951E2B08F73700E72ADC /* CompleteViewController.swift */; };
 		25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */; };
 		25EAFA5D2B02597800283CD8 /* ActionListSegmentedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */; };
+		581D228E2B320C630068E58D /* CommonTextFieldWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D228D2B320C630068E58D /* CommonTextFieldWithBorder.swift */; };
+		581D22902B32A9240068E58D /* Reactive+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D228F2B32A9240068E58D /* Reactive+UITextField.swift */; };
+		581D22922B32A92F0068E58D /* Reactive+UIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D22912B32A92F0068E58D /* Reactive+UIControl.swift */; };
+		581D22942B32EC950068E58D /* CommonTextViewWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D22932B32EC950068E58D /* CommonTextViewWithBorder.swift */; };
+		581D22982B3356150068E58D /* SelectBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D22972B3356150068E58D /* SelectBlockWithTitle.swift */; };
+		581D229A2B3362330068E58D /* CommonCustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D22992B3362330068E58D /* CommonCustomNavigationBar.swift */; };
+		581D229C2B3364BB0068E58D /* EnlargedAreaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D229B2B3364BB0068E58D /* EnlargedAreaButton.swift */; };
+		582F9C482B304B5E0000D161 /* TextFieldBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */; };
+		582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */; };
+		5880F4672B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F4662B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift */; };
+		5880F46B2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F46A2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift */; };
+		5880F46D2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F46C2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift */; };
 		58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */; };
 		58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */; };
 		58AB70B12B2C90560061C072 /* MyPageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */; };
@@ -126,7 +138,7 @@
 		58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAB2B00C16900512FE2 /* InsightsViewModel.swift */; };
 		58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */; };
 		58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */; };
-		58E75FB22B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */; };
+		58E75FB22B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FB12B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,6 +238,18 @@
 		25BD951E2B08F73700E72ADC /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		25EAFA5A2B0255BB00283CD8 /* MainTitleBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTitleBarView.swift; sourceTree = "<group>"; };
 		25EAFA5C2B02597800283CD8 /* ActionListSegmentedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListSegmentedView.swift; sourceTree = "<group>"; };
+		581D228D2B320C630068E58D /* CommonTextFieldWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextFieldWithBorder.swift; sourceTree = "<group>"; };
+		581D228F2B32A9240068E58D /* Reactive+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UITextField.swift"; sourceTree = "<group>"; };
+		581D22912B32A92F0068E58D /* Reactive+UIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIControl.swift"; sourceTree = "<group>"; };
+		581D22932B32EC950068E58D /* CommonTextViewWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextViewWithBorder.swift; sourceTree = "<group>"; };
+		581D22972B3356150068E58D /* SelectBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBlockWithTitle.swift; sourceTree = "<group>"; };
+		581D22992B3362330068E58D /* CommonCustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonCustomNavigationBar.swift; sourceTree = "<group>"; };
+		581D229B2B3364BB0068E58D /* EnlargedAreaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedAreaButton.swift; sourceTree = "<group>"; };
+		582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBlockWithTitle.swift; sourceTree = "<group>"; };
+		582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBlockWithTitle.swift; sourceTree = "<group>"; };
+		5880F4662B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectCaveTableViewCell.swift; sourceTree = "<group>"; };
+		5880F46A2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectCaveSheetViewController.swift; sourceTree = "<group>"; };
+		5880F46C2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectPeriodSheetViewController.swift; sourceTree = "<group>"; };
 		58AB70AB2B2C7CC50061C072 /* MyPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewModel.swift; sourceTree = "<group>"; };
 		58AB70AD2B2C88570061C072 /* MyPageThookBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageThookBoxView.swift; sourceTree = "<group>"; };
 		58AB70B02B2C90560061C072 /* MyPageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageListTableViewCell.swift; sourceTree = "<group>"; };
@@ -237,7 +261,7 @@
 		58E75FAB2B00C16900512FE2 /* InsightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewModel.swift; sourceTree = "<group>"; };
 		58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingNewInsightsView.swift; sourceTree = "<group>"; };
 		58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithTintedWhenEdited.swift; sourceTree = "<group>"; };
-		58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithTinitedWhenEdited.swift; sourceTree = "<group>"; };
+		58E75FB12B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithTintedWhenEdited.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				033E9C122AFD2F630051A9E8 /* CustomNavigationBar.swift */,
-				58E75FB12B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift */,
+				58E75FB12B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift */,
 				58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */,
 				09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */,
 				032213312B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift */,
@@ -473,6 +497,8 @@
 				03B9AC7B2AF5651600A5751C /* UITabBar+.swift */,
 				03B9AC7D2AF5652E00A5751C /* UIButton+.swift */,
 				034580962B36E343002DDEBA /* UICollectionView+.swift */,
+				581D228F2B32A9240068E58D /* Reactive+UITextField.swift */,
+				581D22912B32A92F0068E58D /* Reactive+UIControl.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -767,6 +793,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		581D228C2B320BE70068E58D /* NewUITextComponent */ = {
+			isa = PBXGroup;
+			children = (
+				581D228D2B320C630068E58D /* CommonTextFieldWithBorder.swift */,
+				581D22932B32EC950068E58D /* CommonTextViewWithBorder.swift */,
+				581D22992B3362330068E58D /* CommonCustomNavigationBar.swift */,
+				581D229B2B3364BB0068E58D /* EnlargedAreaButton.swift */,
+			);
+			path = NewUITextComponent;
+			sourceTree = "<group>";
+		};
+		5880F4652B342329004C1494 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5880F4662B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		58AB70A82B2C7C240061C072 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -820,6 +865,7 @@
 		58E75FA42B00C0C700512FE2 /* Insights */ = {
 			isa = PBXGroup;
 			children = (
+				581D228C2B320BE70068E58D /* NewUITextComponent */,
 				58E75FA52B00C0D100512FE2 /* Controllers */,
 				58E75FA82B00C11D00512FE2 /* ViewModels */,
 				58E75FA72B00C0E400512FE2 /* Views */,
@@ -831,6 +877,8 @@
 			isa = PBXGroup;
 			children = (
 				58E75FA92B00C15800512FE2 /* CreatingNewInsightsViewController.swift */,
+				5880F46A2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift */,
+				5880F46C2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -838,7 +886,11 @@
 		58E75FA72B00C0E400512FE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5880F4652B342329004C1494 /* Components */,
 				58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */,
+				582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */,
+				582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */,
+				581D22972B3356150068E58D /* SelectBlockWithTitle.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -960,20 +1012,28 @@
 				032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */,
 				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
+				581D229C2B3364BB0068E58D /* EnlargedAreaButton.swift in Sources */,
 				25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				034580852B2D6354002DDEBA /* CaveDetailView.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
 				09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */,
+				5880F46B2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
 				03B9AC882AF565CA00A5751C /* StringLiterals.swift in Sources */,
 				03C356612B0F533E00750758 /* CaveListHalfModal.swift in Sources */,
+				582F9C482B304B5E0000D161 /* TextFieldBlockWithTitle.swift in Sources */,
 				09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */,
+				581D22982B3356150068E58D /* SelectBlockWithTitle.swift in Sources */,
 				03B9AC842AF565A300A5751C /* ImageLiterals.swift in Sources */,
+				581D22902B32A9240068E58D /* Reactive+UITextField.swift in Sources */,
+				581D22922B32A92F0068E58D /* Reactive+UIControl.swift in Sources */,
 				03B9AC542AF55FF900A5751C /* GeneralResponse.swift in Sources */,
+				581D229A2B3362330068E58D /* CommonCustomNavigationBar.swift in Sources */,
 				250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */,
 				250F7D752B14624300D9726F /* ActionListReviewViewController.swift in Sources */,
 				58E75F982B00B15A00512FE2 /* BaseViewController.swift in Sources */,
+				5880F4672B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift in Sources */,
 				09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */,
 				0345808C2B2DBC15002DDEBA /* UnLockCaveAlertView.swift in Sources */,
 				09CE00F52B0DB9CC00CB42C4 /* InsightModel.swift in Sources */,
@@ -985,6 +1045,7 @@
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */,
 				58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */,
+				581D228E2B320C630068E58D /* CommonTextFieldWithBorder.swift in Sources */,
 				03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */,
@@ -1016,8 +1077,10 @@
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
+				582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */,
 				2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */,
 				25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */,
+				581D22942B32EC950068E58D /* CommonTextViewWithBorder.swift in Sources */,
 				09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
 				032213322B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift in Sources */,
@@ -1028,7 +1091,7 @@
 				03C3565F2B0B702900750758 /* InsightTapBottomSheet.swift in Sources */,
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
-				58E75FB22B00CF2100512FE2 /* UITextFieldWithTinitedWhenEdited.swift in Sources */,
+				58E75FB22B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift in Sources */,
 				09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */,
 				03B9AC592AF560D800A5751C /* Config.swift in Sources */,
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
@@ -1041,6 +1104,7 @@
 				250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
+				5880F46D2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift in Sources */,
 				09CE00ED2B0DB1EA00CB42C4 /* CreateActionView.swift in Sources */,
 				034580972B36E343002DDEBA /* UICollectionView+.swift in Sources */,
 				033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */,
@@ -1193,7 +1257,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Growthook;
@@ -1201,6 +1265,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1225,7 +1290,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = DGT9BQA4KH;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Growthook/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Growthook;
@@ -1233,6 +1298,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
