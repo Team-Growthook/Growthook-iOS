@@ -22,6 +22,8 @@ final class HomeCaveView: BaseView {
     private let seedCountLabel = UILabel()
     let notificationButton = UIButton()
     lazy var caveCollectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    private lazy var caveEmptyView = UIView()
+    private lazy var caveEmptyTextLabel = UILabel()
     private let caveLineView = UIView()
     let addCaveButton = UIButton()
     private let underLineView = UIView()
@@ -62,6 +64,7 @@ final class HomeCaveView: BaseView {
             $0.isScrollEnabled = true
             $0.backgroundColor = .clear
             $0.showsHorizontalScrollIndicator = false
+            $0.isHidden = true
         }
         
         caveLineView.do {
@@ -83,6 +86,16 @@ final class HomeCaveView: BaseView {
             $0.minimumLineSpacing = 0
             $0.minimumInteritemSpacing = 0
         }
+        
+        caveEmptyView.do {
+            $0.backgroundColor = .clear
+        }
+        
+        caveEmptyTextLabel.do {
+            $0.text = "오른쪽의 +를 눌러 동굴을 추가해보세요!"
+            $0.font = .fontGuide(.detail1_reg)
+            $0.textColor = .gray200
+        }
     }
     
     // MARK: - Layout Helper
@@ -90,8 +103,10 @@ final class HomeCaveView: BaseView {
     override func setLayout() {
         
         addSubviews(userLabel, seedView, notificationButton, caveCollectionView,
-                    caveLineView, addCaveButton, underLineView)
+                    caveLineView, addCaveButton, underLineView,
+                    caveEmptyView)
         seedView.addSubviews(seedImage, seedCountLabel)
+        caveEmptyView.addSubviews(caveEmptyTextLabel)
         
         userLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(24)
@@ -146,6 +161,18 @@ final class HomeCaveView: BaseView {
             $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
+        }
+        
+        caveEmptyView.snp.makeConstraints {
+            $0.top.equalTo(userLabel.snp.bottom).offset(10)
+            $0.leading.equalToSuperview().inset(8)
+            $0.trailing.equalTo(caveLineView.snp.leading).offset(-9)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 96 / 812)
+        }
+        
+        caveEmptyTextLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(32)
+            $0.centerX.equalToSuperview()
         }
     }
 }
