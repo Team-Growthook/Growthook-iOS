@@ -321,9 +321,9 @@ extension HomeViewController {
         if let info = notification.userInfo?["type"] as? ClearInsightType {
             switch info {
             case .move:
-                view.showToast(message: "옮김")
+                view.showToast(message: "씨앗을 옮겨 심었어요")
             case .delete:
-                view.showToast(message: "삭제")
+                view.showToast(message: "씨앗이 삭제되었어요")
             }
         }
     }
