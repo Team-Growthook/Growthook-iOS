@@ -28,6 +28,11 @@ final class InsightListCollectionViewCell: UICollectionViewCell {
 
     private var disposeBag = DisposeBag()
     var scrapButtonTapHandler: (() -> Void)?
+    var isScraoButtonTapped: Bool = false {
+        didSet {
+            scrapButtonTapped()
+        }
+    }
     var cellType: InsightStatus?
     override var isSelected: Bool {
         didSet {
@@ -215,27 +220,16 @@ extension InsightListCollectionViewCell {
     }
     
     func scrapButtonTapped() {
-        print("---tap----")
+        let buttonImage: UIImage
         switch cellType {
-        case .dark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_on, for: .normal)
-            cellType = .scrapDark
-            return
-        case .scrapDark:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_dark_off, for: .normal)
-            cellType = .dark
-            return
-        case .light:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_on, for: .normal)
-            cellType = .scrapLight
-            return
-        case .scrapLight:
-            scrapButton.setImage(ImageLiterals.Home.btn_scrap_light_off, for: .normal)
-            cellType = .light
-            return
-        default:
+        case .light, .scrapLight:
+            buttonImage = isScraoButtonTapped ? ImageLiterals.Home.btn_scrap_light_on : ImageLiterals.Home.btn_scrap_light_off
+        case .dark, .scrapDark:
+            buttonImage = isScraoButtonTapped ? ImageLiterals.Home.btn_scrap_dark_on : ImageLiterals.Home.btn_scrap_dark_off
+        case .none, .lock:
             return
         }
+        scrapButton.setImage(buttonImage, for: .normal)
     }
     
     @objc

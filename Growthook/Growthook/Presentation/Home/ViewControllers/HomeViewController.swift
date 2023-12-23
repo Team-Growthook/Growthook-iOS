@@ -68,8 +68,8 @@ final class HomeViewController: BaseViewController {
                 cell.configureCell(model)
                 cell.setCellStyle()
                 cell.scrapButtonTapHandler = { [weak self] in
-                    cell.scrapButtonTapped()
-                    cell.setCellStyle()
+                    guard let self else { return }
+                    cell.isScraoButtonTapped.toggle()
                 }
             }
             .disposed(by: disposeBag)
