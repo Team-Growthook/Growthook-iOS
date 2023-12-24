@@ -69,6 +69,7 @@ enum ImageLiterals {
         static var btn_more: UIImage { .load(name: "more_active_btn") }
         static var btn_folding: UIImage { .load(name: "more_default_btn") }
         static var btn_submenu: UIImage { .load(name: "submenu_btn") }
+        static var btn_plus: UIImage { .load(name: "plus_btn") }
     }
     
     enum Scrap {
