@@ -91,47 +91,7 @@ extension CreateCaveViewController {
                 self.setDownAnimation()
             }
             .disposed(by: disposeBag)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-//        createCaveView.introduceTextView.rx.text
-//            .orEmpty
-//            .distinctUntilChanged()
-//            .bind { [weak self] value in
-//                guard let self else { return }
-//                self.viewModel.inputs.setDescription(with: value)
-//            }
-//            .disposed(by: disposeBag)
-//        
-//        createCaveView.introduceTextView.rx.didBeginEditing
-////        controlEvent([.editingDidBegin])
-//            .bind { [weak self] in
-//                self?.setUpAnimation()
-////                self?.createCaveView.introduceTextView.setFocus()
-//            }
-//            .disposed(by: disposeBag)
-//        
-//        createCaveView.introduceTextView.rx.didEndEditing
-////            .controlEvent([.editingDidEnd])
-//            .bind { [weak self] in
-//                    guard let self else { return }
-////                if(self?.createCaveView.introduceTextView.text?.isEmpty == true) {
-////                    
-////                    self?.createCaveView.introduceTextView.setEmpty()
-////                }
-////                else {
-////                    self?.createCaveView.introduceTextView.setDone()
-////                }
-//                self.setDownAnimation()
-//            }
-//            .disposed(by: disposeBag)
-//        
+
         createCaveView.switchButton.rx.isOn
             .subscribe { [weak self] value in
                 if value == true {

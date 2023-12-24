@@ -13,9 +13,9 @@ import Then
 // https://liveupdate.tistory.com/460 이거 쓰면 될듯 (크기 변환)
 final class UITextViewWithTintedWhenEdited: UITextView {
     
-    private var initialPlaceholder: String
-    private var maxLength: Int
-    private var toolBarItems: [UIBarButtonItem] = []
+    var initialPlaceholder: String
+    var maxLength: Int
+    var toolBarItems: [UIBarButtonItem] = []
 
     /**
      Placeholder 와 최대 길이를 정합니다.
@@ -67,7 +67,7 @@ extension UITextViewWithTintedWhenEdited {
         modifyBorderLine(with: .gray200)
     }
     
-    private func modifyBorderLine(with color: UIColor) {
+    func modifyBorderLine(with color: UIColor) {
         self.layer.borderColor = color.cgColor
     }
 }
@@ -135,7 +135,7 @@ extension UITextViewWithTintedWhenEdited {
     /// - parameter items : 키보드 상단에 생기는 toolBar 에 들어갈 [UIBarButtonItem] 입니다.
     func setToolBarItems(with items: [UIBarButtonItem] = []) {
         self.toolBarItems = items
-        let toolBar = UIToolbar()
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         if toolBarItems.isEmpty {
             let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 16)

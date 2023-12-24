@@ -28,7 +28,7 @@ final class EmptySeedView: BaseView {
     
     override func setStyles() {
         self.backgroundColor = .gray700
-        self.roundCorners(cornerRadius: 20, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
+        self.roundCorners(cornerRadius: 20, maskedCorners: [.topLeft, .topRight])
         
         titleLabel.do {
             $0.text = "아직 심겨진 씨앗이 없어요"
