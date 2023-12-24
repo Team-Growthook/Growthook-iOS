@@ -22,19 +22,10 @@ final class InsightView: BaseView {
     private let memoScrollView = UIScrollView()
     private let memoLabel = UILabel()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
     override func setStyles() {
         self.do {
             $0.backgroundColor = .gray600
-            $0.roundCorners(cornerRadius: 20, maskedCorners: [.layerMinXMaxYCorner, .layerMaxXMaxYCorner])
+            $0.roundCorners(cornerRadius: 20, maskedCorners: [.bottomLeft, .bottomRight])
         }
         
         nameLabel.do {
