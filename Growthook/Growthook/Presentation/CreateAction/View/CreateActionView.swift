@@ -16,17 +16,7 @@ final class CreateActionView: BaseView {
     private let navigationBar = CustomNavigationBar()
     let confirmButton = UIButton()
     let insightView = InsightView()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setStyles()
-        setLayout()
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    let createSpecificPlanView = CreateSpecificPlanView()
     
     override func setStyles() {
         self.backgroundColor = .gray700
@@ -43,7 +33,7 @@ final class CreateActionView: BaseView {
         }
         
         confirmButton.do {
-            $0.setTitle("확인", for: .normal)
+            $0.setTitle("완료", for: .normal)
             $0.setTitleColor(.gray300, for: .normal)
             $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.isEnabled = false
@@ -51,15 +41,23 @@ final class CreateActionView: BaseView {
     }
     
     override func setLayout() {
-        self.addSubviews(topView, navigationBar, insightView)
+        self.addSubviews(topView, navigationBar, insightView, createSpecificPlanView)
+        navigationBar.addSubview(confirmButton)
         
         topView.snp.makeConstraints {
             $0.top.horizontalEdges.equalToSuperview()
             $0.bottom.equalTo(self.safeAreaLayoutGuide.snp.top)
         }
+        
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        confirmButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(8)
+            $0.size.equalTo(48)
         }
         
         insightView.snp.makeConstraints {
@@ -67,18 +65,18 @@ final class CreateActionView: BaseView {
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(125)
         }
+        
+        createSpecificPlanView.snp.makeConstraints {
+            $0.top.equalTo(insightView.snp.bottom).offset(12)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalTo(self.safeAreaLayoutGuide)
+        }
     }
 }
 
 extension CreateActionView {
     
-    func setFoldingAnimation() {
-        UIView.animate(withDuration: 0.4, animations: { [self] in
-            insightView.frame.size.height = 125
-            insightView.fold()
-            
-        })
-        
+    func setFoldingLayout() {
         insightView.snp.remakeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
@@ -86,14 +84,7 @@ extension CreateActionView {
         }
     }
     
-    func setShowingAnimation() {
-        UIView.animate(withDuration: 0.4, animations: { [self] in
-            insightView.frame.size.height = 153 + 125
-            insightView.showDetail()
-        
-            
-        })
-        
+    func setShowingLayout() {
         insightView.snp.remakeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
