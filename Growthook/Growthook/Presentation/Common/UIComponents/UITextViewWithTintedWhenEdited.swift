@@ -13,9 +13,9 @@ import Then
 // https://liveupdate.tistory.com/460 이거 쓰면 될듯 (크기 변환)
 final class UITextViewWithTintedWhenEdited: UITextView {
     
-    var initialPlaceholder: String
-    var maxLength: Int
-    var toolBarItems: [UIBarButtonItem] = []
+    private var initialPlaceholder: String
+    private(set) var maxLength: Int
+    private var toolBarItems: [UIBarButtonItem] = []
 
     /**
      Placeholder 와 최대 길이를 정합니다.
@@ -143,11 +143,15 @@ extension UITextViewWithTintedWhenEdited {
             let flexibleButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             let hidesKeyboardButton = UIBarButtonItem(image: UIImage(systemName: "keyboard.chevron.compact.down", withConfiguration: symbolConfiguration), style: .plain, target: self, action: #selector(hidesKeyboardWhenTapped))
             hidesKeyboardButton.tintColor = .gray100
-            toolBar.sizeToFit()
-            toolBar.setItems([emptyButtonOnLeft, flexibleButton, hidesKeyboardButton], animated: false)
+            toolBar.frame = CGRect(x: 0, y: 0, width: 100, height: 45)
+            toolBar.setItems([
+                emptyButtonOnLeft,
+                flexibleButton,
+                hidesKeyboardButton
+            ], animated: false)
             self.inputAccessoryView = toolBar
         } else {
-            toolBar.sizeToFit()
+            toolBar.frame = CGRect(x: 0, y: 0, width: 100, height: 45)
             toolBar.setItems(self.toolBarItems, animated: false)
             self.inputAccessoryView = toolBar
         }
