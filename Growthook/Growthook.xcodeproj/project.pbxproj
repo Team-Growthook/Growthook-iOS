@@ -30,6 +30,7 @@
 		034580872B2D6B98002DDEBA /* CaveDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580862B2D6B98002DDEBA /* CaveDescriptionView.swift */; };
 		0345808A2B2D717D002DDEBA /* CaveDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580892B2D717D002DDEBA /* CaveDetailViewModel.swift */; };
 		0345808C2B2DBC15002DDEBA /* UnLockCaveAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0345808B2B2DBC15002DDEBA /* UnLockCaveAlertView.swift */; };
+		034580972B36E343002DDEBA /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580962B36E343002DDEBA /* UICollectionView+.swift */; };
 		035DB2A72B00E6F200161872 /* InsightListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DB2A62B00E6F200161872 /* InsightListView.swift */; };
 		035DB2AB2B00FF2400161872 /* InsightListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DB2AA2B00FF2400161872 /* InsightListCollectionViewCell.swift */; };
 		035DB2AD2B01041B00161872 /* InsightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035DB2AC2B01041B00161872 /* InsightList.swift */; };
@@ -159,6 +160,7 @@
 		034580862B2D6B98002DDEBA /* CaveDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveDescriptionView.swift; sourceTree = "<group>"; };
 		034580892B2D717D002DDEBA /* CaveDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveDetailViewModel.swift; sourceTree = "<group>"; };
 		0345808B2B2DBC15002DDEBA /* UnLockCaveAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLockCaveAlertView.swift; sourceTree = "<group>"; };
+		034580962B36E343002DDEBA /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		035DB2A62B00E6F200161872 /* InsightListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightListView.swift; sourceTree = "<group>"; };
 		035DB2AA2B00FF2400161872 /* InsightListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightListCollectionViewCell.swift; sourceTree = "<group>"; };
 		035DB2AC2B01041B00161872 /* InsightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightList.swift; sourceTree = "<group>"; };
@@ -494,6 +496,7 @@
 				03B9AC792AF564FC00A5751C /* UITableView+.swift */,
 				03B9AC7B2AF5651600A5751C /* UITabBar+.swift */,
 				03B9AC7D2AF5652E00A5751C /* UIButton+.swift */,
+				034580962B36E343002DDEBA /* UICollectionView+.swift */,
 				581D228F2B32A9240068E58D /* Reactive+UITextField.swift */,
 				581D22912B32A92F0068E58D /* Reactive+UIControl.swift */,
 			);
@@ -1103,6 +1106,7 @@
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
 				5880F46D2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift in Sources */,
 				09CE00ED2B0DB1EA00CB42C4 /* CreateActionView.swift in Sources */,
+				034580972B36E343002DDEBA /* UICollectionView+.swift in Sources */,
 				033E9C182AFE33A80051A9E8 /* HomeCaveView.swift in Sources */,
 				0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */,
 				58E75F9A2B00B33F00512FE2 /* BaseView.swift in Sources */,

@@ -28,7 +28,7 @@ protocol HomeViewModelOutputs {
     var insightBackground: PublishSubject<IndexPath> { get }
     var pushToInsightDetail: PublishSubject<IndexPath> { get }
     var selectedCellIndex: BehaviorRelay<IndexPath?> { get }
-    var moveToCave: Observable<Void> { get }
+    var moveToCave: PublishSubject<Void> { get }
     var pushToCaveDetail: PublishSubject<IndexPath> { get }
 }
 
@@ -47,10 +47,7 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     var pushToInsightDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     var dismissToHomeVC: PublishSubject<Void> = PublishSubject<Void>()
     var selectedCellIndex: BehaviorRelay<IndexPath?> = BehaviorRelay<IndexPath?>(value: nil)
-    let buttonTapSubject: PublishSubject<Void> = PublishSubject<Void>()
-    var moveToCave: Observable<Void> {
-        return buttonTapSubject.asObservable()
-    }
+    var moveToCave: PublishSubject<Void> = PublishSubject<Void>()
     var pushToCaveDetail: PublishSubject<IndexPath> = PublishSubject<IndexPath>()
     
     var inputs: HomeViewModelInputs { return self }
@@ -93,6 +90,6 @@ final class HomeViewModel: HomeViewModelInputs, HomeViewModelOutputs, HomeViewMo
     }
     
     func selectButtonTap() {
-        return buttonTapSubject.onNext(())
+        return moveToCave.onNext(())
     }
 }

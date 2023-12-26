@@ -41,6 +41,19 @@ final class CaveDetailViewController: BaseViewController {
         viewModel.outputs.insightList
             .bind(to: caveDetailView.insightListView.insightCollectionView.rx.items(cellIdentifier: InsightListCollectionViewCell.className, cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
+                cell.setCellStyle()
+                cell.scrapButtonTapHandler = { [weak self] in
+                    guard let self else { return }
+                    if !cell.isScrapButtonTapped {
+                        // 스크랩
+                        print("scrap")
+                        self.view.showScrapToast(message: "스크랩 완료!")
+                    } else {
+                        // 스크랩 해제
+                        print("unScrap")
+                    }
+                    cell.isScrapButtonTapped.toggle()
+                }
             }
             .disposed(by: disposeBag)
         
@@ -165,12 +178,16 @@ extension CaveDetailViewController {
     }
     
     private func setNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(clearNotification(_:)),
+            name: Notification.Name("DeSelectInsightNotification"),
+            object: nil)
     }
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
         caveDetailView.insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
-        if insightDummyData[indexPath.item].scrapStatus == .lock {
+        if insightDummyData[indexPath.item].InsightStatus == .lock {
             view.addSubview(unLockInsightAlertView)
             unLockInsightAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
@@ -241,7 +258,7 @@ extension CaveDetailViewController {
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = caveDetailView.insightListView.insightCollectionView.indexPathForItem(at: location) {
-                if insightDummyData[indexPath.item].scrapStatus == .lock {
+                if insightDummyData[indexPath.item].InsightStatus == .lock {
                     return
                 } else {
                     viewModel.inputs.handleLongPress(at: indexPath)
@@ -250,8 +267,17 @@ extension CaveDetailViewController {
         }
     }
     
-    @objc func clearNotification() {
+    @objc func clearNotification(_ notification: Notification) {
         updateInsightList()
+        caveDetailView.addSeedButton.isHidden = false
+        if let info = notification.userInfo?["type"] as? ClearInsightType {
+            switch info {
+            case .move:
+                view.showToast(message: "씨앗을 옮겨 심었어요")
+            case .delete:
+                view.showToast(message: "씨앗이 삭제되었어요")
+            }
+        }
     }
 }
 

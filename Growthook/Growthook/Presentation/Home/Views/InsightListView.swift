@@ -24,6 +24,7 @@ final class InsightListView: BaseView {
     // MARK: - Properties
     
     var scrapType: Bool = false
+    private let dummyModel: [InsightList] = InsightList.insightListDummyData()
     
     // MARK: - UI Components Property
     
@@ -53,6 +54,7 @@ final class InsightListView: BaseView {
                                  height: 60)
             $0.minimumLineSpacing = 12
             $0.minimumInteritemSpacing = 0
+            $0.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0)
         }
     }
     
@@ -78,15 +80,6 @@ final class InsightListView: BaseView {
             $0.top.equalTo(scrapButton.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
-        }
-    }
-}
-
-extension InsightListView: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let insightCell = cell as? InsightListCollectionViewCell {
-            insightCell.setCellStyle()
         }
     }
 }
