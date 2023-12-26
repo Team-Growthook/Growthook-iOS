@@ -25,7 +25,7 @@ final class ActionListBottomSheetViewController: BaseViewController {
     
     private let bottomSheetTitleLabel = UILabel()
     private let dismissButton = UIButton()
-    private let reviewTextView = UITextViewWithTintedWhenEdited(placeholder: "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요", maxLength: 300)
+    private let reviewTextView = UITextViewWithTintedWhenEdited(placeholder: I18N.ActionList.reviewPlaceholder, maxLength: 300)
     private let reviewCountLabel = UILabel()
     private let saveButton = UIButton()
     private let cancelButton = UIButton()
@@ -199,7 +199,7 @@ extension ActionListBottomSheetViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         modifyBorderLine(with: .green200)
-        if reviewTextView.text == "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요" {
+        if reviewTextView.text == I18N.ActionList.reviewPlaceholder {
             reviewTextView.text = nil
             reviewTextView.textColor = .white000
             reviewTextView.font = .fontGuide(.body3_bold)
@@ -208,7 +208,7 @@ extension ActionListBottomSheetViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if reviewTextView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            reviewTextView.text = "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요"
+            reviewTextView.text = I18N.ActionList.reviewPlaceholder
             reviewTextView.textColor = .gray400
             reviewTextView.font = .fontGuide(.body3_reg)
             modifyBorderLine(with: .gray200)
