@@ -27,6 +27,7 @@ final class HomeViewController: BaseViewController {
     private let seedPlusButton = UIButton()
     private let unLockAlertView = UnLockInsightAlertView()
     private let notificationView = NotificationAlertView()
+    private lazy var insightEmptyView = EmptySeedView()
     
     // MARK: - Properties
     
@@ -50,6 +51,8 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         addGesture()
         setNotification()
+        // empty 뷰 hidden
+        insightEmptyView.isHidden = true
     }
     
     override func bindViewModel() {
@@ -176,6 +179,7 @@ final class HomeViewController: BaseViewController {
     override func setStyles() {
         
         view.backgroundColor = .gray700
+        
         seedPlusButton.do {
             $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
         }
@@ -189,7 +193,7 @@ final class HomeViewController: BaseViewController {
     
     override func setLayout() {
         
-        view.addSubviews(homeCaveView, insightListView, seedPlusButton, notificationView)
+        view.addSubviews(homeCaveView, insightListView, notificationView, insightEmptyView, seedPlusButton)
         
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -204,7 +208,6 @@ final class HomeViewController: BaseViewController {
         }
         
         seedPlusButton.snp.makeConstraints {
-            print(seedPlusBottomInset())
             $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
             $0.trailing.equalToSuperview().inset(8)
         }
@@ -214,6 +217,12 @@ final class HomeViewController: BaseViewController {
             $0.trailing.equalToSuperview().inset(18)
             $0.width.equalTo(168)
             $0.height.equalTo(112)
+        }
+        
+        insightEmptyView.snp.makeConstraints {
+            $0.top.equalTo(homeCaveView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
