@@ -51,4 +51,8 @@ enum I18N {
     enum InsightList {
         static let lockInsight = "일 후 잠금"
     }
+    
+    enum ActionList {
+        static let reviewPlaceholder = "액션 플랜을 달성하며 어떤 것을 느꼈는지 작성해보세요"
+    }
 }

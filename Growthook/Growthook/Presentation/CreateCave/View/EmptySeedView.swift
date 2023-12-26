@@ -40,9 +40,9 @@ final class EmptySeedView: BaseView {
             $0.image = ImageLiterals.Scrap.btn_scrap_default
         }
         
-        mugwortView.do {
-            $0.image = ImageLiterals.Storage.img_mugwort_empty
-        }
+//        mugwortView.do {
+//            $0.image = ImageLiterals.Storage.img_mugwort_empty
+//        }
     }
     
     override func setLayout() {

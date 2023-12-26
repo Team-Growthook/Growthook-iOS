@@ -83,13 +83,15 @@ final class CreatingNewInsightsViewController: BaseViewController {
             .observe(on: MainScheduler.asyncInstance)
             .bind { [weak self] event in
                 guard let self else { return }
+                let textField = self.creatingContentView.referenceTextField
                 switch event {
                 case .editingDidBegin:
-                    let component = self.creatingContentView.referenceTextField
-                    let point = component.frame.origin
-                    let height = component.frame.height
+                    textField.textFieldBlock.focusWhenDidBeginEditing()
+                    let point = textField.frame.origin
+                    let height = textField.frame.height
                     scrollToNewPoint(currentPoint: point, height: height)
                 case .editingDidEnd:
+                    textField.textFieldBlock.unfocusWhenDidEndEditing()
                     scrollToBottom()
                 case .editingDidEndOnExit:
                     self.creatingContentView.referencURLTextField.textFieldBlock.becomeFirstResponder()
@@ -103,13 +105,15 @@ final class CreatingNewInsightsViewController: BaseViewController {
             .observe(on: MainScheduler.asyncInstance)
             .bind { [weak self] event in
                 guard let self else { return }
+                let textField = self.creatingContentView.referencURLTextField
                 switch event {
                 case .editingDidBegin:
-                    let component = self.creatingContentView.referencURLTextField
-                    let point = component.frame.origin
-                    let height = component.frame.height
+                    textField.textFieldBlock.focusWhenDidBeginEditing()
+                    let point = textField.frame.origin
+                    let height = textField.frame.height
                     scrollToNewPoint(currentPoint: point, height: height)
                 case .editingDidEnd:
+                    textField.textFieldBlock.unfocusWhenDidEndEditing()
                     scrollToBottom()
                 default:
                     break
