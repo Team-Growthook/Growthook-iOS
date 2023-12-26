@@ -34,9 +34,9 @@ final class EmptySeedView: BaseView {
             $0.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
         }
         
-        mugwortView.do {
-            $0.image = ImageLiterals.Storage.img_mugwort_empty
-        }
+//        mugwortView.do {
+//            $0.image = ImageLiterals.Storage.img_mugwort_empty
+//        }
     }
     
     // MARK: - Layout Helper
