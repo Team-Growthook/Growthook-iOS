@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let splashViewController = CreatingNewInsightsViewController()
         
-        window?.rootViewController = splashViewController
+        window?.rootViewController = SplashViewController()
         window?.makeKeyAndVisible()
     }
     
