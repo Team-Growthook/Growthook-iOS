@@ -12,19 +12,13 @@ import Then
 
 final class EmptySeedView: BaseView {
     
-    private let titleLabel = UILabel()
-    private let scrapView = UIImageView()
-    private let mugwortView = UIImageView()
-    let plantSeedButton = BottomCTAButton(type: .plantSeed)
+    // MARK: - UI Components
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let titleLabel = UILabel()
+    private let scrapView = UIButton()
+    private let mugwortView = UIImageView()
+    
+    // MARK: - UI Components Property
     
     override func setStyles() {
         self.backgroundColor = .gray700
@@ -32,43 +26,37 @@ final class EmptySeedView: BaseView {
         
         titleLabel.do {
             $0.text = "아직 심겨진 씨앗이 없어요"
-            $0.font = .fontGuide(.head4)
-            $0.textColor = .white000
+            $0.font = .fontGuide(.body1_reg)
+            $0.textColor = .gray200
         }
         
         scrapView.do {
-            $0.image = ImageLiterals.Scrap.btn_scrap_default
+            $0.setImage(ImageLiterals.Scrap.btn_scrap_default, for: .normal)
         }
         
-        mugwortView.do {
-            $0.image = ImageLiterals.Storage.img_mugwort_empty
-        }
+//        mugwortView.do {
+//            $0.image = ImageLiterals.Storage.img_mugwort_empty
+//        }
     }
     
+    // MARK: - Layout Helper
+    
     override func setLayout() {
-        self.addSubviews(titleLabel, scrapView, mugwortView, plantSeedButton)
-        
-        titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(34)
-            $0.leading.equalToSuperview().inset(18)
-        }
+        self.addSubviews(titleLabel, scrapView, mugwortView)
         
         scrapView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(55)
+            $0.top.equalToSuperview().inset(44)
             $0.trailing.equalToSuperview().inset(18)
         }
         
         mugwortView.snp.makeConstraints {
-            $0.top.lessThanOrEqualTo(titleLabel.snp.bottom).offset(125)
-            $0.center.equalToSuperview()
-            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 87 / 375)
+            $0.top.lessThanOrEqualTo(scrapView.snp.bottom).offset(80)
+            $0.centerX.equalToSuperview()
         }
         
-        plantSeedButton.snp.makeConstraints {
-            $0.top.greaterThanOrEqualTo(mugwortView.snp.bottom).offset(70).priority(.high)
-            $0.bottom.lessThanOrEqualToSuperview().inset(52).priority(.high)
-            $0.horizontalEdges.equalToSuperview().inset(18)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 50 / 812)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(mugwortView.snp.bottom).offset(20)
+            $0.centerX.equalToSuperview()
         }
     }
 }

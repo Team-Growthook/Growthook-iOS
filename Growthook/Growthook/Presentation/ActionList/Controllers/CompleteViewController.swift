@@ -26,6 +26,7 @@ final class CompleteViewController: BaseViewController {
     // MARK: - Properties
     
     weak var delegate: PushToActionListReviewViewController?
+    private var isShowingScrappedData = false
     
     // MARK: - Initializer
     
@@ -36,7 +37,14 @@ final class CompleteViewController: BaseViewController {
     }
     
     override func bindViewModel() {
-        
+        scrapButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.didTapCompleteScrapButton()
+                self.isShowingScrappedData.toggle()
+                self.tableView.reloadData()
+            }
+            .disposed(by: disposeBag)
     }
     
     // MARK: - UI Components Property
@@ -73,6 +81,9 @@ final class CompleteViewController: BaseViewController {
     
     // MARK: - Methods
     
+    private func getScrappedActionList() -> [CompleteActionListModel] {
+        return viewModel.outputs.completeActionList.value.filter { $0.scrapStatus == .scrap }
+    }
     // MARK: - @objc Methods
     
     @objc func buttonTapped() {
@@ -88,13 +99,31 @@ extension CompleteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.outputs.completeActionList.value.count
+        if isShowingScrappedData {
+            return getScrappedActionList().count
+        } else {
+            return viewModel.outputs.completeActionList.value.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "completeActionListTableCell", for: indexPath) as! ActionListCompleteTableViewCell
-        let model = viewModel.outputs.completeActionList.value[indexPath.row]
+        let model: CompleteActionListModel
+        if isShowingScrappedData {
+            model = getScrappedActionList()[indexPath.row]
+        } else {
+            model = viewModel.outputs.completeActionList.value[indexPath.row]
+        }
+        
         cell.configure(model)
+        cell.disposeBag = DisposeBag()
+        
+        cell.seedButton.rx.tap
+            .bind { [weak self] in
+                guard let self else { return }
+                self.viewModel.inputs.didTapSeedButton()
+            }
+            .disposed(by: cell.disposeBag)
         
         cell.reviewButton.rx.tap
             .bind { [weak self]  in
@@ -102,8 +131,8 @@ extension CompleteViewController: UITableViewDelegate, UITableViewDataSource {
                 self.viewModel.inputs.didTapReviewButton()
                 self.buttonTapped()
             }
-            .disposed(by: disposeBag)
-        
+            .disposed(by: cell.disposeBag)
+
         return cell
     }
 }

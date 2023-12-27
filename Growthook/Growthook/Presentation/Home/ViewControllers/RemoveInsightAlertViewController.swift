@@ -22,18 +22,21 @@ final class RemoveInsightAlertViewController: BaseViewController {
     
     private let viewModel = RemoveInsightViewModel()
     private let disposeBag = DisposeBag()
+    private let deSelectInsightNotification = Notification.Name("DeSelectInsightNotification")
     
     override func bindViewModel() {
         removeInsightView.keepButton.rx.tap
             .subscribe(onNext: { [weak self] in
-//                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
-                self?.dismiss(animated: false)
+                self?.clearInsight()
+                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
+//                self?.dismiss(animated: false)
             })
             .disposed(by: disposeBag)
         
         removeInsightView.removeButton.rx.tap
             .subscribe(onNext: { [weak self] in
-                self?.removeInsightView.removeButtonTap()
+                self?.clearInsight()
+                                self?.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
             })
             .disposed(by: disposeBag)
     }
@@ -55,5 +58,18 @@ final class RemoveInsightAlertViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(173)
             $0.bottom.horizontalEdges.equalToSuperview()
         }
+    }
+}
+
+extension RemoveInsightAlertViewController {
+    
+    // MARK: - Methods
+    
+    private func clearInsight() {
+        NotificationCenter.default.post(
+            name: deSelectInsightNotification,
+            object: nil,
+            userInfo: ["type": ClearInsightType.delete]
+        )
     }
 }

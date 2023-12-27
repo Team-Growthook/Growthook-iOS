@@ -82,12 +82,9 @@ final class AlertViewController: BaseViewController {
         checkButton.do {
             $0.setTitle("확인", for: .normal)
             $0.setTitleColor(.green400, for: .normal)
-            $0.applyCornerRadiusToBottomCorners(radius: 15)
+            $0.titleLabel?.font = .fontGuide(.body1_bold)
             $0.addTarget(self, action: #selector(didTapCheckButton), for: .touchUpInside)
-
         }
-
-
     }
     
     // MARK: - Layout Helper

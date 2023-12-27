@@ -13,6 +13,11 @@ import Then
 import RxCocoa
 import RxSwift
 
+enum ClearInsightType {
+    case move
+    case delete
+}
+
 final class HomeViewController: BaseViewController {
     
     // MARK: - UI Components
@@ -22,6 +27,7 @@ final class HomeViewController: BaseViewController {
     private let seedPlusButton = UIButton()
     private let unLockAlertView = UnLockInsightAlertView()
     private let notificationView = NotificationAlertView()
+    private lazy var insightEmptyView = EmptySeedView()
     
     // MARK: - Properties
     
@@ -45,6 +51,8 @@ final class HomeViewController: BaseViewController {
         super.viewDidLoad()
         addGesture()
         setNotification()
+        // empty 뷰 hidden
+        insightEmptyView.isHidden = true
     }
     
     override func bindViewModel() {
@@ -53,16 +61,38 @@ final class HomeViewController: BaseViewController {
                 .items(cellIdentifier: CaveCollectionViewCell.className,
                        cellType: CaveCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
-                }
-                .disposed(by: disposeBag)
+            }
+                       .disposed(by: disposeBag)
         
         viewModel.outputs.insightList
             .bind(to: insightListView.insightCollectionView.rx
                 .items(cellIdentifier: InsightListCollectionViewCell.className,
                        cellType: InsightListCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model)
+                cell.setCellStyle()
+                cell.scrapButtonTapHandler = { [weak self] in
+                    guard let self else { return }
+                    if !cell.isScrapButtonTapped {
+                        // 스크랩
+                        print("scrap")
+                        self.view.showScrapToast(message: "스크랩 완료!")
+                    } else {
+                        // 스크랩 해제
+                        print("unScrap")
+                    }
+                    cell.isScrapButtonTapped.toggle()
                 }
-                .disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
+        
+        // 인사이트 셀 스타일 재설정
+        insightListView.insightCollectionView.rx.willDisplayCell
+            .subscribe(onNext: { event in
+                if let cell = event.cell as? InsightListCollectionViewCell {
+                    cell.setCellStyle()
+                }
+            })
+            .disposed(by: disposeBag)
         
         viewModel.outputs.insightLongTap
             .subscribe(onNext: { [weak self] indexPath in
@@ -149,6 +179,7 @@ final class HomeViewController: BaseViewController {
     override func setStyles() {
         
         view.backgroundColor = .gray700
+        
         seedPlusButton.do {
             $0.setImage(ImageLiterals.Home.btn_add_seed, for: .normal)
         }
@@ -162,7 +193,7 @@ final class HomeViewController: BaseViewController {
     
     override func setLayout() {
         
-        view.addSubviews(homeCaveView, insightListView, seedPlusButton, notificationView)
+        view.addSubviews(homeCaveView, insightListView, notificationView, insightEmptyView, seedPlusButton)
         
         homeCaveView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
@@ -177,7 +208,6 @@ final class HomeViewController: BaseViewController {
         }
         
         seedPlusButton.snp.makeConstraints {
-            print(seedPlusBottomInset())
             $0.bottom.equalToSuperview().inset(seedPlusBottomInset() + 18)
             $0.trailing.equalToSuperview().inset(8)
         }
@@ -187,6 +217,12 @@ final class HomeViewController: BaseViewController {
             $0.trailing.equalToSuperview().inset(18)
             $0.width.equalTo(168)
             $0.height.equalTo(112)
+        }
+        
+        insightEmptyView.snp.makeConstraints {
+            $0.top.equalTo(homeCaveView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -238,6 +274,7 @@ extension HomeViewController {
         present(insightTapVC, animated: true)
     }
     
+    // 인사이트 업데이트
     func updateInsightList() {
         if let selectedItems = insightListView.insightCollectionView.indexPathsForSelectedItems {
             for indexPath in selectedItems {
@@ -248,12 +285,16 @@ extension HomeViewController {
     }
     
     private func setNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(clearNotification), name: Notification.Name("DeSelectInsightNotification"), object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(clearNotification(_:)),
+            name: Notification.Name("DeSelectInsightNotification"),
+            object: nil)
     }
     
     private func pushToInsightDetail(at indexPath: IndexPath) {
         insightListView.insightCollectionView.deselectItem(at: indexPath, animated: false)
-        if insightDummyData[indexPath.item].scrapStatus == .lock {
+        if insightDummyData[indexPath.item].InsightStatus == .lock {
             view.addSubview(unLockAlertView)
             unLockAlertView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
@@ -279,7 +320,7 @@ extension HomeViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.notificationView.isHidden = true // 3초 후에 뷰를 숨김
         }
-
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideNotificationView))
         view.addGestureRecognizer(tapGesture)
         tapGesture.cancelsTouchesInView = false
@@ -298,7 +339,7 @@ extension HomeViewController {
         if gesture.state == .began {
             // 꾹 눌림이 시작될 때 실행할 코드
             if let indexPath = insightListView.insightCollectionView.indexPathForItem(at: location) {
-                if insightDummyData[indexPath.item].scrapStatus == .lock {
+                if insightDummyData[indexPath.item].InsightStatus == .lock {
                     return
                 } else {
                     viewModel.inputs.handleLongPress(at: indexPath)
@@ -307,8 +348,16 @@ extension HomeViewController {
         }
     }
     
-    @objc func clearNotification() {
+    @objc func clearNotification(_ notification: Notification) {
         updateInsightList()
+        if let info = notification.userInfo?["type"] as? ClearInsightType {
+            switch info {
+            case .move:
+                view.showToast(message: "씨앗을 옮겨 심었어요")
+            case .delete:
+                view.showToast(message: "씨앗이 삭제되었어요")
+            }
+        }
     }
     
     @objc func hideNotificationView(_ sender: UITapGestureRecognizer) {
