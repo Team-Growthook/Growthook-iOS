@@ -12,13 +12,15 @@ import RxSwift
 import RxRelay
 
 protocol CreateActionViewModelInputs {
-    func setActionPlan(with value: String)
+    func addActionPlan(with value: String)
+    func setCount(count: Int)
 }
 
 protocol CreateActionViewModelOutputs {
     var name: BehaviorRelay<String> { get }
     var insight: BehaviorRelay<InsightModel> { get }
-    var action: BehaviorRelay<String> { get }
+    var action: BehaviorRelay<[String]> { get }
+    var countPlan: BehaviorRelay<Int> { get }
 }
 
 protocol CreateActionViewModelType {
@@ -28,8 +30,14 @@ protocol CreateActionViewModelType {
 
 final class CreateActionViewModel: CreateActionViewModelInputs, CreateActionViewModelOutputs, CreateActionViewModelType {
     
-    func setActionPlan(with value: String) {
-        action.accept(value)
+    var specificPlan: [String] = []
+    func addActionPlan(with value: String) {
+        specificPlan.append(value)
+        action.accept(specificPlan)
+    }
+    
+    func setCount(count: Int) {
+        countPlan.accept(count)
     }
 
     var inputs: CreateActionViewModelInputs { return self }
@@ -37,9 +45,14 @@ final class CreateActionViewModel: CreateActionViewModelInputs, CreateActionView
     
     var name = BehaviorRelay<String>(value: "")
     var insight = BehaviorRelay<InsightModel>(value: InsightModel(name: "", insight: "", date: "", dDay: "", memo: ""))
-    var action = BehaviorRelay<String>(value: "")
+    var action = BehaviorRelay<[String]>(value: [])
+    var countPlan = BehaviorRelay<Int>(value: 1)
     
     init() {
         insight.accept(InsightModel.dummy())
+    }
+    
+    private func setCountPlan() {
+        
     }
 }

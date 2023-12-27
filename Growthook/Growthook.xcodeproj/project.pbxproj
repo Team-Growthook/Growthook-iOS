@@ -89,6 +89,8 @@
 		03E481242AF2B1DA002F4CBC /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 03E481232AF2B1DA002F4CBC /* RxMoya */; };
 		09089A6A2B03B3E2006C07B8 /* AlertBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A692B03B3E2006C07B8 /* AlertBuilder.swift */; };
 		09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */; };
+		092C816D2B334E13006B0F65 /* CreateSpecificPlanView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C816C2B334E13006B0F65 /* CreateSpecificPlanView .swift */; };
+		092C81702B3351DA006B0F65 /* SpecificPlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092C816F2B3351DA006B0F65 /* SpecificPlanCollectionViewCell.swift */; };
 		09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */; };
 		09A7D7002B00DED0005F8821 /* CreateCaveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */; };
 		09A7D7022B00DFC6005F8821 /* BottomCTAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */; };
@@ -214,6 +216,8 @@
 		03E4810D2AF2AFDD002F4CBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09089A692B03B3E2006C07B8 /* AlertBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBuilder.swift; sourceTree = "<group>"; };
 		09089A6B2B03B41B006C07B8 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		092C816C2B334E13006B0F65 /* CreateSpecificPlanView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateSpecificPlanView .swift"; sourceTree = "<group>"; };
+		092C816F2B3351DA006B0F65 /* SpecificPlanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecificPlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		09A7D6FC2B00DE9C005F8821 /* CreateCaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewController.swift; sourceTree = "<group>"; };
 		09A7D6FF2B00DED0005F8821 /* CreateCaveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCaveViewModel.swift; sourceTree = "<group>"; };
 		09A7D7012B00DFC6005F8821 /* BottomCTAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCTAButton.swift; sourceTree = "<group>"; };
@@ -654,6 +658,14 @@
 			path = Growthook;
 			sourceTree = "<group>";
 		};
+		092C816E2B3351B6006B0F65 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				092C816F2B3351DA006B0F65 /* SpecificPlanCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		09A7D6FA2B00DCAA005F8821 /* CreateCave */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +720,7 @@
 				09CE00EE2B0DB1EF00CB42C4 /* ViewController */,
 				09CE00EB2B0DB1E000CB42C4 /* View */,
 				09CE00E82B0DB12100CB42C4 /* ViewModel */,
+				092C816E2B3351B6006B0F65 /* Cell */,
 			);
 			path = CreateAction;
 			sourceTree = "<group>";
@@ -725,6 +738,7 @@
 			children = (
 				09CE00EC2B0DB1EA00CB42C4 /* CreateActionView.swift */,
 				09CE00F62B0DBAE800CB42C4 /* InsightView.swift */,
+				092C816C2B334E13006B0F65 /* CreateSpecificPlanView .swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1039,6 +1053,7 @@
 				09CE00F52B0DB9CC00CB42C4 /* InsightModel.swift in Sources */,
 				09CE00F02B0DB1FB00CB42C4 /* CreateActionViewControlller.swift in Sources */,
 				03B9AC932AF566B300A5751C /* ButtonPress.swift in Sources */,
+				092C816D2B334E13006B0F65 /* CreateSpecificPlanView .swift in Sources */,
 				034580822B2D628F002DDEBA /* CaveDetailViewController.swift in Sources */,
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
@@ -1053,6 +1068,7 @@
 				58E75FAC2B00C16900512FE2 /* InsightsViewModel.swift in Sources */,
 				58AB70AE2B2C88570061C072 /* MyPageThookBoxView.swift in Sources */,
 				58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */,
+				092C81702B3351DA006B0F65 /* SpecificPlanCollectionViewCell.swift in Sources */,
 				09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
 				03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */,
@@ -1272,7 +1288,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Growthook;
+				PRODUCT_BUNDLE_IDENTIFIER = Growthook.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1305,7 +1321,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Growthook;
+				PRODUCT_BUNDLE_IDENTIFIER = Growthook.mj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

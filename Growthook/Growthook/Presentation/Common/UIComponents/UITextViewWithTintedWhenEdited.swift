@@ -67,7 +67,7 @@ extension UITextViewWithTintedWhenEdited {
         modifyBorderLine(with: .gray200)
     }
     
-    private func modifyBorderLine(with color: UIColor) {
+    func modifyBorderLine(with color: UIColor) {
         self.layer.borderColor = color.cgColor
     }
 }
@@ -135,7 +135,7 @@ extension UITextViewWithTintedWhenEdited {
     /// - parameter items : 키보드 상단에 생기는 toolBar 에 들어갈 [UIBarButtonItem] 입니다.
     func setToolBarItems(with items: [UIBarButtonItem] = []) {
         self.toolBarItems = items
-        let toolBar = UIToolbar()
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         if toolBarItems.isEmpty {
             let symbolConfiguration = UIImage.SymbolConfiguration(pointSize: 16)

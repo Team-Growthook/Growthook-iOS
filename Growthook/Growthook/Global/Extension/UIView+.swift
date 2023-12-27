@@ -33,10 +33,22 @@ extension UIView {
         layer.borderColor = color.cgColor
     }
     
-    func roundCorners(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
-        clipsToBounds = true
-        layer.cornerRadius = cornerRadius
-        layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
+    func roundCorners(cornerRadius: CGFloat, maskedCorners: UIRectCorner) {
+        if #available(iOS 11.0, *) {
+            clipsToBounds = true
+            layer.cornerRadius = cornerRadius
+            layer.maskedCorners = CACornerMask(rawValue: maskedCorners.rawValue)
+        } else {
+            let path = UIBezierPath(roundedRect: self.bounds,
+                                    byRoundingCorners: maskedCorners,
+                                    cornerRadii: CGSize(width:cornerRadius, height: cornerRadius))
+            
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = self.bounds
+            maskLayer.path = path.cgPath
+            
+            layer.mask = maskLayer
+        }
     }
     
     func showToast(message: String) {
