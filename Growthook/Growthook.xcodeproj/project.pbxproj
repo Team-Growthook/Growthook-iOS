@@ -25,6 +25,7 @@
 		033E9C1B2AFE606E0051A9E8 /* CaveCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */; };
 		033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */; };
 		033E9C202AFE725D0051A9E8 /* CaveProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033E9C1F2AFE725D0051A9E8 /* CaveProfile.swift */; };
+		03431ACF2B3D51220017EA52 /* Encodable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03431ACE2B3D51220017EA52 /* Encodable+.swift */; };
 		034580822B2D628F002DDEBA /* CaveDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580812B2D628F002DDEBA /* CaveDetailViewController.swift */; };
 		034580852B2D6354002DDEBA /* CaveDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580842B2D6354002DDEBA /* CaveDetailView.swift */; };
 		034580872B2D6B98002DDEBA /* CaveDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034580862B2D6B98002DDEBA /* CaveDescriptionView.swift */; };
@@ -155,6 +156,7 @@
 		033E9C1A2AFE606E0051A9E8 /* CaveCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveCollectionViewCell.swift; sourceTree = "<group>"; };
 		033E9C1D2AFE63D40051A9E8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		033E9C1F2AFE725D0051A9E8 /* CaveProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveProfile.swift; sourceTree = "<group>"; };
+		03431ACE2B3D51220017EA52 /* Encodable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+.swift"; sourceTree = "<group>"; };
 		034580812B2D628F002DDEBA /* CaveDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveDetailViewController.swift; sourceTree = "<group>"; };
 		034580842B2D6354002DDEBA /* CaveDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveDetailView.swift; sourceTree = "<group>"; };
 		034580862B2D6B98002DDEBA /* CaveDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaveDescriptionView.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				034580962B36E343002DDEBA /* UICollectionView+.swift */,
 				581D228F2B32A9240068E58D /* Reactive+UITextField.swift */,
 				581D22912B32A92F0068E58D /* Reactive+UIControl.swift */,
+				03431ACE2B3D51220017EA52 /* Encodable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
 				034580852B2D6354002DDEBA /* CaveDetailView.swift in Sources */,
 				033E9C132AFD2F630051A9E8 /* CustomNavigationBar.swift in Sources */,
+				03431ACF2B3D51220017EA52 /* Encodable+.swift in Sources */,
 				09A7D7052B00EC03005F8821 /* CreateCaveView.swift in Sources */,
 				5880F46B2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift in Sources */,
 				03B9AC5D2AF5614A00A5751C /* URLConstant.swift in Sources */,
@@ -1255,6 +1259,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://3.35.58.218:8080";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -1288,6 +1293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://3.35.58.218:8080";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
