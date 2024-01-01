@@ -97,4 +97,16 @@ enum ImageLiterals {
     enum MyPage {
         static var ic_mypage_profileImage: UIImage { .load(name: "ic_mypage").withRenderingMode(.alwaysTemplate).withTintColor(.gray100) }
     }
+    
+    enum Onboarding {
+        static var ic_Growthook_Login: UIImage { .load(name: "ic_Growthook_Login") }
+        static var ic_kakaoLoginButton: UIImage { .load(name: "ic_kakaoLoginButton")}
+        static var onboardingPage1: UIImage { .load(name: "page1")}
+        static var onboardingPage2: UIImage { .load(name: "page2")}
+        static var onboardingPage3: UIImage { .load(name: "page3")}
+        static var onboardingPage4: UIImage { .load(name: "page4")}
+
+
+
+    }
 }

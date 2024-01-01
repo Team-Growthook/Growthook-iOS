@@ -9,6 +9,11 @@ import Foundation
 
 enum I18N {
     
+    enum Onboarding {
+        static let loginMainTitle = "얻은 깨달음이 오래 방치되어 썩지 않도록\n도전할 일을 기록하고 수정해요."
+        static let loginSubTitle = "인사이트를 영구히 내 것으로 만드는 순간,\n가파르게 성장할 거예요."
+    }
+    
     enum Component {
         
         enum UnLockInsight {
