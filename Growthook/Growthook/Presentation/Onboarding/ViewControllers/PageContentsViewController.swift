@@ -46,6 +46,7 @@ class PageContentsViewController: UIViewController {
     
     private func setStyles() {
         view.backgroundColor = .gray600
+        navigationController?.isNavigationBarHidden = true
         
         imageView.do {
             $0.contentMode = .scaleAspectFit
