@@ -100,13 +100,15 @@ enum ImageLiterals {
     
     enum Onboarding {
         static var ic_Growthook_Login: UIImage { .load(name: "ic_Growthook_Login") }
-        static var ic_kakaoLoginButton: UIImage { .load(name: "ic_kakaoLoginButton")}
+        static var btn_kakaologin: UIImage { .load(name: "btn_kakaologin")}
+        static var btn_applelogin: UIImage { .load(name: "btn_applelogin")}
         static var onboardingPage1: UIImage { .load(name: "page1")}
         static var onboardingPage2: UIImage { .load(name: "page2")}
         static var onboardingPage3: UIImage { .load(name: "page3")}
         static var onboardingPage4: UIImage { .load(name: "page4")}
-
-
-
+        static var ic_forget: UIImage { .load(name: "ic_forget")}
+        static var ic_notfound: UIImage { .load(name: "ic_notfound")}
+        static var ic_dont: UIImage { .load(name: "ic_dont")}
+        static var ic_sad: UIImage { .load(name: "ic_sad")}
     }
 }
