@@ -142,6 +142,9 @@
 		58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */; };
 		58E75FB02B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */; };
 		58E75FB22B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E75FB12B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift */; };
+		58EFF5D92B445A95003C3838 /* Networkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EFF5D82B445A95003C3838 /* Networkable.swift */; };
+		58EFF5DB2B445AB6003C3838 /* BaseTargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EFF5DA2B445AB6003C3838 /* BaseTargetType.swift */; };
+		58EFF5DE2B445AE2003C3838 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58EFF5DD2B445AE2003C3838 /* ServiceError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +271,9 @@
 		58E75FAD2B00C1F000512FE2 /* CreatingNewInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatingNewInsightsView.swift; sourceTree = "<group>"; };
 		58E75FAF2B00C59200512FE2 /* UITextViewWithTintedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewWithTintedWhenEdited.swift; sourceTree = "<group>"; };
 		58E75FB12B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWithTintedWhenEdited.swift; sourceTree = "<group>"; };
+		58EFF5D82B445A95003C3838 /* Networkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networkable.swift; sourceTree = "<group>"; };
+		58EFF5DA2B445AB6003C3838 /* BaseTargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTargetType.swift; sourceTree = "<group>"; };
+		58EFF5DD2B445AE2003C3838 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +420,7 @@
 		03B9AC482AF55E1E00A5751C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				58EFF5DC2B445AD2003C3838 /* ServiceError */,
 				03B9AC5E2AF561A200A5751C /* API */,
 				03B9AC522AF55FBB00A5751C /* Base */,
 				03B9AC572AF560C000A5751C /* Enviornment */,
@@ -540,6 +547,8 @@
 				03B9AC552AF5608900A5751C /* NetworkLoggerPlugin.swift */,
 				03B9AC5A2AF5610D00A5751C /* APIConstant.swift */,
 				03B9AC5C2AF5614A00A5751C /* URLConstant.swift */,
+				58EFF5D82B445A95003C3838 /* Networkable.swift */,
+				58EFF5DA2B445AB6003C3838 /* BaseTargetType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -920,6 +929,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		58EFF5DC2B445AD2003C3838 /* ServiceError */ = {
+			isa = PBXGroup;
+			children = (
+				58EFF5DD2B445AE2003C3838 /* ServiceError.swift */,
+			);
+			path = ServiceError;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1017,6 +1034,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58EFF5DE2B445AE2003C3838 /* ServiceError.swift in Sources */,
 				034580872B2D6B98002DDEBA /* CaveDescriptionView.swift in Sources */,
 				03B9AC822AF5658F00A5751C /* FontLiterals.swift in Sources */,
 				035DB2AB2B00FF2400161872 /* InsightListCollectionViewCell.swift in Sources */,
@@ -1029,6 +1047,7 @@
 				032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */,
 				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
+				58EFF5D92B445A95003C3838 /* Networkable.swift in Sources */,
 				581D229C2B3364BB0068E58D /* EnlargedAreaButton.swift in Sources */,
 				25EAFA5B2B0255BB00283CD8 /* MainTitleBarView.swift in Sources */,
 				03B9AC662AF5630200A5751C /* NSObject+.swift in Sources */,
@@ -1096,6 +1115,7 @@
 				03B9AC912AF5669600A5751C /* MakeAlert.swift in Sources */,
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */,
+				58EFF5DB2B445AB6003C3838 /* BaseTargetType.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
 				582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */,
 				2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */,
