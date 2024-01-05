@@ -116,6 +116,7 @@
 		259E7F772B4060EB00F3DC8F /* PageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F762B4060EB00F3DC8F /* PageContentsViewController.swift */; };
 		259E7F792B42A68B00F3DC8F /* OnboardingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F782B42A68B00F3DC8F /* OnboardingButtonView.swift */; };
 		259E7F7B2B42ABA600F3DC8F /* OnboardingSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F7A2B42ABA600F3DC8F /* OnboardingSelectViewController.swift */; };
+		259E7F852B47B9A300F3DC8F /* grothooksplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 259E7F842B47B9A300F3DC8F /* grothooksplash.json */; };
 		25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */; };
 		25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951A2B089B9900E72ADC /* ActionListModel.swift */; };
 		25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */; };
@@ -250,6 +251,7 @@
 		259E7F762B4060EB00F3DC8F /* PageContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentsViewController.swift; sourceTree = "<group>"; };
 		259E7F782B42A68B00F3DC8F /* OnboardingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonView.swift; sourceTree = "<group>"; };
 		259E7F7A2B42ABA600F3DC8F /* OnboardingSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectViewController.swift; sourceTree = "<group>"; };
+		259E7F842B47B9A300F3DC8F /* grothooksplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grothooksplash.json; sourceTree = "<group>"; };
 		25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListTableViewCell.swift; sourceTree = "<group>"; };
 		25BD951A2B089B9900E72ADC /* ActionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListModel.swift; sourceTree = "<group>"; };
 		25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressViewController.swift; sourceTree = "<group>"; };
@@ -908,6 +910,7 @@
 		58E75FA12B00BAFC00512FE2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				259E7F842B47B9A300F3DC8F /* grothooksplash.json */,
 				58E75FA22B00BB1E00512FE2 /* GrowthookSplashLottie.json */,
 			);
 			path = Lotties;
@@ -1038,6 +1041,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E4810C2AF2AFDD002F4CBC /* LaunchScreen.storyboard in Resources */,
+				259E7F852B47B9A300F3DC8F /* grothooksplash.json in Resources */,
 				033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */,
 				58E75FA32B00BB1E00512FE2 /* GrowthookSplashLottie.json in Resources */,
 				03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */,

@@ -175,6 +175,8 @@ final class OnboardingSelectViewController: BaseViewController {
         }
     }
     
+    // MARK: - @objc Methods
+    
     @objc
     private func switchView() {
         view.subviews.forEach { $0.removeFromSuperview() }
