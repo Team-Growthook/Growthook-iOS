@@ -31,6 +31,7 @@ final class OnboardingButtonView: BaseView {
             updateUI()
         }
     }
+    
     // MARK: - Initializer
     
     init(title: String, image: UIImage) {

@@ -18,9 +18,6 @@ final class LoginView: BaseView {
     let mainSubTitleLabel = UILabel()
     let growthookImage = UIImageView()
     
-    // MARK: - Properties
-    
-    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -76,9 +73,6 @@ final class LoginView: BaseView {
             $0.width.equalTo(169)
         }
     }
-    
-    // MARK: - Methods
-
     
     // MARK: - @objc Methods
     

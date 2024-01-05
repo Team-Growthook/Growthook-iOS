@@ -26,12 +26,6 @@ final class OnboardingViewController: UIPageViewController {
     private var pageControl: UIPageControl!
     private let startButton = UIButton()
     
-    // MARK: - Properties
-    
-    
-    // MARK: - Initializer
-    
-    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
