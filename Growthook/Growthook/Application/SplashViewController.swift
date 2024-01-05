@@ -36,7 +36,7 @@ final class SplashViewController: BaseViewController {
         
         splashLabel.do {
             let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 4 
+            paragraphStyle.lineSpacing = 4
             
             let attributedText = NSAttributedString(
                 string: "일상 속 영감이\n성장의 거름으로",
