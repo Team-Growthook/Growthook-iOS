@@ -14,6 +14,8 @@ import RxSwift
 
 enum CaveTarget {
     case getAll(Int)
+    case getDetailSeed(Int)
+    case postNewSeed(caveId: Int, parameter: NewSeedRequest)
 }
 
 extension CaveTarget: BaseTargetType {
@@ -29,7 +31,15 @@ extension CaveTarget: BaseTargetType {
     var path: String {
         switch self {
         case .getAll(let memberId):
-            let newPath = URLConstant.seedDetailGet.replacingOccurrences(of: "{seedId}", with: String(memberId))
+            let newPath = URLConstant.caveAllGet.replacingOccurrences(of: "{memberId}", with: String(memberId))
+            return newPath
+        case .getDetailSeed(let seedId):
+            let newPath = URLConstant.seedDetailGet
+                .replacingOccurrences(of: "{seedId}", with: String(seedId))
+            return newPath
+        case .postNewSeed(let caveId, _):
+            let newPath = URLConstant.seedPost
+                .replacingOccurrences(of: "{caveId}", with: String(caveId))
             return newPath
         }
     }
@@ -38,6 +48,10 @@ extension CaveTarget: BaseTargetType {
         switch self {
         case .getAll:
             return .get
+        case .getDetailSeed:
+            return .get
+        case .postNewSeed:
+            return .post
         }
     }
     
@@ -45,28 +59,48 @@ extension CaveTarget: BaseTargetType {
         switch self {
         case .getAll:
             return .requestPlain
+        case .getDetailSeed:
+            return .requestPlain
+        case .postNewSeed(_, let parameter):
+            let parameters = try! parameter.asParameter()
+            return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
         }
     }
-    
-    
 }
 
 struct CaveService: Networkable {
     typealias Target = CaveTarget
     private static let provider = makeProvider()
 
-    // -> Observable<[CaveData]>
-    static func getAllCaves(with memberId: Int) -> Single<Response> {
+    static func getAllCaves(with memberId: Int) -> Observable<[CaveData]> {
         return provider.rx.request(.getAll(memberId))
-        
-//        provider.rx.request(.getAll(memberId))
-//            .asObservable()
-//            .map { try JSONDecoder().decode([CaveData].self, from: $0.data)}
-//            .catch { error in
-//                print("❗️", error)
-//                return Observable.just([])
-//            }
+            .asObservable()
+            .mapError()
+            .decode(decodeType: [CaveData].self)
     }
+    
+    static func getDetailSeed(with seedId: Int) -> Observable<SeedData> {
+        return provider.rx.request(.getDetailSeed(seedId))
+            .asObservable()
+            .mapError()
+            .decode(decodeType: SeedData.self)
+    }
+    
+    static func postNewSeed(caveId: Int, seed: NewSeedRequest) -> Observable<NewSeedResponse> {
+        return provider.rx.request(.postNewSeed(caveId: caveId, parameter: seed))
+            .asObservable()
+            .mapError()
+            .decode(decodeType: NewSeedResponse.self)
+    }
+}
+
+struct NewSeedRequest: Codable {
+    let insight, memo, source, url: String
+    let goalMonth: Int
+}
+
+struct NewSeedResponse: Codable {
+    let seedId: Int
 }
 
 struct CaveData: Codable {
