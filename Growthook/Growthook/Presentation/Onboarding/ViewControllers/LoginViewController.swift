@@ -1,5 +1,5 @@
 //
-//  KakaoLoginViewController.swift
+//  LoginViewController.swift
 //  Growthook
 //
 //  Created by KJ on 12/11/23.
@@ -14,13 +14,22 @@ import RxCocoa
 import KakaoSDKAuth
 import KakaoSDKUser
 
-final class KakaoLoginViewController: BaseViewController {
-
-    private let loginButton = UIButton()
+final class LoginViewController: BaseViewController {
+    
+    
+    private let viewModel = OnboardingViewModel()
     private let disposeBag = DisposeBag()
     
+    // MARK: - UI Components
+    
+    private let loginView = LoginView()
+    private let kakaoLoginButton = UIButton()
+    private let appleLoginButton = UIButton()
+    
+    // MARK: - Properties
+    
     override func bindViewModel() {
-        loginButton.rx.tap
+        kakaoLoginButton.rx.tap
             .subscribe(onNext: { [weak self] in
                 self?.kakaoLogin()
             })
@@ -28,23 +37,41 @@ final class KakaoLoginViewController: BaseViewController {
     }
     
     override func setStyles() {
+        view.backgroundColor = .gray700
         
-        loginButton.do {
-            $0.setTitle("카카오로그인", for: .normal)
-            $0.backgroundColor = .yellow
-            $0.setTitleColor(.black000, for: .normal)
-            $0.makeCornerRound(radius: 15)
+        kakaoLoginButton.do {
+            $0.setImage(ImageLiterals.Onboarding.btn_kakaologin, for: .normal)
+            $0.imageView?.contentMode = .scaleAspectFill
+        }
+        
+        appleLoginButton.do {
+            $0.setImage(ImageLiterals.Onboarding.btn_applelogin, for: .normal)
+            $0.imageView?.contentMode = .scaleAspectFill
         }
     }
     
     override func setLayout() {
         
-        self.view.addSubviews(loginButton)
+        self.view.addSubviews(loginView, kakaoLoginButton, appleLoginButton)
         
-        loginButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(100)
-            $0.horizontalEdges.equalToSuperview().inset(50)
-            $0.height.equalTo(100)
+        loginView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(77)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(388)
+        }
+        
+        kakaoLoginButton.snp.makeConstraints {
+            $0.top.equalTo(loginView.snp.bottom).offset(105)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(50)
+            $0.width.equalTo(343)
+        }
+        
+        appleLoginButton.snp.makeConstraints {
+            $0.top.equalTo(kakaoLoginButton.snp.bottom).offset(15)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(50)
+            $0.width.equalTo(343)
         }
     }
     
@@ -69,7 +96,7 @@ final class KakaoLoginViewController: BaseViewController {
                 return
             }
             
-//            self.textField.text = contentText
+            //            self.textField.text = contentText
         }
     }
     
@@ -81,10 +108,10 @@ final class KakaoLoginViewController: BaseViewController {
                 }
                 else {
                     print("✉️ loginWithKakaoTalk() success.")
-
-                   //let idToken = oAuthToken.idToken ?? ""
-                   //let accessToken = oAuthToken.accessToken
-                   
+                    
+                    //let idToken = oAuthToken.idToken ?? ""
+                    //let accessToken = oAuthToken.accessToken
+                    
                     self.kakaoGetUserInfo()
                 }
             }

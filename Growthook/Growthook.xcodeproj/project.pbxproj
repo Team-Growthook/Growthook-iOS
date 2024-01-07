@@ -12,7 +12,7 @@
 		03115F842B26FCA8009D1517 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F832B26FCA8009D1517 /* KakaoSDKAuth */; };
 		03115F862B26FCA8009D1517 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F852B26FCA8009D1517 /* KakaoSDKCommon */; };
 		03115F882B26FCA8009D1517 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 03115F872B26FCA8009D1517 /* KakaoSDKUser */; };
-		03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */; };
+		03115F8C2B27072A009D1517 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03115F8B2B27072A009D1517 /* LoginViewController.swift */; };
 		032213322B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213312B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift */; };
 		0322137A2B17642E00FF5CF1 /* RemoveInsightAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */; };
 		0322137E2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */; };
@@ -110,6 +110,13 @@
 		250F7D772B16D01500D9726F /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250F7D762B16D01500D9726F /* AlertViewController.swift */; };
 		252DD8842B063A7900DBB1D1 /* ActionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */; };
 		2568FA182B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */; };
+		259E7F702B3E95E600F3DC8F /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F6F2B3E95E600F3DC8F /* OnboardingViewModel.swift */; };
+		259E7F722B3E95F600F3DC8F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F712B3E95F600F3DC8F /* LoginView.swift */; };
+		259E7F752B405D3800F3DC8F /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F742B405D3800F3DC8F /* OnboardingViewController.swift */; };
+		259E7F772B4060EB00F3DC8F /* PageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F762B4060EB00F3DC8F /* PageContentsViewController.swift */; };
+		259E7F792B42A68B00F3DC8F /* OnboardingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F782B42A68B00F3DC8F /* OnboardingButtonView.swift */; };
+		259E7F7B2B42ABA600F3DC8F /* OnboardingSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259E7F7A2B42ABA600F3DC8F /* OnboardingSelectViewController.swift */; };
+		259E7F852B47B9A300F3DC8F /* grothooksplash.json in Resources */ = {isa = PBXBuildFile; fileRef = 259E7F842B47B9A300F3DC8F /* grothooksplash.json */; };
 		25BD95182B0894A200E72ADC /* ActionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */; };
 		25BD951B2B089B9900E72ADC /* ActionListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951A2B089B9900E72ADC /* ActionListModel.swift */; };
 		25BD951D2B08F6F600E72ADC /* InprogressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */; };
@@ -145,7 +152,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
+		03115F8B2B27072A009D1517 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		032213312B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnLockInsightAlertView.swift; sourceTree = "<group>"; };
 		032213792B17642E00FF5CF1 /* RemoveInsightAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertView.swift; sourceTree = "<group>"; };
 		0322137D2B17731E00FF5CF1 /* RemoveInsightAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveInsightAlertViewController.swift; sourceTree = "<group>"; };
@@ -238,6 +245,13 @@
 		250F7D762B16D01500D9726F /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		252DD8832B063A7900DBB1D1 /* ActionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListViewModel.swift; sourceTree = "<group>"; };
 		2568FA172B0DD47E00CAD12A /* ActionListBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListBottomSheetViewController.swift; sourceTree = "<group>"; };
+		259E7F6F2B3E95E600F3DC8F /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		259E7F712B3E95F600F3DC8F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		259E7F742B405D3800F3DC8F /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		259E7F762B4060EB00F3DC8F /* PageContentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContentsViewController.swift; sourceTree = "<group>"; };
+		259E7F782B42A68B00F3DC8F /* OnboardingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonView.swift; sourceTree = "<group>"; };
+		259E7F7A2B42ABA600F3DC8F /* OnboardingSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSelectViewController.swift; sourceTree = "<group>"; };
+		259E7F842B47B9A300F3DC8F /* grothooksplash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = grothooksplash.json; sourceTree = "<group>"; };
 		25BD95172B0894A200E72ADC /* ActionListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListTableViewCell.swift; sourceTree = "<group>"; };
 		25BD951A2B089B9900E72ADC /* ActionListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListModel.swift; sourceTree = "<group>"; };
 		25BD951C2B08F6F600E72ADC /* InprogressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InprogressViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				03115F8A2B2706AD009D1517 /* ViewControllers */,
+				259E7F6D2B3E95A100F3DC8F /* Views */,
+				259E7F6E2B3E95A900F3DC8F /* ViewModels */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -306,7 +322,10 @@
 		03115F8A2B2706AD009D1517 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				03115F8B2B27072A009D1517 /* KakaoLoginViewController.swift */,
+				03115F8B2B27072A009D1517 /* LoginViewController.swift */,
+				259E7F742B405D3800F3DC8F /* OnboardingViewController.swift */,
+				259E7F762B4060EB00F3DC8F /* PageContentsViewController.swift */,
+				259E7F7A2B42ABA600F3DC8F /* OnboardingSelectViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -793,6 +812,23 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		259E7F6D2B3E95A100F3DC8F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				259E7F712B3E95F600F3DC8F /* LoginView.swift */,
+				259E7F782B42A68B00F3DC8F /* OnboardingButtonView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		259E7F6E2B3E95A900F3DC8F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				259E7F6F2B3E95E600F3DC8F /* OnboardingViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		25BD95162B08946D00E72ADC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +910,7 @@
 		58E75FA12B00BAFC00512FE2 /* Lotties */ = {
 			isa = PBXGroup;
 			children = (
+				259E7F842B47B9A300F3DC8F /* grothooksplash.json */,
 				58E75FA22B00BB1E00512FE2 /* GrowthookSplashLottie.json */,
 			);
 			path = Lotties;
@@ -1004,6 +1041,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03E4810C2AF2AFDD002F4CBC /* LaunchScreen.storyboard in Resources */,
+				259E7F852B47B9A300F3DC8F /* grothooksplash.json in Resources */,
 				033E9C102AFCE0860051A9E8 /* Image.xcassets in Resources */,
 				58E75FA32B00BB1E00512FE2 /* GrowthookSplashLottie.json in Resources */,
 				03E481092AF2AFDD002F4CBC /* Assets.xcassets in Resources */,
@@ -1027,6 +1065,7 @@
 				03B9AC9D2AF7A9EB00A5751C /* TabBarItem.swift in Sources */,
 				035DB2AD2B01041B00161872 /* InsightList.swift in Sources */,
 				032213802B177F8E00FF5CF1 /* RemoveInsightViewModel.swift in Sources */,
+				259E7F772B4060EB00F3DC8F /* PageContentsViewController.swift in Sources */,
 				033E9C1E2AFE63D40051A9E8 /* HomeViewModel.swift in Sources */,
 				58E75FAE2B00C1F000512FE2 /* CreatingNewInsightsView.swift in Sources */,
 				581D229C2B3364BB0068E58D /* EnlargedAreaButton.swift in Sources */,
@@ -1060,12 +1099,13 @@
 				092C816D2B334E13006B0F65 /* CreateSpecificPlanView .swift in Sources */,
 				034580822B2D628F002DDEBA /* CaveDetailViewController.swift in Sources */,
 				03B9AC6C2AF563C200A5751C /* UIColor+.swift in Sources */,
+				259E7F722B3E95F600F3DC8F /* LoginView.swift in Sources */,
 				03B9AC6E2AF563E200A5751C /* UIImage+.swift in Sources */,
 				03B9AC702AF563F300A5751C /* UIViewController+.swift in Sources */,
 				03C356672B108EB800750758 /* InsightTapViewModel.swift in Sources */,
 				58AB70AC2B2C7CC50061C072 /* MyPageViewModel.swift in Sources */,
 				581D228E2B320C630068E58D /* CommonTextFieldWithBorder.swift in Sources */,
-				03115F8C2B27072A009D1517 /* KakaoLoginViewController.swift in Sources */,
+				03115F8C2B27072A009D1517 /* LoginViewController.swift in Sources */,
 				03B9AC7E2AF5652E00A5751C /* UIButton+.swift in Sources */,
 				09DE08002B04FAEE00D7DF3D /* EmptySeedView.swift in Sources */,
 				03B9AC742AF5648900A5751C /* UITextView+.swift in Sources */,
@@ -1076,6 +1116,7 @@
 				09089A6C2B03B41B006C07B8 /* CustomAlertViewController.swift in Sources */,
 				03B9ACA92AF7B2B000A5751C /* MypageViewController.swift in Sources */,
 				03B9ACA62AF7B2A200A5751C /* ActionListViewController.swift in Sources */,
+				259E7F702B3E95E600F3DC8F /* OnboardingViewModel.swift in Sources */,
 				09CE00F72B0DBAE800CB42C4 /* InsightView.swift in Sources */,
 				58E75F9D2B00B63C00512FE2 /* SplashViewController.swift in Sources */,
 				03B9AC562AF5608900A5751C /* NetworkLoggerPlugin.swift in Sources */,
@@ -1104,6 +1145,7 @@
 				09A7D6FD2B00DE9C005F8821 /* CreateCaveViewController.swift in Sources */,
 				03B9AC642AF562D000A5751C /* UIView+.swift in Sources */,
 				032213322B14C4EF00FF5CF1 /* UnLockInsightAlertView.swift in Sources */,
+				259E7F752B405D3800F3DC8F /* OnboardingViewController.swift in Sources */,
 				03B9AC682AF5635800A5751C /* String+.swift in Sources */,
 				033E9C202AFE725D0051A9E8 /* CaveProfile.swift in Sources */,
 				03B9AC7A2AF564FC00A5751C /* UITableView+.swift in Sources */,
@@ -1112,6 +1154,7 @@
 				03B9AC762AF564AE00A5751C /* UIStackView+.swift in Sources */,
 				03B9AC8F2AF5667300A5751C /* MakeVibrate.swift in Sources */,
 				58E75FB22B00CF2100512FE2 /* UITextFieldWithTintedWhenEdited.swift in Sources */,
+				259E7F792B42A68B00F3DC8F /* OnboardingButtonView.swift in Sources */,
 				09A7D70A2B01E6A9005F8821 /* CreateCaveModel.swift in Sources */,
 				03B9AC592AF560D800A5751C /* Config.swift in Sources */,
 				03B9AC8D2AF5663C00A5751C /* Font.swift in Sources */,
@@ -1124,6 +1167,7 @@
 				250F7D732B145F4C00D9726F /* ActionListCompleteTableViewCell.swift in Sources */,
 				03B9AC6A2AF5638700A5751C /* UIResponder+.swift in Sources */,
 				03B9AC802AF5657500A5751C /* ColorLiterals.swift in Sources */,
+				259E7F7B2B42ABA600F3DC8F /* OnboardingSelectViewController.swift in Sources */,
 				5880F46D2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift in Sources */,
 				09CE00ED2B0DB1EA00CB42C4 /* CreateActionView.swift in Sources */,
 				034580972B36E343002DDEBA /* UICollectionView+.swift in Sources */,
