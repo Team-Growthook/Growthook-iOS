@@ -12,6 +12,7 @@ import Moya
 enum ServiceError: Error {
     case moyaError(MoyaError)
     case invalidResponse(responseCode: Int, message: String)
+    case decodingError
     case tokenExpired
     case refreshTokenExpired
 }
@@ -27,6 +28,8 @@ extension ServiceError: LocalizedError {
             return "❗️Access Token Expired❗️"
         case .refreshTokenExpired:
             return "❗️Refresh Token Expired❗️"
+        case .decodingError:
+            return "❗️Decoding Error Occured❗️"
         }
     }
 }
