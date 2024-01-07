@@ -23,6 +23,6 @@ extension Networkable {
         }
         let loggerPlugin = NetworkLoggerPlugin()
         
-        return MoyaProvider<Target>(plugins: [loggerPlugin])
+        return MoyaProvider<Target>(plugins: [authPlugin, loggerPlugin])
     }
 }
