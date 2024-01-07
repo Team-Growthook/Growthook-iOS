@@ -7,6 +7,7 @@
 
 import UIKit
 
+import Alamofire
 import Moya
 import SnapKit
 import Then
@@ -153,8 +154,8 @@ final class HomeViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         homeCaveView.addCaveButton.rx.tap
-            .subscribe(onNext: { [weak self] in
-                /// API 테스트는 이곳에
+            .subscribe(onNext: { _ in
+                
             })
             .disposed(by: disposeBag)
         

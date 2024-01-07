@@ -125,6 +125,7 @@
 		581D229C2B3364BB0068E58D /* EnlargedAreaButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581D229B2B3364BB0068E58D /* EnlargedAreaButton.swift */; };
 		582F9C482B304B5E0000D161 /* TextFieldBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */; };
 		582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */; };
+		584EDAD72B4A57E60094872A /* Observable+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EDAD62B4A57E60094872A /* Observable+.swift */; };
 		5880F4672B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F4662B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift */; };
 		5880F46B2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F46A2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift */; };
 		5880F46D2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5880F46C2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift */; };
@@ -256,6 +257,7 @@
 		581D229B2B3364BB0068E58D /* EnlargedAreaButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnlargedAreaButton.swift; sourceTree = "<group>"; };
 		582F9C472B304B5E0000D161 /* TextFieldBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldBlockWithTitle.swift; sourceTree = "<group>"; };
 		582F9C492B304B720000D161 /* TextViewBlockWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBlockWithTitle.swift; sourceTree = "<group>"; };
+		584EDAD62B4A57E60094872A /* Observable+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+.swift"; sourceTree = "<group>"; };
 		5880F4662B3423B8004C1494 /* InsightSelectCaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectCaveTableViewCell.swift; sourceTree = "<group>"; };
 		5880F46A2B342FF7004C1494 /* InsightSelectCaveSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectCaveSheetViewController.swift; sourceTree = "<group>"; };
 		5880F46C2B34300D004C1494 /* InsightSelectPeriodSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightSelectPeriodSheetViewController.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				581D228F2B32A9240068E58D /* Reactive+UITextField.swift */,
 				581D22912B32A92F0068E58D /* Reactive+UIControl.swift */,
 				03431ACE2B3D51220017EA52 /* Encodable+.swift */,
+				584EDAD62B4A57E60094872A /* Observable+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1115,6 +1118,7 @@
 				03B9AC912AF5669600A5751C /* MakeAlert.swift in Sources */,
 				03B9AC9B2AF7A96000A5751C /* TabBarController.swift in Sources */,
 				032213822B17960700FF5CF1 /* NotificationAlertView.swift in Sources */,
+				584EDAD72B4A57E60094872A /* Observable+.swift in Sources */,
 				58EFF5DB2B445AB6003C3838 /* BaseTargetType.swift in Sources */,
 				03B9AC602AF561AD00A5751C /* API.swift in Sources */,
 				582F9C4A2B304B720000D161 /* TextViewBlockWithTitle.swift in Sources */,
