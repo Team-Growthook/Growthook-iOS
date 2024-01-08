@@ -30,7 +30,7 @@ enum URLConstant {
     static let cave = "/api/v1/cave/{caveId}"
     static let cavePost = "/api/v1/member/{memberId}/cave"
     static let caveDetailGet = "/api/v1/member/{memberId}/cave/{caveId}/detail"
-    static let caveAllGet = "/api/v1/member/{memberId}/cave/{caveId}/detail"
+    static let caveAllGet = "/api/v1/member/{memberId}/cave/all"
     
     // MARK: - Insight
     
